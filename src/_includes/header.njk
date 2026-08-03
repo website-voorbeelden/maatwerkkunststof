@@ -1,0 +1,20 @@
+<header class="site-header" data-header>
+  <div class="container header-inner">
+    <a class="wordmark" href="/" aria-label="MaatwerkKunststof.nl – home">
+      <span>Maatwerk</span><strong>Kunststof.nl</strong>
+    </a>
+
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-navigation" aria-label="Menu openen">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="site-nav" id="site-navigation" aria-label="Hoofdnavigatie">
+      <ul>
+        {% for item in navigation %}
+          <li><a href="{{ item.url }}"{% if page.url == item.url %} aria-current="page"{% endif %}>{{ item.label }}</a></li>
+        {% endfor %}
+      </ul>
+      <a class="button button-small" href="#offerte" data-analytics="quote_cta" data-location="header">Offerte aanvragen</a>
+    </nav>
+  </div>
+</header>

@@ -1,0 +1,34 @@
+---
+layout: base.njk
+title: Contact en offerte aanvragen | MaatwerkKunststof.nl
+description: Neem contact op over kunststof op maat of stuur direct uw maten, aantallen en technische tekening voor een vrijblijvende offerte.
+breadcrumb: Contact
+---
+{% include "breadcrumbs.njk" %}
+<section class="simple-hero simple-hero-compact">
+  <div class="container simple-hero-inner">
+    <p class="eyebrow">Contact</p>
+    <h1>Bespreek uw kunststof maatwerk</h1>
+    <p class="hero-lead">De snelste route is het offerteformulier. Voeg direct uw maatvoering, aantallen en eventuele tekening toe.</p>
+  </div>
+</section>
+
+<section class="section contact-details-section">
+  <div class="container contact-details-grid">
+    <div class="contact-card">
+      <p class="eyebrow">Per e-mail</p>
+      <h2>Stuur uw aanvraag rechtstreeks</h2>
+      <p>Heeft u de specificaties al in een e-mail staan? Stuur deze dan naar:</p>
+      <a class="contact-link" href="mailto:{{ site.email }}" data-analytics="email_click">{{ site.email }}</a>
+      <p class="small-copy">Vermeld bij voorkeur afmetingen, aantallen, materiaalvoorkeur en toepassing.</p>
+    </div>
+    <div class="contact-card contact-card-dark">
+      <p class="eyebrow eyebrow-light">Offerteformulier</p>
+      <h2>Alles in één keer aanleveren</h2>
+      <p>Gebruik het formulier hieronder om uw contactgegevens, specificaties en bestanden tegelijk te versturen.</p>
+      <a class="button button-outline-light" href="#offerte">Naar het formulier</a>
+    </div>
+  </div>
+</section>
+
+{% include "offerte-form.njk" %}

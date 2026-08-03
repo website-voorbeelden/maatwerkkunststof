@@ -1,0 +1,93 @@
+<section class="quote-section" id="offerte" aria-labelledby="offerte-titel">
+  <div class="container quote-layout">
+    <div class="quote-intro">
+      <p class="eyebrow eyebrow-light">Vrijblijvende prijsaanvraag</p>
+      <h2 id="offerte-titel">Vraag een offerte voor kunststof op maat aan</h2>
+      <p>Omschrijf wat u nodig heeft en voeg indien mogelijk een schets, foto of technische tekening toe. Ook bij afwijkende vormen of materialen bekijken we graag wat mogelijk is.</p>
+      <ul class="check-list check-list-light">
+        <li>Enkelstuks, kleine series en grotere aantallen</li>
+        <li>Vrijwel iedere technische kunststof en kleur</li>
+        <li>Zagen, frezen, draaien, boren en meer</li>
+        <li>Geen verplichting na uw aanvraag</li>
+      </ul>
+    </div>
+
+    <form class="quote-form" action="/api/offerte" method="post" enctype="multipart/form-data" data-quote-form>
+      <input type="hidden" name="pagina" value="{{ page.url }}">
+      <input type="hidden" name="form_started_at" value="" data-form-started>
+      <input type="hidden" name="utm_source" value="">
+      <input type="hidden" name="utm_medium" value="">
+      <input type="hidden" name="utm_campaign" value="">
+      <input type="hidden" name="utm_term" value="">
+      <input type="hidden" name="utm_content" value="">
+      <input type="hidden" name="gclid" value="">
+      <input type="hidden" name="gbraid" value="">
+      <input type="hidden" name="wbraid" value="">
+
+      <div class="honeypot" aria-hidden="true">
+        <label for="website">Website</label>
+        <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
+      </div>
+
+      <div class="form-row">
+        <div class="field">
+          <label for="naam">Naam <span aria-hidden="true">*</span></label>
+          <input id="naam" name="naam" type="text" autocomplete="name" required maxlength="100">
+        </div>
+        <div class="field">
+          <label for="bedrijf">Bedrijf</label>
+          <input id="bedrijf" name="bedrijf" type="text" autocomplete="organization" maxlength="120">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="field">
+          <label for="email">E-mailadres <span aria-hidden="true">*</span></label>
+          <input id="email" name="email" type="email" autocomplete="email" inputmode="email" required maxlength="160">
+        </div>
+        <div class="field">
+          <label for="telefoon">Telefoonnummer</label>
+          <input id="telefoon" name="telefoon" type="tel" autocomplete="tel" inputmode="tel" maxlength="40">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="field">
+          <label for="product">Type product</label>
+          <select id="product" name="product">
+            <option value="">Maak een keuze</option>
+            <option{% if page.url == "/kunststof-blokken-op-maat/" %} selected{% endif %}>Kunststof blokken</option>
+            <option{% if page.url == "/kunststof-stroken-op-maat/" %} selected{% endif %}>Kunststof stroken</option>
+            <option{% if page.url == "/kunststof-platen-op-maat/" %} selected{% endif %}>Kunststof platen</option>
+            <option{% if page.url == "/kunststof-ringen-op-maat/" %} selected{% endif %}>Kunststof ringen</option>
+            <option>Ander kunststof maatwerk</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="aantal">Gewenst aantal</label>
+          <input id="aantal" name="aantal" type="text" inputmode="numeric" maxlength="60" placeholder="Bijv. 4 of 250 stuks">
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="specificaties">Maten, materiaal en toepassing <span aria-hidden="true">*</span></label>
+        <textarea id="specificaties" name="specificaties" rows="6" required maxlength="4000" placeholder="Bijv. 20 stroken van 500 × 40 × 8 mm, zwart PE, met twee boorgaten. Toepassing: geleiding in een productielijn."></textarea>
+      </div>
+
+      <div class="field">
+        <label for="bestanden">Foto, schets of technische tekening</label>
+        <input id="bestanden" name="bestanden" type="file" multiple accept=".pdf,.png,.jpg,.jpeg,.webp,.heic,.dxf,.dwg">
+        <p class="field-help">Maximaal 3 bestanden en samen maximaal 8 MB.</p>
+      </div>
+
+      <label class="checkbox-field">
+        <input name="privacy_akkoord" type="checkbox" value="ja" required>
+        <span>Ik ga akkoord met de verwerking van mijn gegevens volgens het <a href="/privacybeleid/" target="_blank" rel="noopener">privacybeleid</a>.</span>
+      </label>
+
+      <div class="form-status" role="status" aria-live="polite" data-form-status></div>
+      <button class="button button-full" type="submit" data-submit-button>Offerteaanvraag versturen</button>
+      <p class="form-note">Uw aanvraag is vrijblijvend. We gebruiken uw gegevens uitsluitend om contact op te nemen over deze aanvraag.</p>
+    </form>
+  </div>
+</section>
