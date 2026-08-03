@@ -1,0 +1,10 @@
+Deze bestanden hebben zichtbare namen zodat Finder ze toont.
+
+Plaats ze in de hoofdmap van je GitHub-repository en hernoem ze daarna:
+
+1. gitignore.txt -> .gitignore
+2. dev-vars-example.txt -> .dev.vars.example
+
+Ze moeten naast package.json, README.md en eleventy.config.js staan.
+
+Let op: zet nooit je echte RESEND_API_KEY in GitHub. Die komt later als secret in Cloudflare.
