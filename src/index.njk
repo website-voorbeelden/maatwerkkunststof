@@ -1,28 +1,26 @@
 ---
-layout: base.njk
+layout: "base.njk"
 title: "Kunststof op maat | Blokken, platen, stroken en ringen"
-description: "Kunststof op maat laten maken? Kunststof blokken, stroken, platen, ringen en volledig bewerkte onderdelen. Van enkelstuks tot grotere series."
+description: "Kunststof op maat laten maken? Wij leveren kunststof blokken, stroken, platen, ringen en volledig bewerkte kunststof onderdelen. Van enkelstuks tot grotere series."
 image: "/assets/images/kunststof-blokken-andere-hoek.webp"
-imageAlt: "Kunststof blokken en onderdelen op maat"
+imageAlt: "Kunststof blokken en technische onderdelen op maat"
 bodyClass: "mkh-home"
-quoteTitle: "Vraag een offerte aan"
-quoteIntro: "Vertel kort wat u nodig heeft. Vermeld indien bekend de afmetingen, aantallen, materiaalsoort en gewenste bewerkingen."
-quotePlaceholder: "Bijvoorbeeld: 10 zwarte HDPE blokken van 200 × 100 × 40 mm met twee boorgaten."
 ---
+
 {% set contactEmail = site.email or "offerte@maatwerkkunststof.nl" %}
 
 <style>
   body.mkh-home {
-    --mkh-dark: #13262e;
-    --mkh-text: #526168;
-    --mkh-muted: #738087;
+    --mkh-ink: #14262e;
+    --mkh-text: #54636a;
+    --mkh-muted: #78858b;
     --mkh-line: #dce2e3;
     --mkh-soft: #f5f7f6;
     --mkh-white: #ffffff;
     --mkh-orange: #e65b28;
-    --mkh-orange-dark: #c74719;
-    --mkh-green: #20a85a;
-    --mkh-green-dark: #168747;
+    --mkh-orange-dark: #c8481b;
+    --mkh-whatsapp: #25d366;
+    --mkh-whatsapp-dark: #1da851;
     --mkh-radius: 12px;
     --mkh-container: 1180px;
     background: var(--mkh-white);
@@ -38,7 +36,7 @@ quotePlaceholder: "Bijvoorbeeld: 10 zwarte HDPE blokken van 200 × 100 × 40 mm 
   }
 
   .mkh-section {
-    padding: 72px 0;
+    padding: 68px 0;
   }
 
   .mkh-section-soft {
@@ -57,7 +55,7 @@ quotePlaceholder: "Bijvoorbeeld: 10 zwarte HDPE blokken van 200 × 100 × 40 mm 
 
   .mkh-heading {
     margin: 0;
-    color: var(--mkh-dark);
+    color: var(--mkh-ink);
     font-size: clamp(2rem, 5vw, 3.25rem);
     font-weight: 760;
     letter-spacing: -0.04em;
@@ -71,7 +69,7 @@ quotePlaceholder: "Bijvoorbeeld: 10 zwarte HDPE blokken van 200 × 100 × 40 mm 
   }
 
   .mkh-section-intro > p {
-    max-width: 650px;
+    max-width: 660px;
     margin: 0;
     color: var(--mkh-text);
     line-height: 1.7;
@@ -92,6 +90,7 @@ quotePlaceholder: "Bijvoorbeeld: 10 zwarte HDPE blokken van 200 × 100 × 40 mm 
     line-height: 1.2;
     text-align: center;
     text-decoration: none;
+    cursor: pointer;
   }
 
   .mkh-btn:hover,
@@ -101,18 +100,18 @@ quotePlaceholder: "Bijvoorbeeld: 10 zwarte HDPE blokken van 200 × 100 × 40 mm 
   }
 
   .mkh-btn-whatsapp {
-    border-color: var(--mkh-green);
-    background: var(--mkh-green);
+    border-color: var(--mkh-whatsapp);
+    background: var(--mkh-whatsapp);
   }
 
   .mkh-btn-whatsapp:hover,
   .mkh-btn-whatsapp:focus-visible {
-    border-color: var(--mkh-green-dark);
-    background: var(--mkh-green-dark);
+    border-color: var(--mkh-whatsapp-dark);
+    background: var(--mkh-whatsapp-dark);
   }
 
   .mkh-link {
-    color: var(--mkh-dark);
+    color: var(--mkh-ink);
     font-size: 0.82rem;
     font-weight: 760;
     text-decoration-color: var(--mkh-orange);
@@ -139,7 +138,7 @@ quotePlaceholder: "Bijvoorbeeld: 10 zwarte HDPE blokken van 200 × 100 × 40 mm 
   .mkh-hero h1 {
     max-width: 790px;
     margin: 0 0 21px;
-    color: var(--mkh-dark);
+    color: var(--mkh-ink);
     font-size: clamp(2.5rem, 8vw, 5rem);
     font-weight: 790;
     letter-spacing: -0.055em;
@@ -173,7 +172,7 @@ quotePlaceholder: "Bijvoorbeeld: 10 zwarte HDPE blokken van 200 × 100 × 40 mm 
   .mkh-hero-points li {
     position: relative;
     padding-left: 19px;
-    color: var(--mkh-dark);
+    color: var(--mkh-ink);
     font-size: 0.85rem;
     font-weight: 700;
   }
@@ -203,49 +202,6 @@ quotePlaceholder: "Bijvoorbeeld: 10 zwarte HDPE blokken van 200 × 100 × 40 mm 
     height: 100%;
     border-radius: 8px;
     object-fit: contain;
-  }
-
-  /* Contact row */
-
-  .mkh-contact-row {
-    border-top: 1px solid var(--mkh-line);
-    border-bottom: 1px solid var(--mkh-line);
-    background: var(--mkh-white);
-  }
-
-  .mkh-contact-inner {
-    display: grid;
-    gap: 12px;
-    padding-block: 19px;
-  }
-
-  .mkh-contact-inner strong {
-    display: block;
-    margin-bottom: 2px;
-    color: var(--mkh-dark);
-    font-size: 0.92rem;
-  }
-
-  .mkh-contact-inner span {
-    color: var(--mkh-muted);
-    font-size: 0.79rem;
-  }
-
-  .mkh-contact-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 9px 20px;
-  }
-
-  .mkh-contact-links a {
-    color: var(--mkh-dark);
-    font-size: 0.82rem;
-    font-weight: 700;
-    text-underline-offset: 4px;
-  }
-
-  .mkh-contact-links .mkh-whatsapp-link {
-    color: var(--mkh-green-dark);
   }
 
   /* Product cards */
@@ -288,7 +244,7 @@ quotePlaceholder: "Bijvoorbeeld: 10 zwarte HDPE blokken van 200 × 100 × 40 mm 
 
   .mkh-product-copy h3 {
     margin: 0 0 8px;
-    color: var(--mkh-dark);
+    color: var(--mkh-ink);
     font-size: 1.18rem;
     font-weight: 750;
     letter-spacing: -0.025em;
@@ -309,9 +265,9 @@ quotePlaceholder: "Bijvoorbeeld: 10 zwarte HDPE blokken van 200 × 100 × 40 mm 
     margin-top: auto;
   }
 
-  /* Maatwerk */
+  /* Simple image and copy sections */
 
-  .mkh-custom-grid {
+  .mkh-split {
     display: grid;
     gap: 34px;
     align-items: center;
@@ -334,7 +290,7 @@ quotePlaceholder: "Bijvoorbeeld: 10 zwarte HDPE blokken van 200 × 100 × 40 mm 
     object-fit: contain;
   }
 
-  .mkh-custom-copy p {
+  .mkh-split-copy p {
     margin: 18px 0 0;
     color: var(--mkh-text);
     line-height: 1.7;
@@ -344,7 +300,7 @@ quotePlaceholder: "Bijvoorbeeld: 10 zwarte HDPE blokken van 200 × 100 × 40 mm 
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 10px 20px;
-    margin: 25px 0 29px;
+    margin: 25px 0 0;
     padding: 0;
     list-style: none;
   }
@@ -352,7 +308,7 @@ quotePlaceholder: "Bijvoorbeeld: 10 zwarte HDPE blokken van 200 × 100 × 40 mm 
   .mkh-simple-list li {
     position: relative;
     padding-left: 21px;
-    color: var(--mkh-dark);
+    color: var(--mkh-ink);
     font-size: 0.84rem;
     font-weight: 680;
   }
@@ -367,36 +323,134 @@ quotePlaceholder: "Bijvoorbeeld: 10 zwarte HDPE blokken van 200 × 100 × 40 mm 
     content: "";
   }
 
-  /* Materials */
+  /* Material table */
 
-  .mkh-material-grid {
-    display: grid;
-    gap: 34px;
-  }
-
-  .mkh-material-copy p {
-    margin: 18px 0 0;
-    color: var(--mkh-text);
-    line-height: 1.7;
-  }
-
-  .mkh-material-list {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 8px;
-  }
-
-  .mkh-material-list span {
-    display: flex;
-    min-height: 44px;
-    align-items: center;
+  .mkh-material-table {
+    overflow: hidden;
     border: 1px solid var(--mkh-line);
-    border-radius: 7px;
-    padding: 9px 12px;
-    color: var(--mkh-dark);
+    border-radius: var(--mkh-radius);
     background: var(--mkh-white);
-    font-size: 0.77rem;
-    font-weight: 700;
+  }
+
+  .mkh-material-row {
+    display: grid;
+    gap: 9px;
+    padding: 19px;
+    border-bottom: 1px solid var(--mkh-line);
+  }
+
+  .mkh-material-row:last-child {
+    border-bottom: 0;
+  }
+
+  .mkh-material-row-head {
+    display: none;
+  }
+
+  .mkh-material-row p {
+    margin: 0;
+    color: var(--mkh-text);
+    font-size: 0.82rem;
+    line-height: 1.58;
+  }
+
+  .mkh-material-name strong,
+  .mkh-material-name span {
+    display: block;
+  }
+
+  .mkh-material-name strong {
+    margin-bottom: 2px;
+    color: var(--mkh-ink);
+    font-size: 0.95rem;
+  }
+
+  .mkh-material-name span {
+    color: var(--mkh-muted);
+    font-size: 0.73rem;
+  }
+
+  .mkh-material-processing {
+    position: relative;
+    padding-left: 18px;
+  }
+
+  .mkh-material-processing::before {
+    position: absolute;
+    top: 0.67em;
+    left: 0;
+    width: 9px;
+    height: 2px;
+    background: var(--mkh-orange);
+    content: "";
+  }
+
+  .mkh-material-footer {
+    display: grid;
+    gap: 18px;
+    align-items: center;
+    margin-top: 20px;
+    border-radius: var(--mkh-radius);
+    padding: 21px;
+    background: var(--mkh-soft);
+  }
+
+  .mkh-material-footer strong {
+    display: block;
+    margin-bottom: 4px;
+    color: var(--mkh-ink);
+  }
+
+  .mkh-material-footer p {
+    max-width: 760px;
+    margin: 0;
+    color: var(--mkh-text);
+    font-size: 0.84rem;
+    line-height: 1.55;
+  }
+
+  /* Examples */
+
+  .mkh-example-grid {
+    display: grid;
+    gap: 18px;
+  }
+
+  .mkh-example-card {
+    overflow: hidden;
+    border: 1px solid var(--mkh-line);
+    border-radius: var(--mkh-radius);
+    background: var(--mkh-white);
+  }
+
+  .mkh-example-card figure {
+    aspect-ratio: 1;
+    margin: 0;
+    padding: 14px;
+    background: var(--mkh-soft);
+  }
+
+  .mkh-example-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .mkh-example-copy {
+    padding: 18px 20px 20px;
+  }
+
+  .mkh-example-copy h3 {
+    margin: 0 0 6px;
+    color: var(--mkh-ink);
+    font-size: 1rem;
+  }
+
+  .mkh-example-copy p {
+    margin: 0;
+    color: var(--mkh-text);
+    font-size: 0.82rem;
+    line-height: 1.55;
   }
 
   /* Applications */
@@ -415,7 +469,7 @@ quotePlaceholder: "Bijvoorbeeld: 10 zwarte HDPE blokken van 200 × 100 × 40 mm 
 
   .mkh-application-card h3 {
     margin: 0 0 7px;
-    color: var(--mkh-dark);
+    color: var(--mkh-ink);
     font-size: 1rem;
   }
 
@@ -452,7 +506,7 @@ quotePlaceholder: "Bijvoorbeeld: 10 zwarte HDPE blokken van 200 × 100 × 40 mm 
 
   .mkh-process-card h3 {
     margin: 0 0 7px;
-    color: var(--mkh-dark);
+    color: var(--mkh-ink);
     font-size: 1.05rem;
   }
 
@@ -476,13 +530,6 @@ quotePlaceholder: "Bijvoorbeeld: 10 zwarte HDPE blokken van 200 × 100 × 40 mm 
     line-height: 1.72;
   }
 
-  .mkh-seo-copy a {
-    color: var(--mkh-dark);
-    font-weight: 720;
-    text-decoration-color: var(--mkh-orange);
-    text-underline-offset: 4px;
-  }
-
   /* FAQ */
 
   .mkh-faq-grid {
@@ -501,7 +548,7 @@ quotePlaceholder: "Bijvoorbeeld: 10 zwarte HDPE blokken van 200 × 100 × 40 mm 
   .mkh-faq-list summary {
     position: relative;
     padding: 19px 38px 19px 0;
-    color: var(--mkh-dark);
+    color: var(--mkh-ink);
     font-size: 0.9rem;
     font-weight: 730;
     cursor: pointer;
@@ -534,55 +581,152 @@ quotePlaceholder: "Bijvoorbeeld: 10 zwarte HDPE blokken van 200 × 100 × 40 mm 
     line-height: 1.6;
   }
 
-  /* Final CTA */
+  /* Simple quote form */
 
-  .mkh-final-cta {
-    padding: 56px 0;
-    border-top: 1px solid var(--mkh-line);
-    background: var(--mkh-white);
-  }
-
-  .mkh-final-grid {
-    display: grid;
-    gap: 24px;
-    align-items: center;
-  }
-
-  .mkh-final-grid h2 {
-    max-width: 700px;
-    margin: 0;
-    color: var(--mkh-dark);
-    font-size: clamp(1.8rem, 5vw, 2.8rem);
-    font-weight: 760;
-    letter-spacing: -0.04em;
-    line-height: 1.08;
-  }
-
-  .mkh-final-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-  }
-
-  /* Bestaand offerteformulier lichter maken */
-
-  body.mkh-home .quote-section {
-    color: var(--mkh-dark);
+  .mkh-quote {
+    padding: 72px 0;
     background: var(--mkh-soft);
   }
 
-  body.mkh-home .quote-intro h2,
-  body.mkh-home .quote-intro p {
-    color: var(--mkh-dark);
+  .mkh-quote-wrap {
+    max-width: 860px;
+    margin-inline: auto;
   }
 
-  body.mkh-home .quote-intro > p:not(.eyebrow) {
+  .mkh-quote-heading {
+    max-width: 680px;
+    margin: 0 auto 30px;
+    text-align: center;
+  }
+
+  .mkh-quote-heading p:last-child {
+    margin: 15px auto 0;
     color: var(--mkh-text);
+    line-height: 1.65;
   }
 
-  body.mkh-home .quote-form {
+  .mkh-form {
+    position: relative;
     border: 1px solid var(--mkh-line);
-    box-shadow: none;
+    border-radius: var(--mkh-radius);
+    padding: 20px;
+    background: var(--mkh-white);
+  }
+
+  .mkh-form-grid {
+    display: grid;
+    gap: 16px;
+  }
+
+  .mkh-field {
+    margin-bottom: 16px;
+  }
+
+  .mkh-field label {
+    display: block;
+    margin-bottom: 7px;
+    color: var(--mkh-ink);
+    font-size: 0.84rem;
+    font-weight: 730;
+  }
+
+  .mkh-field input,
+  .mkh-field textarea {
+    width: 100%;
+    border: 1px solid #cbd3d5;
+    border-radius: 7px;
+    padding: 12px 13px;
+    color: var(--mkh-ink);
+    background: var(--mkh-white);
+  }
+
+  .mkh-field input {
+    min-height: 48px;
+  }
+
+  .mkh-field textarea {
+    min-height: 170px;
+    resize: vertical;
+  }
+
+  .mkh-field input:focus,
+  .mkh-field textarea:focus {
+    border-color: var(--mkh-orange);
+    outline: 3px solid rgba(230, 91, 40, 0.16);
+  }
+
+  .mkh-field-help,
+  .mkh-form-note {
+    margin: 7px 0 0;
+    color: var(--mkh-muted);
+    font-size: 0.75rem;
+    line-height: 1.5;
+  }
+
+  .mkh-checkbox {
+    display: grid;
+    grid-template-columns: 20px minmax(0, 1fr);
+    gap: 10px;
+    align-items: start;
+    margin: 2px 0 18px;
+    color: var(--mkh-text);
+    font-size: 0.79rem;
+    line-height: 1.5;
+  }
+
+  .mkh-checkbox input {
+    width: 18px;
+    height: 18px;
+    margin: 2px 0 0;
+    accent-color: var(--mkh-orange);
+  }
+
+  .mkh-checkbox a {
+    color: var(--mkh-ink);
+    font-weight: 700;
+  }
+
+  .mkh-form-status {
+    display: none;
+    margin-bottom: 14px;
+    border-radius: 7px;
+    padding: 11px 13px;
+    font-size: 0.84rem;
+  }
+
+  .mkh-form-status.is-error,
+  .mkh-form-status.is-success {
+    display: block;
+  }
+
+  .mkh-form-status.is-error {
+    color: #7b2525;
+    background: #fdecec;
+  }
+
+  .mkh-form-status.is-success {
+    color: #14583b;
+    background: #e6f6ee;
+  }
+
+  .mkh-form .mkh-btn {
+    width: 100%;
+  }
+
+  .mkh-form-note {
+    text-align: center;
+  }
+
+  .mkh-honeypot {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    margin: -1px !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    clip: rect(0 0 0 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
   }
 
   @media (min-width: 640px) {
@@ -594,7 +738,7 @@ quotePlaceholder: "Bijvoorbeeld: 10 zwarte HDPE blokken van 200 × 100 × 40 mm 
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    .mkh-material-list {
+    .mkh-example-grid {
       grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
@@ -605,6 +749,10 @@ quotePlaceholder: "Bijvoorbeeld: 10 zwarte HDPE blokken van 200 × 100 × 40 mm 
     .mkh-process-grid {
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 28px;
+    }
+
+    .mkh-form-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
   }
 
@@ -620,17 +768,9 @@ quotePlaceholder: "Bijvoorbeeld: 10 zwarte HDPE blokken van 200 × 100 × 40 mm 
       gap: 76px;
     }
 
-    .mkh-contact-inner {
-      grid-template-columns: 1fr auto;
-      align-items: center;
-    }
-
-    .mkh-contact-links {
-      justify-content: flex-end;
-    }
-
-    .mkh-section {
-      padding-block: 96px;
+    .mkh-section,
+    .mkh-quote {
+      padding-block: 94px;
     }
 
     .mkh-section-intro {
@@ -650,22 +790,37 @@ quotePlaceholder: "Bijvoorbeeld: 10 zwarte HDPE blokken van 200 × 100 × 40 mm 
       min-height: 220px;
     }
 
-    .mkh-custom-grid {
+    .mkh-split {
       grid-template-columns:
         minmax(400px, 0.85fr)
         minmax(0, 1.15fr);
       gap: 76px;
     }
 
-    .mkh-material-grid {
+    .mkh-material-row {
       grid-template-columns:
-        minmax(0, 0.8fr)
-        minmax(0, 1.2fr);
-      gap: 72px;
+        minmax(150px, 0.55fr)
+        minmax(0, 1.4fr)
+        minmax(220px, 0.9fr);
+      gap: 26px;
+      align-items: start;
+      padding: 20px 24px;
     }
 
-    .mkh-material-list {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+    .mkh-material-row-head {
+      display: grid;
+      color: var(--mkh-white);
+      background: var(--mkh-ink);
+      font-size: 0.76rem;
+    }
+
+    .mkh-material-row-head strong {
+      color: var(--mkh-white);
+    }
+
+    .mkh-material-footer {
+      grid-template-columns: minmax(0, 1fr) auto;
+      padding: 24px;
     }
 
     .mkh-application-grid {
@@ -680,12 +835,8 @@ quotePlaceholder: "Bijvoorbeeld: 10 zwarte HDPE blokken van 200 × 100 × 40 mm 
       gap: 80px;
     }
 
-    .mkh-final-grid {
-      grid-template-columns: minmax(0, 1fr) auto;
-    }
-
-    .mkh-final-actions {
-      justify-content: flex-end;
+    .mkh-form {
+      padding: 30px;
     }
   }
 </style>
@@ -693,9 +844,7 @@ quotePlaceholder: "Bijvoorbeeld: 10 zwarte HDPE blokken van 200 × 100 × 40 mm 
 <section class="mkh-hero" aria-labelledby="mkh-hero-title">
   <div class="mkh-container mkh-hero-grid">
     <div class="mkh-hero-copy">
-      <p class="mkh-eyebrow">
-        Kunststof maatwerk
-      </p>
+      <p class="mkh-eyebrow">Kunststof maatwerk</p>
 
       <h1 id="mkh-hero-title">
         Kunststof op maat voor iedere toepassing
@@ -747,38 +896,6 @@ quotePlaceholder: "Bijvoorbeeld: 10 zwarte HDPE blokken van 200 × 100 × 40 mm 
         fetchpriority="high"
       >
     </figure>
-  </div>
-</section>
-
-<section class="mkh-contact-row" aria-label="Contactgegevens">
-  <div class="mkh-container mkh-contact-inner">
-    <div>
-      <strong>Een kunststof onderdeel nodig?</strong>
-      <span>Stuur uw maten, foto of technische tekening.</span>
-    </div>
-
-    <div class="mkh-contact-links">
-      <a href="mailto:{{ contactEmail }}">
-        {{ contactEmail }}
-      </a>
-
-      {% if site.phone %}
-        <a href="tel:{{ site.phone }}">
-          {{ site.phoneDisplay }}
-        </a>
-      {% endif %}
-
-      {% if site.whatsapp %}
-        <a
-          class="mkh-whatsapp-link"
-          href="https://wa.me/{{ site.whatsapp }}?text=Hallo%2C%20ik%20heb%20een%20vraag%20over%20kunststof%20op%20maat."
-          target="_blank"
-          rel="noopener"
-        >
-          WhatsApp
-        </a>
-      {% endif %}
-    </div>
   </div>
 </section>
 
@@ -939,7 +1056,7 @@ quotePlaceholder: "Bijvoorbeeld: 10 zwarte HDPE blokken van 200 × 100 × 40 mm 
   class="mkh-section mkh-section-soft"
   aria-labelledby="mkh-custom-title"
 >
-  <div class="mkh-container mkh-custom-grid">
+  <div class="mkh-container mkh-split">
     <figure class="mkh-square-image">
       <img
         src="/assets/images/strook-met-gaten.webp"
@@ -950,7 +1067,7 @@ quotePlaceholder: "Bijvoorbeeld: 10 zwarte HDPE blokken van 200 × 100 × 40 mm 
       >
     </figure>
 
-    <div class="mkh-custom-copy">
+    <div class="mkh-split-copy">
       <p class="mkh-eyebrow">Volledig bewerkt kunststof</p>
 
       <h2 class="mkh-heading" id="mkh-custom-title">
@@ -959,12 +1076,13 @@ quotePlaceholder: "Bijvoorbeeld: 10 zwarte HDPE blokken van 200 × 100 × 40 mm 
 
       <p>
         Kunststof op maat kan eenvoudig worden gezaagd, maar ook volledig
-        worden bewerkt. Geef de gewenste maten, kleur, aantallen, gaten en
-        overige bewerkingen door.
+        worden afgewerkt. Geef de gewenste maten, kleur, aantallen, gaten en
+        overige bewerkingen door. Wij bekijken welke productiemethode daarbij
+        past.
       </p>
 
       <ul class="mkh-simple-list">
-        <li>Zagen en frezen</li>
+        <li>Zagen en CNC-frezen</li>
         <li>Draaien en boren</li>
         <li>Gaten en sleuven</li>
         <li>Schroefdraad</li>
@@ -973,55 +1091,286 @@ quotePlaceholder: "Bijvoorbeeld: 10 zwarte HDPE blokken van 200 × 100 × 40 mm 
         <li>Graveren</li>
         <li>Samenstellen</li>
       </ul>
-
-      <a class="mkh-btn" href="#offerte">
-        Vraag een offerte aan
-      </a>
     </div>
   </div>
 </section>
 
 <section class="mkh-section" aria-labelledby="mkh-material-title">
-  <div class="mkh-container mkh-material-grid">
-    <div class="mkh-material-copy">
-      <p class="mkh-eyebrow">Materiaalkeuze</p>
+  <div class="mkh-container">
+    <div class="mkh-section-intro">
+      <div>
+        <p class="mkh-eyebrow">Materialen en mogelijkheden</p>
 
-      <h2 class="mkh-heading" id="mkh-material-title">
-        Vrijwel iedere kunststof
-      </h2>
-
-      <p>
-        De juiste kunststof hangt af van slijtage, belasting, temperatuur,
-        vocht, chemicaliën en de gewenste maatvastheid. U kunt zelf een
-        materiaal kiezen of de toepassing aan ons uitleggen.
-      </p>
+        <h2 class="mkh-heading" id="mkh-material-title">
+          Technische kunststoffen voor iedere toepassing
+        </h2>
+      </div>
 
       <p>
-        Ook speciale kleuren, gevulde kwaliteiten, voedselveilige
-        kunststoffen en andere technische uitvoeringen zijn mogelijk.
+        Iedere kunststof heeft andere eigenschappen. De juiste keuze hangt
+        onder meer af van slijtage, belasting, temperatuur, vocht,
+        chemicaliën, voedselcontact en gewenste maatvastheid.
       </p>
     </div>
 
-    <div
-      class="mkh-material-list"
-      aria-label="Beschikbare kunststofsoorten"
-    >
-      <span>PE</span>
-      <span>HDPE</span>
-      <span>HMPE</span>
-      <span>UHMWPE</span>
-      <span>POM</span>
-      <span>PA / nylon</span>
-      <span>PVC</span>
-      <span>PP</span>
-      <span>PTFE</span>
-      <span>PETP</span>
-      <span>Polycarbonaat</span>
-      <span>Acrylaat</span>
-      <span>ABS</span>
-      <span>PVDF</span>
-      <span>PEEK</span>
-      <span>PU</span>
+    <div class="mkh-material-table">
+      <div class="mkh-material-row mkh-material-row-head" aria-hidden="true">
+        <strong>Materiaal</strong>
+        <strong>Eigenschappen en toepassingen</strong>
+        <strong>Relevante bewerkingen</strong>
+      </div>
+
+      <article class="mkh-material-row">
+        <div class="mkh-material-name">
+          <strong>PE en HDPE</strong>
+          <span>Polyethyleen</span>
+        </div>
+
+        <p>
+          Slagvast, vochtbestendig en goed bestand tegen veel chemicaliën.
+          Veel gebruikt voor kunststof blokken, platen, afstandsdelen,
+          beschermdelen en industriële maatwerkonderdelen.
+        </p>
+
+        <p class="mkh-material-processing">
+          Zagen, CNC-frezen, draaien, boren, lassen en contourbewerking.
+        </p>
+      </article>
+
+      <article class="mkh-material-row">
+        <div class="mkh-material-name">
+          <strong>HMPE en UHMWPE</strong>
+          <span>Slijtvast polyethyleen</span>
+        </div>
+
+        <p>
+          Zeer slijtvast, slagvast en voorzien van een lage
+          wrijvingsweerstand. Geschikt voor geleidingen, glijplaten,
+          slijtstroken, kettinggeleiders en zwaarbelaste blokken.
+        </p>
+
+        <p class="mkh-material-processing">
+          Zagen, frezen, draaien, boren, verzinken en gatenpatronen.
+        </p>
+      </article>
+
+      <article class="mkh-material-row">
+        <div class="mkh-material-name">
+          <strong>POM</strong>
+          <span>Acetaal</span>
+        </div>
+
+        <p>
+          Sterk, maatvast en geschikt voor nauwkeurige technische
+          onderdelen. Veel toegepast voor lagerblokken, afstandsstukken,
+          tandwielen, rollen en machinecomponenten.
+        </p>
+
+        <p class="mkh-material-processing">
+          Precisiefrezen, draaien, boren, tappen, ruimen en graveren.
+        </p>
+      </article>
+
+      <article class="mkh-material-row">
+        <div class="mkh-material-name">
+          <strong>PA</strong>
+          <span>Nylon</span>
+        </div>
+
+        <p>
+          Sterke en slijtvaste technische kunststof met goede mechanische
+          eigenschappen. Geschikt voor rollen, tandwielen, bussen,
+          geleidingen en constructieve onderdelen.
+        </p>
+
+        <p class="mkh-material-processing">
+          Frezen, draaien, boren, tappen, zagen en contourbewerking.
+        </p>
+      </article>
+
+      <article class="mkh-material-row">
+        <div class="mkh-material-name">
+          <strong>PVC</strong>
+          <span>Hard of flexibel</span>
+        </div>
+
+        <p>
+          Chemisch bestendig en breed toepasbaar voor platen, stroken,
+          bakken, afschermingen en technische constructies. Leverbaar in
+          verschillende kleuren en uitvoeringen.
+        </p>
+
+        <p class="mkh-material-processing">
+          Zagen, frezen, boren, lassen, lijmen, buigen en warmvormen.
+        </p>
+      </article>
+
+      <article class="mkh-material-row">
+        <div class="mkh-material-name">
+          <strong>PP</strong>
+          <span>Polypropyleen</span>
+        </div>
+
+        <p>
+          Licht, taai en goed bestand tegen vocht en chemicaliën. Vaak
+          gebruikt in apparatenbouw, tankbouw, laboratoria en
+          voedselgerelateerde omgevingen.
+        </p>
+
+        <p class="mkh-material-processing">
+          Zagen, frezen, boren, lassen, buigen en samenstellen.
+        </p>
+      </article>
+
+      <article class="mkh-material-row">
+        <div class="mkh-material-name">
+          <strong>PTFE</strong>
+          <span>Teflon</span>
+        </div>
+
+        <p>
+          Zeer lage wrijving en uitstekende bestendigheid tegen
+          temperaturen en chemicaliën. Geschikt voor glijdelen, ringen,
+          isolerende onderdelen en technische afdichtingsdelen.
+        </p>
+
+        <p class="mkh-material-processing">
+          Draaien, frezen, boren, snijden en nauwkeurige contourbewerking.
+        </p>
+      </article>
+
+      <article class="mkh-material-row">
+        <div class="mkh-material-name">
+          <strong>PETP</strong>
+          <span>Technisch polyester</span>
+        </div>
+
+        <p>
+          Maatvast, sterk en weinig vochtopnemend. Geschikt voor
+          precisieonderdelen, bussen, geleidingen en mechanisch belaste
+          componenten.
+        </p>
+
+        <p class="mkh-material-processing">
+          Frezen, draaien, boren, tappen en precisiebewerking.
+        </p>
+      </article>
+
+      <article class="mkh-material-row">
+        <div class="mkh-material-name">
+          <strong>Polycarbonaat</strong>
+          <span>PC</span>
+        </div>
+
+        <p>
+          Transparant en zeer slagvast. Veel gebruikt voor beschermkappen,
+          machineafscherming, ramen, panelen en stootvaste onderdelen.
+        </p>
+
+        <p class="mkh-material-processing">
+          Zagen, frezen, boren, polijsten, buigen en warmvormen.
+        </p>
+      </article>
+
+      <article class="mkh-material-row">
+        <div class="mkh-material-name">
+          <strong>Acrylaat</strong>
+          <span>PMMA</span>
+        </div>
+
+        <p>
+          Heldere kunststof met een verzorgde uitstraling. Geschikt voor
+          displays, afschermingen, panelen, naamplaten en zichtwerk in
+          verschillende kleuren.
+        </p>
+
+        <p class="mkh-material-processing">
+          Zagen, frezen, laseren, boren, polijsten, lijmen en warmvormen.
+        </p>
+      </article>
+
+      <article class="mkh-material-row">
+        <div class="mkh-material-name">
+          <strong>ABS</strong>
+          <span>Slagvaste kunststof</span>
+        </div>
+
+        <p>
+          Stevig, licht en goed vormbaar. Geschikt voor behuizingen,
+          beschermdelen, prototypes, afdekkingen en technische
+          plaatonderdelen.
+        </p>
+
+        <p class="mkh-material-processing">
+          Zagen, frezen, boren, lijmen, graveren en thermovormen.
+        </p>
+      </article>
+
+      <article class="mkh-material-row">
+        <div class="mkh-material-name">
+          <strong>PVDF</strong>
+          <span>Chemisch bestendig</span>
+        </div>
+
+        <p>
+          Hoogwaardige kunststof voor chemisch en thermisch veeleisende
+          toepassingen. Veel gebruikt in procesindustrie, apparatenbouw en
+          technische installaties.
+        </p>
+
+        <p class="mkh-material-processing">
+          Zagen, frezen, draaien, boren, lassen en precisiebewerking.
+        </p>
+      </article>
+
+      <article class="mkh-material-row">
+        <div class="mkh-material-name">
+          <strong>PEEK</strong>
+          <span>High-performance kunststof</span>
+        </div>
+
+        <p>
+          Zeer sterk en bestand tegen hoge temperaturen, slijtage en
+          chemicaliën. Geschikt voor zwaarbelaste precisieonderdelen en
+          specialistische technische toepassingen.
+        </p>
+
+        <p class="mkh-material-processing">
+          CNC-frezen, draaien, boren, tappen en zeer nauwkeurige bewerking.
+        </p>
+      </article>
+
+      <article class="mkh-material-row">
+        <div class="mkh-material-name">
+          <strong>PU</strong>
+          <span>Polyurethaan</span>
+        </div>
+
+        <p>
+          Elastisch en zeer slijtvast. Geschikt voor stootdelen,
+          schrapers, buffers, rollen, beschermdelen en onderdelen die
+          schokken moeten opvangen.
+        </p>
+
+        <p class="mkh-material-processing">
+          Snijden, waterstraalsnijden, frezen, draaien en maatwerk gieten.
+        </p>
+      </article>
+    </div>
+
+    <div class="mkh-material-footer">
+      <div>
+        <strong>Andere kunststof of speciale kwaliteit nodig?</strong>
+        <p>
+          Ook glasvezelgevulde, antistatische, voedselveilige,
+          hittebestendige en andere gemodificeerde kunststoffen kunnen
+          worden aangevraagd.
+        </p>
+      </div>
+
+      <a class="mkh-btn" href="#offerte">
+        Materiaal aanvragen
+      </a>
     </div>
   </div>
 </section>
@@ -1030,7 +1379,7 @@ quotePlaceholder: "Bijvoorbeeld: 10 zwarte HDPE blokken van 200 × 100 × 40 mm 
   class="mkh-section mkh-section-soft"
   aria-labelledby="mkh-precision-title"
 >
-  <div class="mkh-container mkh-custom-grid">
+  <div class="mkh-container mkh-split">
     <figure class="mkh-square-image">
       <img
         src="/assets/images/kunststof-blokken-meetlint.webp"
@@ -1041,7 +1390,7 @@ quotePlaceholder: "Bijvoorbeeld: 10 zwarte HDPE blokken van 200 × 100 × 40 mm 
       >
     </figure>
 
-    <div class="mkh-custom-copy">
+    <div class="mkh-split-copy">
       <p class="mkh-eyebrow">Exact op maat</p>
 
       <h2 class="mkh-heading" id="mkh-precision-title">
@@ -1066,7 +1415,89 @@ quotePlaceholder: "Bijvoorbeeld: 10 zwarte HDPE blokken van 200 × 100 × 40 mm 
   </div>
 </section>
 
-<section class="mkh-section" aria-labelledby="mkh-applications-title">
+<section class="mkh-section" aria-labelledby="mkh-examples-title">
+  <div class="mkh-container">
+    <div class="mkh-section-intro">
+      <div>
+        <p class="mkh-eyebrow">Voorbeelden van maatwerk</p>
+
+        <h2 class="mkh-heading" id="mkh-examples-title">
+          Van eenvoudig zaagdeel tot bewerkt onderdeel
+        </h2>
+      </div>
+
+      <p>
+        De foto’s geven een indruk van de mogelijkheden. Ook andere vormen,
+        afmetingen, kleuren en bewerkingen kunnen worden aangevraagd.
+      </p>
+    </div>
+
+    <div class="mkh-example-grid">
+      <article class="mkh-example-card">
+        <figure>
+          <img
+            src="/assets/images/bak-kunststof-stroken.webp"
+            width="700"
+            height="700"
+            loading="lazy"
+            alt="Serie kunststof stroken op gelijke maat"
+          >
+        </figure>
+
+        <div class="mkh-example-copy">
+          <h3>Enkelstuks en series</h3>
+          <p>
+            Van één vervangingsonderdeel tot een terugkerende productieserie.
+          </p>
+        </div>
+      </article>
+
+      <article class="mkh-example-card">
+        <figure>
+          <img
+            src="https://l8cc8kc00hql36vg-67041689713.shopifypreview.com/cdn/shop/files/teflon_witte_strip.jpg?v=1777794556&width=3840"
+            width="700"
+            height="700"
+            loading="lazy"
+            alt="Witte PTFE strook op maat met boorgat"
+          >
+        </figure>
+
+        <div class="mkh-example-copy">
+          <h3>Gaten en uitsparingen</h3>
+          <p>
+            Onderdelen kunnen direct worden voorzien van gaten en andere
+            bewerkingen.
+          </p>
+        </div>
+      </article>
+
+      <article class="mkh-example-card">
+        <figure>
+          <img
+            src="/assets/images/kunststof-blokken.webp"
+            width="700"
+            height="700"
+            loading="lazy"
+            alt="Massieve kunststof blokken voor technische toepassingen"
+          >
+        </figure>
+
+        <div class="mkh-example-copy">
+          <h3>Massieve delen</h3>
+          <p>
+            Kunststof blokken als halffabricaat of volledig bewerkt onderdeel.
+          </p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section
+  class="mkh-section mkh-section-soft"
+  aria-labelledby="mkh-applications-title"
+>
   <div class="mkh-container">
     <div class="mkh-section-intro">
       <div>
@@ -1131,10 +1562,7 @@ quotePlaceholder: "Bijvoorbeeld: 10 zwarte HDPE blokken van 200 × 100 × 40 mm 
   </div>
 </section>
 
-<section
-  class="mkh-section mkh-section-soft"
-  aria-labelledby="mkh-process-title"
->
+<section class="mkh-section" aria-labelledby="mkh-process-title">
   <div class="mkh-container">
     <div class="mkh-section-intro">
       <div>
@@ -1147,7 +1575,7 @@ quotePlaceholder: "Bijvoorbeeld: 10 zwarte HDPE blokken van 200 × 100 × 40 mm 
 
       <p>
         Geen ingewikkelde configurator. Vertel ons wat u nodig heeft en
-        voeg eventueel een bestand toe.
+        voeg eventueel een foto of tekening toe.
       </p>
     </div>
 
@@ -1156,7 +1584,7 @@ quotePlaceholder: "Bijvoorbeeld: 10 zwarte HDPE blokken van 200 × 100 × 40 mm 
         <span class="mkh-process-number">01</span>
         <h3>Stuur uw aanvraag</h3>
         <p>
-          Geef maten, aantallen, materiaal en gewenste bewerkingen door.
+          Beschrijf de afmetingen, toepassing en gewenste bewerkingen.
         </p>
       </li>
 
@@ -1179,46 +1607,41 @@ quotePlaceholder: "Bijvoorbeeld: 10 zwarte HDPE blokken van 200 × 100 × 40 mm 
   </div>
 </section>
 
-<section class="mkh-section">
+<section class="mkh-section mkh-section-soft">
   <div class="mkh-container mkh-seo-grid">
     <div>
       <p class="mkh-eyebrow">Kunststof op maat laten maken</p>
 
       <h2 class="mkh-heading">
-        Gezaagd en bewerkt kunststof
+        Van eenvoudig maatdeel tot technisch eindproduct
       </h2>
     </div>
 
     <div class="mkh-seo-copy">
       <p>
         MaatwerkKunststof.nl levert kunststof op maat voor bedrijven,
-        werkplaatsen en particulieren. U kunt bij ons terecht voor
-        <a href="/kunststof-blokken-op-maat/">kunststof blokken</a>,
-        <a href="/kunststof-stroken-op-maat/">kunststof stroken</a>,
-        <a href="/kunststof-platen-op-maat/">kunststof platen</a> en
-        <a href="/kunststof-ringen-op-maat/">kunststof ringen</a>.
+        werkplaatsen en particulieren. Dat kan een eenvoudig kunststof
+        blokje, een gezaagde strook of een volledige plaat zijn, maar ook
+        een nauwkeurig bewerkt technisch onderdeel.
       </p>
 
       <p>
-        Naast deze basisvormen leveren we ook bewerkt kunststof en
-        technische plastic onderdelen op maat. Denk aan hard kunststof,
-        slijtvaste materialen en onderdelen met gaten, sleuven,
-        schroefdraad of freeswerk.
+        Wij verwerken standaardkunststoffen, hard kunststof, slijtvaste
+        materialen en specialistische technische kunststoffen. Onderdelen
+        kunnen worden voorzien van gaten, sleuven, schroefdraad, contouren,
+        afrondingen en ander frees- of draaiwerk.
       </p>
 
       <p>
         Geef door wat het onderdeel moet doen, welke afmetingen belangrijk
-        zijn en hoeveel stuks u nodig heeft. Vervolgens bekijken we welke
-        kunststofsoort en bewerking het beste past.
+        zijn en welke omstandigheden relevant zijn. Vervolgens bekijken we
+        welke kunststofsoort en bewerking het beste bij de toepassing passen.
       </p>
     </div>
   </div>
 </section>
 
-<section
-  class="mkh-section mkh-section-soft"
-  aria-labelledby="mkh-faq-title"
->
+<section class="mkh-section" aria-labelledby="mkh-faq-title">
   <div class="mkh-container mkh-faq-grid">
     <div>
       <p class="mkh-eyebrow">Veelgestelde vragen</p>
@@ -1242,7 +1665,7 @@ quotePlaceholder: "Bijvoorbeeld: 10 zwarte HDPE blokken van 200 × 100 × 40 mm 
         <p>
           Vrijwel alle standaard en technische kunststoffen zijn mogelijk,
           waaronder PE, HDPE, HMPE, POM, PA, PVC, PP, PTFE, PETP,
-          polycarbonaat, acrylaat en PEEK.
+          polycarbonaat, acrylaat, PVDF, PEEK en PU.
         </p>
       </details>
 
@@ -1250,7 +1673,7 @@ quotePlaceholder: "Bijvoorbeeld: 10 zwarte HDPE blokken van 200 × 100 × 40 mm 
         <summary>Kunnen jullie kunststof volledig bewerken?</summary>
         <p>
           Ja. Naast zagen zijn onder meer frezen, draaien, boren, tappen,
-          verzinken, lassen, lijmen en samenstellen mogelijk.
+          verzinken, lassen, lijmen, vormen en samenstellen mogelijk.
         </p>
       </details>
 
@@ -1261,40 +1684,180 @@ quotePlaceholder: "Bijvoorbeeld: 10 zwarte HDPE blokken van 200 × 100 × 40 mm 
           vaak voldoende. Een foto, schets of bestaand onderdeel kan ook.
         </p>
       </details>
+
+      <details>
+        <summary>Kunnen jullie op nauwkeurige toleranties produceren?</summary>
+        <p>
+          Ja. Voor bewerkte onderdelen kunnen maatvoering, passingmaten en
+          toleranties in de aanvraag of technische tekening worden opgegeven.
+        </p>
+      </details>
     </div>
   </div>
 </section>
 
-<section class="mkh-final-cta">
-  <div class="mkh-container mkh-final-grid">
-    <div>
-      <p class="mkh-eyebrow">Offerte of technische vraag</p>
+<section class="mkh-quote" id="offerte" aria-labelledby="mkh-quote-title">
+  <div class="mkh-container mkh-quote-wrap">
+    <div class="mkh-quote-heading">
+      <p class="mkh-eyebrow">Vrijblijvende prijsaanvraag</p>
 
-      <h2>
-        Vertel ons welk kunststof onderdeel u nodig heeft
-      </h2>
-    </div>
-
-    <div class="mkh-final-actions">
-      <a class="mkh-btn" href="#offerte">
+      <h2 class="mkh-heading" id="mkh-quote-title">
         Vraag een offerte aan
-      </a>
+      </h2>
 
-      {% if site.whatsapp %}
-        <a
-          class="mkh-btn mkh-btn-whatsapp"
-          href="https://wa.me/{{ site.whatsapp }}?text=Hallo%2C%20ik%20heb%20een%20vraag%20over%20kunststof%20op%20maat."
-          target="_blank"
-          rel="noopener"
-        >
-          WhatsApp
-        </a>
-      {% endif %}
+      <p>
+        Beschrijf kort wat u nodig heeft. Een foto, schets of technische
+        tekening kunt u direct meesturen.
+      </p>
     </div>
+
+    <form
+      class="mkh-form"
+      action="/api/offerte"
+      method="post"
+      enctype="multipart/form-data"
+      data-quote-form
+    >
+      <input type="hidden" name="pagina" value="{{ page.url }}">
+      <input type="hidden" name="product" value="Kunststof maatwerk">
+      <input type="hidden" name="form_started_at" value="" data-form-started>
+      <input type="hidden" name="utm_source" value="">
+      <input type="hidden" name="utm_medium" value="">
+      <input type="hidden" name="utm_campaign" value="">
+      <input type="hidden" name="utm_term" value="">
+      <input type="hidden" name="utm_content" value="">
+      <input type="hidden" name="gclid" value="">
+      <input type="hidden" name="gbraid" value="">
+      <input type="hidden" name="wbraid" value="">
+
+      <div class="mkh-honeypot" aria-hidden="true">
+        <label for="website">Website</label>
+        <input
+          id="website"
+          name="website"
+          type="text"
+          tabindex="-1"
+          autocomplete="off"
+        >
+      </div>
+
+      <div class="mkh-form-grid">
+        <div class="mkh-field">
+          <label for="naam">Naam <span aria-hidden="true">*</span></label>
+          <input
+            id="naam"
+            name="naam"
+            type="text"
+            autocomplete="name"
+            required
+            maxlength="100"
+          >
+        </div>
+
+        <div class="mkh-field">
+          <label for="bedrijf">Bedrijf</label>
+          <input
+            id="bedrijf"
+            name="bedrijf"
+            type="text"
+            autocomplete="organization"
+            maxlength="120"
+          >
+        </div>
+      </div>
+
+      <div class="mkh-form-grid">
+        <div class="mkh-field">
+          <label for="email">
+            E-mailadres <span aria-hidden="true">*</span>
+          </label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            autocomplete="email"
+            inputmode="email"
+            required
+            maxlength="160"
+          >
+        </div>
+
+        <div class="mkh-field">
+          <label for="telefoon">Telefoonnummer</label>
+          <input
+            id="telefoon"
+            name="telefoon"
+            type="tel"
+            autocomplete="tel"
+            inputmode="tel"
+            maxlength="40"
+          >
+        </div>
+      </div>
+
+      <div class="mkh-field">
+        <label for="specificaties">
+          Wat heeft u nodig? <span aria-hidden="true">*</span>
+        </label>
+        <textarea
+          id="specificaties"
+          name="specificaties"
+          rows="7"
+          required
+          maxlength="4000"
+          placeholder="Bijvoorbeeld: zwarte HDPE blokken van 200 × 100 × 40 mm met twee boorgaten."
+        ></textarea>
+        <p class="mkh-field-help">
+          Een korte omschrijving is voldoende. Ontbrekende details kunnen
+          later worden besproken.
+        </p>
+      </div>
+
+      <div class="mkh-field">
+        <label for="bestanden">Foto, schets of technische tekening</label>
+        <input
+          id="bestanden"
+          name="bestanden"
+          type="file"
+          multiple
+          accept=".pdf,.png,.jpg,.jpeg,.webp,.heic,.dxf,.dwg,.step,.stp"
+        >
+        <p class="mkh-field-help">
+          Optioneel. Maximaal 3 bestanden en samen maximaal 8 MB.
+        </p>
+      </div>
+
+      <label class="mkh-checkbox">
+        <input name="privacy_akkoord" type="checkbox" value="ja" required>
+        <span>
+          Ik ga akkoord met de verwerking van mijn gegevens volgens het
+          <a href="/privacybeleid/" target="_blank" rel="noopener">
+            privacybeleid
+          </a>.
+        </span>
+      </label>
+
+      <div
+        class="mkh-form-status form-status"
+        role="status"
+        aria-live="polite"
+        data-form-status
+      ></div>
+
+      <button
+        class="mkh-btn"
+        type="submit"
+        data-submit-button
+      >
+        Offerteaanvraag versturen
+      </button>
+
+      <p class="mkh-form-note">
+        Vrijblijvend en zonder aankoopverplichting.
+      </p>
+    </form>
   </div>
 </section>
-
-{% include "offerte-form.njk" %}
 
 <script type="application/ld+json">
 {
@@ -1369,7 +1932,7 @@ quotePlaceholder: "Bijvoorbeeld: 10 zwarte HDPE blokken van 200 × 100 × 40 mm 
       "name": "Welke kunststofsoorten zijn mogelijk?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Vrijwel alle standaard en technische kunststoffen zijn mogelijk, waaronder PE, HDPE, HMPE, POM, PA, PVC, PP, PTFE, PETP, polycarbonaat, acrylaat en PEEK."
+        "text": "Vrijwel alle standaard en technische kunststoffen zijn mogelijk, waaronder PE, HDPE, HMPE, POM, PA, PVC, PP, PTFE, PETP, polycarbonaat, acrylaat, PVDF, PEEK en PU."
       }
     },
     {
@@ -1377,7 +1940,7 @@ quotePlaceholder: "Bijvoorbeeld: 10 zwarte HDPE blokken van 200 × 100 × 40 mm 
       "name": "Kunnen jullie kunststof volledig bewerken?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Ja. Naast zagen zijn onder meer frezen, draaien, boren, tappen, verzinken, lassen, lijmen en samenstellen mogelijk."
+        "text": "Ja. Naast zagen zijn onder meer frezen, draaien, boren, tappen, verzinken, lassen, lijmen, vormen en samenstellen mogelijk."
       }
     },
     {
