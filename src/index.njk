@@ -1,31 +1,31 @@
 ---
 layout: base.njk
 title: Kunststof op maat | Blokken, platen, stroken en ringen
-description: Kunststof op maat nodig? Wij leveren en bewerken kunststof blokken, platen, stroken, ringen en technische onderdelen. Vraag vrijblijvend een offerte aan.
+description: Kunststof op maat laten maken? Blokken, platen, stroken, ringen en volledig bewerkte kunststof onderdelen. Van enkelstuks tot series.
 image: /assets/images/kunststof-blokken-andere-hoek.webp
-imageAlt: Kunststof blokken en plaatdelen op maat voor technische toepassingen
-bodyClass: home-page home-v2
-quoteTitle: Vraag een offerte voor kunststof op maat aan
-quoteIntro: Stuur de gewenste maten, aantallen en eventuele bewerkingen. Een foto, schets of technische tekening mag, maar is niet verplicht.
-quotePlaceholder: Beschrijf wat u nodig heeft. Vermeld indien bekend de afmetingen, kunststofsoort, kleur, aantallen, gaten en overige bewerkingen.
+imageAlt: Verschillende kunststof blokken en onderdelen op maat
+bodyClass: mk-home
+quoteTitle: Vraag een offerte aan
+quoteIntro: Beschrijf kort wat u nodig heeft. Afmetingen, aantallen en een foto of tekening helpen ons om gericht te reageren.
+quotePlaceholder: Bijvoorbeeld: 10 zwarte HDPE blokken van 200 × 100 × 40 mm, met twee boorgaten.
 ---
 
-<section class="home-v2-hero" aria-labelledby="home-title">
-  <div class="container home-v2-hero-grid">
-    <div class="home-v2-hero-copy">
-      <p class="eyebrow">Kunststof maatwerk voor industrie, techniek en onderhoud</p>
+<section class="mk-hero" aria-labelledby="mk-hero-title">
+  <div class="container mk-hero-grid">
+    <div class="mk-hero-copy">
+      <p class="eyebrow">Kunststof maatwerk</p>
 
-      <h1 id="home-title">
-        Kunststof op maat, precies zoals u het nodig heeft
+      <h1 id="mk-hero-title">
+        Kunststof op maat voor iedere toepassing
       </h1>
 
-      <p class="home-v2-hero-lead">
-        Van een eenvoudig kunststof blok of een gezaagde plaat tot een volledig
-        bewerkt technisch onderdeel. Lever uw maten, voorbeeld of tekening aan
-        en ontvang een vrijblijvende offerte.
+      <p class="mk-hero-intro">
+        Wij leveren kunststof blokken, platen, stroken, ringen en volledig
+        bewerkte onderdelen. Van één eenvoudig maatdeel tot grotere
+        productieseries.
       </p>
 
-      <div class="home-v2-actions" aria-label="Contactmogelijkheden">
+      <div class="mk-hero-actions">
         <a
           class="button"
           href="#offerte"
@@ -37,7 +37,7 @@ quotePlaceholder: Beschrijf wat u nodig heeft. Vermeld indien bekend de afmeting
 
         {% if site.phone %}
           <a
-            class="home-v2-action-link"
+            class="mk-secondary-action"
             href="tel:{{ site.phone }}"
             data-analytics="phone_click"
             data-location="home_hero"
@@ -45,109 +45,60 @@ quotePlaceholder: Beschrijf wat u nodig heeft. Vermeld indien bekend de afmeting
             Bel {{ site.phoneDisplay }}
           </a>
         {% endif %}
-
-        {% if site.whatsapp %}
-          <a
-            class="home-v2-action-link"
-            href="https://wa.me/{{ site.whatsapp }}?text=Hallo%2C%20ik%20wil%20graag%20kunststof%20op%20maat%20laten%20maken."
-            target="_blank"
-            rel="noopener"
-            data-analytics="whatsapp_click"
-            data-location="home_hero"
-          >
-            Stuur een WhatsApp
-          </a>
-        {% endif %}
       </div>
 
-      <ul class="home-v2-usps" aria-label="Belangrijkste mogelijkheden">
-        <li>
-          <strong>Enkelstuks en series</strong>
-          <span>Van één vervangingsonderdeel tot terugkerende productie.</span>
-        </li>
-
-        <li>
-          <strong>Vrijwel iedere kunststof</strong>
-          <span>Standaard, technisch en specialistisch materiaal.</span>
-        </li>
-
-        <li>
-          <strong>Volledig op maat bewerkt</strong>
-          <span>Gezaagd, gefreesd, gedraaid, geboord of samengesteld.</span>
-        </li>
+      <ul class="mk-hero-points">
+        <li>Enkelstuks en series</li>
+        <li>Vrijwel iedere kunststof</li>
+        <li>Volledig op maat bewerkt</li>
       </ul>
     </div>
 
-    <div
-      class="home-v2-hero-visual"
-      aria-label="Voorbeelden van kunststof maatwerk"
-    >
-      <figure class="home-v2-hero-main">
+    <div class="mk-hero-images">
+      <figure class="mk-hero-image-main">
         <img
           src="/assets/images/kunststof-blokken-andere-hoek.webp"
-          width="1800"
-          height="1800"
-          alt="Grijze kunststof blokken en plaatdelen klaar voor bewerking op maat"
+          width="1200"
+          height="900"
+          alt="Grijze kunststof blokken en plaatdelen voor verdere bewerking"
           fetchpriority="high"
         >
-
-        <figcaption>
-          Kunststof blokken en plaatdelen voor verdere bewerking
-        </figcaption>
       </figure>
 
-      <figure class="home-v2-hero-secondary">
+      <figure class="mk-hero-image-small">
         <img
           src="/assets/images/bak-kunststof-stroken.webp"
-          width="1200"
-          height="1200"
-          alt="Serie zwarte kunststof stroken op maat in een productiebak"
+          width="700"
+          height="500"
+          alt="Serie zwarte kunststof stroken op gelijke maat"
         >
-
-        <figcaption>Enkelstuks én grotere series</figcaption>
       </figure>
 
-      <div class="home-v2-photo-note">
-        <span>Maatwerk</span>
-        <strong>Op de millimeter en volgens tekening</strong>
+      <div class="mk-hero-label">
+        <strong>Volgens uw maatvoering</strong>
+        <span>Zagen, frezen, draaien en boren</span>
       </div>
     </div>
   </div>
 </section>
 
-<section class="home-v2-contact-strip" aria-label="Direct contact">
-  <div class="container home-v2-contact-strip-inner">
+<section class="mk-contact-bar" aria-label="Direct contact">
+  <div class="container mk-contact-bar-inner">
     <div>
-      <span>Offerte of technische vraag</span>
-      <strong>Vertel ons wat u nodig heeft</strong>
+      <strong>Een onderdeel of kunststof halffabricaat nodig?</strong>
+      <span>Stuur uw maten, foto of technische tekening.</span>
     </div>
 
-    <div class="home-v2-contact-options">
-      <a
-        href="mailto:{{ site.email }}"
-        data-analytics="email_click"
-        data-location="home_contact_strip"
-      >
+    <div class="mk-contact-bar-links">
+      <a href="mailto:{{ site.email }}">
         {{ site.email }}
       </a>
 
-      {% if site.phone %}
-        <a
-          href="tel:{{ site.phone }}"
-          data-analytics="phone_click"
-          data-location="home_contact_strip"
-        >
-          {{ site.phoneDisplay }}
-        </a>
-      {% endif %}
-
       {% if site.whatsapp %}
         <a
-          href="https://wa.me/{{ site.whatsapp }}?text=Hallo%2C%20ik%20heb%20een%20vraag%20over%20kunststof%20op%20maat."
+          href="https://wa.me/{{ site.whatsapp }}?text=Hallo%2C%20ik%20wil%20graag%20kunststof%20op%20maat%20laten%20maken."
           target="_blank"
           rel="noopener"
-          data-analytics="whatsapp_click"
-          data-location="home_contact_strip"
         >
           WhatsApp
         </a>
@@ -156,108 +107,87 @@ quotePlaceholder: Beschrijf wat u nodig heeft. Vermeld indien bekend de afmeting
   </div>
 </section>
 
-<section
-  class="home-v2-section home-v2-products"
-  aria-labelledby="producten-title"
->
+<section class="mk-section" aria-labelledby="mk-products-title">
   <div class="container">
-    <div class="home-v2-heading">
+    <div class="mk-section-heading">
       <div>
-        <p class="eyebrow">Direct naar het juiste maatwerk</p>
-        <h2 id="producten-title">Kunststof producten op maat</h2>
+        <p class="eyebrow">Ons maatwerk</p>
+        <h2 id="mk-products-title">Wat wilt u laten maken?</h2>
       </div>
 
       <p>
-        De meeste aanvragen beginnen met een blok, strook, plaat of ring.
-        Vanuit die basis kunnen we het materiaal volledig bewerken tot het
-        gewenste onderdeel.
+        Kies een productgroep of stuur direct een aanvraag wanneer uw
+        onderdeel niet binnen een standaardvorm valt.
       </p>
     </div>
 
-    <div class="home-v2-product-grid">
-      <article class="home-v2-product-card home-v2-product-card-large">
+    <div class="mk-product-grid">
+      <article class="mk-product-card">
         <a
-          class="home-v2-product-image"
+          class="mk-product-image"
           href="/kunststof-blokken-op-maat/"
-          aria-label="Bekijk kunststof blokken op maat"
         >
           <img
             src="/assets/images/kunststof-blokken.webp"
-            width="1800"
-            height="1800"
+            width="700"
+            height="500"
             loading="lazy"
-            alt="Massieve kunststof blokken op maat in verschillende afmetingen"
+            alt="Massieve kunststof blokken op maat"
           >
         </a>
 
-        <div class="home-v2-product-content">
-          <span>01</span>
-
+        <div class="mk-product-copy">
           <h3>
             <a href="/kunststof-blokken-op-maat/">
-              Kunststof blokken op maat
+              Kunststof blokken
             </a>
           </h3>
 
           <p>
-            Massieve kunststof blokken in iedere gewenste lengte, breedte en
-            hoogte. Onbewerkt geleverd of voorzien van gaten, kamers,
-            uitsparingen, schroefdraad en freeswerk.
+            Massieve blokken, kunststof blokjes, afstandsblokken en
+            volledig gefreesde onderdelen.
           </p>
 
-          <a
-            class="home-v2-inline-link"
-            href="/kunststof-blokken-op-maat/"
-          >
-            Meer over kunststof blokken
-            <span aria-hidden="true">→</span>
+          <a class="mk-text-link" href="/kunststof-blokken-op-maat/">
+            Bekijk kunststof blokken
           </a>
         </div>
       </article>
 
-      <article class="home-v2-product-card">
+      <article class="mk-product-card">
         <a
-          class="home-v2-product-image"
+          class="mk-product-image"
           href="/kunststof-stroken-op-maat/"
-          aria-label="Bekijk kunststof stroken op maat"
         >
           <img
             src="https://ruplatec.com/cdn/shop/files/PVC_strips.png?v=1769962637&width=1206"
             loading="lazy"
-            alt="PVC kunststof stroken op maat in verschillende lengtes"
+            alt="PVC en kunststof stroken op maat"
           >
         </a>
 
-        <div class="home-v2-product-content">
-          <span>02</span>
-
+        <div class="mk-product-copy">
           <h3>
             <a href="/kunststof-stroken-op-maat/">
-              Kunststof stroken op maat
+              Kunststof stroken
             </a>
           </h3>
 
           <p>
-            Rechte, smalle of brede stroken voor geleiding, bescherming,
-            slijtdelen, afstand en constructie. Ook met boorgaten en andere
-            bewerkingen.
+            Smalle of brede stroken voor geleiding, bescherming,
+            constructie en slijtage.
           </p>
 
-          <a
-            class="home-v2-inline-link"
-            href="/kunststof-stroken-op-maat/"
-          >
-            Meer over kunststof stroken
-            <span aria-hidden="true">→</span>
+          <a class="mk-text-link" href="/kunststof-stroken-op-maat/">
+            Bekijk kunststof stroken
           </a>
         </div>
       </article>
 
-      <article class="home-v2-product-card">
+      <article class="mk-product-card">
         <a
-          class="home-v2-product-image"
+          class="mk-product-image"
           href="/kunststof-platen-op-maat/"
-          aria-label="Bekijk kunststof platen op maat"
         >
           <img
             src="https://ruplatec.com/cdn/shop/files/ChatGPT_Image_Feb_2_2026_at_12_38_05_AM.png?v=1769965485&width=600"
@@ -266,64 +196,50 @@ quotePlaceholder: Beschrijf wat u nodig heeft. Vermeld indien bekend de afmeting
           >
         </a>
 
-        <div class="home-v2-product-content">
-          <span>03</span>
-
+        <div class="mk-product-copy">
           <h3>
             <a href="/kunststof-platen-op-maat/">
-              Kunststof platen op maat
+              Kunststof platen
             </a>
           </h3>
 
           <p>
-            Volledige platen, gezaagde plaatdelen, panelen en vormdelen.
-            Leverbaar in vrijwel iedere kunststofsoort, kleur, dikte en
-            gewenste afmeting.
+            Volledige platen, gezaagde plaatdelen, panelen en onderdelen
+            met uitsparingen.
           </p>
 
-          <a
-            class="home-v2-inline-link"
-            href="/kunststof-platen-op-maat/"
-          >
-            Meer over kunststof platen
-            <span aria-hidden="true">→</span>
+          <a class="mk-text-link" href="/kunststof-platen-op-maat/">
+            Bekijk kunststof platen
           </a>
         </div>
       </article>
 
-      <article class="home-v2-product-card">
+      <article class="mk-product-card">
         <a
-          class="home-v2-product-image"
+          class="mk-product-image"
           href="/kunststof-ringen-op-maat/"
-          aria-label="Bekijk kunststof ringen op maat"
         >
           <img
             src="https://ruplatec.com/cdn/shop/files/Custom_rubber_rings.png?v=1770974445&width=1646"
             loading="lazy"
-            alt="Voorbeeld van ringen op maat in verschillende diameters en diktes"
+            alt="Ringen op maat in verschillende diameters en diktes"
           >
         </a>
 
-        <div class="home-v2-product-content">
-          <span>04</span>
-
+        <div class="mk-product-copy">
           <h3>
             <a href="/kunststof-ringen-op-maat/">
-              Kunststof ringen op maat
+              Kunststof ringen
             </a>
           </h3>
 
           <p>
-            Vlakke ringen, afstandsringen, steunringen en speciale ringvormen
-            met een maatvaste binnen- en buitendiameter.
+            Afstandsringen, steunringen en speciale ringvormen met
+            maatvaste diameters.
           </p>
 
-          <a
-            class="home-v2-inline-link"
-            href="/kunststof-ringen-op-maat/"
-          >
-            Meer over kunststof ringen
-            <span aria-hidden="true">→</span>
+          <a class="mk-text-link" href="/kunststof-ringen-op-maat/">
+            Bekijk kunststof ringen
           </a>
         </div>
       </article>
@@ -331,40 +247,28 @@ quotePlaceholder: Beschrijf wat u nodig heeft. Vermeld indien bekend de afmeting
   </div>
 </section>
 
-<section class="home-v2-feature" aria-labelledby="bewerkt-title">
-  <div class="container home-v2-feature-grid">
-    <div class="home-v2-feature-image">
-      <img
-        src="https://l8cc8kc00hql36vg-67041689713.shopifypreview.com/cdn/shop/files/teflon_witte_strip.jpg?v=1777794556&width=3840"
-        loading="lazy"
-        alt="Witte PTFE kunststof strook op maat met een nauwkeurig aangebracht boorgat"
-      >
-
-      <div class="home-v2-feature-caption">
-        Ook gaten, sleuven, kamers, afrondingen en speciale contouren
-      </div>
-    </div>
-
-    <div class="home-v2-feature-copy">
+<section class="mk-capabilities" aria-labelledby="mk-capabilities-title">
+  <div class="container mk-capabilities-grid">
+    <div class="mk-capabilities-copy">
       <p class="eyebrow">Bewerkt kunststof</p>
-      <h2 id="bewerkt-title">Niet alleen gezaagd, maar volledig afgewerkt</h2>
+
+      <h2 id="mk-capabilities-title">
+        Van eenvoudig zaagwerk tot een compleet onderdeel
+      </h2>
 
       <p>
-        Kunststof op maat kan zo eenvoudig of uitgebreid zijn als uw
-        toepassing vraagt. Wij leveren rechte zaagdelen, maar ook bewerkt
-        kunststof dat direct gemonteerd of gebruikt kan worden.
+        Kunststof op maat betekent niet alleen een plaat of blok op lengte
+        zagen. Wij kunnen materiaal ook volledig bewerken, zodat het direct
+        bruikbaar of monteerbaar wordt geleverd.
       </p>
 
       <p>
-        U kunt de gewenste afmetingen, kunststofsoort, kleur, aantallen,
-        gaten en overige bewerkingen doorgeven. Is nog niet alles bekend?
-        Dan beoordelen we samen welke uitvoering logisch is.
+        Geef de gewenste afmetingen, kunststofsoort, kleur, aantallen,
+        boorgaten en overige bewerkingen door. Ook een bestaand onderdeel,
+        foto, schets of technische tekening kan als uitgangspunt dienen.
       </p>
 
-      <div
-        class="home-v2-operation-grid"
-        aria-label="Mogelijke kunststofbewerkingen"
-      >
+      <div class="mk-operation-list">
         <span>Zagen</span>
         <span>CNC-frezen</span>
         <span>Draaien</span>
@@ -374,167 +278,161 @@ quotePlaceholder: Beschrijf wat u nodig heeft. Vermeld indien bekend de afmeting
         <span>Graveren</span>
         <span>Lassen</span>
         <span>Buigen</span>
-        <span>Vormen</span>
         <span>Lijmen</span>
+        <span>Vormen</span>
         <span>Samenstellen</span>
       </div>
 
-      <a
-        class="button button-secondary"
-        href="#offerte"
-        data-analytics="quote_cta"
-        data-location="home_processing"
-      >
-        Vraag bewerkt kunststof aan
+      <a class="button button-secondary" href="#offerte">
+        Bespreek uw maatwerk
       </a>
+    </div>
+
+    <div class="mk-capabilities-images">
+      <figure>
+        <img
+          src="https://l8cc8kc00hql36vg-67041689713.shopifypreview.com/cdn/shop/files/teflon_witte_strip.jpg?v=1777794556&width=3840"
+          loading="lazy"
+          alt="Witte PTFE strook met nauwkeurig geboord gat"
+        >
+      </figure>
+
+      <figure>
+        <img
+          src="/assets/images/strook-met-gaten.webp"
+          width="700"
+          height="500"
+          loading="lazy"
+          alt="Zwarte kunststof strook met twee boorgaten"
+        >
+      </figure>
     </div>
   </div>
 </section>
 
-<section
-  class="home-v2-section home-v2-materials"
-  aria-labelledby="materialen-title"
->
-  <div class="container home-v2-materials-grid">
+<section class="mk-section mk-materials" aria-labelledby="mk-materials-title">
+  <div class="container mk-materials-grid">
     <div>
       <p class="eyebrow">Materiaalkeuze</p>
-      <h2 id="materialen-title">Vrijwel iedere kunststofsoort</h2>
+
+      <h2 id="mk-materials-title">
+        Vrijwel iedere kunststofsoort
+      </h2>
 
       <p>
-        De juiste kunststof hangt af van belasting, slijtage, temperatuur,
-        vocht, chemicaliën, voedselcontact en de gewenste maatvastheid.
-        U mag zelf een materiaal voorschrijven, maar we kunnen ook meedenken
-        wanneer u vooral de toepassing kent.
+        De juiste kunststof wordt bepaald door de toepassing. Denk aan
+        belasting, slijtage, vocht, temperatuur, chemicaliën,
+        voedselcontact en gewenste maatvastheid.
       </p>
 
       <p>
-        Naast standaardkwaliteiten zijn ook technische, slijtvaste,
-        hittebestendige, voedselveilige, antistatische, glasvezelgevulde en
-        andere gemodificeerde uitvoeringen mogelijk.
+        U mag zelf een materiaal voorschrijven. Wanneer u alleen weet wat
+        het onderdeel moet kunnen, kunnen we ook meedenken over een
+        geschikte uitvoering.
       </p>
     </div>
 
-    <div
-      class="home-v2-material-list"
-      aria-label="Voorbeelden van kunststofsoorten"
-    >
-      <a href="/kunststof-blokken-op-maat/">PE en HDPE</a>
-      <a href="/kunststof-blokken-op-maat/">HMPE en UHMWPE</a>
-      <a href="/kunststof-platen-op-maat/">PVC</a>
-      <a href="/kunststof-blokken-op-maat/">POM</a>
-      <a href="/kunststof-blokken-op-maat/">PA / nylon</a>
-      <a href="/kunststof-stroken-op-maat/">PTFE / teflon</a>
-      <a href="/kunststof-platen-op-maat/">PP</a>
-      <a href="/kunststof-platen-op-maat/">PET en PETP</a>
-      <a href="/kunststof-platen-op-maat/">Polycarbonaat</a>
-      <a href="/kunststof-platen-op-maat/">Acrylaat / PMMA</a>
-      <span>PEEK</span>
-      <span>PVDF</span>
+    <div class="mk-material-tags">
+      <span>PE</span>
+      <span>HDPE</span>
+      <span>HMPE</span>
+      <span>UHMWPE</span>
+      <span>POM</span>
+      <span>PA / nylon</span>
+      <span>PVC</span>
+      <span>PP</span>
+      <span>PTFE</span>
+      <span>PETP</span>
+      <span>Polycarbonaat</span>
+      <span>Acrylaat</span>
       <span>ABS</span>
+      <span>PVDF</span>
+      <span>PEEK</span>
       <span>PU</span>
+      <span>Gevulde kunststoffen</span>
       <span>Speciale compounds</span>
     </div>
   </div>
 </section>
 
-<section
-  class="home-v2-section home-v2-precision"
-  aria-labelledby="maatvoering-title"
->
-  <div class="container home-v2-precision-grid">
-    <div class="home-v2-precision-copy">
-      <p class="eyebrow">Volgens maatvoering of tekening</p>
+<section class="mk-precision" aria-labelledby="mk-precision-title">
+  <div class="container mk-precision-grid">
+    <figure class="mk-precision-image">
+      <img
+        src="/assets/images/kunststof-blokken-meetlint.webp"
+        width="800"
+        height="650"
+        loading="lazy"
+        alt="Kunststof blokken gecontroleerd met meetlint voor exacte maatvoering"
+      >
+    </figure>
 
-      <h2 id="maatvoering-title">
-        Precies op maat, van eenvoudig blokje tot technisch onderdeel
+    <div class="mk-precision-copy">
+      <p class="eyebrow">Exact op maat</p>
+
+      <h2 id="mk-precision-title">
+        Volgens afmetingen of technische tekening
       </h2>
 
       <p>
-        Een maatwerkaanvraag hoeft niet ingewikkeld te zijn. Voor een
-        eenvoudig kunststof blokje of een set plastic blokken zijn lengte,
-        breedte, hoogte en aantal vaak voldoende. Voor complexer werk kunt u
-        een schets, foto, voorbeeld of technische tekening meesturen.
+        Voor eenvoudig maatwerk zijn lengte, breedte, dikte en aantal vaak
+        voldoende. Voor bewerkt kunststof kunt u aanvullende maten,
+        toleranties, boorpatronen en passingmaten aanleveren.
       </p>
 
-      <p>
-        We kunnen op de millimeter zagen en waar nodig produceren volgens
-        opgegeven toleranties. Ook boorpatronen, uitsparingen, passingmaten
-        en terugkerende series kunnen aan uw maatvoering worden gekoppeld.
-      </p>
-
-      <ul class="home-v2-checks">
-        <li>Afmetingen en toleranties volgens aanvraag</li>
-        <li>Materiaal, kleur en aantallen naar keuze</li>
-        <li>Boorgaten, schroefdraad en uitsparingen</li>
-        <li>Enkelstuks, prototypes en grotere series</li>
-        <li>Productie op basis van tekening of bestaand onderdeel</li>
+      <ul class="mk-check-list">
+        <li>Op de millimeter gezaagd</li>
+        <li>Toleranties volgens aanvraag</li>
+        <li>Iedere gewenste kleur en uitvoering</li>
+        <li>Boorgaten, sleuven en uitsparingen</li>
+        <li>Van prototype tot grotere serie</li>
       </ul>
     </div>
-
-    <figure class="home-v2-precision-image">
-      <img
-        src="/assets/images/kunststof-blokken-meetlint.webp"
-        width="1200"
-        height="1200"
-        loading="lazy"
-        alt="Kunststof blok gecontroleerd met een meetlint voor exacte maatvoering"
-      >
-
-      <figcaption>
-        <strong>Uw maatvoering is het uitgangspunt</strong>
-        <span>
-          Geef maten direct door of voeg een tekening toe aan de
-          offerteaanvraag.
-        </span>
-      </figcaption>
-    </figure>
   </div>
 </section>
 
-<section class="home-v2-gallery" aria-labelledby="voorbeelden-title">
+<section class="mk-section" aria-labelledby="mk-examples-title">
   <div class="container">
-    <div class="home-v2-heading home-v2-heading-light">
+    <div class="mk-section-heading">
       <div>
-        <p class="eyebrow eyebrow-light">Voorbeelden uit de praktijk</p>
-        <h2 id="voorbeelden-title">
-          Kunststof maatwerk in verschillende vormen
-        </h2>
+        <p class="eyebrow">Voorbeelden</p>
+        <h2 id="mk-examples-title">Verschillende vormen van maatwerk</h2>
       </div>
 
       <p>
-        Van eenvoudige zaagdelen tot onderdelen met gaten en nauwkeurige
-        maatvoering. De foto’s geven een indruk; vrijwel iedere andere vorm
-        of uitvoering kan worden aangevraagd.
+        Deze voorbeelden tonen slechts een deel van de mogelijkheden. Ook
+        afwijkende vormen en samengestelde onderdelen kunnen worden
+        aangevraagd.
       </p>
     </div>
 
-    <div class="home-v2-gallery-grid">
-      <figure class="home-v2-gallery-wide">
+    <div class="mk-example-grid">
+      <figure>
         <img
           src="/assets/images/bak-kunststof-stroken.webp"
-          width="1200"
-          height="1200"
+          width="700"
+          height="500"
           loading="lazy"
-          alt="Grote serie zwarte kunststof stroken geproduceerd op gelijke maat"
+          alt="Grote serie kunststof stroken op gelijke maat"
         >
 
         <figcaption>
-          <strong>Series op gelijke maat</strong>
-          <span>Geschikt voor terugkerende productie en montage.</span>
+          <strong>Series</strong>
+          <span>Herhaalbaar geproduceerd volgens vaste maatvoering.</span>
         </figcaption>
       </figure>
 
       <figure>
         <img
           src="/assets/images/kunststof-blokken.webp"
-          width="1800"
-          height="1800"
+          width="700"
+          height="500"
           loading="lazy"
-          alt="Grote massieve kunststof blokken voor industriële toepassingen"
+          alt="Massieve kunststof blokken voor technische toepassingen"
         >
 
         <figcaption>
-          <strong>Massieve blokken</strong>
+          <strong>Massieve delen</strong>
           <span>Als halffabricaat of verder bewerkt.</span>
         </figcaption>
       </figure>
@@ -542,169 +440,133 @@ quotePlaceholder: Beschrijf wat u nodig heeft. Vermeld indien bekend de afmeting
       <figure>
         <img
           src="/assets/images/strook-met-gaten.webp"
-          width="1536"
-          height="1536"
+          width="700"
+          height="500"
           loading="lazy"
-          alt="Zwarte kunststof strook op maat voorzien van twee boorgaten"
+          alt="Bewerkte kunststof strook voorzien van boorgaten"
         >
 
         <figcaption>
-          <strong>Gaten en bewerkingen</strong>
-          <span>Direct klaar voor toepassing of montage.</span>
+          <strong>Bewerkte onderdelen</strong>
+          <span>Direct klaar voor montage of gebruik.</span>
         </figcaption>
       </figure>
     </div>
   </div>
 </section>
 
-<section
-  class="home-v2-section home-v2-applications"
-  aria-labelledby="toepassingen-title"
->
+<section class="mk-industries" aria-labelledby="mk-industries-title">
   <div class="container">
-    <div class="home-v2-heading">
+    <div class="mk-section-heading">
       <div>
-        <p class="eyebrow">Voor vrijwel iedere toepassing</p>
-
-        <h2 id="toepassingen-title">
-          Kunststof onderdelen voor bedrijf, werkplaats en particulier
-        </h2>
+        <p class="eyebrow">Toepassingen</p>
+        <h2 id="mk-industries-title">Kunststof maatwerk voor veel sectoren</h2>
       </div>
 
       <p>
-        Wij beoordelen aanvragen op functie, materiaal en maakbaarheid.
-        Daardoor kunt u ook terecht met een onderdeel dat niet binnen een
-        standaard productcategorie valt.
+        Ook wanneer u niet precies weet welk materiaal nodig is, kunt u de
+        toepassing en omstandigheden beschrijven.
       </p>
     </div>
 
-    <div class="home-v2-application-grid">
+    <div class="mk-industry-grid">
       <article>
-        <span>01</span>
         <h3>Machinebouw</h3>
         <p>
-          Geleidingen, slijtstrippen, afstandsblokken, beschermdelen en
-          maatvaste componenten.
+          Geleidingen, slijtstukken, afstandsblokken en beschermende
+          componenten.
         </p>
       </article>
 
       <article>
-        <span>02</span>
-        <h3>Onderhoud en reparatie</h3>
+        <h3>Onderhoud</h3>
         <p>
-          Een versleten of niet meer verkrijgbaar onderdeel namaken aan de
-          hand van maten of een voorbeeld.
+          Vervangingsonderdelen op basis van een foto, voorbeeld of oude
+          maatvoering.
         </p>
       </article>
 
       <article>
-        <span>03</span>
         <h3>Bouw en installatie</h3>
         <p>
-          Oplegblokken, isolerende delen, vulstukken, beschermplaten en
-          speciale montageonderdelen.
+          Vulstukken, oplegblokken, panelen en isolerende onderdelen.
         </p>
       </article>
 
       <article>
-        <span>04</span>
-        <h3>Voeding en productie</h3>
+        <h3>Productie</h3>
         <p>
-          Kunststof delen voor transportsystemen, geleiding en omgevingen
-          met specifieke materiaaleisen.
+          Slijtvaste onderdelen, geleidingen en terugkerende series.
         </p>
       </article>
 
       <article>
-        <span>05</span>
-        <h3>Maritiem en transport</h3>
+        <h3>Transport en maritiem</h3>
         <p>
-          Slijtvaste, vochtbestendige en maatwerkonderdelen voor voertuigen,
-          werkmaterieel en vaartuigen.
+          Vochtbestendige en slagvaste onderdelen voor zwaar gebruik.
         </p>
       </article>
 
       <article>
-        <span>06</span>
         <h3>Particulier maatwerk</h3>
         <p>
-          Ook een enkel kunststof plaatje, blokje, ring of
-          vervangingsonderdeel kan worden aangevraagd.
+          Ook één kunststof plaat, ring, strook of klein kunststof blokje.
         </p>
       </article>
     </div>
   </div>
 </section>
 
-<section class="home-v2-process" aria-labelledby="werkwijze-title">
-  <div class="container home-v2-process-grid">
-    <div class="home-v2-process-intro">
-      <p class="eyebrow">Eenvoudig aanvragen</p>
-
-      <h2 id="werkwijze-title">
-        Van vraag naar passend kunststof maatwerk
-      </h2>
+<section class="mk-process" aria-labelledby="mk-process-title">
+  <div class="container">
+    <div class="mk-section-heading">
+      <div>
+        <p class="eyebrow">Werkwijze</p>
+        <h2 id="mk-process-title">Eenvoudig een offerte aanvragen</h2>
+      </div>
 
       <p>
-        U hoeft vooraf niet alle technische details te kennen. Beschrijf wat
-        het onderdeel moet doen en stuur mee wat u al heeft.
+        Geen ingewikkelde configurator. Vertel ons wat u nodig heeft en
+        voeg eventueel een bestand toe.
       </p>
     </div>
 
-    <ol class="home-v2-process-list">
+    <ol class="mk-process-grid">
       <li>
-        <span>1</span>
-        <div>
-          <h3>Stuur uw aanvraag</h3>
-          <p>
-            Vermeld maten, aantallen, materiaal en bewerkingen. Een foto of
-            tekening is optioneel.
-          </p>
-        </div>
+        <span>01</span>
+        <h3>Stuur uw aanvraag</h3>
+        <p>
+          Geef maten, aantallen en eventuele bewerkingen door.
+        </p>
       </li>
 
       <li>
-        <span>2</span>
-        <div>
-          <h3>Wij bekijken de uitvoering</h3>
-          <p>
-            We controleren materiaalkeuze, bewerking en maakbaarheid en
-            stellen zo nodig een korte vraag.
-          </p>
-        </div>
+        <span>02</span>
+        <h3>Wij beoordelen het werk</h3>
+        <p>
+          We bekijken materiaal, maakbaarheid en de passende productiemethode.
+        </p>
       </li>
 
       <li>
-        <span>3</span>
-        <div>
-          <h3>U ontvangt een offerte</h3>
-          <p>
-            U krijgt een vrijblijvende prijsopgave voor het voorgestelde
-            kunststof maatwerk.
-          </p>
-        </div>
+        <span>03</span>
+        <h3>Ontvang een offerte</h3>
+        <p>
+          U ontvangt een vrijblijvende prijs voor het voorgestelde maatwerk.
+        </p>
       </li>
     </ol>
   </div>
 </section>
 
-<section
-  class="home-v2-section home-v2-seo-copy"
-  aria-labelledby="maatwerk-title"
->
-  <div class="container home-v2-seo-grid">
-    <div>
-      <p class="eyebrow">Kunststof op maat laten maken</p>
-      <h2 id="maatwerk-title">
-        Eén adres voor gezaagd en bewerkt kunststof
-      </h2>
-    </div>
+<section class="mk-seo-copy">
+  <div class="container mk-seo-copy-grid">
+    <h2>Kunststof op maat laten maken</h2>
 
     <div>
       <p>
-        Zoekt u kunststof op maat voor een machine, constructie, reparatie
-        of eigen project? Dan kunt u zowel eenvoudige basisvormen als
-        volledig bewerkte onderdelen aanvragen. Denk aan
+        MaatwerkKunststof.nl levert gezaagd en bewerkt kunststof voor
+        bedrijven en particulieren. U kunt bij ons terecht voor
         <a href="/kunststof-blokken-op-maat/">kunststof blokken</a>,
         <a href="/kunststof-stroken-op-maat/">kunststof stroken</a>,
         <a href="/kunststof-platen-op-maat/">kunststof platen</a> en
@@ -712,70 +574,37 @@ quotePlaceholder: Beschrijf wat u nodig heeft. Vermeld indien bekend de afmeting
       </p>
 
       <p>
-        Ook maatwerk buiten deze vormen is mogelijk. We leveren plastic
-        onderdelen op maat in uiteenlopende materialen en kleuren, van hard
-        kunststof voor constructieve toepassingen tot slijtvaste of chemisch
-        bestendige technische kunststoffen. De aanvraag blijft eenvoudig:
-        geef door wat u nodig heeft, dan bekijken we de beste
-        productiemethode.
+        Naast deze basisvormen leveren we ook technische kunststof
+        onderdelen op maat. Van hard kunststof en slijtvaste kunststoffen
+        tot hittebestendige, voedselveilige en chemisch bestendige
+        materialen.
       </p>
     </div>
   </div>
 </section>
 
-<section class="home-v2-faq" aria-labelledby="faq-title">
-  <div class="container home-v2-faq-grid">
-    <div class="home-v2-faq-intro">
+<section class="mk-faq" aria-labelledby="mk-faq-title">
+  <div class="container mk-faq-grid">
+    <div>
       <p class="eyebrow">Veelgestelde vragen</p>
-      <h2 id="faq-title">Over kunststof op maat</h2>
-
-      <p>
-        Een afwijkende maat of toepassing? Gebruik het offerteformulier en
-        omschrijf kort wat u zoekt.
-      </p>
-
-      <a class="home-v2-inline-link" href="mailto:{{ site.email }}">
-        Of mail naar {{ site.email }}
-        <span aria-hidden="true">→</span>
-      </a>
+      <h2 id="mk-faq-title">Over kunststof op maat</h2>
     </div>
 
-    <div class="home-v2-faq-list">
-      <details>
-        <summary>Welke kunststofsoorten kunnen jullie leveren?</summary>
-        <p>
-          Vrijwel alle standaard en technische kunststoffen zijn mogelijk,
-          waaronder PE, HDPE, HMPE, POM, PA, PVC, PP, PTFE, PETP,
-          polycarbonaat, acrylaat, PEEK en speciale compounds. De
-          beschikbaarheid hangt af van uitvoering, maat, kleur en
-          hoeveelheid.
-        </p>
-      </details>
-
+    <div class="mk-faq-list">
       <details>
         <summary>Kan ik ook één kunststof onderdeel bestellen?</summary>
         <p>
-          Ja. Zowel enkelstuks, prototypes en vervangingsonderdelen als
-          kleine en grotere series kunnen worden aangevraagd.
+          Ja. Enkelstuks, prototypes, vervangingsonderdelen en grotere
+          series kunnen allemaal worden aangevraagd.
         </p>
       </details>
 
       <details>
-        <summary>Kunnen jullie kunststof volledig bewerken?</summary>
+        <summary>Welke kunststofsoorten zijn mogelijk?</summary>
         <p>
-          Ja. Naast zagen zijn onder meer CNC-frezen, draaien, boren, tappen,
-          verzinken, graveren, lassen, buigen, vormen en samenstellen
-          mogelijk, afhankelijk van het gekozen materiaal.
-        </p>
-      </details>
-
-      <details>
-        <summary>Hoe nauwkeurig kan kunststof op maat worden gemaakt?</summary>
-        <p>
-          Eenvoudige delen kunnen op de millimeter worden gezaagd. Voor
-          bewerkte onderdelen kan worden geproduceerd volgens opgegeven
-          maatvoering en toleranties. Vermeld de relevante passing of
-          tolerantie bij uw aanvraag.
+          Vrijwel alle standaard en technische kunststoffen zijn mogelijk,
+          waaronder PE, HDPE, HMPE, POM, PA, PVC, PP, PTFE, PETP,
+          polycarbonaat, acrylaat, PEEK en speciale compounds.
         </p>
       </details>
 
@@ -783,43 +612,33 @@ quotePlaceholder: Beschrijf wat u nodig heeft. Vermeld indien bekend de afmeting
         <summary>Heb ik een technische tekening nodig?</summary>
         <p>
           Nee. Voor eenvoudig maatwerk is een omschrijving met afmetingen
-          vaak voldoende. Bij complexere onderdelen kunt u een schets, foto,
-          bestaand voorbeeld of technische tekening meesturen.
+          vaak voldoende. Een foto, schets of voorbeeld kan ook worden
+          gebruikt.
+        </p>
+      </details>
+
+      <details>
+        <summary>Kunnen jullie kunststof volledig bewerken?</summary>
+        <p>
+          Ja. Naast zagen zijn onder meer frezen, draaien, boren, tappen,
+          verzinken, lassen, buigen, lijmen en samenstellen mogelijk.
         </p>
       </details>
     </div>
   </div>
 </section>
 
-<section
-  class="home-v2-direct-contact"
-  aria-labelledby="direct-contact-title"
->
-  <div class="container home-v2-direct-contact-inner">
+<section class="mk-final-cta">
+  <div class="container mk-final-cta-inner">
     <div>
-      <p class="eyebrow eyebrow-light">Direct overleggen</p>
-
-      <h2 id="direct-contact-title">
-        Een vraag voordat u een offerte aanvraagt?
-      </h2>
-
-      <p>
-        Bel, mail of stuur een WhatsApp-bericht met een korte omschrijving
-        en eventueel een foto van het onderdeel.
-      </p>
+      <p class="eyebrow">Offerte of technische vraag</p>
+      <h2>Vertel ons welk kunststof onderdeel u nodig heeft</h2>
     </div>
 
-    <div class="home-v2-direct-contact-actions">
-      {% if site.phone %}
-        <a
-          class="button"
-          href="tel:{{ site.phone }}"
-          data-analytics="phone_click"
-          data-location="home_direct_contact"
-        >
-          Bel {{ site.phoneDisplay }}
-        </a>
-      {% endif %}
+    <div class="mk-final-actions">
+      <a class="button" href="#offerte">
+        Vraag een offerte aan
+      </a>
 
       {% if site.whatsapp %}
         <a
@@ -827,56 +646,21 @@ quotePlaceholder: Beschrijf wat u nodig heeft. Vermeld indien bekend de afmeting
           href="https://wa.me/{{ site.whatsapp }}?text=Hallo%2C%20ik%20heb%20een%20vraag%20over%20kunststof%20op%20maat."
           target="_blank"
           rel="noopener"
-          data-analytics="whatsapp_click"
-          data-location="home_direct_contact"
         >
-          Open WhatsApp
+          WhatsApp
         </a>
       {% endif %}
 
-      <a
-        class="button button-outline-light"
-        href="mailto:{{ site.email }}"
-        data-analytics="email_click"
-        data-location="home_direct_contact"
-      >
-        Stuur een e-mail
-      </a>
+      {% if site.phone %}
+        <a class="button button-outline-light" href="tel:{{ site.phone }}">
+          Bel ons
+        </a>
+      {% endif %}
     </div>
   </div>
 </section>
 
 {% include "offerte-form.njk" %}
-
-{% if site.phone and site.whatsapp %}
-  <nav class="home-v2-mobile-bar" aria-label="Snel contact">
-    <a
-      href="tel:{{ site.phone }}"
-      data-analytics="phone_click"
-      data-location="mobile_bar"
-    >
-      Bellen
-    </a>
-
-    <a
-      href="https://wa.me/{{ site.whatsapp }}?text=Hallo%2C%20ik%20heb%20een%20vraag%20over%20kunststof%20op%20maat."
-      target="_blank"
-      rel="noopener"
-      data-analytics="whatsapp_click"
-      data-location="mobile_bar"
-    >
-      WhatsApp
-    </a>
-
-    <a
-      href="#offerte"
-      data-analytics="quote_cta"
-      data-location="mobile_bar"
-    >
-      Offerte
-    </a>
-  </nav>
-{% endif %}
 
 <script type="application/ld+json">
 {
@@ -885,47 +669,16 @@ quotePlaceholder: Beschrijf wat u nodig heeft. Vermeld indien bekend de afmeting
   "name": "Kunststof op maat",
   "serviceType": "Kunststof maatwerk en kunststofbewerking",
   "url": "https://maatwerkkunststof.nl/",
-  "description": "Kunststof blokken, stroken, platen, ringen en technische kunststof onderdelen op maat, van enkelstuks tot grotere series.",
+  "description": "Kunststof blokken, platen, stroken, ringen en volledig bewerkte kunststof onderdelen op maat.",
   "provider": {
     "@type": "Organization",
     "name": "MaatwerkKunststof.nl",
     "url": "https://maatwerkkunststof.nl/",
     "email": "{{ site.email }}"
   },
-  "areaServed": ["Nederland", "België"]
-}
-</script>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "ItemList",
-  "name": "Kunststof producten op maat",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Kunststof blokken op maat",
-      "url": "https://maatwerkkunststof.nl/kunststof-blokken-op-maat/"
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Kunststof stroken op maat",
-      "url": "https://maatwerkkunststof.nl/kunststof-stroken-op-maat/"
-    },
-    {
-      "@type": "ListItem",
-      "position": 3,
-      "name": "Kunststof platen op maat",
-      "url": "https://maatwerkkunststof.nl/kunststof-platen-op-maat/"
-    },
-    {
-      "@type": "ListItem",
-      "position": 4,
-      "name": "Kunststof ringen op maat",
-      "url": "https://maatwerkkunststof.nl/kunststof-ringen-op-maat/"
-    }
+  "areaServed": [
+    "Nederland",
+    "België"
   ]
 }
 </script>
@@ -937,7 +690,15 @@ quotePlaceholder: Beschrijf wat u nodig heeft. Vermeld indien bekend de afmeting
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Welke kunststofsoorten kunnen jullie leveren?",
+      "name": "Kan ik ook één kunststof onderdeel bestellen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja. Enkelstuks, prototypes, vervangingsonderdelen en grotere series kunnen worden aangevraagd."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Welke kunststofsoorten zijn mogelijk?",
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Vrijwel alle standaard en technische kunststoffen zijn mogelijk, waaronder PE, HDPE, HMPE, POM, PA, PVC, PP, PTFE, PETP, polycarbonaat, acrylaat, PEEK en speciale compounds."
@@ -945,26 +706,10 @@ quotePlaceholder: Beschrijf wat u nodig heeft. Vermeld indien bekend de afmeting
     },
     {
       "@type": "Question",
-      "name": "Kan ik ook één kunststof onderdeel bestellen?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Ja. Zowel enkelstuks, prototypes en vervangingsonderdelen als kleine en grotere series kunnen worden aangevraagd."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Kunnen jullie kunststof volledig bewerken?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Ja. Naast zagen zijn onder meer CNC-frezen, draaien, boren, tappen, verzinken, graveren, lassen, buigen, vormen en samenstellen mogelijk, afhankelijk van het gekozen materiaal."
-      }
-    },
-    {
-      "@type": "Question",
       "name": "Heb ik een technische tekening nodig?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Nee. Voor eenvoudig maatwerk is een omschrijving met afmetingen vaak voldoende. Bij complexere onderdelen kunt u een schets, foto, bestaand voorbeeld of technische tekening meesturen."
+        "text": "Nee. Voor eenvoudig maatwerk is een omschrijving met afmetingen vaak voldoende. Een foto, schets of bestaand onderdeel kan ook als uitgangspunt worden gebruikt."
       }
     }
   ]
