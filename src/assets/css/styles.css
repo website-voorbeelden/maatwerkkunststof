@@ -435,3 +435,7 @@ body.menu-open{overflow:auto}
 .mk-final-cta-inner{grid-template-columns:minmax(0,1fr) auto}
 .mk-final-actions{justify-content:flex-end}
 }
+
+.wordmark-logo{display:none}
+@media (min-width:1080px){.wordmark{align-items:center}.wordmark-logo{display:block;width:220px;height:60px;object-fit:cover;object-position:center}.wordmark-text{display:none}}
+@media (min-width:1140px){.wordmark-logo{width:235px;height:62px}}
