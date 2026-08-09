@@ -1,36 +1,59 @@
 <style>
-  .wordmark-brand {
-    display: flex;
+  .wordmark-logo {
+    display: none !important;
+  }
+
+  .wordmark {
+    display: inline-flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 2px;
-    font-family: "Avenir Next", "Segoe UI", Arial, sans-serif;
-    line-height: 0.95;
-    white-space: nowrap;
+    justify-content: center;
+    gap: 0;
+    font-family: inherit;
+    line-height: 1;
+    text-decoration: none;
   }
 
-  .wordmark-brand-top {
-    font-size: 0.72rem;
-    font-weight: 650;
-    letter-spacing: 0.16em;
+  .wordmark .wordmark-text {
+    display: block !important;
+    margin: 0;
+    font-family: inherit;
+    font-size: 0.92rem;
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: 0.055em;
   }
 
-  .wordmark-brand-bottom {
-    font-size: 0.96rem;
-    font-weight: 800;
-    letter-spacing: 0.06em;
+  .wordmark-dot {
+    color: var(--orange-500);
   }
 
-  .wordmark-dot { color: var(--orange-600); }
+  @media (max-width: 767px) {
+    .header-inner {
+      position: relative;
+    }
+
+    .wordmark {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      align-items: center;
+      text-align: center;
+      white-space: nowrap;
+      transform: translate(-50%, -50%);
+    }
+
+    .menu-toggle {
+      margin-left: auto;
+    }
+  }
 </style>
 
 <header class="site-header" data-header>
   <div class="container header-inner">
     <a class="wordmark" href="/" aria-label="MaatwerkKunststof.nl – home">
-      <span class="wordmark-brand">
-        <span class="wordmark-brand-top">Maatwerk</span>
-        <strong class="wordmark-brand-bottom">Kunststof<span class="wordmark-dot">.</span>nl</strong>
-      </span>
+      <span class="wordmark-text">Maatwerk</span>
+      <span class="wordmark-text">Kunststof<span class="wordmark-dot">.</span>nl</span>
     </a>
 
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-navigation" aria-label="Menu openen">
