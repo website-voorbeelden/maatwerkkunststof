@@ -4,36 +4,70 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#152331">
+
+  <link rel="icon" type="image/png" href="/assets/images/favicon.png">
+  <link rel="apple-touch-icon" href="/assets/images/favicon.png">
+
   <title>{{ title }}</title>
   <meta name="description" content="{{ description or site.description }}">
   <meta name="robots" content="{{ robots or 'index,follow,max-image-preview:large' }}">
   <link rel="canonical" href="{{ site.url }}{{ page.url }}">
 
+  <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:locale" content="{{ site.locale }}">
   <meta property="og:site_name" content="{{ site.name }}">
   <meta property="og:title" content="{{ title }}">
   <meta property="og:description" content="{{ description or site.description }}">
   <meta property="og:url" content="{{ site.url }}{{ page.url }}">
-  <meta property="og:image" content="{{ site.url }}{{ image or '/assets/images/kunststof-blokken-meetlint.webp' }}">
-  <meta property="og:image:alt" content="{{ imageAlt or 'Kunststof op maat' }}">
+  <meta
+    property="og:image"
+    content="{{ site.url }}{{ image or '/assets/images/kunststof-blokken-meetlint.webp' }}"
+  >
+  <meta
+    property="og:image:alt"
+    content="{{ imageAlt or 'Kunststof op maat' }}"
+  >
 
+  <!-- Twitter / X -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="{{ title }}">
   <meta name="twitter:description" content="{{ description or site.description }}">
-  <meta name="twitter:image" content="{{ site.url }}{{ image or '/assets/images/kunststof-blokken-meetlint.webp' }}">
-<link rel="icon" type="image/png" href="/assets/images/favicon.png">
-<link rel="apple-touch-icon" href="/assets/images/favicon.png">
+  <meta
+    name="twitter:image"
+    content="{{ site.url }}{{ image or '/assets/images/kunststof-blokken-meetlint.webp' }}"
+  >
+
+  <!-- Styles -->
   <link rel="stylesheet" href="/assets/css/styles.css">
+
+  <!-- JavaScript -->
   <script src="/assets/js/main.js" defer></script>
 
+  <!-- Google Tag Manager -->
   {% if site.tracking.gtmId %}
   <script>
     window.dataLayer = window.dataLayer || [];
-    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','{{ site.tracking.gtmId }}');
+
+    (function(w, d, s, l, i) {
+      w[l] = w[l] || [];
+      w[l].push({
+        'gtm.start': new Date().getTime(),
+        event: 'gtm.js'
+      });
+
+      var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != 'dataLayer' ? '&l=' + l : '';
+
+      j.async = true;
+      j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+      f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', '{{ site.tracking.gtmId }}');
   </script>
   {% endif %}
 
+  <!-- Organization structured data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -41,22 +75,48 @@
     "name": "{{ site.name }}",
     "url": "{{ site.url }}",
     "email": "{{ site.email }}",
-    "areaServed": ["Nederland", "België"],
+    "telephone": "+31612249916",
+    "areaServed": [
+      "Nederland",
+      "België"
+    ],
     "description": "{{ site.description }}"
   }
   </script>
-  {% if schema %}<script type="application/ld+json">{{ schema | safe }}</script>{% endif %}
+
+  <!-- Pagina-specifieke structured data -->
+  {% if schema %}
+  <script type="application/ld+json">
+    {{ schema | safe }}
+  </script>
+  {% endif %}
 </head>
+
 <body class="{{ bodyClass or '' }}">
-  <a class="skip-link" href="#main-content">Direct naar inhoud</a>
+
+  <a class="skip-link" href="#main-content">
+    Direct naar inhoud
+  </a>
+
+  <!-- Google Tag Manager noscript -->
   {% if site.tracking.gtmId %}
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id={{ site.tracking.gtmId }}" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <noscript>
+    <iframe
+      src="https://www.googletagmanager.com/ns.html?id={{ site.tracking.gtmId }}"
+      height="0"
+      width="0"
+      style="display:none;visibility:hidden"
+    ></iframe>
+  </noscript>
   {% endif %}
 
   {% include "header.njk" %}
+
   <main id="main-content">
     {{ content | safe }}
   </main>
+
   {% include "footer.njk" %}
+
 </body>
 </html>
