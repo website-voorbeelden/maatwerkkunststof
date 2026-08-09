@@ -1,30 +1,36 @@
 <style>
-  .wordmark-logo { display: none; }
-
-  @media (min-width: 1080px) {
-    .wordmark-logo {
-      display: block !important;
-      width: 165px !important;
-      height: 44px !important;
-      object-fit: cover;
-      object-position: center;
-    }
-
-    .wordmark-text { display: none !important; }
+  .wordmark-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+    font-family: "Avenir Next", "Segoe UI", Arial, sans-serif;
+    line-height: 0.95;
+    white-space: nowrap;
   }
+
+  .wordmark-brand-top {
+    font-size: 0.72rem;
+    font-weight: 650;
+    letter-spacing: 0.16em;
+  }
+
+  .wordmark-brand-bottom {
+    font-size: 0.96rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+  }
+
+  .wordmark-dot { color: var(--orange-600); }
 </style>
 
 <header class="site-header" data-header>
   <div class="container header-inner">
     <a class="wordmark" href="/" aria-label="MaatwerkKunststof.nl – home">
-      <img
-        class="wordmark-logo"
-        src="/assets/images/logo-maatwerkkunststof-square.png"
-        width="165"
-        height="44"
-        alt=""
-      >
-      <span class="wordmark-text">Maatwerk</span><strong class="wordmark-text">Kunststof.nl</strong>
+      <span class="wordmark-brand">
+        <span class="wordmark-brand-top">Maatwerk</span>
+        <strong class="wordmark-brand-bottom">Kunststof<span class="wordmark-dot">.</span>nl</strong>
+      </span>
     </a>
 
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-navigation" aria-label="Menu openen">
