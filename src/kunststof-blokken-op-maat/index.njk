@@ -1,7 +1,7 @@
 ---
 layout: "base.njk"
-title: "Kunststof blokken op maat | Maatwerk Kunststof"
-description: "Kunststof blokken op maat laten maken? Kies iedere afmeting, kunststofsoort, kleur en bewerking. Van één kunststof blok tot grotere series."
+title: "Kunststof blokken op maat laten maken | MaatwerkKunststof.nl"
+description: "Kunststof blokken op maat in HDPE, PVC, POM en meer. Gezaagd of volledig bewerkt, van enkelstuks tot series. Vraag vrijblijvend een offerte aan."
 image: "/assets/images/kunststof-blokken.webp"
 imageAlt: "Massieve kunststof blokken op maat in verschillende afmetingen"
 bodyClass: "mkb-page"
@@ -13,21 +13,22 @@ bodyClass: "mkb-page"
   body.mkb-page {
     --mkb-ink: #14262e;
     --mkb-text: #53636a;
-    --mkb-muted: #78858b;
+    --mkb-muted: #748188;
     --mkb-line: #dce2e3;
-    --mkb-soft: #f5f7f6;
+    --mkb-soft: #f4f7f6;
     --mkb-white: #ffffff;
     --mkb-orange: #e65b28;
     --mkb-orange-dark: #c8481b;
-    --mkb-whatsapp: #25d366;
-    --mkb-whatsapp-dark: #1da851;
-    --mkb-radius: 12px;
+    --mkb-green: rgb(116 194 0 / 1);
+    --mkb-green-dark: #5c9b00;
+    --mkb-radius: 14px;
+    --mkb-shadow: 0 22px 55px rgba(20, 38, 46, 0.1);
     --mkb-container: 1180px;
     background: var(--mkb-white);
   }
 
   body.mkb-page main {
-    overflow: hidden;
+    overflow: clip;
   }
 
   .mkb-container {
@@ -36,7 +37,7 @@ bodyClass: "mkb-page"
   }
 
   .mkb-section {
-    padding: 68px 0;
+    padding: 66px 0;
   }
 
   .mkb-section-soft {
@@ -46,18 +47,19 @@ bodyClass: "mkb-page"
   .mkb-eyebrow {
     margin: 0 0 10px;
     color: var(--mkb-orange);
-    font-size: 0.73rem;
-    font-weight: 800;
+    font-size: 0.72rem;
+    font-weight: 840;
     letter-spacing: 0.13em;
-    line-height: 1.4;
+    line-height: 1.35;
     text-transform: uppercase;
   }
 
   .mkb-heading {
+    max-width: 780px;
     margin: 0;
     color: var(--mkb-ink);
-    font-size: clamp(2rem, 5vw, 3.2rem);
-    font-weight: 760;
+    font-size: clamp(2rem, 5vw, 3.15rem);
+    font-weight: 770;
     letter-spacing: -0.04em;
     line-height: 1.08;
   }
@@ -68,8 +70,8 @@ bodyClass: "mkb-page"
     margin-bottom: 32px;
   }
 
-  .mkb-section-intro > p {
-    max-width: 670px;
+  .mkb-section-intro > p,
+  .mkb-copy p {
     margin: 0;
     color: var(--mkb-text);
     line-height: 1.72;
@@ -81,12 +83,12 @@ bodyClass: "mkb-page"
     align-items: center;
     justify-content: center;
     border: 1px solid var(--mkb-orange);
-    border-radius: 7px;
+    border-radius: 8px;
     padding: 13px 20px;
     color: var(--mkb-white);
     background: var(--mkb-orange);
     font-size: 0.92rem;
-    font-weight: 760;
+    font-weight: 780;
     line-height: 1.2;
     text-align: center;
     text-decoration: none;
@@ -99,110 +101,458 @@ bodyClass: "mkb-page"
     background: var(--mkb-orange-dark);
   }
 
-  .mkb-btn-whatsapp {
-    border-color: var(--mkb-whatsapp);
-    background: var(--mkb-whatsapp);
+  .mkb-btn-secondary {
+    border-color: var(--mkb-ink);
+    color: var(--mkb-ink);
+    background: transparent;
   }
 
+  .mkb-btn-secondary:hover,
+  .mkb-btn-secondary:focus-visible {
+    color: var(--mkb-white);
+    background: var(--mkb-ink);
+  }
+
+  .mkb-btn-green,
+  .mkb-btn-whatsapp {
+    border-color: var(--mkb-green);
+    color: var(--mkb-white);
+    background: var(--mkb-green);
+  }
+
+  .mkb-btn-green:hover,
+  .mkb-btn-green:focus-visible,
   .mkb-btn-whatsapp:hover,
   .mkb-btn-whatsapp:focus-visible {
-    border-color: var(--mkb-whatsapp-dark);
-    background: var(--mkb-whatsapp-dark);
+    border-color: var(--mkb-green-dark);
+    color: var(--mkb-white);
+    background: var(--mkb-green-dark);
   }
 
-  .mkb-link {
-    color: var(--mkb-ink);
-    font-weight: 730;
-    text-decoration-color: var(--mkb-orange);
-    text-underline-offset: 4px;
+  .mkb-whatsapp-icon {
+    width: 18px;
+    height: 18px;
+    flex: 0 0 18px;
+    margin-right: 8px;
+    fill: currentColor;
   }
 
-  /* Hero */
+  /* Productintro met galerij en offerteformulier */
 
-  .mkb-hero {
-    padding: 34px 0 58px;
-    background: var(--mkb-white);
+  .mkb-product {
+    padding: 28px 0 62px;
+    background: linear-gradient(180deg, #f7f9f8 0%, #ffffff 58%);
   }
 
-  .mkb-hero-grid {
+  .mkb-product-grid {
     display: grid;
-    gap: 36px;
-    align-items: center;
+    gap: 32px;
+    align-items: start;
   }
 
-  .mkb-hero-copy {
-    max-width: 710px;
+  .mkb-product-info {
+    order: 2;
   }
 
-  .mkb-hero h1 {
-    max-width: 800px;
-    margin: 0 0 21px;
+  .mkb-product-gallery {
+    order: 1;
+    min-width: 0;
+  }
+
+  .mkb-product h1 {
+    max-width: 660px;
+    margin: 0 0 17px;
     color: var(--mkb-ink);
-    font-size: clamp(2.5rem, 8vw, 4.9rem);
-    font-weight: 790;
+    font-size: clamp(2.5rem, 9vw, 4.55rem);
+    font-weight: 795;
     letter-spacing: -0.055em;
-    line-height: 1;
+    line-height: 0.98;
   }
 
-  .mkb-hero-lead {
-    max-width: 680px;
-    margin: 0 0 25px;
+  .mkb-product-lead {
+    max-width: 670px;
+    margin: 0 0 20px;
     color: var(--mkb-text);
-    font-size: clamp(1.03rem, 2vw, 1.2rem);
-    line-height: 1.7;
+    font-size: clamp(1rem, 2vw, 1.13rem);
+    line-height: 1.65;
   }
 
-  .mkb-hero-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 28px;
-  }
-
-  .mkb-hero-points {
-    display: grid;
-    gap: 10px;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-
-  .mkb-hero-points li {
+  .mkb-gallery-stage {
     position: relative;
-    padding-left: 21px;
-    color: var(--mkb-ink);
-    font-size: 0.86rem;
-    font-weight: 690;
-  }
-
-  .mkb-hero-points li::before {
-    position: absolute;
-    top: 0.58em;
-    left: 0;
-    width: 11px;
-    height: 2px;
-    background: var(--mkb-orange);
-    content: "";
-  }
-
-  .mkb-hero-image {
     overflow: hidden;
     aspect-ratio: 1;
     margin: 0;
     border: 1px solid var(--mkb-line);
     border-radius: var(--mkb-radius);
-    padding: 18px;
-    background: var(--mkb-soft);
+    background: #edf1ef;
+    box-shadow: var(--mkb-shadow);
   }
 
-  .mkb-hero-image img {
+  .mkb-gallery-open {
+    display: block;
     width: 100%;
     height: 100%;
-    border-radius: 8px;
+    border: 0;
+    padding: 0;
+    background: transparent;
+    cursor: zoom-in;
+  }
+
+  .mkb-gallery-main {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .mkb-gallery-control {
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    display: grid;
+    width: 42px;
+    height: 42px;
+    place-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.65);
+    border-radius: 50%;
+    color: var(--mkb-ink);
+    background: rgba(255, 255, 255, 0.92);
+    box-shadow: 0 8px 20px rgba(20, 38, 46, 0.16);
+    font-size: 1.25rem;
+    cursor: pointer;
+    transform: translateY(-50%);
+  }
+
+  .mkb-gallery-prev {
+    left: 12px;
+  }
+
+  .mkb-gallery-next {
+    right: 12px;
+  }
+
+  .mkb-gallery-thumbs {
+    display: flex;
+    gap: 10px;
+    margin-top: 12px;
+    padding: 2px 1px 8px;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    scrollbar-width: thin;
+    scroll-snap-type: inline mandatory;
+  }
+
+  .mkb-gallery-thumb {
+    flex: 0 0 82px;
+    width: 82px;
+    aspect-ratio: 1;
+    overflow: hidden;
+    border: 2px solid transparent;
+    border-radius: 9px;
+    padding: 0;
+    background: #edf1ef;
+    cursor: pointer;
+    scroll-snap-align: start;
+  }
+
+  .mkb-gallery-thumb[aria-pressed="true"] {
+    border-color: var(--mkb-orange);
+    box-shadow: 0 0 0 2px rgba(230, 91, 40, 0.14);
+  }
+
+  .mkb-gallery-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Compact formulier */
+
+  .mkb-form {
+    position: relative;
+    border: 1px solid var(--mkb-line);
+    border-radius: var(--mkb-radius);
+    padding: 20px;
+    background: var(--mkb-white);
+    box-shadow: 0 16px 40px rgba(20, 38, 46, 0.08);
+  }
+
+  .mkb-form-head {
+    margin-bottom: 17px;
+  }
+
+  .mkb-form-head strong {
+    display: block;
+    margin-bottom: 3px;
+    color: var(--mkb-ink);
+    font-size: 1.08rem;
+  }
+
+  .mkb-form-head span {
+    display: block;
+    color: var(--mkb-text);
+    font-size: 0.8rem;
+    line-height: 1.45;
+  }
+
+  .mkb-form-row {
+    display: grid;
+    gap: 12px;
+  }
+
+  .mkb-visually-hidden {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    margin: -1px !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    clip: rect(0 0 0 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+  }
+
+  .mkb-field {
+    margin-bottom: 12px;
+  }
+
+  .mkb-field label {
+    display: block;
+    margin-bottom: 6px;
+    color: var(--mkb-ink);
+    font-size: 0.79rem;
+    font-weight: 740;
+  }
+
+  .mkb-field input,
+  .mkb-field textarea {
+    width: 100%;
+    border: 1px solid #c8d1d3;
+    border-radius: 7px;
+    padding: 12px 13px;
+    color: var(--mkb-ink);
+    background: var(--mkb-white);
+  }
+
+  .mkb-field input {
+    min-height: 50px;
+  }
+
+  .mkb-field textarea {
+    min-height: 132px;
+    resize: vertical;
+  }
+
+  .mkb-field input:focus,
+  .mkb-field textarea:focus {
+    border-color: var(--mkb-orange);
+    outline: 3px solid rgba(230, 91, 40, 0.14);
+  }
+
+  .mkb-field input::placeholder,
+  .mkb-field textarea::placeholder {
+    color: #8a969b;
+    opacity: 1;
+  }
+
+  .mkb-field-help,
+  .mkb-form-note {
+    margin: 6px 0 0;
+    color: var(--mkb-muted);
+    font-size: 0.7rem;
+    line-height: 1.45;
+  }
+
+  .mkb-file-label {
+    display: flex;
+    min-height: 44px;
+    align-items: center;
+    justify-content: center;
+    border: 1px dashed #aebabc;
+    border-radius: 7px;
+    padding: 10px;
+    color: var(--mkb-ink);
+    background: #fafbfa;
+    font-size: 0.77rem;
+    font-weight: 720;
+    cursor: pointer;
+  }
+
+  .mkb-file-label input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+  }
+
+  .mkb-file-label:focus-within {
+    outline: 3px solid rgba(230, 91, 40, 0.2);
+    outline-offset: 2px;
+  }
+
+  .mkb-form .mkb-btn {
+    width: 100%;
+  }
+
+  .mkb-form-note {
+    text-align: center;
+  }
+
+  .mkb-form .form-status {
+    margin-bottom: 12px;
+  }
+
+  .mkb-form-usps {
+    display: grid;
+    gap: 11px;
+    margin: 20px 2px 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .mkb-form-usps li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--mkb-ink);
+    font-size: 0.84rem;
+    font-weight: 700;
+  }
+
+  .mkb-form-usps svg {
+    flex: 0 0 19px;
+    width: 19px;
+    height: 19px;
+    color: var(--mkb-green);
+  }
+
+  .mkb-form-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+    margin-top: 18px;
+  }
+
+  .mkb-form-contact span {
+    color: var(--mkb-text);
+    font-size: 0.78rem;
+  }
+
+  .mkb-form-contact .mkb-btn {
+    width: auto;
+    min-height: 42px;
+    padding: 10px 15px;
+    font-size: 0.8rem;
+  }
+
+  .mkb-form-trust {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    margin-top: 12px;
+    color: var(--mkb-muted);
+    font-size: 0.7rem;
+  }
+
+  .mkb-form-trust img {
+    width: auto;
+    max-width: 92px;
+    height: 30px;
     object-fit: contain;
   }
 
-  /* Basic split sections */
+  .mkb-honeypot {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    margin: -1px !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    clip: rect(0 0 0 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+  }
+
+  /* Inhoud */
+
+  .mkb-card-grid,
+  .mkb-material-grid,
+  .mkb-application-grid,
+  .mkb-related-grid {
+    display: grid;
+    gap: 14px;
+  }
+
+  .mkb-card,
+  .mkb-material-card,
+  .mkb-application-card {
+    border: 1px solid var(--mkb-line);
+    border-radius: 10px;
+    padding: 22px;
+    background: var(--mkb-white);
+  }
+
+  .mkb-card h3,
+  .mkb-material-card h3,
+  .mkb-application-card h3 {
+    margin: 0 0 7px;
+    color: var(--mkb-ink);
+    font-size: 1rem;
+  }
+
+  .mkb-card p,
+  .mkb-material-card p,
+  .mkb-application-card p {
+    margin: 0;
+    color: var(--mkb-text);
+    font-size: 0.83rem;
+    line-height: 1.57;
+  }
+
+  .mkb-material-card {
+    border-top: 4px solid var(--mkb-ink);
+  }
+
+  .mkb-material-card strong {
+    display: block;
+    margin-top: 13px;
+    color: var(--mkb-orange-dark);
+    font-size: 0.72rem;
+    letter-spacing: 0.02em;
+  }
+
+  .mkb-callout {
+    display: grid;
+    gap: 18px;
+    align-items: center;
+    margin-top: 22px;
+    border-radius: 12px;
+    padding: 22px;
+    color: var(--mkb-white);
+    background: var(--mkb-ink);
+  }
+
+  .mkb-callout strong {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 1rem;
+  }
+
+  .mkb-callout p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 0.82rem;
+    line-height: 1.55;
+  }
+
+  .mkb-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+  }
 
   .mkb-split {
     display: grid;
@@ -210,307 +560,58 @@ bodyClass: "mkb-page"
     align-items: center;
   }
 
-  .mkb-square-image {
+  .mkb-split-image {
     overflow: hidden;
     aspect-ratio: 1;
     margin: 0;
-    border: 1px solid var(--mkb-line);
     border-radius: var(--mkb-radius);
-    padding: 16px;
-    background: var(--mkb-soft);
+    background: #edf1ef;
   }
 
-  .mkb-square-image img {
+  .mkb-split-image img {
     width: 100%;
     height: 100%;
-    border-radius: 8px;
-    object-fit: contain;
+    object-fit: cover;
   }
 
-  .mkb-split-copy p {
-    margin: 18px 0 0;
-    color: var(--mkb-text);
-    line-height: 1.72;
+  .mkb-copy {
+    display: grid;
+    gap: 16px;
   }
 
   .mkb-checks {
     display: grid;
-    gap: 11px;
-    margin: 25px 0 0;
+    gap: 10px;
+    margin: 5px 0 0;
     padding: 0;
     list-style: none;
   }
 
   .mkb-checks li {
     position: relative;
-    padding-left: 22px;
+    padding-left: 25px;
     color: var(--mkb-ink);
     font-size: 0.86rem;
-    font-weight: 680;
+    font-weight: 690;
   }
 
   .mkb-checks li::before {
     position: absolute;
-    top: 0.58em;
-    left: 0;
-    width: 11px;
-    height: 2px;
-    background: var(--mkb-orange);
+    top: 0.28em;
+    left: 1px;
+    width: 12px;
+    height: 7px;
+    border-bottom: 2px solid var(--mkb-green-dark);
+    border-left: 2px solid var(--mkb-green-dark);
     content: "";
-  }
-
-  /* Options */
-
-  .mkb-option-grid {
-    display: grid;
-    gap: 14px;
-  }
-
-  .mkb-option-card {
-    border: 1px solid var(--mkb-line);
-    border-radius: 10px;
-    padding: 21px;
-    background: var(--mkb-white);
-  }
-
-  .mkb-option-card h3 {
-    margin: 0 0 7px;
-    color: var(--mkb-ink);
-    font-size: 1.02rem;
-  }
-
-  .mkb-option-card p {
-    margin: 0;
-    color: var(--mkb-text);
-    font-size: 0.84rem;
-    line-height: 1.58;
-  }
-
-  /* Materials table */
-
-  .mkb-material-table {
-    overflow: hidden;
-    border: 1px solid var(--mkb-line);
-    border-radius: var(--mkb-radius);
-    background: var(--mkb-white);
-  }
-
-  .mkb-material-row {
-    display: grid;
-    gap: 9px;
-    padding: 19px;
-    border-bottom: 1px solid var(--mkb-line);
-  }
-
-  .mkb-material-row:last-child {
-    border-bottom: 0;
-  }
-
-  .mkb-material-row-head {
-    display: none;
-  }
-
-  .mkb-material-row p {
-    margin: 0;
-    color: var(--mkb-text);
-    font-size: 0.82rem;
-    line-height: 1.58;
-  }
-
-  .mkb-material-name strong,
-  .mkb-material-name span {
-    display: block;
-  }
-
-  .mkb-material-name strong {
-    margin-bottom: 2px;
-    color: var(--mkb-ink);
-    font-size: 0.95rem;
-  }
-
-  .mkb-material-name span {
-    color: var(--mkb-muted);
-    font-size: 0.73rem;
-  }
-
-  .mkb-material-processing {
-    position: relative;
-    padding-left: 18px;
-  }
-
-  .mkb-material-processing::before {
-    position: absolute;
-    top: 0.67em;
-    left: 0;
-    width: 9px;
-    height: 2px;
-    background: var(--mkb-orange);
-    content: "";
-  }
-
-  .mkb-material-footer {
-    display: grid;
-    gap: 18px;
-    align-items: center;
-    margin-top: 20px;
-    border-radius: var(--mkb-radius);
-    padding: 21px;
-    background: var(--mkb-soft);
-  }
-
-  .mkb-material-footer strong {
-    display: block;
-    margin-bottom: 4px;
-    color: var(--mkb-ink);
-  }
-
-  .mkb-material-footer p {
-    max-width: 760px;
-    margin: 0;
-    color: var(--mkb-text);
-    font-size: 0.84rem;
-    line-height: 1.55;
-  }
-
-  /* Processing cards */
-
-  .mkb-processing-grid {
-    display: grid;
-    gap: 14px;
-  }
-
-  .mkb-processing-card {
-    border: 1px solid var(--mkb-line);
-    border-radius: 10px;
-    padding: 21px;
-    background: var(--mkb-white);
-  }
-
-  .mkb-processing-number {
-    display: block;
-    margin-bottom: 18px;
-    color: var(--mkb-orange);
-    font-size: 0.68rem;
-    font-weight: 850;
-    letter-spacing: 0.12em;
-  }
-
-  .mkb-processing-card h3 {
-    margin: 0 0 7px;
-    color: var(--mkb-ink);
-    font-size: 1rem;
-  }
-
-  .mkb-processing-card p {
-    margin: 0;
-    color: var(--mkb-text);
-    font-size: 0.83rem;
-    line-height: 1.57;
-  }
-
-  /* Applications */
-
-  .mkb-application-grid {
-    display: grid;
-    gap: 12px;
-  }
-
-  .mkb-application-card {
-    border: 1px solid var(--mkb-line);
-    border-radius: 9px;
-    padding: 21px;
-    background: var(--mkb-white);
-  }
-
-  .mkb-application-card h3 {
-    margin: 0 0 7px;
-    color: var(--mkb-ink);
-    font-size: 1rem;
-  }
-
-  .mkb-application-card p {
-    margin: 0;
-    color: var(--mkb-text);
-    font-size: 0.84rem;
-    line-height: 1.55;
-  }
-
-  /* Gallery */
-
-  .mkb-gallery {
-    display: grid;
-    gap: 18px;
-  }
-
-  .mkb-gallery-card {
-    overflow: hidden;
-    border: 1px solid var(--mkb-line);
-    border-radius: var(--mkb-radius);
-    background: var(--mkb-white);
-  }
-
-  .mkb-gallery-card figure {
-    aspect-ratio: 1;
-    margin: 0;
-    padding: 14px;
-    background: var(--mkb-soft);
-  }
-
-  .mkb-gallery-card img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-  }
-
-  .mkb-gallery-copy {
-    padding: 18px 20px 20px;
-  }
-
-  .mkb-gallery-copy h3 {
-    margin: 0 0 6px;
-    color: var(--mkb-ink);
-    font-size: 1rem;
-  }
-
-  .mkb-gallery-copy p {
-    margin: 0;
-    color: var(--mkb-text);
-    font-size: 0.82rem;
-    line-height: 1.55;
-  }
-
-  /* SEO content */
-
-  .mkb-content-grid {
-    display: grid;
-    gap: 24px;
-  }
-
-  .mkb-content-copy p {
-    margin: 0 0 17px;
-    color: var(--mkb-text);
-    line-height: 1.72;
-  }
-
-  .mkb-content-copy a {
-    color: var(--mkb-ink);
-    font-weight: 720;
-    text-decoration-color: var(--mkb-orange);
-    text-underline-offset: 4px;
-  }
-
-  /* Related pages */
-
-  .mkb-related-grid {
-    display: grid;
-    gap: 14px;
+    transform: rotate(-45deg);
   }
 
   .mkb-related-card {
     display: block;
     border: 1px solid var(--mkb-line);
-    border-radius: 9px;
-    padding: 20px;
+    border-radius: 10px;
+    padding: 21px;
     color: var(--mkb-ink);
     background: var(--mkb-white);
     text-decoration: none;
@@ -536,8 +637,6 @@ bodyClass: "mkb-page"
     border-color: var(--mkb-orange);
   }
 
-  /* FAQ */
-
   .mkb-faq-grid {
     display: grid;
     gap: 30px;
@@ -556,7 +655,7 @@ bodyClass: "mkb-page"
     padding: 19px 38px 19px 0;
     color: var(--mkb-ink);
     font-size: 0.9rem;
-    font-weight: 730;
+    font-weight: 740;
     cursor: pointer;
     list-style: none;
   }
@@ -579,7 +678,7 @@ bodyClass: "mkb-page"
   }
 
   .mkb-faq-list p {
-    max-width: 720px;
+    max-width: 760px;
     margin: 0 0 20px;
     padding-right: 25px;
     color: var(--mkb-text);
@@ -587,152 +686,68 @@ bodyClass: "mkb-page"
     line-height: 1.62;
   }
 
-  /* Form */
-
-  .mkb-quote {
-    padding: 72px 0;
-    background: var(--mkb-soft);
+  .mkb-final {
+    padding: 56px 0;
+    color: var(--mkb-white);
+    background: #101e25;
   }
 
-  .mkb-quote-wrap {
-    max-width: 860px;
-    margin-inline: auto;
-  }
-
-  .mkb-quote-heading {
-    max-width: 690px;
-    margin: 0 auto 30px;
-    text-align: center;
-  }
-
-  .mkb-quote-heading p:last-child {
-    margin: 15px auto 0;
-    color: var(--mkb-text);
-    line-height: 1.65;
-  }
-
-  .mkb-form {
-    position: relative;
-    border: 1px solid var(--mkb-line);
-    border-radius: var(--mkb-radius);
-    padding: 20px;
-    background: var(--mkb-white);
-  }
-
-  .mkb-form-grid {
+  .mkb-final-inner {
     display: grid;
-    gap: 16px;
+    gap: 22px;
+    align-items: center;
   }
 
-  .mkb-field {
-    margin-bottom: 16px;
+  .mkb-final h2 {
+    max-width: 720px;
+    margin: 0 0 8px;
+    color: var(--mkb-white);
+    font-size: clamp(1.8rem, 5vw, 2.8rem);
   }
 
-  .mkb-field label {
-    display: block;
-    margin-bottom: 7px;
-    color: var(--mkb-ink);
-    font-size: 0.84rem;
-    font-weight: 730;
+  .mkb-final p {
+    max-width: 720px;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.7);
   }
 
-  .mkb-field input,
-  .mkb-field textarea {
+  /* Vergrote foto */
+
+  .mkb-gallery-dialog {
+    width: min(94vw, 940px);
+    max-height: 94vh;
+    border: 0;
+    border-radius: 14px;
+    padding: 0;
+    background: #101e25;
+    box-shadow: 0 30px 90px rgba(0, 0, 0, 0.4);
+  }
+
+  .mkb-gallery-dialog::backdrop {
+    background: rgba(8, 15, 19, 0.78);
+  }
+
+  .mkb-gallery-dialog img {
     width: 100%;
-    border: 1px solid #cbd3d5;
-    border-radius: 7px;
-    padding: 12px 13px;
-    color: var(--mkb-ink);
-    background: var(--mkb-white);
+    max-height: 88vh;
+    object-fit: contain;
   }
 
-  .mkb-field input {
-    min-height: 48px;
-  }
-
-  .mkb-field textarea {
-    min-height: 180px;
-    resize: vertical;
-  }
-
-  .mkb-field input:focus,
-  .mkb-field textarea:focus {
-    border-color: var(--mkb-orange);
-    outline: 3px solid rgba(230, 91, 40, 0.16);
-  }
-
-  .mkb-field-help,
-  .mkb-form-note {
-    margin: 7px 0 0;
-    color: var(--mkb-muted);
-    font-size: 0.75rem;
-    line-height: 1.5;
-  }
-
-  .mkb-checkbox {
+  .mkb-gallery-close {
+    position: absolute;
+    z-index: 2;
+    top: 12px;
+    right: 12px;
     display: grid;
-    grid-template-columns: 20px minmax(0, 1fr);
-    gap: 10px;
-    align-items: start;
-    margin: 2px 0 18px;
-    color: var(--mkb-text);
-    font-size: 0.79rem;
-    line-height: 1.5;
-  }
-
-  .mkb-checkbox input {
-    width: 18px;
-    height: 18px;
-    margin: 2px 0 0;
-    accent-color: var(--mkb-orange);
-  }
-
-  .mkb-checkbox a {
-    color: var(--mkb-ink);
-    font-weight: 700;
-  }
-
-  .mkb-form-status {
-    display: none;
-    margin-bottom: 14px;
-    border-radius: 7px;
-    padding: 11px 13px;
-    font-size: 0.84rem;
-  }
-
-  .mkb-form-status.is-error,
-  .mkb-form-status.is-success {
-    display: block;
-  }
-
-  .mkb-form-status.is-error {
-    color: #7b2525;
-    background: #fdecec;
-  }
-
-  .mkb-form-status.is-success {
-    color: #14583b;
-    background: #e6f6ee;
-  }
-
-  .mkb-form .mkb-btn {
-    width: 100%;
-  }
-
-  .mkb-form-note {
-    text-align: center;
-  }
-
-  .mkb-honeypot {
-    position: absolute !important;
-    width: 1px !important;
-    height: 1px !important;
-    margin: -1px !important;
-    padding: 0 !important;
-    overflow: hidden !important;
-    clip: rect(0 0 0 0) !important;
-    white-space: nowrap !important;
-    border: 0 !important;
+    width: 42px;
+    height: 42px;
+    place-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    border-radius: 50%;
+    color: var(--mkb-white);
+    background: rgba(20, 38, 46, 0.86);
+    font-size: 1.35rem;
+    cursor: pointer;
   }
 
   @media (min-width: 640px) {
@@ -740,1065 +755,544 @@ bodyClass: "mkb-page"
       width: min(calc(100% - 48px), var(--mkb-container));
     }
 
-    .mkb-hero-points {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-
-    .mkb-option-grid,
-    .mkb-processing-grid,
+    .mkb-form-row,
+    .mkb-card-grid,
+    .mkb-material-grid,
     .mkb-application-grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    .mkb-gallery,
     .mkb-related-grid {
       grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
-    .mkb-form-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+    .mkb-callout {
+      grid-template-columns: minmax(0, 1fr) auto;
+      padding: 24px;
     }
   }
 
-  @media (min-width: 900px) {
-    .mkb-hero {
-      padding: 48px 0 82px;
+  @media (min-width: 920px) {
+    .mkb-product {
+      padding: 52px 0 82px;
     }
 
-    .mkb-hero-grid {
-      grid-template-columns:
-        minmax(0, 1.08fr)
-        minmax(420px, 0.92fr);
-      gap: 76px;
+    .mkb-product-grid {
+      grid-template-columns: minmax(0, 1.04fr) minmax(440px, 0.96fr);
+      gap: 62px;
     }
 
-    .mkb-section,
-    .mkb-quote {
-      padding-block: 94px;
+    .mkb-product-gallery {
+      position: sticky;
+      top: calc(var(--header-height) + 24px);
+    }
+
+    .mkb-product-info {
+      order: 2;
+    }
+
+    .mkb-gallery-thumb {
+      flex-basis: auto;
+      width: auto;
+    }
+
+    .mkb-gallery-thumbs {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      overflow: visible;
+    }
+
+    .mkb-section {
+      padding-block: 92px;
     }
 
     .mkb-section-intro {
-      grid-template-columns:
-        minmax(0, 1fr)
-        minmax(330px, 0.72fr);
+      grid-template-columns: minmax(0, 1fr) minmax(330px, 0.72fr);
       gap: 60px;
       align-items: end;
-      margin-bottom: 42px;
+      margin-bottom: 40px;
     }
 
-    .mkb-split {
-      grid-template-columns:
-        minmax(400px, 0.85fr)
-        minmax(0, 1.15fr);
-      gap: 76px;
-    }
-
-    .mkb-option-grid {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-
-    .mkb-processing-grid {
+    .mkb-card-grid {
       grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .mkb-material-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
     .mkb-application-grid {
       grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
-    .mkb-material-row {
-      grid-template-columns:
-        minmax(150px, 0.55fr)
-        minmax(0, 1.4fr)
-        minmax(220px, 0.9fr);
-      gap: 26px;
-      align-items: start;
-      padding: 20px 24px;
+    .mkb-split {
+      grid-template-columns: minmax(400px, 0.88fr) minmax(0, 1.12fr);
+      gap: 76px;
     }
 
-    .mkb-material-row-head {
-      display: grid;
-      color: var(--mkb-white);
-      background: var(--mkb-ink);
-      font-size: 0.76rem;
+    .mkb-split-reverse .mkb-split-image {
+      order: 2;
     }
 
-    .mkb-material-row-head strong {
-      color: var(--mkb-white);
+    .mkb-split-reverse .mkb-copy {
+      order: 1;
     }
 
-    .mkb-material-footer {
-      grid-template-columns: minmax(0, 1fr) auto;
-      padding: 24px;
-    }
-
-    .mkb-content-grid,
     .mkb-faq-grid {
-      grid-template-columns:
-        minmax(0, 0.72fr)
-        minmax(0, 1.28fr);
+      grid-template-columns: minmax(0, 0.72fr) minmax(0, 1.28fr);
       gap: 80px;
     }
 
-    .mkb-form {
-      padding: 30px;
+    .mkb-final-inner {
+      grid-template-columns: minmax(0, 1fr) auto;
     }
   }
-/* Afbeeldingen volledig vierkant vullen zonder grijze rand */
 
-.mkb-hero-image,
-.mkb-square-image,
-.mkb-gallery-card figure {
-  overflow: hidden;
-  padding: 0;
-  border: 0;
-  border-radius: var(--mkb-radius);
-  background: transparent;
-}
-
-.mkb-hero-image img,
-.mkb-square-image img,
-.mkb-gallery-card img {
-  width: 100%;
-  height: 100%;
-  border-radius: 0;
-  object-fit: cover;
-  object-position: center;
-  transform: scale(1.02);
-}
+  @media (prefers-reduced-motion: reduce) {
+    .mkb-gallery-thumbs {
+      scroll-behavior: auto;
+    }
+  }
 </style>
 
-
-<section class="mkb-hero" aria-labelledby="mkb-hero-title">
-  <div class="mkb-container mkb-hero-grid">
-    <div class="mkb-hero-copy">
-      <p class="mkb-eyebrow">Kunststof blokken op maat</p>
-
-      <h1 id="mkb-hero-title">
-        Kunststof blokken op maat
-      </h1>
-
-      <p class="mkb-hero-lead">
-        Laat kunststof blokken maken in iedere gewenste lengte, breedte en
-        hoogte. Van één eenvoudig kunststof blok tot volledig bewerkte
-        blokken met gaten, sleuven, schroefdraad, uitsparingen of
-        nauwkeurig freeswerk.
+<section class="mkb-product" aria-labelledby="mkb-product-title">
+  <div class="mkb-container mkb-product-grid">
+    <div class="mkb-product-info">
+      <p class="mkb-eyebrow">Maatwerk kunststof blokken</p>
+      <h1 id="mkb-product-title">Kunststof blokken op maat</h1>
+      <p class="mkb-product-lead">
+        Kunststof blokken volgens uw maatvoering, in het materiaal en de
+        uitvoering die bij uw toepassing passen. Van één eenvoudig zaagdeel
+        tot een complete serie met gaten, sleuven of nauwkeurig freeswerk.
       </p>
 
-      <div class="mkb-hero-actions">
-        <a
-          class="mkb-btn"
-          href="#offerte"
-          data-analytics="quote_cta"
-          data-location="blocks_hero"
-        >
-          Vraag een offerte aan
-        </a>
+      <form
+        class="mkb-form"
+        id="offerte"
+        action="/api/offerte"
+        method="post"
+        enctype="multipart/form-data"
+        data-quote-form
+      >
+        <div class="mkb-form-head">
+          <strong>Vraag vrijblijvend een offerte aan</strong>
+        </div>
 
-        {% if site.whatsapp %}
+        <input type="hidden" name="pagina" value="{{ page.url }}">
+        <input type="hidden" name="product" value="Kunststof blokken op maat">
+        <input type="hidden" name="form_started_at" value="" data-form-started>
+        <input type="hidden" name="utm_source" value="">
+        <input type="hidden" name="utm_medium" value="">
+        <input type="hidden" name="utm_campaign" value="">
+        <input type="hidden" name="utm_term" value="">
+        <input type="hidden" name="utm_content" value="">
+        <input type="hidden" name="gclid" value="">
+        <input type="hidden" name="gbraid" value="">
+        <input type="hidden" name="wbraid" value="">
+
+        <div class="mkb-honeypot" aria-hidden="true">
+          <label for="website">Website</label>
+          <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
+        </div>
+
+        <div class="mkb-form-row">
+          <div class="mkb-field">
+            <label class="mkb-visually-hidden" for="naam">Naam</label>
+            <input id="naam" name="naam" type="text" autocomplete="name" required maxlength="100" placeholder="Naam">
+          </div>
+
+          <div class="mkb-field">
+            <label class="mkb-visually-hidden" for="email">E-mailadres</label>
+            <input id="email" name="email" type="email" autocomplete="email" inputmode="email" required maxlength="160" placeholder="E-mailadres">
+          </div>
+        </div>
+
+        <div class="mkb-field">
+          <label class="mkb-visually-hidden" for="telefoon">Telefoonnummer</label>
+          <input id="telefoon" name="telefoon" type="tel" autocomplete="tel" inputmode="tel" maxlength="40" placeholder="Telefoonnummer">
+        </div>
+
+        <div class="mkb-field">
+          <label class="mkb-visually-hidden" for="specificaties">Bericht</label>
+          <textarea
+            id="specificaties"
+            name="specificaties"
+            rows="5"
+            required
+            maxlength="4000"
+            placeholder="Bericht"
+          ></textarea>
+        </div>
+
+        <div class="mkb-field">
+          <label class="mkb-file-label" for="bestanden">
+            Foto, schets of tekening toevoegen
+            <input
+              id="bestanden"
+              name="bestanden"
+              type="file"
+              multiple
+              accept=".pdf,.png,.jpg,.jpeg,.webp,.heic,.dxf,.dwg,.step,.stp"
+            >
+          </label>
+          <p class="mkb-field-help">Optioneel. Maximaal 3 bestanden, samen maximaal 8 MB.</p>
+        </div>
+
+        <div class="form-status" role="status" aria-live="polite" data-form-status></div>
+
+        <button class="mkb-btn mkb-btn-green" type="submit" data-submit-button>
+          Offerteaanvraag versturen
+        </button>
+        <p class="mkb-form-note">Vrijblijvend en zonder aankoopverplichting.</p>
+
+        {% if site.trustmark and site.trustmark.image %}
+          <div class="mkb-form-trust">
+            <img src="{{ site.trustmark.image }}" alt="{{ site.trustmark.alt or 'Webshopkeurmerk' }}" width="92" height="30">
+            <span>{{ site.trustmark.label or 'Veilig en vertrouwd aanvragen' }}</span>
+          </div>
+        {% endif %}
+      </form>
+
+      <ul class="mkb-form-usps" aria-label="Voordelen van MaatwerkKunststof.nl">
+        <li>
+          <svg viewBox="0 0 20 20" focusable="false" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M19.358 2.981c.788.702.86 1.912.163 2.704L9.68 16.855a1.9 1.9 0 0 1-2.773.084l-6.35-6.383a1.92 1.92 0 0 1 0-2.708 1.9 1.9 0 0 1 2.695 0l5.081 5.043 8.336-9.746a1.9 1.9 0 0 1 2.69-.164Z" fill="currentColor"></path></svg>
+          Snel geleverd
+        </li>
+        <li>
+          <svg viewBox="0 0 20 20" focusable="false" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M19.358 2.981c.788.702.86 1.912.163 2.704L9.68 16.855a1.9 1.9 0 0 1-2.773.084l-6.35-6.383a1.92 1.92 0 0 1 0-2.708 1.9 1.9 0 0 1 2.695 0l5.081 5.043 8.336-9.746a1.9 1.9 0 0 1 2.69-.164Z" fill="currentColor"></path></svg>
+          Scherpe prijzen
+        </li>
+        <li>
+          <svg viewBox="0 0 20 20" focusable="false" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M19.358 2.981c.788.702.86 1.912.163 2.704L9.68 16.855a1.9 1.9 0 0 1-2.773.084l-6.35-6.383a1.92 1.92 0 0 1 0-2.708 1.9 1.9 0 0 1 2.695 0l5.081 5.043 8.336-9.746a1.9 1.9 0 0 1 2.69-.164Z" fill="currentColor"></path></svg>
+          Klantgericht advies
+        </li>
+        <li>
+          <svg viewBox="0 0 20 20" focusable="false" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M19.358 2.981c.788.702.86 1.912.163 2.704L9.68 16.855a1.9 1.9 0 0 1-2.773.084l-6.35-6.383a1.92 1.92 0 0 1 0-2.708 1.9 1.9 0 0 1 2.695 0l5.081 5.043 8.336-9.746a1.9 1.9 0 0 1 2.69-.164Z" fill="currentColor"></path></svg>
+          Specialist in maatwerk
+        </li>
+      </ul>
+
+      {% if site.whatsapp %}
+        <div class="mkb-form-contact">
+          <span>Liever eerst kort overleggen?</span>
           <a
             class="mkb-btn mkb-btn-whatsapp"
-            href="https://wa.me/{{ site.whatsapp }}?text=Hallo%2C%20ik%20wil%20graag%20kunststof%20blokken%20op%20maat%20laten%20maken."
+            href="https://wa.me/{{ site.whatsapp }}?text=Hallo%2C%20ik%20heb%20een%20vraag%20over%20kunststof%20blokken%20op%20maat."
             target="_blank"
             rel="noopener"
             data-analytics="whatsapp_click"
-            data-location="blocks_hero"
+            data-location="blocks_form"
           >
-            WhatsApp
+            <svg class="mkb-whatsapp-icon" viewBox="0 0 24 24" focusable="false" aria-hidden="true"><path d="M16.75 13.96c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.16.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-2-1.24-.74-.66-1.24-1.47-1.38-1.72-.15-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.16.04-.31-.02-.43-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.23.25-.87.85-.87 2.07s.89 2.4 1.01 2.57c.13.17 1.75 2.67 4.24 3.75.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.11-.23-.17-.48-.29M12.05 21.5H12c-1.79 0-3.54-.5-5.04-1.43L2 21.5l1.45-4.84A9.8 9.8 0 0 1 1.9 11.5C1.9 5.98 6.4 1.5 11.95 1.5c2.64 0 5.13 1.03 7 2.88a9.78 9.78 0 0 1 2.9 6.97c0 5.52-4.5 10-9.8 10.15"></path></svg>
+            WhatsApp ons
           </a>
-        {% endif %}
+        </div>
+      {% endif %}
+    </div>
+
+    <div class="mkb-product-gallery" data-product-gallery tabindex="0" aria-label="Fotogalerij van kunststof blokken">
+      <figure class="mkb-gallery-stage">
+        <button class="mkb-gallery-open" type="button" data-gallery-open aria-label="Vergroot geselecteerde foto">
+          <img
+            class="mkb-gallery-main"
+            src="/assets/images/kunststof-blokken.webp"
+            width="1600"
+            height="1600"
+            alt="Massieve kunststof blokken op maat in verschillende afmetingen"
+            fetchpriority="high"
+            data-gallery-main
+          >
+        </button>
+        <button class="mkb-gallery-control mkb-gallery-prev" type="button" data-gallery-prev aria-label="Vorige foto">‹</button>
+        <button class="mkb-gallery-control mkb-gallery-next" type="button" data-gallery-next aria-label="Volgende foto">›</button>
+      </figure>
+
+      <div class="mkb-gallery-thumbs" aria-label="Kies een foto">
+        <button
+          class="mkb-gallery-thumb"
+          type="button"
+          aria-pressed="true"
+          aria-label="Bekijk massieve kunststof blokken"
+          data-gallery-thumb
+          data-src="/assets/images/kunststof-blokken.webp"
+          data-alt="Massieve kunststof blokken op maat in verschillende afmetingen"
+        >
+          <img src="/assets/images/thumb-kunststof-blokken.jpg" width="240" height="240" alt="" aria-hidden="true">
+        </button>
+
+        <button
+          class="mkb-gallery-thumb"
+          type="button"
+          aria-pressed="false"
+          aria-label="Bekijk kunststof blokken met maatcontrole"
+          data-gallery-thumb
+          data-src="/assets/images/kunststof-blokken-meetlint.webp"
+          data-alt="Kunststof blokken gecontroleerd met een meetlint voor exacte maatvoering"
+        >
+          <img src="/assets/images/thumb-kunststof-blokken-meetlint.jpg" width="240" height="240" loading="lazy" alt="" aria-hidden="true">
+        </button>
+
+        <button
+          class="mkb-gallery-thumb"
+          type="button"
+          aria-pressed="false"
+          aria-label="Bekijk bewerkt kunststof blok met gaten"
+          data-gallery-thumb
+          data-src="/assets/images/kunststof-blok-met-gaten.webp"
+          data-alt="Bewerkt kunststof blok met twee nauwkeurige boorgaten"
+        >
+          <img src="/assets/images/thumb-kunststof-blok-met-gaten.jpg" width="240" height="240" loading="lazy" alt="" aria-hidden="true">
+        </button>
+
+        <button
+          class="mkb-gallery-thumb"
+          type="button"
+          aria-pressed="false"
+          aria-label="Bekijk een serie kunststof blokken"
+          data-gallery-thumb
+          data-src="/assets/images/bak-kunststof-blokken.webp"
+          data-alt="Serie kunststof maatwerkblokken met gelijke afmetingen"
+        >
+          <img src="/assets/images/thumb-bak-kunststof-blokken.jpg" width="240" height="240" loading="lazy" alt="" aria-hidden="true">
+        </button>
+
+        <button
+          class="mkb-gallery-thumb"
+          type="button"
+          aria-pressed="false"
+          aria-label="Bekijk kunststof blokken in verschillende formaten"
+          data-gallery-thumb
+          data-src="/assets/images/kunststof-blokken-andere-hoek.webp"
+          data-alt="Kunststof blokken in verschillende formaten en diktes"
+        >
+          <img src="/assets/images/thumb-kunststof-blokken-andere-hoek.jpg" width="240" height="240" loading="lazy" alt="" aria-hidden="true">
+        </button>
       </div>
-
-      <ul class="mkb-hero-points">
-        <li>Iedere gewenste afmeting</li>
-        <li>Vrijwel iedere kunststofsoort</li>
-        <li>Enkelstuks en grotere series</li>
-      </ul>
-    </div>
-
-    <figure class="mkb-hero-image">
-      <img
-        src="/assets/images/kunststof-blokken.webp"
-        width="900"
-        height="900"
-        alt="Massieve kunststof blokken op maat in verschillende afmetingen"
-        fetchpriority="high"
-      >
-    </figure>
-  </div>
-</section>
-
-<section
-  class="mkb-section mkb-section-soft"
-  aria-labelledby="mkb-exact-title"
->
-  <div class="mkb-container mkb-split">
-    <figure class="mkb-square-image">
-      <img
-        src="/assets/images/kunststof-blokken-meetlint.webp"
-        width="800"
-        height="800"
-        loading="lazy"
-        alt="Kunststof blokken gecontroleerd met een meetlint voor exacte maatvoering"
-      >
-    </figure>
-
-    <div class="mkb-split-copy">
-      <p class="mkb-eyebrow">Exact volgens uw maatvoering</p>
-
-      <h2 class="mkb-heading" id="mkb-exact-title">
-        Kunststof blokken exact op maat
-      </h2>
-
-      <p>
-        Een kunststof blok kan worden geleverd als eenvoudig gezaagd
-        halffabricaat of als compleet eindproduct. U geeft de gewenste
-        lengte, breedte en hoogte door. Wanneer nauwkeurige passing belangrijk
-        is, kunt u ook toleranties en referentiematen vermelden.
-      </p>
-
-      <p>
-        Voor eenvoudige kunststof blokjes is een omschrijving met maten vaak
-        voldoende. Bij complexere blokken kunt u een foto, schets, bestaand
-        voorbeeld, DXF-bestand, STEP-bestand of technische tekening
-        meesturen.
-      </p>
-
-      <ul class="mkb-checks">
-        <li>Lengte, breedte en hoogte naar keuze</li>
-        <li>Op de millimeter gezaagd</li>
-        <li>Nauwkeurige toleranties op aanvraag</li>
-        <li>Rechte, ronde en afwijkende vormen</li>
-        <li>Iedere gewenste kleur en uitvoering</li>
-        <li>Van prototype tot terugkerende serie</li>
-      </ul>
+      <dialog class="mkb-gallery-dialog" data-gallery-dialog aria-label="Vergrote productfoto">
+        <button class="mkb-gallery-close" type="button" data-gallery-close aria-label="Vergrote foto sluiten">×</button>
+        <img src="/assets/images/kunststof-blokken.webp" width="1600" height="1600" alt="" data-gallery-dialog-image>
+      </dialog>
     </div>
   </div>
 </section>
 
-<section class="mkb-section" aria-labelledby="mkb-options-title">
+<section class="mkb-section" aria-labelledby="mkb-choices-title">
   <div class="mkb-container">
     <div class="mkb-section-intro">
       <div>
         <p class="mkb-eyebrow">Afmetingen en uitvoering</p>
-
-        <h2 class="mkb-heading" id="mkb-options-title">
-          Van eenvoudig kunststof blok tot technisch maatwerk
-        </h2>
+        <h2 class="mkb-heading" id="mkb-choices-title">Kunststof blokken volledig op maat gemaakt</h2>
       </div>
-
       <p>
-        Kunststof blokken kunnen volledig worden afgestemd op de toepassing.
-        Geef bij uw aanvraag door wat u al weet. Ontbrekende details kunnen
-        later worden afgestemd.
+        Geef door wat u al weet. Voor een eenvoudig kunststof blok zijn lengte,
+        breedte en hoogte vaak genoeg. Bij technisch maatwerk denken we mee over
+        materiaal, toleranties en de beste productiemethode.
       </p>
     </div>
 
-    <div class="mkb-option-grid">
-      <article class="mkb-option-card">
-        <h3>Afmetingen</h3>
-        <p>
-          Geef lengte, breedte, hoogte, diameter of andere relevante
-          maatvoering door. Ook kleine kunststof blokjes en grote massieve
-          blokken zijn mogelijk.
-        </p>
+    <div class="mkb-card-grid">
+      <article class="mkb-card">
+        <h3>Exacte afmetingen</h3>
+        <p>Rechthoekig, rond of met een afwijkende contour. Toleranties en passingmaten zijn op aanvraag mogelijk.</p>
       </article>
-
-      <article class="mkb-option-card">
-        <h3>Kunststofsoort</h3>
-        <p>
-          Kies zelf het materiaal of beschrijf de belasting, temperatuur,
-          slijtage, chemicaliën en andere omstandigheden van de toepassing.
-        </p>
+      <article class="mkb-card">
+        <h3>Materiaaladvies</h3>
+        <p>We kijken naar belasting, slijtage, temperatuur, vocht, chemicaliën en contact met voedingsmiddelen.</p>
       </article>
-
-      <article class="mkb-option-card">
-        <h3>Kleur</h3>
-        <p>
-          Veel kunststoffen zijn verkrijgbaar in zwart, wit, naturel en
-          verschillende andere standaard- of speciale kleuren.
-        </p>
+      <article class="mkb-card">
+        <h3>Kleuren en uitvoering</h3>
+        <p>Afhankelijk van het materiaal leverbaar in naturel, wit, zwart en uiteenlopende andere kleuren.</p>
       </article>
-
-      <article class="mkb-option-card">
-        <h3>Gaten en schroefdraad</h3>
-        <p>
-          Laat doorgaande gaten, blinde gaten, verzinkingen, boringen,
-          draadgaten en complete boorpatronen aanbrengen.
-        </p>
-      </article>
-
-      <article class="mkb-option-card">
-        <h3>Uitsparingen en contouren</h3>
-        <p>
-          Ook sleuven, kamers, sponningen, afrondingen, schuine kanten en
-          afwijkende buitencontouren zijn mogelijk.
-        </p>
-      </article>
-
-      <article class="mkb-option-card">
-        <h3>Enkelstuks en series</h3>
-        <p>
-          Bestel één hard kunststof blok, een kleine serie plastic blokken
-          of grotere aantallen met dezelfde maatvoering en bewerkingen.
-        </p>
+      <article class="mkb-card">
+        <h3>Snelle levering</h3>
+        <p>De levertijd hangt af van materiaal, bewerking en aantal. In de offerte geven we een passende indicatie.</p>
       </article>
     </div>
   </div>
 </section>
 
-<section
-  class="mkb-section mkb-section-soft"
-  aria-labelledby="mkb-materials-title"
->
+<section class="mkb-section mkb-section-soft" aria-labelledby="mkb-material-title">
   <div class="mkb-container">
     <div class="mkb-section-intro">
       <div>
-        <p class="mkb-eyebrow">Verschillende kunststofsoorten</p>
-
-        <h2 class="mkb-heading" id="mkb-materials-title">
-          Kunststof blokken in vrijwel ieder materiaal
-        </h2>
+        <p class="mkb-eyebrow">Materiaalkeuze</p>
+        <h2 class="mkb-heading" id="mkb-material-title">Kunststof blokken in het juiste materiaal</h2>
       </div>
-
       <p>
-        De beste kunststofsoort hangt af van de functie van het blok.
-        Hieronder staan veelgebruikte materialen voor kunststof blokken,
-        inclusief relevante eigenschappen en bewerkingen.
+        De beste kunststofsoort hangt af van wat het blok moet doen. Voor een
+        maatvast machineonderdeel gelden andere eisen dan voor een glijblok,
+        stootblok of onderdeel dat met chemicaliën in contact komt.
       </p>
     </div>
 
-    <div class="mkb-material-table">
-      <div class="mkb-material-row mkb-material-row-head" aria-hidden="true">
-        <strong>Materiaal</strong>
-        <strong>Eigenschappen en toepassingen</strong>
-        <strong>Relevante bewerkingen</strong>
-      </div>
-
-      <article class="mkb-material-row">
-        <div class="mkb-material-name">
-          <strong>HDPE blokken</strong>
-          <span>PE-HD</span>
-        </div>
-
-        <p>
-          Slagvast, vochtbestendig en goed bestand tegen veel chemicaliën.
-          Geschikt voor afstandsblokken, oplegblokken, beschermdelen,
-          constructiedelen en algemeen industrieel maatwerk.
-        </p>
-
-        <p class="mkb-material-processing">
-          Zagen, frezen, draaien, boren, lassen en contourbewerking.
-        </p>
+    <div class="mkb-material-grid">
+      <article class="mkb-material-card">
+        <h3>HDPE en HMPE blokken</h3>
+        <p>Slagvast, vochtbestendig en geschikt voor glij-, stoot-, opleg- en afstandsblokken. HMPE is extra slijtvast.</p>
+        <strong>Zagen · frezen · boren · lassen</strong>
       </article>
-
-      <article class="mkb-material-row">
-        <div class="mkb-material-name">
-          <strong>HMPE en UHMWPE</strong>
-          <span>Zeer slijtvast PE</span>
-        </div>
-
-        <p>
-          Slijtvast, slagvast en voorzien van een lage wrijvingsweerstand.
-          Veel toegepast voor glijblokken, kettinggeleiders, slijtstukken,
-          stootblokken en zwaarbelaste onderdelen.
-        </p>
-
-        <p class="mkb-material-processing">
-          Zagen, CNC-frezen, draaien, boren, verzinken en gatenpatronen.
-        </p>
+      <article class="mkb-material-card">
+        <h3>POM blokken</h3>
+        <p>Sterk en maatvast voor nauwkeurige machineonderdelen, lagerblokken en technische componenten.</p>
+        <strong>Precisiefrezen · draaien · tappen</strong>
       </article>
-
-      <article class="mkb-material-row">
-        <div class="mkb-material-name">
-          <strong>POM blokken</strong>
-          <span>Acetaal</span>
-        </div>
-
-        <p>
-          Sterk, maatvast en geschikt voor nauwkeurige technische
-          onderdelen. Een goede keuze voor lagerblokken, positioneerblokken,
-          machineonderdelen en nauwkeurig gefreesde componenten.
-        </p>
-
-        <p class="mkb-material-processing">
-          Precisiefrezen, draaien, boren, tappen, ruimen en graveren.
-        </p>
+      <article class="mkb-material-card">
+        <h3>PA en PETP</h3>
+        <p>Technische kunststoffen voor mechanisch belaste delen, geleidingen, bussen en slijtvaste toepassingen.</p>
+        <strong>Frezen · draaien · contourbewerking</strong>
       </article>
-
-      <article class="mkb-material-row">
-        <div class="mkb-material-name">
-          <strong>PA blokken</strong>
-          <span>Nylon</span>
-        </div>
-
-        <p>
-          Sterke en slijtvaste technische kunststof met goede mechanische
-          eigenschappen. Geschikt voor glijblokken, rollen, lagerdelen,
-          afstandsstukken en constructieve onderdelen.
-        </p>
-
-        <p class="mkb-material-processing">
-          Frezen, draaien, boren, tappen, zagen en contourbewerking.
-        </p>
+      <article class="mkb-material-card">
+        <h3>PVC en PP blokken</h3>
+        <p>Chemisch bestendige maatdelen voor apparatenbouw, installaties en vochtige of veeleisende omgevingen.</p>
+        <strong>Zagen · frezen · lassen · lijmen</strong>
       </article>
-
-      <article class="mkb-material-row">
-        <div class="mkb-material-name">
-          <strong>PVC blokken</strong>
-          <span>Hard PVC</span>
-        </div>
-
-        <p>
-          Chemisch bestendig en breed toepasbaar voor apparatenbouw,
-          laboratoriumtoepassingen, elektrische isolatie en technische
-          constructies. Leverbaar in verschillende kleuren.
-        </p>
-
-        <p class="mkb-material-processing">
-          Zagen, frezen, boren, lassen, lijmen, tappen en graveren.
-        </p>
+      <article class="mkb-material-card">
+        <h3>PTFE blokken</h3>
+        <p>Zeer lage wrijving en goede bestendigheid tegen hoge temperaturen en veel chemicaliën.</p>
+        <strong>Draaien · frezen · nauwkeurig boren</strong>
       </article>
-
-      <article class="mkb-material-row">
-        <div class="mkb-material-name">
-          <strong>PP blokken</strong>
-          <span>Polypropyleen</span>
-        </div>
-
-        <p>
-          Licht, taai en goed bestand tegen vocht en chemicaliën. Geschikt
-          voor apparatenbouw, tankbouw, voedselgerelateerde toepassingen
-          en chemische omgevingen.
-        </p>
-
-        <p class="mkb-material-processing">
-          Zagen, frezen, draaien, boren, lassen en samenstellen.
-        </p>
-      </article>
-
-      <article class="mkb-material-row">
-        <div class="mkb-material-name">
-          <strong>PTFE blokken</strong>
-          <span>Teflon</span>
-        </div>
-
-        <p>
-          Zeer lage wrijving en uitstekende bestendigheid tegen
-          temperaturen en chemicaliën. Geschikt voor glijdelen,
-          isolatieblokken, afdichtingsdelen en specialistische onderdelen.
-        </p>
-
-        <p class="mkb-material-processing">
-          Draaien, frezen, boren, snijden en nauwkeurige contourbewerking.
-        </p>
-      </article>
-
-      <article class="mkb-material-row">
-        <div class="mkb-material-name">
-          <strong>PETP blokken</strong>
-          <span>Technisch polyester</span>
-        </div>
-
-        <p>
-          Maatvast, sterk en weinig vochtopnemend. Geschikt voor
-          precisieonderdelen, geleidingen, bussen, machineblokken en
-          mechanisch belaste componenten.
-        </p>
-
-        <p class="mkb-material-processing">
-          Frezen, draaien, boren, tappen en precisiebewerking.
-        </p>
-      </article>
-
-      <article class="mkb-material-row">
-        <div class="mkb-material-name">
-          <strong>PEEK blokken</strong>
-          <span>High-performance kunststof</span>
-        </div>
-
-        <p>
-          Zeer sterk en bestand tegen hoge temperaturen, slijtage en
-          chemicaliën. Geschikt voor zwaarbelaste precisieonderdelen en
-          specialistisch technisch maatwerk.
-        </p>
-
-        <p class="mkb-material-processing">
-          CNC-frezen, draaien, boren, tappen en zeer nauwkeurige bewerking.
-        </p>
-      </article>
-
-      <article class="mkb-material-row">
-        <div class="mkb-material-name">
-          <strong>PVDF blokken</strong>
-          <span>Chemisch bestendig</span>
-        </div>
-
-        <p>
-          Hoogwaardige kunststof voor chemisch en thermisch veeleisende
-          toepassingen. Veel gebruikt in procesindustrie, installaties en
-          apparatenbouw.
-        </p>
-
-        <p class="mkb-material-processing">
-          Zagen, frezen, draaien, boren, lassen en precisiebewerking.
-        </p>
-      </article>
-
-      <article class="mkb-material-row">
-        <div class="mkb-material-name">
-          <strong>Polycarbonaat</strong>
-          <span>PC</span>
-        </div>
-
-        <p>
-          Zeer slagvast en leverbaar in transparante of gekleurde
-          uitvoeringen. Geschikt voor stootblokken, beschermdelen en
-          technische componenten.
-        </p>
-
-        <p class="mkb-material-processing">
-          Zagen, frezen, boren, polijsten, tappen en contourbewerking.
-        </p>
-      </article>
-
-      <article class="mkb-material-row">
-        <div class="mkb-material-name">
-          <strong>Acrylaat</strong>
-          <span>PMMA</span>
-        </div>
-
-        <p>
-          Heldere kunststof met een verzorgde uitstraling. Geschikt voor
-          transparante blokken, displays, zichtwerk en decoratief of
-          technisch maatwerk.
-        </p>
-
-        <p class="mkb-material-processing">
-          Zagen, frezen, boren, polijsten, lijmen en graveren.
-        </p>
-      </article>
-
-      <article class="mkb-material-row">
-        <div class="mkb-material-name">
-          <strong>ABS blokken</strong>
-          <span>Slagvaste kunststof</span>
-        </div>
-
-        <p>
-          Stevig, licht en goed bewerkbaar. Geschikt voor prototypes,
-          behuizingen, beschermdelen en technisch maatwerk met een nette
-          afwerking.
-        </p>
-
-        <p class="mkb-material-processing">
-          Zagen, frezen, boren, lijmen, graveren en contourbewerking.
-        </p>
-      </article>
-
-      <article class="mkb-material-row">
-        <div class="mkb-material-name">
-          <strong>PU blokken</strong>
-          <span>Polyurethaan</span>
-        </div>
-
-        <p>
-          Elastisch en zeer slijtvast. Geschikt voor stootblokken, buffers,
-          schrapers, dempingsblokken en onderdelen die trillingen of
-          schokken moeten opvangen.
-        </p>
-
-        <p class="mkb-material-processing">
-          Snijden, waterstraalsnijden, frezen, draaien en maatwerk gieten.
-        </p>
+      <article class="mkb-material-card">
+        <h3>Speciale kunststoffen</h3>
+        <p>Onder meer PEEK, PVDF, polycarbonaat, acrylaat, ABS, PU en gemodificeerde kwaliteiten op aanvraag.</p>
+        <strong>Ook voedselveilig · antistatisch · gevuld</strong>
       </article>
     </div>
 
-    <div class="mkb-material-footer">
+    <div class="mkb-callout">
       <div>
-        <strong>Een andere kunststofsoort nodig?</strong>
-        <p>
-          Ook glasvezelgevulde, antistatische, voedselveilige,
-          hittebestendige, detecteerbare en andere gemodificeerde
-          kunststoffen kunnen worden aangevraagd.
-        </p>
+        <strong>Weet u nog niet welk materiaal geschikt is?</strong>
+        <p>Beschrijf waarvoor het blok wordt gebruikt. Dan kunnen we gericht meedenken over een passende kunststofsoort.</p>
       </div>
-
-      <a class="mkb-btn" href="#offerte">
-        Vraag uw materiaal aan
-      </a>
+      <div class="mkb-actions">
+        <a class="mkb-btn" href="#offerte" data-analytics="quote_cta" data-location="blocks_materials">Vraag materiaaladvies</a>
+        {% if site.whatsapp %}
+          <a
+            class="mkb-btn mkb-btn-whatsapp"
+            href="https://wa.me/{{ site.whatsapp }}?text=Hallo%2C%20ik%20wil%20graag%20advies%20over%20het%20materiaal%20voor%20kunststof%20blokken."
+            target="_blank"
+            rel="noopener"
+            data-analytics="whatsapp_click"
+            data-location="blocks_materials"
+          >WhatsApp</a>
+        {% endif %}
+      </div>
     </div>
   </div>
 </section>
 
-<section class="mkb-section" aria-labelledby="mkb-holes-title">
+<section class="mkb-section" aria-labelledby="mkb-processing-title">
   <div class="mkb-container mkb-split">
-    <figure class="mkb-square-image">
+    <figure class="mkb-split-image">
       <img
         src="/assets/images/kunststof-blok-met-gaten.webp"
-        width="800"
-        height="800"
+        width="1536"
+        height="1536"
         loading="lazy"
-        alt="Voorbeeld van bewerkt kunststof met twee nauwkeurige boorgaten"
+        alt="Kunststof blok met nauwkeurig aangebrachte boorgaten"
       >
     </figure>
 
-    <div class="mkb-split-copy">
-      <p class="mkb-eyebrow">Gaten, sleuven en schroefdraad</p>
-
-      <h2 class="mkb-heading" id="mkb-holes-title">
-        Kunststof blokken met boorgaten
-      </h2>
-
-      <p>
-        Kunststof blokken kunnen worden voorzien van vrijwel ieder gewenst
-        boorpatroon. Denk aan doorgaande gaten, blinde boringen,
-        verzinkingen, passinggaten, draadgaten en gaten voor montagebouten.
-      </p>
-
-      <p>
-        Geef de diameter, positie en diepte van de gaten door of lever een
-        technische tekening aan. Ook sleuven, kamers, uitsparingen,
-        sponningen en combinaties van meerdere bewerkingen zijn mogelijk.
-      </p>
-
-      <ul class="mkb-checks">
-        <li>Doorgaande en blinde gaten</li>
-        <li>Verzinkingen en boringen</li>
-        <li>Binnen- en buitenschroefdraad</li>
-        <li>Passinggaten en maatvaste boorpatronen</li>
-        <li>Sleuven, kamers en uitsparingen</li>
-        <li>Afwerking volgens technische tekening</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<section
-  class="mkb-section mkb-section-soft"
-  aria-labelledby="mkb-processing-title"
->
-  <div class="mkb-container">
-    <div class="mkb-section-intro">
+    <div class="mkb-copy">
       <div>
         <p class="mkb-eyebrow">Bewerkingen</p>
-
-        <h2 class="mkb-heading" id="mkb-processing-title">
-          Zagen, frezen en andere bewerkingen
-        </h2>
+        <h2 class="mkb-heading" id="mkb-processing-title">Gaten, sleuven, schroefdraad en freeswerk</h2>
       </div>
-
       <p>
-        U kunt kunststof blokken als eenvoudig zaagdeel bestellen of
-        volledig laten bewerken tot een direct bruikbaar onderdeel.
+        Naast recht op maat zagen kunnen we kunststof blokken verder bewerken
+        tot een direct bruikbaar onderdeel. Denk aan doorgaande of blinde gaten,
+        verzinkingen, draadgaten, pockets, sponningen en afwijkende contouren.
       </p>
-    </div>
-
-    <div class="mkb-processing-grid">
-      <article class="mkb-processing-card">
-        <span class="mkb-processing-number">01</span>
-        <h3>Zagen</h3>
-        <p>
-          Rechte kunststof blokken in de gewenste lengte, breedte en hoogte.
-        </p>
-      </article>
-
-      <article class="mkb-processing-card">
-        <span class="mkb-processing-number">02</span>
-        <h3>CNC-frezen</h3>
-        <p>
-          Contouren, kamers, sleuven, pockets, sponningen en maatvaste
-          vlakken.
-        </p>
-      </article>
-
-      <article class="mkb-processing-card">
-        <span class="mkb-processing-number">03</span>
-        <h3>Draaien</h3>
-        <p>
-          Ronde blokken, bussen, assen, schijven en cilindrische onderdelen.
-        </p>
-      </article>
-
-      <article class="mkb-processing-card">
-        <span class="mkb-processing-number">04</span>
-        <h3>Boren</h3>
-        <p>
-          Doorgaande gaten, blinde gaten, passinggaten en complete
-          boorpatronen.
-        </p>
-      </article>
-
-      <article class="mkb-processing-card">
-        <span class="mkb-processing-number">05</span>
-        <h3>Tappen</h3>
-        <p>
-          Schroefdraad aanbrengen voor bouten, montagepunten en technische
-          verbindingen.
-        </p>
-      </article>
-
-      <article class="mkb-processing-card">
-        <span class="mkb-processing-number">06</span>
-        <h3>Verzinken</h3>
-        <p>
-          Verzonken montagegaten voor een vlakke of nette afwerking.
-        </p>
-      </article>
-
-      <article class="mkb-processing-card">
-        <span class="mkb-processing-number">07</span>
-        <h3>Graveren</h3>
-        <p>
-          Onderdeelnummers, maatvoering, tekst, logo’s en identificatie.
-        </p>
-      </article>
-
-      <article class="mkb-processing-card">
-        <span class="mkb-processing-number">08</span>
-        <h3>Samenstellen</h3>
-        <p>
-          Meerdere kunststof delen combineren, lassen, lijmen of monteren.
-        </p>
-      </article>
-    </div>
-  </div>
-</section>
-
-<section class="mkb-section" aria-labelledby="mkb-series-title">
-  <div class="mkb-container mkb-split">
-    <figure class="mkb-square-image">
-      <img
-        src="/assets/images/bak-kunststof-blokken.webp"
-        width="800"
-        height="800"
-        loading="lazy"
-        alt="Serie kunststof maatwerkonderdelen geproduceerd op gelijke afmetingen"
-      >
-    </figure>
-
-    <div class="mkb-split-copy">
-      <p class="mkb-eyebrow">Enkelstuks en productieseries</p>
-
-      <h2 class="mkb-heading" id="mkb-series-title">
-        Van enkel blok tot grotere series
-      </h2>
-
       <p>
-        Heeft u één kunststof blok nodig voor een reparatie of prototype?
-        Ook kleine aanvragen zijn mogelijk. Bij terugkerend gebruik kunnen
-        kunststof blokken in kleine of grotere series worden geproduceerd.
+        Voor eenvoudige bewerkingen volstaat vaak een schets met maatvoering.
+        Complexere onderdelen kunnen worden gemaakt op basis van een PDF-, DXF-
+        of STEP-bestand.
       </p>
-
-      <p>
-        Bij serieproductie kunnen dezelfde afmetingen, materialen,
-        boorpatronen en bewerkingen herhaalbaar worden uitgevoerd. Vermeld
-        bij uw offerteaanvraag hoeveel blokken u ongeveer nodig heeft. Dit
-        mag gewoon in de omschrijving; een apart aantallenveld is niet nodig.
-      </p>
-
       <ul class="mkb-checks">
-        <li>Eenmalig vervangingsonderdeel</li>
-        <li>Prototype of testserie</li>
-        <li>Kleine productieseries</li>
-        <li>Grotere terugkerende aantallen</li>
-        <li>Herhaalbare maatvoering</li>
-        <li>Opschalen na goedkeuring van een proefdeel</li>
+        <li>Zagen, CNC-frezen en draaien</li>
+        <li>Boren, ruimen, verzinken en tappen</li>
+        <li>Sleuven, kamers en uitsparingen</li>
+        <li>Graveren, lassen, lijmen en samenstellen</li>
       </ul>
     </div>
   </div>
 </section>
 
-<section
-  class="mkb-section mkb-section-soft"
-  aria-labelledby="mkb-applications-title"
->
+<section class="mkb-section mkb-section-soft" aria-labelledby="mkb-series-title">
+  <div class="mkb-container mkb-split mkb-split-reverse">
+    <figure class="mkb-split-image">
+      <img
+        src="/assets/images/bak-kunststof-blokken.webp"
+        width="1200"
+        height="1200"
+        loading="lazy"
+        alt="Serie kunststof blokken op gelijke maat geproduceerd"
+      >
+    </figure>
+
+    <div class="mkb-copy">
+      <div>
+        <p class="mkb-eyebrow">Enkelstuks en series</p>
+        <h2 class="mkb-heading" id="mkb-series-title">Van één kunststof blok tot een complete serie</h2>
+      </div>
+      <p>
+        Ook voor één vervangingsonderdeel, prototype of klein kunststof blok
+        kunt u een aanvraag doen. Bij terugkerende productie leggen we de
+        materiaalkeuze, maatvoering en bewerkingen vast voor een consistente serie.
+      </p>
+      <p>
+        Dat maakt opschalen eenvoudig: eerst een proefdeel beoordelen en daarna
+        dezelfde kunststof blokken in grotere aantallen laten produceren. Vermeld
+        het gewenste aantal in uw aanvraag, zodat we de productiemethode daarop
+        kunnen afstemmen.
+      </p>
+      <ul class="mkb-checks">
+        <li>Reparatie- en vervangingsdelen</li>
+        <li>Prototypes en testseries</li>
+        <li>Kleine en grotere productieseries</li>
+        <li>Herhaalbare maatvoering en bewerking</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="mkb-section" aria-labelledby="mkb-applications-title">
   <div class="mkb-container">
     <div class="mkb-section-intro">
       <div>
         <p class="mkb-eyebrow">Toepassingen</p>
-
-        <h2 class="mkb-heading" id="mkb-applications-title">
-          Toepassingen van kunststof blokken
-        </h2>
+        <h2 class="mkb-heading" id="mkb-applications-title">Toepassingen van kunststof blokken</h2>
       </div>
-
       <p>
-        Kunststof blokken worden gebruikt als eenvoudig vulstuk,
-        constructiedeel, slijtonderdeel of basis voor een volledig bewerkt
-        technisch product.
+        Van een eenvoudig vulstuk tot een nauwkeurig machineonderdeel: vorm,
+        materiaal en bewerking worden afgestemd op de functie van het blok.
       </p>
     </div>
 
     <div class="mkb-application-grid">
       <article class="mkb-application-card">
-        <h3>Afstandsblokken</h3>
-        <p>
-          Blokken waarmee onderdelen op een vaste afstand of hoogte worden
-          gemonteerd.
-        </p>
+        <h3>Afstands- en ophoogblokken</h3>
+        <p>Maatvaste kunststof blokjes om onderdelen op afstand of op de juiste hoogte te monteren.</p>
       </article>
-
       <article class="mkb-application-card">
-        <h3>Oplegblokken</h3>
-        <p>
-          Slagvaste of dragende kunststof blokken voor ondersteuning en
-          belastingverdeling.
-        </p>
+        <h3>Opleg- en stootblokken</h3>
+        <p>Slagvaste blokken voor ondersteuning, belastingverdeling en bescherming van machines of constructies.</p>
       </article>
-
       <article class="mkb-application-card">
         <h3>Glij- en slijtstukken</h3>
-        <p>
-          HMPE en andere slijtvaste kunststoffen voor geleiding en lage
-          wrijving.
-        </p>
+        <p>HMPE en andere slijtvaste materialen voor geleiding, lage wrijving en intensief gebruik.</p>
       </article>
-
       <article class="mkb-application-card">
         <h3>Machineonderdelen</h3>
-        <p>
-          Maatvaste POM-, PA- of PETP-blokken voor technische constructies.
-        </p>
+        <p>POM-, PA- of PETP-delen met nauwkeurige vlakken, gaten, passingmaten en schroefdraad.</p>
       </article>
-
       <article class="mkb-application-card">
-        <h3>Stoot- en beschermblokken</h3>
-        <p>
-          Slagvaste blokken voor voertuigen, machines, installaties en
-          maritieme toepassingen.
-        </p>
+        <h3>Montage- en isolatieblokken</h3>
+        <p>Technische maatdelen met bevestigingspunten en elektrische, thermische of chemische isolatie.</p>
       </article>
-
-      <article class="mkb-application-card">
-        <h3>Isolatieblokken</h3>
-        <p>
-          Elektrisch, thermisch of chemisch isolerende kunststofdelen voor
-          technische installaties.
-        </p>
-      </article>
-
-      <article class="mkb-application-card">
-        <h3>Vulstukken</h3>
-        <p>
-          Kunststof blokjes om hoogteverschillen, ruimte of speling op te
-          vullen.
-        </p>
-      </article>
-
-      <article class="mkb-application-card">
-        <h3>Montageblokken</h3>
-        <p>
-          Blokken met gaten, schroefdraad en montagepunten voor apparatuur
-          of constructies.
-        </p>
-      </article>
-
       <article class="mkb-application-card">
         <h3>Vervangingsonderdelen</h3>
-        <p>
-          Een bestaand of versleten kunststof blok namaken op basis van
-          maten, foto of voorbeeld.
-        </p>
+        <p>Een versleten of bestaand onderdeel namaken aan de hand van maten, een foto, schets of voorbeeld.</p>
       </article>
-    </div>
-  </div>
-</section>
-
-<section class="mkb-section" aria-labelledby="mkb-drawing-title">
-  <div class="mkb-container mkb-content-grid">
-    <div>
-      <p class="mkb-eyebrow">Volgens maatvoering of tekening</p>
-
-      <h2 class="mkb-heading" id="mkb-drawing-title">
-        Aanleveren zoals het voor u het makkelijkst is
-      </h2>
-    </div>
-
-    <div class="mkb-content-copy">
-      <p>
-        Voor eenvoudige kunststof blokken is een bericht met de gewenste
-        lengte, breedte, hoogte, materiaal en hoeveelheid meestal voldoende.
-        U kunt deze informatie direct in het offerteformulier invullen.
-      </p>
-
-      <p>
-        Gaat het om een bewerkt kunststof blok, dan kunt u aanvullende
-        informatie meesturen. Denk aan een schets met maatvoering, een foto
-        van het bestaande onderdeel, een PDF-tekening of een technisch
-        bestand zoals DXF, DWG, STEP of STP.
-      </p>
-
-      <p>
-        Zijn materiaal of toleranties nog niet bekend, beschrijf dan vooral
-        waarvoor het kunststof blok wordt gebruikt. Vermeld bijvoorbeeld de
-        belasting, temperatuur, aanwezigheid van vocht of chemicaliën en of
-        het onderdeel veel slijtage ondervindt.
-      </p>
-    </div>
-  </div>
-</section>
-
-<section
-  class="mkb-section mkb-section-soft"
-  aria-labelledby="mkb-gallery-title"
->
-  <div class="mkb-container">
-    <div class="mkb-section-intro">
-      <div>
-        <p class="mkb-eyebrow">Voorbeelden van kunststof maatwerk</p>
-
-        <h2 class="mkb-heading" id="mkb-gallery-title">
-          Kunststof blokken in verschillende uitvoeringen
-        </h2>
-      </div>
-
-      <p>
-        De foto’s geven een indruk van de mogelijkheden. Andere afmetingen,
-        materialen, kleuren en bewerkingen kunnen gewoon worden aangevraagd.
-      </p>
-    </div>
-
-    <div class="mkb-gallery">
-      <article class="mkb-gallery-card">
-        <figure>
-          <img
-            src="/assets/images/kunststof-blokken.webp"
-            width="700"
-            height="700"
-            loading="lazy"
-            alt="Grote massieve kunststof blokken voor industriële toepassingen"
-          >
-        </figure>
-
-        <div class="mkb-gallery-copy">
-          <h3>Massieve kunststof blokken</h3>
-          <p>
-            Als onbewerkt halffabricaat of als basis voor verdere
-            verspanende bewerking.
-          </p>
-        </div>
-      </article>
-
-      <article class="mkb-gallery-card">
-        <figure>
-          <img
-            src="/assets/images/kunststof-blokken-andere-hoek.webp"
-            width="700"
-            height="700"
-            loading="lazy"
-            alt="Kunststof blokken en plaatdelen vanuit verschillende hoeken"
-          >
-        </figure>
-
-        <div class="mkb-gallery-copy">
-          <h3>Verschillende formaten</h3>
-          <p>
-            Kleine kunststof blokjes, grote blokken en afwijkende
-            rechthoekige maatdelen.
-          </p>
-        </div>
-      </article>
-
-      <article class="mkb-gallery-card">
-        <figure>
-          <img
-            src="/assets/images/kunststof-blokken-meetlint.webp"
-            width="700"
-            height="700"
-            loading="lazy"
-            alt="Kunststof blokken op maat gecontroleerd met meetlint"
-          >
-        </figure>
-
-        <div class="mkb-gallery-copy">
-          <h3>Volgens exacte maatvoering</h3>
-          <p>
-            Gezaagd of bewerkt op basis van opgegeven afmetingen en
-            toleranties.
-          </p>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
-
-<section class="mkb-section">
-  <div class="mkb-container mkb-content-grid">
-    <div>
-      <p class="mkb-eyebrow">Kunststof blok laten maken</p>
-
-      <h2 class="mkb-heading">
-        Hard kunststof blok of plastic blokken op maat
-      </h2>
-    </div>
-
-    <div class="mkb-content-copy">
-      <p>
-        MaatwerkKunststof.nl levert kunststof blokken op maat voor bedrijven,
-        werkplaatsen en particulieren. Dit kan een eenvoudig rechthoekig
-        kunststof blok zijn, maar ook een volledig gefreesd onderdeel met
-        meerdere gaten, sleuven, uitsparingen en schroefdraad.
-      </p>
-
-      <p>
-        Bij aanvragen voor plastic blokken is vooral belangrijk wat het
-        onderdeel moet kunnen. Een hard kunststof blok voor een dragende
-        constructie vraagt bijvoorbeeld om andere eigenschappen dan een
-        glijblok, stootblok of chemisch bestendig PVC blok.
-      </p>
-
-      <p>
-        Door de gewenste toepassing, afmetingen en bewerkingen te beschrijven,
-        kunnen we gericht beoordelen welk materiaal en welke productiemethode
-        passend zijn. Zowel standaardmaten als volledig afwijkende
-        afmetingen zijn mogelijk.
-      </p>
-    </div>
-  </div>
-</section>
-
-<section
-  class="mkb-section mkb-section-soft"
-  aria-labelledby="mkb-related-title"
->
-  <div class="mkb-container">
-    <div class="mkb-section-intro">
-      <div>
-        <p class="mkb-eyebrow">Andere vormen</p>
-
-        <h2 class="mkb-heading" id="mkb-related-title">
-          Ander kunststof maatwerk nodig?
-        </h2>
-      </div>
-
-      <p>
-        Naast kunststof blokken leveren we ook andere basisvormen en
-        volledig bewerkte kunststof onderdelen.
-      </p>
-    </div>
-
-    <div class="mkb-related-grid">
-      <a class="mkb-related-card" href="/kunststof-stroken-op-maat/">
-        <strong>Kunststof stroken op maat</strong>
-        <span>
-          Smalle en brede stroken voor geleiding, bescherming en
-          constructie.
-        </span>
-      </a>
-
-      <a class="mkb-related-card" href="/kunststof-platen-op-maat/">
-        <strong>Kunststof platen op maat</strong>
-        <span>
-          Volledige platen, gezaagde plaatdelen en bewerkte panelen.
-        </span>
-      </a>
-
-      <a class="mkb-related-card" href="/kunststof-ringen-op-maat/">
-        <strong>Kunststof ringen op maat</strong>
-        <span>
-          Afstands-, steun- en speciale ringen in iedere gewenste maat.
-        </span>
-      </a>
     </div>
   </div>
 </section>
@@ -1807,262 +1301,88 @@ bodyClass: "mkb-page"
   <div class="mkb-container mkb-faq-grid">
     <div>
       <p class="mkb-eyebrow">Veelgestelde vragen</p>
-
-      <h2 class="mkb-heading" id="mkb-faq-title">
-        Over kunststof blokken op maat
-      </h2>
+      <h2 class="mkb-heading" id="mkb-faq-title">Over kunststof blokken op maat</h2>
     </div>
 
     <div class="mkb-faq-list">
       <details>
         <summary>Welke afmetingen kunststof blokken zijn mogelijk?</summary>
-        <p>
-          Kunststof blokken kunnen in vrijwel iedere gewenste lengte,
-          breedte en hoogte worden aangevraagd. De maximale maat hangt af
-          van de gekozen kunststofsoort en beschikbare materiaalformaten.
-        </p>
+        <p>Kunststof blokken kunnen in vrijwel iedere gewenste lengte, breedte en hoogte worden aangevraagd. De maximale maat hangt af van de kunststofsoort en beschikbare materiaalformaten.</p>
       </details>
-
       <details>
         <summary>Kan ik ook één kunststof blok bestellen?</summary>
-        <p>
-          Ja. Zowel één kunststof blok, een paar kunststof blokjes,
-          prototypes, kleine series als grotere aantallen kunnen worden
-          aangevraagd.
-        </p>
+        <p>Ja. Zowel één kunststof blok, enkele kunststof blokjes, prototypes, kleine series als grotere aantallen kunnen worden aangevraagd.</p>
       </details>
-
-      <details>
-        <summary>Kunnen jullie gaten in kunststof blokken maken?</summary>
-        <p>
-          Ja. Doorgaande gaten, blinde gaten, verzinkingen, draadgaten,
-          passinggaten en complete boorpatronen zijn mogelijk.
-        </p>
-      </details>
-
       <details>
         <summary>Welke kunststofsoort is geschikt voor een hard blok?</summary>
-        <p>
-          Dat hangt af van de belasting en omstandigheden. POM, PA, PETP,
-          PVC en PEEK zijn voorbeelden van relatief harde technische
-          kunststoffen. HDPE en HMPE zijn vaak geschikter wanneer slagvastheid,
-          vochtbestendigheid of slijtvastheid belangrijk zijn.
-        </p>
+        <p>Dat hangt af van de toepassing. POM, PA, PETP, PVC en PEEK zijn relatief harde technische kunststoffen. HDPE en HMPE zijn vaak geschikter wanneer slagvastheid, vochtbestendigheid of slijtvastheid belangrijk zijn.</p>
       </details>
-
       <details>
-        <summary>Leveren jullie ook HDPE blokken?</summary>
-        <p>
-          Ja. HDPE blokken kunnen op maat worden gezaagd en verder worden
-          voorzien van freeswerk, gaten, schroefdraad en andere bewerkingen.
-        </p>
+        <summary>Leveren jullie HDPE en PVC blokken?</summary>
+        <p>Ja. HDPE blokken en PVC blokken kunnen op maat worden gezaagd en worden voorzien van freeswerk, gaten, schroefdraad en andere bewerkingen.</p>
       </details>
-
       <details>
-        <summary>Leveren jullie ook PVC blokken?</summary>
-        <p>
-          Ja. PVC blokken en massieve PVC maatdelen zijn mogelijk in
-          verschillende afmetingen en kleuren. Ook lassen, lijmen, frezen,
-          boren en tappen zijn mogelijk.
-        </p>
+        <summary>Kunnen de blokken in verschillende kleuren worden geleverd?</summary>
+        <p>Ja, afhankelijk van de gekozen kunststofsoort. Veel materialen zijn verkrijgbaar in naturel, wit, zwart en verschillende andere kleuren. De actuele beschikbaarheid wordt per aanvraag gecontroleerd.</p>
       </details>
-
+      <details>
+        <summary>Hoe snel kunnen kunststof blokken worden geleverd?</summary>
+        <p>De levertijd hangt af van het materiaal, de afmetingen, de bewerkingen en het aantal. Veel maatwerk kan snel worden geproduceerd; bij de offerte geven we een passende indicatie.</p>
+      </details>
       <details>
         <summary>Heb ik een technische tekening nodig?</summary>
-        <p>
-          Nee. Voor een eenvoudig blok is een omschrijving met maten vaak
-          voldoende. Voor complexer maatwerk kunt u een schets, foto,
-          bestaand voorbeeld of technisch bestand meesturen.
-        </p>
-      </details>
-
-      <details>
-        <summary>Kunnen kunststof blokken nauwkeurig worden gefreesd?</summary>
-        <p>
-          Ja. Kunststof blokken kunnen volgens opgegeven maatvoering,
-          toleranties, passingmaten en technische tekeningen worden
-          gefreesd.
-        </p>
+        <p>Nee. Voor een eenvoudig blok is een omschrijving met maten vaak voldoende. Voor complex maatwerk kunt u een schets, foto, bestaand voorbeeld of technisch bestand meesturen.</p>
       </details>
     </div>
   </div>
 </section>
 
-<section class="mkb-quote" id="offerte" aria-labelledby="mkb-quote-title">
-  <div class="mkb-container mkb-quote-wrap">
-    <div class="mkb-quote-heading">
-      <p class="mkb-eyebrow">Vrijblijvende prijsaanvraag</p>
-
-      <h2 class="mkb-heading" id="mkb-quote-title">
-        Vraag een offerte aan
-      </h2>
-
-      <p>
-        Beschrijf welke kunststof blokken u nodig heeft. Vermeld indien
-        bekend de afmetingen, kunststofsoort, kleur, hoeveelheid en gewenste
-        bewerkingen.
-      </p>
+<section class="mkb-section mkb-section-soft" aria-labelledby="mkb-related-title">
+  <div class="mkb-container">
+    <div class="mkb-section-intro">
+      <div>
+        <p class="mkb-eyebrow">Andere vormen</p>
+        <h2 class="mkb-heading" id="mkb-related-title">Ander kunststof maatwerk nodig?</h2>
+      </div>
+      <p>Naast kunststof blokken leveren we ook stroken, platen, ringen en volledig bewerkte kunststof onderdelen.</p>
     </div>
 
-    <form
-      class="mkb-form"
-      action="/api/offerte"
-      method="post"
-      enctype="multipart/form-data"
-      data-quote-form
-    >
-      <input type="hidden" name="pagina" value="{{ page.url }}">
-      <input
-        type="hidden"
-        name="product"
-        value="Kunststof blokken op maat"
-      >
-      <input type="hidden" name="form_started_at" value="" data-form-started>
-      <input type="hidden" name="utm_source" value="">
-      <input type="hidden" name="utm_medium" value="">
-      <input type="hidden" name="utm_campaign" value="">
-      <input type="hidden" name="utm_term" value="">
-      <input type="hidden" name="utm_content" value="">
-      <input type="hidden" name="gclid" value="">
-      <input type="hidden" name="gbraid" value="">
-      <input type="hidden" name="wbraid" value="">
+    <div class="mkb-related-grid">
+      <a class="mkb-related-card" href="/kunststof-stroken-op-maat/">
+        <strong>Kunststof stroken op maat</strong>
+        <span>Smalle en brede stroken voor geleiding, bescherming en constructie.</span>
+      </a>
+      <a class="mkb-related-card" href="/kunststof-platen-op-maat/">
+        <strong>Kunststof platen op maat</strong>
+        <span>Volledige platen, gezaagde plaatdelen en bewerkte panelen.</span>
+      </a>
+      <a class="mkb-related-card" href="/kunststof-ringen-op-maat/">
+        <strong>Kunststof ringen op maat</strong>
+        <span>Afstands-, steun- en speciale ringen in iedere gewenste maat.</span>
+      </a>
+    </div>
+  </div>
+</section>
 
-      <div class="mkb-honeypot" aria-hidden="true">
-        <label for="website">Website</label>
-        <input
-          id="website"
-          name="website"
-          type="text"
-          tabindex="-1"
-          autocomplete="off"
-        >
-      </div>
-
-      <div class="mkb-form-grid">
-        <div class="mkb-field">
-          <label for="naam">
-            Naam <span aria-hidden="true">*</span>
-          </label>
-          <input
-            id="naam"
-            name="naam"
-            type="text"
-            autocomplete="name"
-            required
-            maxlength="100"
-          >
-        </div>
-
-        <div class="mkb-field">
-          <label for="bedrijf">Bedrijf</label>
-          <input
-            id="bedrijf"
-            name="bedrijf"
-            type="text"
-            autocomplete="organization"
-            maxlength="120"
-          >
-        </div>
-      </div>
-
-      <div class="mkb-form-grid">
-        <div class="mkb-field">
-          <label for="email">
-            E-mailadres <span aria-hidden="true">*</span>
-          </label>
-          <input
-            id="email"
-            name="email"
-            type="email"
-            autocomplete="email"
-            inputmode="email"
-            required
-            maxlength="160"
-          >
-        </div>
-
-        <div class="mkb-field">
-          <label for="telefoon">Telefoonnummer</label>
-          <input
-            id="telefoon"
-            name="telefoon"
-            type="tel"
-            autocomplete="tel"
-            inputmode="tel"
-            maxlength="40"
-          >
-        </div>
-      </div>
-
-      <div class="mkb-field">
-        <label for="specificaties">
-          Welke kunststof blokken heeft u nodig?
-          <span aria-hidden="true">*</span>
-        </label>
-
-        <textarea
-          id="specificaties"
-          name="specificaties"
-          rows="8"
-          required
-          maxlength="4000"
-          placeholder="Bijvoorbeeld: 10 zwarte HDPE blokken van 200 × 100 × 40 mm met twee boorgaten van 12 mm."
-        ></textarea>
-
-        <p class="mkb-field-help">
-          Een korte omschrijving is voldoende. Ontbrekende details kunnen
-          later worden besproken.
-        </p>
-      </div>
-
-      <div class="mkb-field">
-        <label for="bestanden">
-          Foto, schets of technische tekening
-        </label>
-
-        <input
-          id="bestanden"
-          name="bestanden"
-          type="file"
-          multiple
-          accept=".pdf,.png,.jpg,.jpeg,.webp,.heic,.dxf,.dwg,.step,.stp"
-        >
-
-        <p class="mkb-field-help">
-          Optioneel. Maximaal 3 bestanden en samen maximaal 8 MB.
-        </p>
-      </div>
-
-      <label class="mkb-checkbox">
-        <input name="privacy_akkoord" type="checkbox" value="ja" required>
-
-        <span>
-          Ik ga akkoord met de verwerking van mijn gegevens volgens het
-          <a href="/privacybeleid/" target="_blank" rel="noopener">
-            privacybeleid
-          </a>.
-        </span>
-      </label>
-
-      <div
-        class="mkb-form-status form-status"
-        role="status"
-        aria-live="polite"
-        data-form-status
-      ></div>
-
-      <button
-        class="mkb-btn"
-        type="submit"
-        data-submit-button
-      >
-        Offerteaanvraag versturen
-      </button>
-
-      <p class="mkb-form-note">
-        Vrijblijvend en zonder aankoopverplichting.
-      </p>
-    </form>
+<section class="mkb-final">
+  <div class="mkb-container mkb-final-inner">
+    <div>
+      <h2>Klaar om uw kunststof blok te laten maken?</h2>
+      <p>Stuur uw afmetingen, toepassing en eventueel een tekening. Dan kunnen we een gerichte, vrijblijvende offerte maken.</p>
+    </div>
+    <div class="mkb-actions">
+      <a class="mkb-btn" href="#offerte" data-analytics="quote_cta" data-location="blocks_final">Start uw aanvraag</a>
+      {% if site.whatsapp %}
+        <a
+          class="mkb-btn mkb-btn-whatsapp"
+          href="https://wa.me/{{ site.whatsapp }}?text=Hallo%2C%20ik%20heb%20een%20vraag%20over%20kunststof%20blokken%20op%20maat."
+          target="_blank"
+          rel="noopener"
+          data-analytics="whatsapp_click"
+          data-location="blocks_final"
+        >Stel uw vraag via WhatsApp</a>
+      {% endif %}
+    </div>
   </div>
 </section>
 
@@ -2073,17 +1393,14 @@ bodyClass: "mkb-page"
   "name": "Kunststof blokken op maat",
   "serviceType": "Kunststof blokken zagen en bewerken",
   "url": "https://maatwerkkunststof.nl/kunststof-blokken-op-maat/",
-  "description": "Kunststof blokken op maat in vrijwel iedere kunststofsoort, kleur en afmeting. Van eenvoudig zaagwerk tot volledig gefreesde technische onderdelen.",
+  "description": "Kunststof blokken op maat in HDPE, PVC, POM en andere kunststofsoorten. Gezaagd of volledig bewerkt, van enkelstuks tot series.",
   "provider": {
     "@type": "Organization",
     "name": "MaatwerkKunststof.nl",
     "url": "https://maatwerkkunststof.nl/",
     "email": "{{ contactEmail }}"
   },
-  "areaServed": [
-    "Nederland",
-    "België"
-  ]
+  "areaServed": ["Nederland", "België"]
 }
 </script>
 
@@ -2118,7 +1435,7 @@ bodyClass: "mkb-page"
       "name": "Welke afmetingen kunststof blokken zijn mogelijk?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Kunststof blokken kunnen in vrijwel iedere gewenste lengte, breedte en hoogte worden aangevraagd. De maximale maat hangt af van de gekozen kunststofsoort en beschikbare materiaalformaten."
+        "text": "Kunststof blokken kunnen in vrijwel iedere gewenste lengte, breedte en hoogte worden aangevraagd. De maximale maat hangt af van de kunststofsoort en beschikbare materiaalformaten."
       }
     },
     {
@@ -2126,31 +1443,39 @@ bodyClass: "mkb-page"
       "name": "Kan ik ook één kunststof blok bestellen?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Ja. Zowel één kunststof blok, prototypes, kleine series als grotere aantallen kunnen worden aangevraagd."
+        "text": "Ja. Zowel één kunststof blok, enkele kunststof blokjes, prototypes, kleine series als grotere aantallen kunnen worden aangevraagd."
       }
     },
     {
       "@type": "Question",
-      "name": "Kunnen jullie gaten in kunststof blokken maken?",
+      "name": "Welke kunststofsoort is geschikt voor een hard blok?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Ja. Doorgaande gaten, blinde gaten, verzinkingen, draadgaten, passinggaten en complete boorpatronen zijn mogelijk."
+        "text": "Dat hangt af van de toepassing. POM, PA, PETP, PVC en PEEK zijn relatief harde technische kunststoffen. HDPE en HMPE zijn vaak geschikter wanneer slagvastheid, vochtbestendigheid of slijtvastheid belangrijk zijn."
       }
     },
     {
       "@type": "Question",
-      "name": "Leveren jullie HDPE blokken?",
+      "name": "Leveren jullie HDPE en PVC blokken?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Ja. HDPE blokken kunnen op maat worden gezaagd en verder worden voorzien van freeswerk, gaten, schroefdraad en andere bewerkingen."
+        "text": "Ja. HDPE blokken en PVC blokken kunnen op maat worden gezaagd en worden voorzien van freeswerk, gaten, schroefdraad en andere bewerkingen."
       }
     },
     {
       "@type": "Question",
-      "name": "Leveren jullie PVC blokken?",
+      "name": "Kunnen de blokken in verschillende kleuren worden geleverd?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Ja. PVC blokken en massieve PVC maatdelen zijn mogelijk in verschillende afmetingen en kleuren."
+        "text": "Ja, afhankelijk van de gekozen kunststofsoort. Veel materialen zijn verkrijgbaar in naturel, wit, zwart en verschillende andere kleuren."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Hoe snel kunnen kunststof blokken worden geleverd?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "De levertijd hangt af van het materiaal, de afmetingen, de bewerkingen en het aantal. Bij de offerte wordt een passende indicatie gegeven."
       }
     },
     {
@@ -2158,7 +1483,7 @@ bodyClass: "mkb-page"
       "name": "Heb ik een technische tekening nodig?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Nee. Voor een eenvoudig blok is een omschrijving met maten vaak voldoende. Voor complexer maatwerk kan een schets, foto, bestaand voorbeeld of technisch bestand worden meegestuurd."
+        "text": "Nee. Voor een eenvoudig blok is een omschrijving met maten vaak voldoende. Voor complex maatwerk kan een schets, foto, bestaand voorbeeld of technisch bestand worden meegestuurd."
       }
     }
   ]

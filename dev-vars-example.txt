@@ -3,4 +3,4 @@
 RESEND_API_KEY=re_xxxxxxxxx
 OFFERTES_TO_EMAIL=offerte@jouwdomein.nl
 OFFERTES_FROM_EMAIL=MaatwerkKunststof.nl <offerte@maatwerkkunststof.nl>
-SEND_CONFIRMATION=true
+SEND_CONFIRMATION=false

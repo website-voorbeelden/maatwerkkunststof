@@ -116,8 +116,8 @@ export async function onRequestPost(context) {
     wbraid: clean(form.get('wbraid'), 300)
   };
 
-  if (!data.naam || !data.email || !data.specificaties || form.get('privacy_akkoord') !== 'ja') {
-    return respond(request, { ok: false, message: 'Vul alle verplichte velden in en accepteer het privacybeleid.' }, 400);
+  if (!data.naam || !data.email || !data.specificaties) {
+    return respond(request, { ok: false, message: 'Vul uw naam, e-mailadres en bericht in.' }, 400);
   }
 
   if (!isEmail(data.email)) {
@@ -159,7 +159,7 @@ export async function onRequestPost(context) {
 
   const rows = [
     ['Naam', data.naam],
-    ['Bedrijf', data.bedrijf || 'Niet ingevuld'],
+    ...(data.bedrijf ? [['Bedrijf', data.bedrijf]] : []),
     ['E-mail', data.email],
     ['Telefoon', data.telefoon || 'Niet ingevuld'],
     ['Product', data.product || 'Niet gekozen'],
@@ -216,7 +216,7 @@ export async function onRequestPost(context) {
       attachments
     });
 
-    if (env.SEND_CONFIRMATION !== 'false') {
+    if (env.SEND_CONFIRMATION === 'true') {
       try {
         await resend(env.RESEND_API_KEY, {
           from: env.OFFERTES_FROM_EMAIL,

@@ -42,7 +42,7 @@ De map `functions/` wordt automatisch als Cloudflare Pages Functions gebruikt. D
 RESEND_API_KEY       secret
 OFFERTES_TO_EMAIL    adres waar aanvragen binnenkomen
 OFFERTES_FROM_EMAIL  MaatwerkKunststof.nl <offerte@maatwerkkunststof.nl>
-SEND_CONFIRMATION    true
+SEND_CONFIRMATION    false
 ```
 
 Zet de API-key nooit in GitHub, `site.json` of JavaScript in de browser.

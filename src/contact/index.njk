@@ -20,6 +20,11 @@ breadcrumb: Contact
       <h2>Stuur uw aanvraag rechtstreeks</h2>
       <p>Heeft u de specificaties al in een e-mail staan? Stuur deze dan naar:</p>
       <a class="contact-link" href="mailto:{{ site.email }}" data-analytics="email_click">{{ site.email }}</a>
+      <p class="small-copy contact-method-label">Liever bellen of WhatsAppen?</p>
+      <div class="contact-method-links">
+        <a href="tel:{{ site.phone }}">{{ site.phoneDisplay }}</a>
+        <a href="https://wa.me/{{ site.whatsapp }}" target="_blank" rel="noopener" data-analytics="whatsapp_click" data-location="contact">WhatsApp</a>
+      </div>
       <p class="small-copy">Vermeld bij voorkeur afmetingen, aantallen, materiaalvoorkeur en toepassing.</p>
     </div>
     <div class="contact-card contact-card-dark">

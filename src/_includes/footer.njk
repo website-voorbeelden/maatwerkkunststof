@@ -1,3 +1,8 @@
+{% set footerQuoteHref = "#offerte" %}
+{% if page.url == "/privacybeleid/" or page.url == "/bedankt/" or page.url == "/404.html" %}
+  {% set footerQuoteHref = "/contact/#offerte" %}
+{% endif %}
+
 <footer class="site-footer">
   <div class="container footer-grid">
     <div>
@@ -29,7 +34,7 @@
     <div>
       <h2>Direct aanvragen</h2>
       <p>Stuur uw maten, aantallen en eventueel een tekening. U ontvangt een vrijblijvende beoordeling.</p>
-      <a class="button button-outline-light button-small" href="#offerte" data-analytics="quote_cta" data-location="footer">Start uw aanvraag</a>
+      <a class="button button-outline-light button-small" href="{{ footerQuoteHref }}" data-analytics="quote_cta" data-location="footer">Start uw aanvraag</a>
     </div>
   </div>
   <div class="container footer-bottom">
