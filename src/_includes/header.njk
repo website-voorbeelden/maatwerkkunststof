@@ -1,11 +1,27 @@
+<style>
+  .wordmark-logo { display: none; }
+
+  @media (min-width: 1080px) {
+    .wordmark-logo {
+      display: block !important;
+      width: 165px !important;
+      height: 44px !important;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .wordmark-text { display: none !important; }
+  }
+</style>
+
 <header class="site-header" data-header>
   <div class="container header-inner">
     <a class="wordmark" href="/" aria-label="MaatwerkKunststof.nl – home">
       <img
         class="wordmark-logo"
         src="/assets/images/logo-maatwerkkunststof-square.png"
-        width="1000"
-        height="1000"
+        width="165"
+        height="44"
         alt=""
       >
       <span class="wordmark-text">Maatwerk</span><strong class="wordmark-text">Kunststof.nl</strong>
