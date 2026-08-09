@@ -1,94 +1,765 @@
 ---
 layout: base.njk
-title: Kunststof stroken op maat | Iedere maat en kunststofsoort
-description: Kunststof stroken op maat laten maken? Recht gezaagd of volledig bewerkt met gaten, sleuven en contouren. Vraag vrijblijvend een offerte aan.
+title: Kunststof stroken op maat laten maken | MaatwerkKunststof.nl
+description: Kunststof stroken op maat in HDPE, HMPE, POM, PVC en meer. Recht gezaagd of bewerkt met gaten en sleuven. Vraag vrijblijvend een offerte aan.
 image: /assets/images/strook-met-gaten.webp
 imageAlt: Zwarte kunststof strook op maat met gaten
-breadcrumb: Kunststof stroken op maat
+bodyClass: mks-page
 ---
-{% include "breadcrumbs.njk" %}
-<section class="page-hero">
-  <div class="container page-hero-grid">
-    <div>
-      <p class="eyebrow">Recht, smal of volledig bewerkt</p>
-      <h1>Kunststof stroken op maat</h1>
-      <p class="hero-lead">Kunststof stroken in iedere gewenste lengte, breedte en dikte. Geschikt als geleiding, slijtstrip, beschermstrook, afstandsdeel of technisch maatwerk.</p>
-      <div class="hero-actions">
-        <a class="button" href="#offerte" data-analytics="quote_cta" data-location="product_hero">Offerte voor kunststof stroken</a>
-        <a class="text-link" href="#specificaties">Bekijk mogelijkheden <span aria-hidden="true">↓</span></a>
+
+<style>
+  body.mks-page {
+    --mks-ink: #14262e;
+    --mks-text: #53636a;
+    --mks-muted: #748188;
+    --mks-line: #dce2e3;
+    --mks-soft: #f4f7f6;
+    --mks-white: #ffffff;
+    --mks-orange: #e65b28;
+    --mks-orange-dark: #c8481b;
+    --mks-green: rgb(116 194 0 / 1);
+    --mks-green-dark: #5c9b00;
+    --mks-radius: 14px;
+    --mks-shadow: 0 22px 55px rgba(20, 38, 46, 0.1);
+    --mks-container: 1180px;
+    background: var(--mks-white);
+  }
+
+  body.mks-page main {
+    overflow: clip;
+  }
+
+  .mks-container {
+    width: min(calc(100% - 32px), var(--mks-container));
+    margin-inline: auto;
+  }
+
+  .mks-section {
+    padding: 66px 0;
+  }
+
+  .mks-section-soft {
+    background: var(--mks-soft);
+  }
+
+  .mks-eyebrow {
+    margin: 0 0 10px;
+    color: var(--mks-orange);
+    font-size: 0.72rem;
+    font-weight: 840;
+    letter-spacing: 0.13em;
+    line-height: 1.35;
+    text-transform: uppercase;
+  }
+
+  .mks-heading {
+    max-width: 760px;
+    margin: 0;
+    color: var(--mks-ink);
+    font-size: clamp(2rem, 5vw, 3.05rem);
+    font-weight: 770;
+    letter-spacing: -0.04em;
+    line-height: 1.08;
+  }
+
+  .mks-section-head {
+    display: grid;
+    gap: 13px;
+    margin-bottom: 30px;
+  }
+
+  .mks-section-head > p:last-child,
+  .mks-copy p {
+    max-width: 760px;
+    margin: 0;
+    color: var(--mks-text);
+    line-height: 1.7;
+  }
+
+  .mks-btn {
+    display: inline-flex;
+    min-height: 50px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--mks-orange);
+    border-radius: 8px;
+    padding: 13px 20px;
+    color: var(--mks-white);
+    background: var(--mks-orange);
+    font-size: 0.9rem;
+    font-weight: 780;
+    line-height: 1.2;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .mks-btn:hover,
+  .mks-btn:focus-visible {
+    border-color: var(--mks-orange-dark);
+    color: var(--mks-white);
+    background: var(--mks-orange-dark);
+  }
+
+  .mks-btn-green {
+    border-color: var(--mks-green);
+    background: var(--mks-green);
+  }
+
+  .mks-btn-green:hover,
+  .mks-btn-green:focus-visible {
+    border-color: var(--mks-green-dark);
+    background: var(--mks-green-dark);
+  }
+
+  .mks-text-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    color: var(--mks-ink);
+    font-size: 0.88rem;
+    font-weight: 760;
+    text-decoration: none;
+  }
+
+  .mks-text-link:hover,
+  .mks-text-link:focus-visible {
+    color: var(--mks-green-dark);
+  }
+
+  .mks-hero {
+    padding: 28px 0 64px;
+    background: linear-gradient(180deg, #f7f9f8 0%, #ffffff 70%);
+  }
+
+  .mks-hero-grid {
+    display: grid;
+    gap: 32px;
+    align-items: center;
+  }
+
+  .mks-hero-copy {
+    order: 2;
+  }
+
+  .mks-hero-media {
+    order: 1;
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+    margin: 0;
+    border: 1px solid var(--mks-line);
+    border-radius: var(--mks-radius);
+    background: #edf1ef;
+    box-shadow: var(--mks-shadow);
+  }
+
+  .mks-hero-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .mks-hero h1 {
+    max-width: 690px;
+    margin: 0 0 17px;
+    color: var(--mks-ink);
+    font-size: clamp(2.55rem, 9vw, 4.55rem);
+    font-weight: 795;
+    letter-spacing: -0.055em;
+    line-height: 0.98;
+  }
+
+  .mks-hero-lead {
+    max-width: 660px;
+    margin: 0 0 23px;
+    color: var(--mks-text);
+    font-size: clamp(1rem, 2vw, 1.12rem);
+    line-height: 1.66;
+  }
+
+  .mks-hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px 18px;
+    align-items: center;
+  }
+
+  .mks-checks {
+    display: grid;
+    gap: 10px;
+    margin: 25px 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .mks-checks li {
+    position: relative;
+    padding-left: 26px;
+    color: var(--mks-ink);
+    font-size: 0.86rem;
+    font-weight: 700;
+  }
+
+  .mks-checks li::before {
+    position: absolute;
+    top: 0.3em;
+    left: 1px;
+    width: 12px;
+    height: 7px;
+    border-bottom: 2px solid var(--mks-green-dark);
+    border-left: 2px solid var(--mks-green-dark);
+    content: "";
+    transform: rotate(-45deg);
+  }
+
+  .mks-intro-grid,
+  .mks-media-grid,
+  .mks-quote-grid {
+    display: grid;
+    gap: 34px;
+  }
+
+  .mks-copy {
+    display: grid;
+    gap: 16px;
+    align-content: center;
+  }
+
+  .mks-spec-grid,
+  .mks-card-grid,
+  .mks-related-grid {
+    display: grid;
+    gap: 14px;
+  }
+
+  .mks-spec,
+  .mks-card {
+    border: 1px solid var(--mks-line);
+    border-radius: 10px;
+    padding: 20px;
+    background: var(--mks-white);
+  }
+
+  .mks-spec strong,
+  .mks-spec span {
+    display: block;
+  }
+
+  .mks-spec strong {
+    margin-bottom: 4px;
+    color: var(--mks-ink);
+    font-size: 0.86rem;
+  }
+
+  .mks-spec span,
+  .mks-card p {
+    margin: 0;
+    color: var(--mks-text);
+    font-size: 0.82rem;
+    line-height: 1.55;
+  }
+
+  .mks-media {
+    overflow: hidden;
+    aspect-ratio: 1;
+    margin: 0;
+    border-radius: var(--mks-radius);
+    background: #e9eeec;
+  }
+
+  .mks-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .mks-card {
+    border-top: 4px solid var(--mks-ink);
+  }
+
+  .mks-card h3 {
+    margin: 0 0 7px;
+    color: var(--mks-ink);
+    font-size: 1rem;
+  }
+
+  .mks-advice {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px 20px;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 22px;
+    border-radius: 10px;
+    padding: 20px;
+    color: var(--mks-white);
+    background: var(--mks-ink);
+  }
+
+  .mks-advice strong,
+  .mks-advice span {
+    display: block;
+  }
+
+  .mks-advice strong {
+    margin-bottom: 3px;
+  }
+
+  .mks-advice span {
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 0.8rem;
+  }
+
+  .mks-advice a {
+    color: var(--mks-white);
+    font-size: 0.84rem;
+    font-weight: 760;
+  }
+
+  .mks-related-card {
+    display: block;
+    border: 1px solid var(--mks-line);
+    border-radius: 10px;
+    padding: 20px;
+    color: var(--mks-ink);
+    background: var(--mks-white);
+    text-decoration: none;
+  }
+
+  .mks-related-card strong,
+  .mks-related-card span {
+    display: block;
+  }
+
+  .mks-related-card strong {
+    margin-bottom: 4px;
+  }
+
+  .mks-related-card span {
+    color: var(--mks-text);
+    font-size: 0.8rem;
+    line-height: 1.5;
+  }
+
+  .mks-related-card:hover,
+  .mks-related-card:focus-visible {
+    border-color: var(--mks-orange);
+  }
+
+  .mks-quote {
+    padding: 68px 0;
+    color: var(--mks-white);
+    background: var(--mks-ink);
+  }
+
+  .mks-quote-copy h2 {
+    margin: 0 0 15px;
+    color: var(--mks-white);
+    font-size: clamp(2rem, 5vw, 3.05rem);
+    font-weight: 770;
+    letter-spacing: -0.04em;
+    line-height: 1.08;
+  }
+
+  .mks-quote-copy > p:not(.mks-eyebrow) {
+    max-width: 560px;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.72);
+  }
+
+  .mks-quote .mks-eyebrow {
+    color: #ff9a60;
+  }
+
+  .mks-quote .mks-checks li {
+    color: var(--mks-white);
+  }
+
+  .mks-form {
+    position: relative;
+    border-radius: var(--mks-radius);
+    padding: 21px;
+    color: var(--mks-ink);
+    background: var(--mks-white);
+    box-shadow: var(--mks-shadow);
+  }
+
+  .mks-form-head {
+    display: block;
+    margin-bottom: 17px;
+    color: var(--mks-ink);
+    font-size: 1.06rem;
+  }
+
+  .mks-form-row {
+    display: grid;
+    gap: 12px;
+  }
+
+  .mks-field {
+    margin-bottom: 12px;
+  }
+
+  .mks-field label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .mks-field input,
+  .mks-field textarea {
+    width: 100%;
+    border: 1px solid #c8d1d3;
+    border-radius: 7px;
+    padding: 12px 13px;
+    color: var(--mks-ink);
+    background: var(--mks-white);
+  }
+
+  .mks-field input {
+    min-height: 50px;
+  }
+
+  .mks-field textarea {
+    min-height: 138px;
+    resize: vertical;
+  }
+
+  .mks-field input:focus,
+  .mks-field textarea:focus {
+    border-color: var(--mks-orange);
+    outline: 3px solid rgba(230, 91, 40, 0.14);
+  }
+
+  .mks-field input::placeholder,
+  .mks-field textarea::placeholder {
+    color: #8a969b;
+    opacity: 1;
+  }
+
+  .mks-file-label {
+    position: static !important;
+    display: flex;
+    width: auto !important;
+    height: auto !important;
+    min-height: 44px;
+    align-items: center;
+    justify-content: center;
+    margin: 0 !important;
+    border: 1px dashed #aebabc !important;
+    border-radius: 7px;
+    padding: 10px !important;
+    overflow: visible !important;
+    clip: auto !important;
+    color: var(--mks-ink);
+    background: #fafbfa;
+    font-size: 0.77rem;
+    font-weight: 720;
+    white-space: normal !important;
+    cursor: pointer;
+  }
+
+  .mks-file-label input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+  }
+
+  .mks-file-help,
+  .mks-form-note {
+    margin: 6px 0 0;
+    color: var(--mks-muted);
+    font-size: 0.7rem;
+    line-height: 1.45;
+  }
+
+  .mks-form .mks-btn {
+    width: 100%;
+  }
+
+  .mks-form-note {
+    text-align: center;
+  }
+
+  .mks-honeypot {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    margin: -1px !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    clip: rect(0 0 0 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+  }
+
+  @media (min-width: 640px) {
+    .mks-spec-grid,
+    .mks-form-row {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .mks-card-grid,
+    .mks-related-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  @media (min-width: 900px) {
+    .mks-section {
+      padding: 90px 0;
+    }
+
+    .mks-hero {
+      padding: 54px 0 78px;
+    }
+
+    .mks-hero-grid {
+      grid-template-columns: minmax(0, 0.93fr) minmax(430px, 1.07fr);
+      gap: 68px;
+    }
+
+    .mks-hero-copy {
+      order: 1;
+    }
+
+    .mks-hero-media {
+      order: 2;
+      aspect-ratio: 1;
+    }
+
+    .mks-intro-grid {
+      grid-template-columns: minmax(0, 1.05fr) minmax(330px, 0.95fr);
+      gap: 70px;
+      align-items: center;
+    }
+
+    .mks-media-grid {
+      grid-template-columns: minmax(400px, 0.92fr) minmax(0, 1.08fr);
+      gap: 72px;
+      align-items: center;
+    }
+
+    .mks-media {
+      aspect-ratio: 4 / 3;
+    }
+
+    .mks-quote {
+      padding: 92px 0;
+    }
+
+    .mks-quote-grid {
+      grid-template-columns: minmax(290px, 0.78fr) minmax(520px, 1.22fr);
+      gap: 72px;
+      align-items: start;
+    }
+  }
+</style>
+
+<section class="mks-hero" aria-labelledby="mks-title">
+  <div class="mks-container mks-hero-grid">
+    <div class="mks-hero-copy">
+      <p class="mks-eyebrow">Maatwerk kunststof stroken</p>
+      <h1 id="mks-title">Kunststof stroken op maat</h1>
+      <p class="mks-hero-lead">Laat kunststof stroken maken volgens uw gewenste lengte, breedte en dikte. Recht gezaagd of verder bewerkt met gaten, sleuven en afwijkende contouren.</p>
+      <div class="mks-hero-actions">
+        <a class="mks-btn" href="#offerte" data-analytics="quote_cta" data-location="strips_hero">Vrijblijvende offerte aanvragen</a>
+        {% if site.whatsapp %}
+          <a class="mks-text-link" href="https://wa.me/{{ site.whatsapp }}?text=Hallo%2C%20ik%20heb%20een%20vraag%20over%20kunststof%20stroken%20op%20maat." target="_blank" rel="noopener" data-analytics="whatsapp_click" data-location="strips_hero">Vraag stellen via WhatsApp →</a>
+        {% endif %}
       </div>
+      <ul class="mks-checks" aria-label="Voordelen van kunststof stroken op maat">
+        <li>Iedere gewenste maatvoering</li>
+        <li>Veel kunststofsoorten en kleuren</li>
+        <li>Enkelstuks en grotere series</li>
+      </ul>
     </div>
-    <div class="page-hero-image">
-      <img src="/assets/images/strook-met-gaten.webp" width="1536" height="1536" alt="Zwarte kunststof strook met twee gaten">
+
+    <figure class="mks-hero-media">
+      <img src="/assets/images/strook-met-gaten.webp" width="1536" height="1536" alt="Zwarte kunststof strook op maat met twee boorgaten">
+    </figure>
+  </div>
+</section>
+
+<section class="mks-section" aria-labelledby="mks-mogelijkheden">
+  <div class="mks-container mks-intro-grid">
+    <div class="mks-copy">
+      <div>
+        <p class="mks-eyebrow">Afmetingen en uitvoering</p>
+        <h2 class="mks-heading" id="mks-mogelijkheden">Kunststof strips en stroken laten maken</h2>
+      </div>
+      <p>Een eenvoudige strook wordt rechtstreeks uit kunststof plaatmateriaal op maat gezaagd. Is de strook onderdeel van een machine, constructie of transportsysteem, dan kunnen we ook gaten, sleuven, verzinkingen en gefreesde vormen aanbrengen.</p>
+      <p>Geef bij uw aanvraag de maten, het gewenste aantal en de toepassing door. Als het materiaal nog niet bekend is, denken we mee over een geschikte kunststofsoort.</p>
+    </div>
+
+    <div class="mks-spec-grid" aria-label="Mogelijke specificaties">
+      <div class="mks-spec"><strong>Maatvoering</strong><span>Lengte, breedte en dikte volledig op aanvraag</span></div>
+      <div class="mks-spec"><strong>Materiaal</strong><span>Onder meer HDPE, HMPE, POM, PA, PVC en PTFE</span></div>
+      <div class="mks-spec"><strong>Uitvoering</strong><span>Gezaagd, geboord, gefreesd of getapt</span></div>
+      <div class="mks-spec"><strong>Kleur</strong><span>Naturel, wit, zwart en andere kleuren afhankelijk van het materiaal</span></div>
     </div>
   </div>
 </section>
 
-<section class="section" id="specificaties">
-  <div class="container content-grid">
-    <div class="prose">
-      <p class="eyebrow">Precies volgens uw maatvoering</p>
-      <h2>Kunststof strips en stroken laten maken</h2>
-      <p>Een kunststof strook kan rechtstreeks uit plaat worden gezaagd of als technisch onderdeel verder worden bewerkt. Denk aan boorgaten, sleuven, verzonken gaten, afgeschuinde kanten, radiushoeken of een afwijkende contour.</p>
-      <p>We leveren losse stroken, sets en terugkerende series. Geef bij uw aanvraag aan waar de strook voor wordt gebruikt, zodat de materiaalkeuze en toleranties daarop kunnen worden afgestemd.</p>
-    </div>
-    <aside class="spec-card">
-      <h2>Mogelijke specificaties</h2>
-      <dl>
-        <div><dt>Lengte</dt><dd>Volledig op aanvraag</dd></div>
-        <div><dt>Breedte en dikte</dt><dd>Van smalle strip tot zware slijtstrook</dd></div>
-        <div><dt>Uitvoering</dt><dd>Recht, geboord, gefreesd of gevormd</dd></div>
-        <div><dt>Kleur</dt><dd>Vrij te kiezen binnen materiaalbeschikbaarheid</dd></div>
-        <div><dt>Serie</dt><dd>Enkelstuks tot grotere aantallen</dd></div>
-      </dl>
-    </aside>
-  </div>
-</section>
+<section class="mks-section mks-section-soft" aria-labelledby="mks-toepassingen">
+  <div class="mks-container mks-media-grid">
+    <figure class="mks-media">
+      <img src="/assets/images/bak-kunststof-stroken.webp" width="1200" height="1200" loading="lazy" alt="Serie zwarte kunststof stroken op maat voor productie">
+    </figure>
 
-<section class="section section-muted">
-  <div class="container media-copy-grid">
-    <div class="media-copy-image">
-      <img src="/assets/images/bak-kunststof-stroken.webp" width="1200" height="1200" loading="lazy" alt="Serie zwarte kunststof stroken in bakken">
-    </div>
-    <div>
-      <p class="eyebrow">Voor onderhoud en productie</p>
-      <h2>Van enkele vervangingsstrip tot complete serie</h2>
-      <p>Kunststof stroken worden veel gebruikt op plekken waar metaal te zwaar, lawaaiig, corrosiegevoelig of onvoldoende slijtvriendelijk is. Met de juiste kunststof kan een strook soepel geleiden, schokken opvangen, contactvlakken beschermen of slijtage beperken.</p>
-      <ul class="check-list">
-        <li>Geleidestrips voor machines en transportbanen</li>
+    <div class="mks-copy">
+      <div>
+        <p class="mks-eyebrow">Toepassingen</p>
+        <h2 class="mks-heading" id="mks-toepassingen">Stroken voor geleiding, bescherming en slijtage</h2>
+      </div>
+      <p>Kunststof stroken worden toegepast waar onderdelen moeten glijden, op afstand worden gehouden of tegen contact en slijtage moeten worden beschermd. De juiste materiaalkeuze hangt onder meer af van belasting, wrijving, vocht, temperatuur en chemicaliën.</p>
+      <ul class="mks-checks">
+        <li>Geleide- en glijstrips voor machines</li>
         <li>Slijtstrips en beschermstroken</li>
-        <li>Afstandsstroken en vulstroken</li>
-        <li>Stroken met gaten, sleuven of montagepunten</li>
+        <li>Afstands-, vul- en montagestroken</li>
+        <li>Vervangingsdelen en terugkerende series</li>
       </ul>
     </div>
   </div>
 </section>
 
-<section class="section">
-  <div class="container">
-    <div class="section-heading section-heading-wide">
-      <div><p class="eyebrow">Uitvoering</p><h2>Ook bewerkte kunststof stroken</h2></div>
-      <p>Een strook hoeft niet bij een eenvoudige rechthoek te blijven.</p>
+<section class="mks-section" aria-labelledby="mks-materiaal">
+  <div class="mks-container">
+    <div class="mks-section-head">
+      <div>
+        <p class="mks-eyebrow">Materiaal en bewerking</p>
+        <h2 class="mks-heading" id="mks-materiaal">Afgestemd op wat de strook moet doen</h2>
+      </div>
+      <p>Niet iedere toepassing vraagt om dezelfde kunststof. Daarom beoordelen we zowel het gebruik als de gewenste bewerking.</p>
     </div>
-    <div class="info-card-grid">
-      <article><h3>Gaten en sleuven</h3><p>Geboord, verzonken of gefreesd volgens opgegeven hartmaten.</p></article>
-      <article><h3>Randen en hoeken</h3><p>Met radius, afschuining, facet of andere randafwerking.</p></article>
-      <article><h3>Afwijkende contour</h3><p>Gefreesde vormdelen die vanuit een strook of plaat worden gemaakt.</p></article>
-      <article><h3>Herhaalseries</h3><p>Vaste maatvoering voor periodieke vervanging of productie.</p></article>
+
+    <div class="mks-card-grid">
+      <article class="mks-card">
+        <h3>HDPE en HMPE</h3>
+        <p>Slagvast, vochtbestendig en geschikt voor glij-, slijt- en beschermstroken.</p>
+      </article>
+      <article class="mks-card">
+        <h3>POM en PA</h3>
+        <p>Technische kunststoffen voor maatvaste delen, geleiding en mechanisch belaste toepassingen.</p>
+      </article>
+      <article class="mks-card">
+        <h3>PVC, PTFE en meer</h3>
+        <p>Voor onder andere chemische bestendigheid, lage wrijving of bijzondere gebruiksomstandigheden.</p>
+      </article>
+    </div>
+
+    <div class="mks-advice">
+      <div><strong>Materiaal nog niet bekend?</strong><span>Beschrijf de toepassing; dan kunnen we gericht adviseren.</span></div>
+      <a href="#offerte">Vraag materiaaladvies →</a>
     </div>
   </div>
 </section>
 
-<section class="related-section">
-  <div class="container related-inner">
-    <div><p class="eyebrow eyebrow-light">Meer kunststof maatwerk</p><h2>Bekijk ook onze andere categorieën</h2></div>
-    <div class="related-links">
-      <a href="/kunststof-blokken-op-maat/">Kunststof blokken <span>→</span></a>
-      <a href="/kunststof-platen-op-maat/">Kunststof platen <span>→</span></a>
-      <a href="/kunststof-ringen-op-maat/">Kunststof ringen <span>→</span></a>
+<section class="mks-section mks-section-soft" aria-labelledby="mks-andere-vormen">
+  <div class="mks-container">
+    <div class="mks-section-head">
+      <div>
+        <p class="mks-eyebrow">Meer kunststof maatwerk</p>
+        <h2 class="mks-heading" id="mks-andere-vormen">Ook andere vormen nodig?</h2>
+      </div>
+    </div>
+    <div class="mks-related-grid">
+      <a class="mks-related-card" href="/kunststof-blokken-op-maat/"><strong>Kunststof blokken</strong><span>Massieve blokken en volledig bewerkte onderdelen.</span></a>
+      <a class="mks-related-card" href="/kunststof-platen-op-maat/"><strong>Kunststof platen</strong><span>Volledige platen en gezaagde plaatdelen.</span></a>
+      <a class="mks-related-card" href="/kunststof-ringen-op-maat/"><strong>Kunststof ringen</strong><span>Afstands-, steun- en speciale ringen op maat.</span></a>
     </div>
   </div>
 </section>
 
-{% include "offerte-form.njk" %}
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"Kunststof stroken op maat","provider":{"@type":"Organization","name":"MaatwerkKunststof.nl"},"areaServed":["Nederland","België"],"description":"Kunststof stroken en strips in iedere gewenste maat, kunststofsoort en bewerking."}</script>
+<section class="mks-quote" id="offerte" aria-labelledby="mks-offerte-title">
+  <div class="mks-container mks-quote-grid">
+    <div class="mks-quote-copy">
+      <p class="mks-eyebrow">Vrijblijvende aanvraag</p>
+      <h2 id="mks-offerte-title">Offerte voor kunststof stroken</h2>
+      <p>Stuur uw maten, gewenste aantal en toepassing. Een foto, schets of tekening kunt u direct toevoegen.</p>
+      <ul class="mks-checks">
+        <li>Enkelstuks en series</li>
+        <li>Materiaaladvies mogelijk</li>
+        <li>Geen aankoopverplichting</li>
+      </ul>
+    </div>
+
+    <form class="mks-form" action="/api/offerte" method="post" enctype="multipart/form-data" data-quote-form>
+      <input type="hidden" name="pagina" value="{{ page.url }}">
+      <input type="hidden" name="product" value="Kunststof stroken">
+      <input type="hidden" name="form_started_at" value="" data-form-started>
+      <input type="hidden" name="utm_source" value="">
+      <input type="hidden" name="utm_medium" value="">
+      <input type="hidden" name="utm_campaign" value="">
+      <input type="hidden" name="utm_term" value="">
+      <input type="hidden" name="utm_content" value="">
+      <input type="hidden" name="gclid" value="">
+      <input type="hidden" name="gbraid" value="">
+      <input type="hidden" name="wbraid" value="">
+
+      <div class="mks-honeypot" aria-hidden="true">
+        <label for="stroken-website">Website</label>
+        <input id="stroken-website" name="website" type="text" tabindex="-1" autocomplete="off">
+      </div>
+
+      <strong class="mks-form-head">Vraag vrijblijvend een offerte aan</strong>
+
+      <div class="mks-form-row">
+        <div class="mks-field">
+          <label for="stroken-naam">Naam</label>
+          <input id="stroken-naam" name="naam" type="text" autocomplete="name" required maxlength="100" placeholder="Naam">
+        </div>
+        <div class="mks-field">
+          <label for="stroken-email">E-mailadres</label>
+          <input id="stroken-email" name="email" type="email" autocomplete="email" inputmode="email" required maxlength="160" placeholder="E-mailadres">
+        </div>
+      </div>
+
+      <div class="mks-field">
+        <label for="stroken-telefoon">Telefoonnummer</label>
+        <input id="stroken-telefoon" name="telefoon" type="tel" autocomplete="tel" inputmode="tel" maxlength="40" placeholder="Telefoonnummer">
+      </div>
+
+      <div class="mks-field">
+        <label for="stroken-specificaties">Bericht</label>
+        <textarea id="stroken-specificaties" name="specificaties" rows="5" required maxlength="4000" placeholder="Bericht"></textarea>
+      </div>
+
+      <div class="mks-field">
+        <label class="mks-file-label" for="stroken-bestanden">
+          Foto, schets of tekening toevoegen
+          <input id="stroken-bestanden" name="bestanden" type="file" multiple accept=".pdf,.png,.jpg,.jpeg,.webp,.heic,.dxf,.dwg,.step,.stp">
+        </label>
+        <p class="mks-file-help">Optioneel. Maximaal 3 bestanden, samen maximaal 8 MB.</p>
+      </div>
+
+      <div class="form-status" role="status" aria-live="polite" data-form-status></div>
+      <button class="mks-btn mks-btn-green" type="submit" data-submit-button>Offerteaanvraag versturen</button>
+      <p class="mks-form-note">Vrijblijvend en zonder aankoopverplichting.</p>
+    </form>
+  </div>
+</section>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Kunststof stroken op maat",
+  "provider": {
+    "@type": "Organization",
+    "name": "MaatwerkKunststof.nl",
+    "url": "https://maatwerkkunststof.nl"
+  },
+  "areaServed": ["Nederland", "België"],
+  "serviceType": "Kunststof stroken op maat zagen en bewerken",
+  "description": "Kunststof stroken en strips volgens maatvoering, recht gezaagd of bewerkt met gaten, sleuven en contouren."
+}
+</script>
