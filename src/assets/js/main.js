@@ -172,6 +172,7 @@
 
     if (!mainImage || !thumbnails.length) return;
 
+    const defaultImageSizes = mainImage.sizes;
     let activeIndex = Math.max(0, thumbnails.findIndex((thumbnail) => thumbnail.getAttribute('aria-pressed') === 'true'));
     let touchStartX = null;
 
@@ -179,6 +180,8 @@
       activeIndex = (index + thumbnails.length) % thumbnails.length;
       const selected = thumbnails[activeIndex];
 
+      mainImage.srcset = selected.dataset.srcset || '';
+      mainImage.sizes = selected.dataset.sizes || defaultImageSizes;
       mainImage.src = selected.dataset.src;
       mainImage.alt = selected.dataset.alt || '';
 
@@ -197,6 +200,8 @@
 
       const preloadImage = () => {
         const image = new Image();
+        image.srcset = thumbnail.dataset.srcset || '';
+        image.sizes = thumbnail.dataset.sizes || defaultImageSizes;
         image.src = thumbnail.dataset.src;
       };
 
@@ -235,7 +240,7 @@
 
     openButton?.addEventListener('click', () => {
       if (!dialog || !dialogImage || typeof dialog.showModal !== 'function') return;
-      dialogImage.src = mainImage.currentSrc || mainImage.src;
+      dialogImage.src = thumbnails[activeIndex]?.dataset.fullSrc || mainImage.currentSrc || mainImage.src;
       dialogImage.alt = mainImage.alt;
       dialog.showModal();
     });

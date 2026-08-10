@@ -38,6 +38,17 @@
     content="{{ site.url }}{{ image or '/assets/images/kunststof-blokken-meetlint.webp' }}"
   >
 
+  {% if preloadImage %}
+  <link
+    rel="preload"
+    as="image"
+    href="{{ preloadImage }}"
+    {% if preloadImageSrcset %}imagesrcset="{{ preloadImageSrcset }}"{% endif %}
+    {% if preloadImageSizes %}imagesizes="{{ preloadImageSizes }}"{% endif %}
+    fetchpriority="high"
+  >
+  {% endif %}
+
   <!-- Styles -->
   <link rel="stylesheet" href="/assets/css/styles.css?v={{ site.assetVersion }}">
 
