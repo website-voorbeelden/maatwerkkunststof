@@ -9,16 +9,16 @@ bodyClass: mks-page
 
 <style>
   body.mks-page {
-    --mks-ink: #14262e;
+    --mks-ink: #142b33;
     --mks-text: #53636a;
     --mks-muted: #748188;
     --mks-line: #dce2e3;
-    --mks-soft: #f4f7f6;
+    --mks-soft: #f3f7ef;
     --mks-white: #ffffff;
-    --mks-orange: #e65b28;
-    --mks-orange-dark: #c8481b;
-    --mks-green: rgb(116 194 0 / 1);
-    --mks-green-dark: #5c9b00;
+    --mks-orange: #74c200;
+    --mks-orange-dark: #4f8f00;
+    --mks-green: #74c200;
+    --mks-green-dark: #4f8f00;
     --mks-radius: 14px;
     --mks-shadow: 0 22px 55px rgba(20, 38, 46, 0.1);
     --mks-container: 1180px;
@@ -368,7 +368,7 @@ bodyClass: mks-page
   }
 
   .mks-quote .mks-eyebrow {
-    color: #ff9a60;
+    color: #a9e64e;
   }
 
   .mks-quote .mks-checks li {
@@ -564,30 +564,21 @@ bodyClass: mks-page
   }
 </style>
 
-<section class="mks-hero" aria-labelledby="mks-title">
-  <div class="mks-container mks-hero-grid">
-    <div class="mks-hero-copy">
-      <p class="mks-eyebrow">Maatwerk kunststof stroken</p>
-      <h1 id="mks-title">Kunststof stroken op maat</h1>
-      <p class="mks-hero-lead">Laat kunststof stroken maken volgens uw gewenste lengte, breedte en dikte. Recht gezaagd of verder bewerkt met gaten, sleuven en afwijkende contouren.</p>
-      <div class="mks-hero-actions">
-        <a class="mks-btn" href="#offerte" data-analytics="quote_cta" data-location="strips_hero">Vrijblijvende offerte aanvragen</a>
-        {% if site.whatsapp %}
-          <a class="mks-text-link" href="https://wa.me/{{ site.whatsapp }}?text=Hallo%2C%20ik%20heb%20een%20vraag%20over%20kunststof%20stroken%20op%20maat." target="_blank" rel="noopener" data-analytics="whatsapp_click" data-location="strips_hero">Vraag stellen via WhatsApp →</a>
-        {% endif %}
-      </div>
-      <ul class="mks-checks" aria-label="Voordelen van kunststof stroken op maat">
-        <li>Iedere gewenste maatvoering</li>
-        <li>Veel kunststofsoorten en kleuren</li>
-        <li>Enkelstuks en grotere series</li>
-      </ul>
-    </div>
-
-    <figure class="mks-hero-media">
-      <img src="/assets/images/strook-met-gaten.webp" width="1536" height="1536" alt="Zwarte kunststof strook op maat met twee boorgaten">
-    </figure>
-  </div>
-</section>
+{% set conversion = {
+  prefix: "stroken",
+  eyebrow: "Maatwerk kunststof stroken",
+  title: "Kunststof stroken op maat",
+  lead: "Laat kunststof stroken maken volgens uw gewenste lengte, breedte en dikte. Recht gezaagd of verder bewerkt met gaten, sleuven en afwijkende contouren.",
+  product: "Kunststof stroken",
+  placeholder: "Bijvoorbeeld: lengte, breedte, dikte, aantal en toepassing",
+  whatsappText: "Hallo%2C%20ik%20heb%20een%20vraag%20over%20kunststof%20stroken%20op%20maat.",
+  images: [
+    { src: "/assets/images/strook-met-gaten.webp", width: 1536, height: 1536, alt: "Zwarte kunststof strook op maat met twee boorgaten" },
+    { src: "/assets/images/bak-kunststof-stroken.webp", width: 1200, height: 1200, alt: "Serie zwarte kunststof stroken op maat voor productie" },
+    { src: "/assets/images/witte-kunststof-strook.webp", width: 1254, height: 1254, alt: "Witte kunststof strook volledig op maat gemaakt" }
+  ]
+} %}
+{% include "product-conversion-hero.njk" %}
 
 <section class="mks-section" aria-labelledby="mks-mogelijkheden">
   <div class="mks-container mks-intro-grid">
@@ -660,91 +651,6 @@ bodyClass: mks-page
       <div><strong>Materiaal nog niet bekend?</strong><span>Beschrijf de toepassing; dan kunnen we gericht adviseren.</span></div>
       <a href="#offerte">Vraag materiaaladvies →</a>
     </div>
-  </div>
-</section>
-
-<section class="mks-section mks-section-soft" aria-labelledby="mks-andere-vormen">
-  <div class="mks-container">
-    <div class="mks-section-head">
-      <div>
-        <p class="mks-eyebrow">Meer kunststof maatwerk</p>
-        <h2 class="mks-heading" id="mks-andere-vormen">Ook andere vormen nodig?</h2>
-      </div>
-    </div>
-    <div class="mks-related-grid">
-      <a class="mks-related-card" href="/kunststof-blokken-op-maat/"><strong>Kunststof blokken</strong><span>Massieve blokken en volledig bewerkte onderdelen.</span></a>
-      <a class="mks-related-card" href="/kunststof-platen-op-maat/"><strong>Kunststof platen</strong><span>Volledige platen en gezaagde plaatdelen.</span></a>
-      <a class="mks-related-card" href="/kunststof-ringen-op-maat/"><strong>Kunststof ringen</strong><span>Afstands-, steun- en speciale ringen op maat.</span></a>
-    </div>
-  </div>
-</section>
-
-<section class="mks-quote" id="offerte" aria-labelledby="mks-offerte-title">
-  <div class="mks-container mks-quote-grid">
-    <div class="mks-quote-copy">
-      <p class="mks-eyebrow">Vrijblijvende aanvraag</p>
-      <h2 id="mks-offerte-title">Offerte voor kunststof stroken</h2>
-      <p>Stuur uw maten, gewenste aantal en toepassing. Een foto, schets of tekening kunt u direct toevoegen.</p>
-      <ul class="mks-checks">
-        <li>Enkelstuks en series</li>
-        <li>Materiaaladvies mogelijk</li>
-        <li>Geen aankoopverplichting</li>
-      </ul>
-    </div>
-
-    <form class="mks-form" action="/api/offerte" method="post" enctype="multipart/form-data" data-quote-form>
-      <input type="hidden" name="pagina" value="{{ page.url }}">
-      <input type="hidden" name="product" value="Kunststof stroken">
-      <input type="hidden" name="form_started_at" value="" data-form-started>
-      <input type="hidden" name="utm_source" value="">
-      <input type="hidden" name="utm_medium" value="">
-      <input type="hidden" name="utm_campaign" value="">
-      <input type="hidden" name="utm_term" value="">
-      <input type="hidden" name="utm_content" value="">
-      <input type="hidden" name="gclid" value="">
-      <input type="hidden" name="gbraid" value="">
-      <input type="hidden" name="wbraid" value="">
-
-      <div class="mks-honeypot" aria-hidden="true">
-        <label for="stroken-website">Website</label>
-        <input id="stroken-website" name="website" type="text" tabindex="-1" autocomplete="off">
-      </div>
-
-      <strong class="mks-form-head">Vraag vrijblijvend een offerte aan</strong>
-
-      <div class="mks-form-row">
-        <div class="mks-field">
-          <label for="stroken-naam">Naam</label>
-          <input id="stroken-naam" name="naam" type="text" autocomplete="name" required maxlength="100" placeholder="Naam">
-        </div>
-        <div class="mks-field">
-          <label for="stroken-email">E-mailadres</label>
-          <input id="stroken-email" name="email" type="email" autocomplete="email" inputmode="email" required maxlength="160" placeholder="E-mailadres">
-        </div>
-      </div>
-
-      <div class="mks-field">
-        <label for="stroken-telefoon">Telefoonnummer</label>
-        <input id="stroken-telefoon" name="telefoon" type="tel" autocomplete="tel" inputmode="tel" maxlength="40" placeholder="Telefoonnummer">
-      </div>
-
-      <div class="mks-field">
-        <label for="stroken-specificaties">Bericht</label>
-        <textarea id="stroken-specificaties" name="specificaties" rows="5" required maxlength="4000" placeholder="Bericht"></textarea>
-      </div>
-
-      <div class="mks-field">
-        <label class="mks-file-label" for="stroken-bestanden">
-          Foto, schets of tekening toevoegen
-          <input id="stroken-bestanden" name="bestanden" type="file" multiple accept=".pdf,.png,.jpg,.jpeg,.webp,.heic,.dxf,.dwg,.step,.stp">
-        </label>
-        <p class="mks-file-help">Optioneel. Maximaal 3 bestanden, samen maximaal 8 MB.</p>
-      </div>
-
-      <div class="form-status" role="status" aria-live="polite" data-form-status></div>
-      <button class="mks-btn mks-btn-green" type="submit" data-submit-button>Offerteaanvraag versturen</button>
-      <p class="mks-form-note">Vrijblijvend en zonder aankoopverplichting.</p>
-    </form>
   </div>
 </section>
 

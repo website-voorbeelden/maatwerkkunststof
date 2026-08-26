@@ -1,7 +1,7 @@
 const MAX_FILES = 3;
 const MAX_TOTAL_FILE_SIZE = 8 * 1024 * 1024;
 const ALLOWED_EXTENSIONS = new Set([
-  'pdf', 'png', 'jpg', 'jpeg', 'webp', 'heic', 'dxf', 'dwg'
+  'pdf', 'png', 'jpg', 'jpeg', 'webp', 'heic', 'dxf', 'dwg', 'step', 'stp'
 ]);
 
 const json = (data, status = 200) => new Response(JSON.stringify(data), {
@@ -170,25 +170,25 @@ export async function onRequestPost(context) {
   const subjectProduct = data.product || 'kunststof maatwerk';
   const htmlRows = rows.map(([label, value]) => `
     <tr>
-      <th style="padding:9px 12px;text-align:left;border-bottom:1px solid #dce2e6;color:#152331;vertical-align:top">${escapeHtml(label)}</th>
-      <td style="padding:9px 12px;border-bottom:1px solid #dce2e6;color:#4b5b68">${escapeHtml(value)}</td>
+      <th style="padding:9px 12px;text-align:left;border-bottom:1px solid #dbe4df;color:#142b33;vertical-align:top">${escapeHtml(label)}</th>
+      <td style="padding:9px 12px;border-bottom:1px solid #dbe4df;color:#536369">${escapeHtml(value)}</td>
     </tr>`).join('');
 
   const campaignHtml = campaignRows.length ? `
-    <h2 style="font-size:17px;color:#152331;margin:26px 0 8px">Campagnegegevens</h2>
+    <h2 style="font-size:17px;color:#142b33;margin:26px 0 8px">Campagnegegevens</h2>
     <table style="width:100%;border-collapse:collapse">${campaignRows.map(([label, value]) => `
-      <tr><th style="padding:7px 12px;text-align:left;border-bottom:1px solid #dce2e6;color:#152331">${escapeHtml(label)}</th><td style="padding:7px 12px;border-bottom:1px solid #dce2e6;color:#4b5b68;word-break:break-all">${escapeHtml(value)}</td></tr>`).join('')}
+      <tr><th style="padding:7px 12px;text-align:left;border-bottom:1px solid #dbe4df;color:#142b33">${escapeHtml(label)}</th><td style="padding:7px 12px;border-bottom:1px solid #dbe4df;color:#536369;word-break:break-all">${escapeHtml(value)}</td></tr>`).join('')}
     </table>` : '';
 
   const internalHtml = `
-    <div style="font-family:Arial,sans-serif;max-width:720px;margin:auto;color:#152331">
-      <div style="background:#152331;padding:22px 24px;color:#fff">
+    <div style="font-family:Arial,sans-serif;max-width:720px;margin:auto;color:#142b33">
+      <div style="background:#142b33;padding:22px 24px;color:#fff">
         <strong style="font-size:20px">Nieuwe offerteaanvraag</strong>
       </div>
-      <div style="padding:24px;border:1px solid #dce2e6;border-top:0">
+      <div style="padding:24px;border:1px solid #dbe4df;border-top:0">
         <table style="width:100%;border-collapse:collapse">${htmlRows}</table>
-        <h2 style="font-size:17px;color:#152331;margin:26px 0 8px">Specificaties</h2>
-        <div style="padding:16px;background:#f6f8f9;border-left:4px solid #d84d00;white-space:pre-wrap;color:#334758">${escapeHtml(data.specificaties)}</div>
+        <h2 style="font-size:17px;color:#142b33;margin:26px 0 8px">Specificaties</h2>
+        <div style="padding:16px;background:#f3f7ef;border-left:4px solid #74c200;white-space:pre-wrap;color:#536369">${escapeHtml(data.specificaties)}</div>
         ${campaignHtml}
         <p style="margin-top:24px;color:#62717d;font-size:13px">Bijlagen: ${attachments.length || 'geen'}</p>
       </div>
@@ -224,13 +224,13 @@ export async function onRequestPost(context) {
           reply_to: env.OFFERTES_TO_EMAIL,
           subject: 'We hebben uw offerteaanvraag ontvangen',
           html: `
-            <div style="font-family:Arial,sans-serif;max-width:620px;margin:auto;color:#152331">
-              <div style="background:#152331;padding:22px 24px;color:#fff"><strong style="font-size:20px">MaatwerkKunststof.nl</strong></div>
-              <div style="padding:24px;border:1px solid #dce2e6;border-top:0">
+            <div style="font-family:Arial,sans-serif;max-width:620px;margin:auto;color:#142b33">
+              <div style="background:#142b33;padding:22px 24px;color:#fff"><strong style="font-size:20px">MaatwerkKunststof.nl</strong></div>
+              <div style="padding:24px;border:1px solid #dbe4df;border-top:0">
                 <h1 style="font-size:24px;margin:0 0 16px">Bedankt voor uw aanvraag, ${escapeHtml(data.naam)}</h1>
-                <p style="color:#4b5b68;line-height:1.6">We hebben uw aanvraag voor ${escapeHtml(subjectProduct)} ontvangen. We bekijken de specificaties en nemen contact op wanneer er aanvullende informatie nodig is.</p>
-                <p style="color:#4b5b68;line-height:1.6">Uw omschrijving:</p>
-                <div style="padding:16px;background:#f6f8f9;border-left:4px solid #d84d00;white-space:pre-wrap;color:#334758">${escapeHtml(data.specificaties)}</div>
+                <p style="color:#536369;line-height:1.6">We hebben uw aanvraag voor ${escapeHtml(subjectProduct)} ontvangen. We bekijken de specificaties en nemen contact op wanneer er aanvullende informatie nodig is.</p>
+                <p style="color:#536369;line-height:1.6">Uw omschrijving:</p>
+                <div style="padding:16px;background:#f3f7ef;border-left:4px solid #74c200;white-space:pre-wrap;color:#536369">${escapeHtml(data.specificaties)}</div>
                 <p style="margin-top:24px;color:#62717d;font-size:13px">U hoeft niet op deze automatische bevestiging te reageren, maar antwoorden is wel mogelijk.</p>
               </div>
             </div>`,

@@ -2,20 +2,20 @@
 layout: base.njk
 title: Kunststof ringen op maat | PTFE, POM, HDPE en meer
 description: Kunststof en rubber ringen op maat in PTFE, POM, PA, HDPE en meer. Iedere binnenmaat, buitenmaat en dikte. Vraag vrijblijvend een offerte aan.
-image: /assets/images/ptfe-ringen-op-maat.webp
-imageAlt: Witte PTFE ringen in verschillende diameters
+image: /assets/images/zwarte-ptfe-ring-realistisch.webp
+imageAlt: Zwarte PTFE ring op maat
 bodyClass: mkr-page
 ---
 
 <style>
   body.mkr-page {
-    --mkr-ink: #14262e;
+    --mkr-ink: #142b33;
     --mkr-text: #53636a;
     --mkr-line: #dce2e3;
-    --mkr-soft: #f4f7f6;
-    --mkr-orange: #e65b28;
-    --mkr-green: rgb(116 194 0 / 1);
-    --mkr-green-dark: #5c9b00;
+    --mkr-soft: #f3f7ef;
+    --mkr-orange: #74c200;
+    --mkr-green: #74c200;
+    --mkr-green-dark: #4f8f00;
     --mkr-radius: 14px;
     --mkr-shadow: 0 22px 55px rgba(20, 38, 46, 0.1);
   }
@@ -226,7 +226,7 @@ bodyClass: mkr-page
   }
 
   .mkr-page .eyebrow-light {
-    color: #ff9a60;
+    color: #a9e64e;
   }
 
   .mkr-page .quote-section {
@@ -316,30 +316,21 @@ bodyClass: mkr-page
   }
 </style>
 
-<section class="mkr-hero" aria-labelledby="mkr-title">
-  <div class="container mkr-hero-grid">
-    <div class="mkr-hero-copy">
-      <p class="eyebrow">Maatwerk kunststof ringen</p>
-      <h1 id="mkr-title">Kunststof ringen op maat</h1>
-      <p class="mkr-hero-lead">Vlakke ringen, afstandsringen, vulringen en technische ringvormen volgens uw gewenste binnenmaat, buitenmaat en dikte.</p>
-      <div class="mkr-hero-actions">
-        <a class="button" href="#offerte" data-analytics="quote_cta" data-location="rings_hero">Vrijblijvende offerte aanvragen</a>
-        {% if site.whatsapp %}
-          <a class="mkr-whatsapp-link" href="https://wa.me/{{ site.whatsapp }}?text=Hallo%2C%20ik%20heb%20een%20vraag%20over%20kunststof%20ringen%20op%20maat." target="_blank" rel="noopener" data-analytics="whatsapp_click" data-location="rings_hero">Vraag stellen via WhatsApp →</a>
-        {% endif %}
-      </div>
-      <ul class="mkr-checks" aria-label="Voordelen van ringen op maat">
-        <li>Exacte binnen- en buitenmaat</li>
-        <li>Kunststof en rubber mogelijkheden</li>
-        <li>Enkelstuks en grotere series</li>
-      </ul>
-    </div>
-
-    <figure class="mkr-hero-media">
-      <img src="/assets/images/ptfe-ringen-op-maat.webp" width="1024" height="1024" alt="Witte PTFE ringen in verschillende diameters">
-    </figure>
-  </div>
-</section>
+{% set conversion = {
+  prefix: "ringen",
+  eyebrow: "Maatwerk kunststof ringen",
+  title: "Kunststof ringen op maat",
+  lead: "Vlakke ringen, afstandsringen, vulringen en technische ringvormen volgens uw gewenste binnenmaat, buitenmaat en dikte.",
+  product: "Kunststof en rubber ringen",
+  placeholder: "Bijvoorbeeld: binnenmaat, buitenmaat, dikte, aantal en toepassing",
+  whatsappText: "Hallo%2C%20ik%20heb%20een%20vraag%20over%20kunststof%20ringen%20op%20maat.",
+  images: [
+    { src: "/assets/images/zwarte-ptfe-ring-realistisch.webp", width: 1254, height: 1254, alt: "Zwarte PTFE ring op maat met nauwkeurig bewerkte binnen- en buitenmaat" },
+    { src: "/assets/images/ptfe-ringen-op-maat.webp", width: 1024, height: 1024, alt: "Witte PTFE ringen in verschillende diameters" },
+    { src: "/assets/images/rubber-ringen-op-maat.webp", width: 1024, height: 1024, alt: "Zwarte, rode en witte rubber ringen op maat" }
+  ]
+} %}
+{% include "product-conversion-hero.njk" %}
 
 <section class="section" id="specificaties" aria-labelledby="mkr-specificaties">
   <div class="container content-grid">
@@ -428,86 +419,6 @@ bodyClass: mkr-page
       <article><h3>Dikte</h3><p>De materiaalhoogte en eventueel gewenste toleranties.</p></article>
       <article><h3>Toepassing</h3><p>Belasting, temperatuur, vocht, chemicaliën en gewenste functie.</p></article>
     </div>
-  </div>
-</section>
-
-<section class="related-section">
-  <div class="container related-inner">
-    <div><p class="eyebrow eyebrow-light">Meer kunststof maatwerk</p><h2>Bekijk ook onze andere categorieën</h2></div>
-    <div class="related-links">
-      <a href="/kunststof-blokken-op-maat/">Kunststof blokken <span>→</span></a>
-      <a href="/kunststof-stroken-op-maat/">Kunststof stroken <span>→</span></a>
-      <a href="/kunststof-platen-op-maat/">Kunststof platen <span>→</span></a>
-    </div>
-  </div>
-</section>
-
-<section class="quote-section" id="offerte" aria-labelledby="mkr-offerte-title">
-  <div class="container quote-layout">
-    <div class="quote-intro">
-      <p class="eyebrow eyebrow-light">Vrijblijvende aanvraag</p>
-      <h2 id="mkr-offerte-title">Offerte voor ringen op maat</h2>
-      <p>Stuur uw maten, gewenste aantal en toepassing. Een foto, schets of tekening kunt u direct toevoegen.</p>
-      <ul class="check-list check-list-light">
-        <li>Enkelstuks en series</li>
-        <li>Materiaaladvies mogelijk</li>
-        <li>Geen aankoopverplichting</li>
-      </ul>
-    </div>
-
-    <form class="quote-form" action="/api/offerte" method="post" enctype="multipart/form-data" data-quote-form>
-      <input type="hidden" name="pagina" value="{{ page.url }}">
-      <input type="hidden" name="product" value="Kunststof en rubber ringen">
-      <input type="hidden" name="form_started_at" value="" data-form-started>
-      <input type="hidden" name="utm_source" value="">
-      <input type="hidden" name="utm_medium" value="">
-      <input type="hidden" name="utm_campaign" value="">
-      <input type="hidden" name="utm_term" value="">
-      <input type="hidden" name="utm_content" value="">
-      <input type="hidden" name="gclid" value="">
-      <input type="hidden" name="gbraid" value="">
-      <input type="hidden" name="wbraid" value="">
-
-      <div class="honeypot" aria-hidden="true">
-        <label for="ringen-website">Website</label>
-        <input id="ringen-website" name="website" type="text" tabindex="-1" autocomplete="off">
-      </div>
-
-      <strong class="mkr-form-head">Vraag vrijblijvend een offerte aan</strong>
-
-      <div class="form-row">
-        <div class="field">
-          <label class="mkr-visually-hidden" for="ringen-naam">Naam</label>
-          <input id="ringen-naam" name="naam" type="text" autocomplete="name" required maxlength="100" placeholder="Naam">
-        </div>
-        <div class="field">
-          <label class="mkr-visually-hidden" for="ringen-email">E-mailadres</label>
-          <input id="ringen-email" name="email" type="email" autocomplete="email" inputmode="email" required maxlength="160" placeholder="E-mailadres">
-        </div>
-      </div>
-
-      <div class="field">
-        <label class="mkr-visually-hidden" for="ringen-telefoon">Telefoonnummer</label>
-        <input id="ringen-telefoon" name="telefoon" type="tel" autocomplete="tel" inputmode="tel" maxlength="40" placeholder="Telefoonnummer">
-      </div>
-
-      <div class="field">
-        <label class="mkr-visually-hidden" for="ringen-specificaties">Bericht</label>
-        <textarea id="ringen-specificaties" name="specificaties" rows="5" required maxlength="4000" placeholder="Bericht"></textarea>
-      </div>
-
-      <div class="field">
-        <label class="mkr-file-label" for="ringen-bestanden">
-          Foto, schets of tekening toevoegen
-          <input id="ringen-bestanden" name="bestanden" type="file" multiple accept=".pdf,.png,.jpg,.jpeg,.webp,.heic,.dxf,.dwg,.step,.stp">
-        </label>
-        <p class="field-help">Optioneel. Maximaal 3 bestanden, samen maximaal 8 MB.</p>
-      </div>
-
-      <div class="form-status" role="status" aria-live="polite" data-form-status></div>
-      <button class="button button-full mkr-submit" type="submit" data-submit-button>Offerteaanvraag versturen</button>
-      <p class="form-note">Vrijblijvend en zonder aankoopverplichting.</p>
-    </form>
   </div>
 </section>
 

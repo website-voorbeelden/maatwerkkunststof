@@ -14,16 +14,18 @@ bodyClass: "mkb-page"
 
 <style>
   body.mkb-page {
-    --mkb-ink: #14262e;
+    --mkb-ink: #142b33;
     --mkb-text: #53636a;
     --mkb-muted: #748188;
     --mkb-line: #dce2e3;
-    --mkb-soft: #f4f7f6;
+    --mkb-soft: #f3f7ef;
     --mkb-white: #ffffff;
-    --mkb-orange: #e65b28;
-    --mkb-orange-dark: #c8481b;
-    --mkb-green: rgb(116 194 0 / 1);
-    --mkb-green-dark: #5c9b00;
+    --mkb-orange: #74c200;
+    --mkb-orange-dark: #4f8f00;
+    --mkb-green: #74c200;
+    --mkb-green-dark: #4f8f00;
+    --mkb-whatsapp: #128c4a;
+    --mkb-whatsapp-dark: #0f6f3b;
     --mkb-radius: 14px;
     --mkb-shadow: 0 22px 55px rgba(20, 38, 46, 0.1);
     --mkb-container: 1180px;
@@ -96,12 +98,14 @@ bodyClass: "mkb-page"
     text-align: center;
     text-decoration: none;
     cursor: pointer;
+    transition: color 0.22s ease, background-color 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease, transform 0.22s ease;
   }
 
   .mkb-btn:hover,
   .mkb-btn:focus-visible {
     border-color: var(--mkb-orange-dark);
     background: var(--mkb-orange-dark);
+    transform: translateY(-1px);
   }
 
   .mkb-btn-secondary {
@@ -116,20 +120,30 @@ bodyClass: "mkb-page"
     background: var(--mkb-ink);
   }
 
-  .mkb-btn-green,
-  .mkb-btn-whatsapp {
+  .mkb-btn-green {
     border-color: var(--mkb-green);
     color: var(--mkb-white);
     background: var(--mkb-green);
   }
 
   .mkb-btn-green:hover,
-  .mkb-btn-green:focus-visible,
-  .mkb-btn-whatsapp:hover,
-  .mkb-btn-whatsapp:focus-visible {
+  .mkb-btn-green:focus-visible {
     border-color: var(--mkb-green-dark);
     color: var(--mkb-white);
     background: var(--mkb-green-dark);
+  }
+
+  .mkb-btn-whatsapp {
+    border-color: var(--mkb-line);
+    color: var(--mkb-ink);
+    background: var(--mkb-white);
+  }
+
+  .mkb-btn-whatsapp:hover,
+  .mkb-btn-whatsapp:focus-visible {
+    border-color: var(--mkb-whatsapp);
+    color: var(--mkb-ink);
+    background: var(--mkb-soft);
   }
 
   .mkb-whatsapp-icon {
@@ -137,6 +151,7 @@ bodyClass: "mkb-page"
     height: 18px;
     flex: 0 0 18px;
     margin-right: 8px;
+    color: var(--mkb-whatsapp);
     fill: currentColor;
   }
 
@@ -691,8 +706,8 @@ bodyClass: "mkb-page"
 
   .mkb-final {
     padding: 56px 0;
-    color: var(--mkb-white);
-    background: #101e25;
+    color: var(--mkb-ink);
+    background: var(--mkb-soft);
   }
 
   .mkb-final-inner {
@@ -704,14 +719,14 @@ bodyClass: "mkb-page"
   .mkb-final h2 {
     max-width: 720px;
     margin: 0 0 8px;
-    color: var(--mkb-white);
+    color: var(--mkb-ink);
     font-size: clamp(1.8rem, 5vw, 2.8rem);
   }
 
   .mkb-final p {
     max-width: 720px;
     margin: 0;
-    color: rgba(255, 255, 255, 0.7);
+    color: var(--mkb-text);
   }
 
   /* Vergrote foto */
@@ -1352,33 +1367,6 @@ bodyClass: "mkb-page"
         <summary>Heb ik een technische tekening nodig?</summary>
         <p>Nee. Voor een eenvoudig blok is een omschrijving met maten vaak voldoende. Voor complex maatwerk kunt u een schets, foto, bestaand voorbeeld of technisch bestand meesturen.</p>
       </details>
-    </div>
-  </div>
-</section>
-
-<section class="mkb-section mkb-section-soft" aria-labelledby="mkb-related-title">
-  <div class="mkb-container">
-    <div class="mkb-section-intro">
-      <div>
-        <p class="mkb-eyebrow">Andere vormen</p>
-        <h2 class="mkb-heading" id="mkb-related-title">Ander kunststof maatwerk nodig?</h2>
-      </div>
-      <p>Naast kunststof blokken leveren we ook stroken, platen, ringen en volledig bewerkte kunststof onderdelen.</p>
-    </div>
-
-    <div class="mkb-related-grid">
-      <a class="mkb-related-card" href="/kunststof-stroken-op-maat/">
-        <strong>Kunststof stroken op maat</strong>
-        <span>Smalle en brede stroken voor geleiding, bescherming en constructie.</span>
-      </a>
-      <a class="mkb-related-card" href="/kunststof-platen-op-maat/">
-        <strong>Kunststof platen op maat</strong>
-        <span>Volledige platen, gezaagde plaatdelen en bewerkte panelen.</span>
-      </a>
-      <a class="mkb-related-card" href="/kunststof-ringen-op-maat/">
-        <strong>Kunststof ringen op maat</strong>
-        <span>Afstands-, steun- en speciale ringen in iedere gewenste maat.</span>
-      </a>
     </div>
   </div>
 </section>

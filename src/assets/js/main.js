@@ -159,8 +159,8 @@
   });
 
   document.querySelectorAll('[data-product-gallery]').forEach((gallery) => {
-    const galleryStage = gallery.querySelector('.mkb-gallery-stage');
-    const thumbnailStrip = gallery.querySelector('.mkb-gallery-thumbs');
+    const galleryStage = gallery.querySelector('[data-gallery-stage], .mkb-gallery-stage');
+    const thumbnailStrip = gallery.querySelector('[data-gallery-thumbs], .mkb-gallery-thumbs');
     const mainImage = gallery.querySelector('[data-gallery-main]');
     const thumbnails = Array.from(gallery.querySelectorAll('[data-gallery-thumb]'));
     const previousButton = gallery.querySelector('[data-gallery-prev]');

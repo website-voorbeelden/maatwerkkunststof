@@ -1,0 +1,105 @@
+<section class="pc-hero" aria-labelledby="{{ conversion.prefix }}-title">
+  <div class="container pc-grid">
+    <div class="pc-info">
+      <p class="eyebrow">{{ conversion.eyebrow }}</p>
+      <h1 id="{{ conversion.prefix }}-title">{{ conversion.title }}</h1>
+      <p class="pc-lead">{{ conversion.lead }}</p>
+
+      <form class="pc-form" id="offerte" action="/api/offerte" method="post" enctype="multipart/form-data" data-quote-form>
+        <strong class="pc-form-title">Vraag vrijblijvend een offerte aan</strong>
+
+        <input type="hidden" name="pagina" value="{{ page.url }}">
+        <input type="hidden" name="product" value="{{ conversion.product }}">
+        <input type="hidden" name="form_started_at" value="" data-form-started>
+        <input type="hidden" name="utm_source" value="">
+        <input type="hidden" name="utm_medium" value="">
+        <input type="hidden" name="utm_campaign" value="">
+        <input type="hidden" name="utm_term" value="">
+        <input type="hidden" name="utm_content" value="">
+        <input type="hidden" name="gclid" value="">
+        <input type="hidden" name="gbraid" value="">
+        <input type="hidden" name="wbraid" value="">
+
+        <div class="pc-honeypot" aria-hidden="true">
+          <label for="{{ conversion.prefix }}-website">Website</label>
+          <input id="{{ conversion.prefix }}-website" name="website" type="text" tabindex="-1" autocomplete="off">
+        </div>
+
+        <div class="pc-form-row">
+          <div class="pc-field">
+            <label class="pc-visually-hidden" for="{{ conversion.prefix }}-naam">Naam</label>
+            <input id="{{ conversion.prefix }}-naam" name="naam" type="text" autocomplete="name" required maxlength="100" placeholder="Naam">
+          </div>
+          <div class="pc-field">
+            <label class="pc-visually-hidden" for="{{ conversion.prefix }}-email">E-mailadres</label>
+            <input id="{{ conversion.prefix }}-email" name="email" type="email" autocomplete="email" inputmode="email" required maxlength="160" placeholder="E-mailadres">
+          </div>
+        </div>
+
+        <div class="pc-field">
+          <label class="pc-visually-hidden" for="{{ conversion.prefix }}-telefoon">Telefoonnummer</label>
+          <input id="{{ conversion.prefix }}-telefoon" name="telefoon" type="tel" autocomplete="tel" inputmode="tel" maxlength="40" placeholder="Telefoonnummer">
+        </div>
+
+        <div class="pc-field">
+          <label class="pc-visually-hidden" for="{{ conversion.prefix }}-specificaties">Bericht</label>
+          <textarea id="{{ conversion.prefix }}-specificaties" name="specificaties" rows="5" required maxlength="4000" placeholder="{{ conversion.placeholder or 'Bericht' }}"></textarea>
+        </div>
+
+        <div class="pc-field">
+          <label class="pc-file-label" for="{{ conversion.prefix }}-bestanden">
+            Foto, schets of tekening toevoegen
+            <input id="{{ conversion.prefix }}-bestanden" name="bestanden" type="file" multiple accept=".pdf,.png,.jpg,.jpeg,.webp,.heic,.dxf,.dwg,.step,.stp">
+          </label>
+          <p class="pc-field-help">Optioneel. Maximaal 3 bestanden, samen maximaal 8 MB.</p>
+        </div>
+
+        <div class="form-status" role="status" aria-live="polite" data-form-status></div>
+        <button class="button button-full" type="submit" data-submit-button>Offerteaanvraag versturen</button>
+        <p class="pc-form-note">Vrijblijvend en zonder aankoopverplichting.</p>
+      </form>
+
+      <ul class="pc-usps" aria-label="Voordelen van MaatwerkKunststof.nl">
+        <li>Snel geleverd</li>
+        <li>Scherpe prijzen</li>
+        <li>Klantgericht advies</li>
+        <li>Specialist in maatwerk</li>
+      </ul>
+
+      {% if site.whatsapp %}
+        <div class="pc-contact">
+          <span>Liever eerst kort overleggen?</span>
+          <a class="pc-whatsapp" href="https://wa.me/{{ site.whatsapp }}?text={{ conversion.whatsappText }}" target="_blank" rel="noopener" data-analytics="whatsapp_click" data-location="{{ conversion.prefix }}_form">
+            <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true"><path d="M16.75 13.96c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.16.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-2-1.24-.74-.66-1.24-1.47-1.38-1.72-.15-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.16.04-.31-.02-.43-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.23.25-.87.85-.87 2.07s.89 2.4 1.01 2.57c.13.17 1.75 2.67 4.24 3.75.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.11-.23-.17-.48-.29M12.05 21.5H12c-1.79 0-3.54-.5-5.04-1.43L2 21.5l1.45-4.84A9.8 9.8 0 0 1 1.9 11.5C1.9 5.98 6.4 1.5 11.95 1.5c2.64 0 5.13 1.03 7 2.88a9.78 9.78 0 0 1 2.9 6.97c0 5.52-4.5 10-9.8 10.15"></path></svg>
+            WhatsApp ons
+          </a>
+        </div>
+      {% endif %}
+    </div>
+
+    <div class="pc-gallery" data-product-gallery tabindex="0" aria-label="Fotogalerij van {{ conversion.title | lower }}">
+      <figure class="pc-gallery-stage" data-gallery-stage>
+        <button class="pc-gallery-open" type="button" data-gallery-open aria-label="Vergroot geselecteerde foto">
+          <img class="pc-gallery-main" src="{{ conversion.images[0].src }}" width="{{ conversion.images[0].width or 1200 }}" height="{{ conversion.images[0].height or 1200 }}" alt="{{ conversion.images[0].alt }}" sizes="(min-width: 1180px) 559px, (min-width: 920px) 48vw, calc(100vw - 32px)" fetchpriority="high" data-gallery-main>
+        </button>
+        {% if conversion.images | length > 1 %}
+          <button class="pc-gallery-control pc-gallery-prev" type="button" data-gallery-prev aria-label="Vorige foto">‹</button>
+          <button class="pc-gallery-control pc-gallery-next" type="button" data-gallery-next aria-label="Volgende foto">›</button>
+        {% endif %}
+      </figure>
+
+      <div class="pc-gallery-thumbs" data-gallery-thumbs aria-label="Kies een foto">
+        {% for image in conversion.images %}
+          <button class="pc-gallery-thumb" type="button" aria-pressed="{{ 'true' if loop.first else 'false' }}" aria-label="Bekijk foto {{ loop.index }} van {{ conversion.title | lower }}" data-gallery-thumb data-src="{{ image.src }}" data-full-src="{{ image.src }}" data-alt="{{ image.alt }}">
+            <img src="{{ image.src }}" width="160" height="160" {% if not loop.first %}loading="lazy"{% endif %} decoding="async" alt="" aria-hidden="true">
+          </button>
+        {% endfor %}
+      </div>
+
+      <dialog class="pc-gallery-dialog" data-gallery-dialog aria-label="Vergrote productfoto">
+        <button class="pc-gallery-close" type="button" data-gallery-close aria-label="Vergrote foto sluiten">×</button>
+        <img width="1200" height="1200" alt="" data-gallery-dialog-image>
+      </dialog>
+    </div>
+  </div>
+</section>

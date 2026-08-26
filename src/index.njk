@@ -11,16 +11,16 @@ bodyClass: "mkh-home"
 
 <style>
   body.mkh-home {
-    --mkh-ink: #14262e;
-    --mkh-text: #54636a;
+    --mkh-ink: #142b33;
+    --mkh-text: #536369;
     --mkh-muted: #78858b;
     --mkh-line: #dce2e3;
-    --mkh-soft: #f5f7f6;
+    --mkh-soft: #f3f7ef;
     --mkh-white: #ffffff;
-    --mkh-orange: #e65b28;
-    --mkh-orange-dark: #c8481b;
-    --mkh-whatsapp: rgb(116 194 0 / 1);
-    --mkh-whatsapp-dark: #5c9b00;
+    --mkh-orange: #74c200;
+    --mkh-orange-dark: #4f8f00;
+    --mkh-whatsapp: #128c4a;
+    --mkh-whatsapp-dark: #0f6f3b;
     --mkh-radius: 12px;
     --mkh-container: 1180px;
     background: var(--mkh-white);
@@ -91,24 +91,27 @@ bodyClass: "mkh-home"
     text-align: center;
     text-decoration: none;
     cursor: pointer;
+    transition: color 0.22s ease, background-color 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease, transform 0.22s ease;
   }
 
   .mkh-btn:hover,
   .mkh-btn:focus-visible {
     border-color: var(--mkh-orange-dark);
     background: var(--mkh-orange-dark);
+    transform: translateY(-1px);
   }
 
   .mkh-btn-whatsapp {
-    border-color: var(--mkh-whatsapp);
-    color: var(--mkh-white);
-    background: var(--mkh-whatsapp);
+    border-color: var(--mkh-line);
+    color: var(--mkh-ink);
+    background: var(--mkh-white);
   }
 
   .mkh-btn-whatsapp:hover,
   .mkh-btn-whatsapp:focus-visible {
-    border-color: var(--mkh-whatsapp-dark);
-    background: var(--mkh-whatsapp-dark);
+    border-color: var(--mkh-whatsapp);
+    color: var(--mkh-ink);
+    background: var(--mkh-soft);
   }
 
   .mkh-link {
@@ -949,11 +952,11 @@ bodyClass: "mkh-home"
           aria-label="Bekijk kunststof blokken op maat"
         >
           <img
-            src="/assets/images/kunststof-blokken.webp"
+            src="/assets/images/kunststof-blokken-hyperrealistisch.webp"
             width="700"
             height="700"
             loading="lazy"
-            alt="Massieve kunststof blokken op maat"
+            alt="Zwarte, witte en blauwe kunststof blokken op maat"
           >
         </a>
 
@@ -1015,9 +1018,9 @@ bodyClass: "mkh-home"
           aria-label="Bekijk kunststof platen op maat"
         >
           <img
-            src="https://ruplatec.com/cdn/shop/files/ChatGPT_Image_Feb_2_2026_at_12_38_05_AM.png?v=1769965485&width=600"
-            width="600"
-            height="600"
+            src="/assets/images/kunststof-platen-kleuren.webp"
+            width="1024"
+            height="1024"
             loading="lazy"
             alt="Kunststof platen in verschillende kleuren en diktes"
           >
@@ -1500,11 +1503,11 @@ bodyClass: "mkh-home"
       <article class="mkh-example-card">
         <figure>
           <img
-            src="/assets/images/kunststof-blokken.webp"
+            src="/assets/images/kunststof-blokken-hyperrealistisch.webp"
             width="700"
             height="700"
             loading="lazy"
-            alt="Massieve kunststof blokken voor technische toepassingen"
+            alt="Zwarte, witte en blauwe kunststof blokken voor technische toepassingen"
           >
         </figure>
 
