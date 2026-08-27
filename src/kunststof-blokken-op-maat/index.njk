@@ -1,7 +1,7 @@
 ---
 layout: "base.njk"
-title: "Kunststof blokken op maat laten maken | MaatwerkKunststof.nl"
-description: "Kunststof blokken op maat in HDPE, PVC, POM en meer. Gezaagd of volledig bewerkt, van enkelstuks tot series. Vraag vrijblijvend een offerte aan."
+title: "Kunststof blokken | Op maat gezaagd en bewerkt"
+description: "Kunststof blokken en blokjes op maat in HDPE, HMPE, POM, PVC, PTFE en meer. Enkelstuk of serie, gezaagd of CNC-bewerkt. Vraag vrijblijvend een offerte aan."
 image: "/assets/images/kunststof-blokken.webp"
 imageAlt: "Massieve kunststof blokken op maat in verschillende afmetingen"
 preloadImage: "/assets/images/kunststof-blokken-480.webp"
@@ -497,14 +497,99 @@ bodyClass: "mkb-page"
 
   .mkb-card-grid,
   .mkb-material-grid,
+  .mkb-price-grid,
+  .mkb-process-grid,
   .mkb-application-grid,
   .mkb-related-grid {
     display: grid;
     gap: 14px;
   }
 
+  .mkb-material-grid {
+    align-items: start;
+  }
+
+  .mkb-proof {
+    position: relative;
+    z-index: 2;
+    margin-top: -28px;
+  }
+
+  .mkb-proof-grid {
+    display: grid;
+    overflow: hidden;
+    border: 1px solid rgba(20, 43, 51, 0.12);
+    border-radius: var(--mkb-radius);
+    background: var(--mkb-white);
+    box-shadow: 0 18px 46px rgba(20, 43, 51, 0.1);
+  }
+
+  .mkb-proof-item {
+    display: grid;
+    min-height: 142px;
+    place-content: center;
+    gap: 5px;
+    padding: 24px;
+    text-align: center;
+  }
+
+  .mkb-proof-item + .mkb-proof-item {
+    border-top: 1px solid var(--mkb-line);
+  }
+
+  .mkb-proof-number {
+    color: var(--mkb-green-dark);
+    font-size: clamp(2rem, 6vw, 3rem);
+    font-weight: 850;
+    letter-spacing: -0.045em;
+    line-height: 1;
+  }
+
+  .mkb-proof-label {
+    color: var(--mkb-ink);
+    font-size: 0.86rem;
+    font-weight: 750;
+    line-height: 1.4;
+  }
+
+  .mkb-definition-grid,
+  .mkb-expert-grid {
+    display: grid;
+    gap: 24px;
+  }
+
+  .mkb-definition-panel,
+  .mkb-expert-panel {
+    border: 1px solid rgba(116, 194, 0, 0.34);
+    border-radius: var(--mkb-radius);
+    padding: 24px;
+    background: linear-gradient(145deg, #fbfdf8 0%, var(--mkb-soft) 100%);
+  }
+
+  .mkb-definition-panel h3,
+  .mkb-expert-panel h3,
+  .mkb-process-heading {
+    margin: 0 0 12px;
+    color: var(--mkb-ink);
+    font-size: 1.08rem;
+  }
+
+  .mkb-inline-links {
+    margin: 0;
+    color: var(--mkb-text);
+    font-size: 0.86rem;
+    line-height: 1.7;
+  }
+
+  .mkb-inline-links a {
+    color: var(--mkb-green-dark);
+    font-weight: 750;
+    text-underline-offset: 3px;
+  }
+
   .mkb-card,
-  .mkb-material-card,
+  .mkb-price-card,
+  .mkb-process-card,
   .mkb-application-card {
     border: 1px solid var(--mkb-line);
     border-radius: 10px;
@@ -513,7 +598,8 @@ bodyClass: "mkb-page"
   }
 
   .mkb-card h3,
-  .mkb-material-card h3,
+  .mkb-price-card h3,
+  .mkb-process-card h3,
   .mkb-application-card h3 {
     margin: 0 0 7px;
     color: var(--mkb-ink);
@@ -521,7 +607,8 @@ bodyClass: "mkb-page"
   }
 
   .mkb-card p,
-  .mkb-material-card p,
+  .mkb-price-card p,
+  .mkb-process-card p,
   .mkb-application-card p {
     margin: 0;
     color: var(--mkb-text);
@@ -529,16 +616,91 @@ bodyClass: "mkb-page"
     line-height: 1.57;
   }
 
-  .mkb-material-card {
-    border-top: 4px solid var(--mkb-ink);
+  .mkb-material-detail {
+    overflow: hidden;
+    border: 1px solid var(--mkb-line);
+    border-radius: 11px;
+    background: var(--mkb-white);
+    transition: border-color 0.22s ease, box-shadow 0.22s ease;
   }
 
-  .mkb-material-card strong {
+  .mkb-material-detail[open] {
+    border-color: rgba(79, 143, 0, 0.55);
+    box-shadow: 0 12px 30px rgba(20, 43, 51, 0.07);
+  }
+
+  .mkb-material-detail summary {
+    position: relative;
+    padding: 21px 54px 21px 22px;
+    color: var(--mkb-ink);
+    cursor: pointer;
+    list-style: none;
+  }
+
+  .mkb-material-detail summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .mkb-material-detail summary::after {
+    position: absolute;
+    top: 50%;
+    right: 22px;
+    color: var(--mkb-green-dark);
+    content: "+";
+    font-size: 1.55rem;
+    font-weight: 500;
+    transform: translateY(-50%);
+  }
+
+  .mkb-material-detail[open] summary::after {
+    content: "−";
+  }
+
+  .mkb-material-detail summary strong,
+  .mkb-material-detail summary span {
     display: block;
-    margin-top: 13px;
-    color: var(--mkb-orange-dark);
+  }
+
+  .mkb-material-detail summary strong {
+    margin-bottom: 4px;
+    font-size: 1rem;
+  }
+
+  .mkb-material-detail summary span {
+    color: var(--mkb-text);
+    font-size: 0.78rem;
+    line-height: 1.48;
+  }
+
+  .mkb-material-content {
+    border-top: 1px solid var(--mkb-line);
+    padding: 20px 22px 23px;
+  }
+
+  .mkb-material-facts {
+    display: grid;
+    gap: 14px;
+    margin: 0;
+  }
+
+  .mkb-material-facts div {
+    display: grid;
+    gap: 3px;
+  }
+
+  .mkb-material-facts dt {
+    color: var(--mkb-ink);
     font-size: 0.72rem;
-    letter-spacing: 0.02em;
+    font-weight: 820;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .mkb-material-facts dd {
+    margin: 0;
+    color: var(--mkb-text);
+    font-size: 0.82rem;
+    line-height: 1.58;
   }
 
   .mkb-callout {
@@ -548,8 +710,10 @@ bodyClass: "mkb-page"
     margin-top: 22px;
     border-radius: 12px;
     padding: 22px;
-    color: var(--mkb-white);
-    background: var(--mkb-ink);
+    border: 1px solid rgba(116, 194, 0, 0.42);
+    color: var(--mkb-ink);
+    background: var(--mkb-white);
+    box-shadow: 0 12px 32px rgba(20, 43, 51, 0.06);
   }
 
   .mkb-callout strong {
@@ -560,9 +724,66 @@ bodyClass: "mkb-page"
 
   .mkb-callout p {
     margin: 0;
-    color: rgba(255, 255, 255, 0.72);
+    color: var(--mkb-text);
     font-size: 0.82rem;
     line-height: 1.55;
+  }
+
+  .mkb-price-guide {
+    display: grid;
+    gap: 10px;
+    margin-top: 20px;
+    border: 1px solid rgba(20, 43, 51, 0.1);
+    border-radius: 11px;
+    padding: 20px;
+    background: var(--mkb-white);
+  }
+
+  .mkb-price-guide strong {
+    color: var(--mkb-ink);
+    font-size: 0.9rem;
+  }
+
+  .mkb-price-levels {
+    display: grid;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .mkb-price-levels li {
+    display: flex;
+    gap: 9px;
+    align-items: flex-start;
+    color: var(--mkb-text);
+    font-size: 0.8rem;
+    line-height: 1.52;
+  }
+
+  .mkb-price-levels b {
+    flex: 0 0 auto;
+    color: var(--mkb-ink);
+  }
+
+  .mkb-process-card {
+    position: relative;
+    padding-top: 62px;
+  }
+
+  .mkb-process-number {
+    position: absolute;
+    top: 20px;
+    left: 22px;
+    display: grid;
+    width: 30px;
+    height: 30px;
+    place-items: center;
+    border-radius: 50%;
+    color: var(--mkb-white);
+    background: var(--mkb-green-dark);
+    font-size: 0.78rem;
+    font-weight: 850;
   }
 
   .mkb-actions {
@@ -776,8 +997,18 @@ bodyClass: "mkb-page"
     .mkb-form-row,
     .mkb-card-grid,
     .mkb-material-grid,
+    .mkb-price-grid,
     .mkb-application-grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .mkb-proof-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .mkb-proof-item + .mkb-proof-item {
+      border-top: 0;
+      border-left: 1px solid var(--mkb-line);
     }
 
     .mkb-related-grid {
@@ -835,11 +1066,23 @@ bodyClass: "mkb-page"
       grid-template-columns: repeat(4, minmax(0, 1fr));
     }
 
-    .mkb-material-grid {
+    .mkb-application-grid {
       grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
-    .mkb-application-grid {
+    .mkb-definition-grid {
+      grid-template-columns: minmax(0, 1.25fr) minmax(330px, 0.75fr);
+      gap: 64px;
+      align-items: center;
+    }
+
+    .mkb-expert-grid {
+      grid-template-columns: minmax(300px, 0.72fr) minmax(0, 1.28fr);
+      gap: 44px;
+      align-items: start;
+    }
+
+    .mkb-process-grid {
       grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
@@ -1106,104 +1349,326 @@ bodyClass: "mkb-page"
   </div>
 </section>
 
-<section class="mkb-section" aria-labelledby="mkb-choices-title">
+<section class="mkb-proof" aria-label="Ervaring en voorraad">
+  <div class="mkb-container">
+    <div class="mkb-proof-grid">
+      <div class="mkb-proof-item">
+        <strong class="mkb-proof-number" data-counter data-target="8" data-suffix="+">8+</strong>
+        <span class="mkb-proof-label">jaar ervaring met kunststof maatwerk</span>
+      </div>
+      <div class="mkb-proof-item">
+        <strong class="mkb-proof-number" data-counter data-target="600" data-suffix="+">600+</strong>
+        <span class="mkb-proof-label">verschillende kunststof blokken geleverd</span>
+      </div>
+      <div class="mkb-proof-item">
+        <strong class="mkb-proof-number" data-counter data-target="15" data-suffix="+">15+</strong>
+        <span class="mkb-proof-label">kunststofsoorten op voorraad</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="mkb-section" aria-labelledby="mkb-definition-title">
+  <div class="mkb-container mkb-definition-grid">
+    <div class="mkb-copy">
+      <div>
+        <p class="mkb-eyebrow">De basisvorm uitgelegd</p>
+        <h2 class="mkb-heading" id="mkb-definition-title">Wat zijn kunststof blokken?</h2>
+      </div>
+      <p>
+        Kunststof blokken zijn massieve maatdelen met een lengte, breedte en hoogte.
+        Ze kunnen eenvoudig recht op maat worden gezaagd of volledig worden bewerkt
+        tot een technisch onderdeel met gaten, sleuven, schroefdraad of een afwijkende contour.
+      </p>
+      <p>
+        Een kunststof blok wordt ook vaak gezocht als kunststof blokje, afstandsblok,
+        oplegblok, stootblok, glijblok of slijtstuk. We leveren zowel ruw gezaagde
+        blokken als direct monteerbare onderdelen volgens tekening of voorbeeld.
+      </p>
+      <p class="mkb-inline-links">
+        Is uw onderdeel vooral dun en vlak, lang en smal of ringvormig? Bekijk dan
+        <a href="/kunststof-platen-op-maat/">kunststof platen</a>,
+        <a href="/kunststof-stroken-op-maat/">kunststof stroken</a> of
+        <a href="/kunststof-ringen-op-maat/">kunststof ringen op maat</a>.
+      </p>
+    </div>
+    <aside class="mkb-definition-panel" aria-label="Veel voorkomende uitvoeringen">
+      <h3>Van eenvoudig blok tot technisch maatdeel</h3>
+      <ul class="mkb-checks">
+        <li>Rechthoekige en vierkante kunststof blokken</li>
+        <li>Kleine kunststof blokjes en afstandsstukken</li>
+        <li>Opleg-, stoot-, glij- en slijtvaste blokken</li>
+        <li>Machineonderdelen met nauwkeurige bewerkingen</li>
+        <li>Enkelstuks, prototypes en terugkerende series</li>
+      </ul>
+    </aside>
+  </div>
+</section>
+
+<section class="mkb-section mkb-section-soft" aria-labelledby="mkb-choices-title">
   <div class="mkb-container">
     <div class="mkb-section-intro">
       <div>
-        <p class="mkb-eyebrow">Afmetingen en uitvoering</p>
-        <h2 class="mkb-heading" id="mkb-choices-title">Kunststof blokken volledig op maat gemaakt</h2>
+        <p class="mkb-eyebrow">Uw aanvraag</p>
+        <h2 class="mkb-heading" id="mkb-choices-title">Welke gegevens hebben we nodig?</h2>
       </div>
       <p>
         Geef door wat u al weet. Voor een eenvoudig kunststof blok zijn lengte,
-        breedte en hoogte vaak genoeg. Bij technisch maatwerk denken we mee over
-        materiaal, toleranties en de beste productiemethode.
+        breedte en hoogte vaak genoeg. Ons team vult ontbrekende technische
+        informatie graag samen met u aan.
       </p>
     </div>
 
     <div class="mkb-card-grid">
       <article class="mkb-card">
-        <h3>Exacte afmetingen</h3>
-        <p>Rechthoekig, rond of met een afwijkende contour. Toleranties en passingmaten zijn op aanvraag mogelijk.</p>
+        <h3>Afmetingen</h3>
+        <p>Noem lengte, breedte en hoogte en geef aan welke maat of passing kritisch is. Een schets mag, maar is niet verplicht.</p>
       </article>
       <article class="mkb-card">
-        <h3>Materiaaladvies</h3>
-        <p>We kijken naar belasting, slijtage, temperatuur, vocht, chemicaliën en contact met voedingsmiddelen.</p>
+        <h3>Aantal</h3>
+        <p>Van één vervangingsdeel of prototype tot een serie. Het aantal helpt ons de passende productiemethode te kiezen.</p>
       </article>
       <article class="mkb-card">
-        <h3>Kleuren en uitvoering</h3>
-        <p>Afhankelijk van het materiaal leverbaar in naturel, wit, zwart en uiteenlopende andere kleuren.</p>
+        <h3>Toepassing</h3>
+        <p>Vertel iets over belasting, slijtage, temperatuur, vocht, chemicaliën of eventueel contact met voedingsmiddelen.</p>
       </article>
       <article class="mkb-card">
-        <h3>Snelle levering</h3>
-        <p>De levertijd hangt af van materiaal, bewerking en aantal. In de offerte geven we een passende indicatie.</p>
+        <h3>Uitvoering en termijn</h3>
+        <p>Geef bewerkingen en gewenste leverdatum aan. Bij eenvoudig zaagwerk uit voorraad kan levering soms al de volgende werkdag plaatsvinden.</p>
       </article>
     </div>
   </div>
 </section>
 
-<section class="mkb-section mkb-section-soft" aria-labelledby="mkb-material-title">
+<section class="mkb-section" aria-labelledby="mkb-material-title">
   <div class="mkb-container">
     <div class="mkb-section-intro">
       <div>
         <p class="mkb-eyebrow">Materiaalkeuze</p>
-        <h2 class="mkb-heading" id="mkb-material-title">Kunststof blokken in het juiste materiaal</h2>
+        <h2 class="mkb-heading" id="mkb-material-title">Kunststof blokken per materiaalsoort</h2>
       </div>
       <p>
-        De beste kunststofsoort hangt af van wat het blok moet doen. Voor een
-        maatvast machineonderdeel gelden andere eisen dan voor een glijblok,
-        stootblok of onderdeel dat met chemicaliën in contact komt.
+        De beste kunststofsoort hangt af van de toepassing. Open een materiaal
+        voor de belangrijkste eigenschappen, kleuren, toepassingen, bewerkingen
+        en de relatieve materiaalprijs.
       </p>
     </div>
 
     <div class="mkb-material-grid">
-      <article class="mkb-material-card">
-        <h3>HDPE en HMPE blokken</h3>
-        <p>Slagvast, vochtbestendig en geschikt voor glij-, stoot-, opleg- en afstandsblokken. HMPE is extra slijtvast.</p>
-        <strong>Zagen · frezen · boren · lassen</strong>
-      </article>
-      <article class="mkb-material-card">
-        <h3>POM blokken</h3>
-        <p>Sterk en maatvast voor nauwkeurige machineonderdelen, lagerblokken en technische componenten.</p>
-        <strong>Precisiefrezen · draaien · tappen</strong>
-      </article>
-      <article class="mkb-material-card">
-        <h3>PA en PETP</h3>
-        <p>Technische kunststoffen voor mechanisch belaste delen, geleidingen, bussen en slijtvaste toepassingen.</p>
-        <strong>Frezen · draaien · contourbewerking</strong>
-      </article>
-      <article class="mkb-material-card">
-        <h3>PVC en PP blokken</h3>
-        <p>Chemisch bestendige maatdelen voor apparatenbouw, installaties en vochtige of veeleisende omgevingen.</p>
-        <strong>Zagen · frezen · lassen · lijmen</strong>
-      </article>
-      <article class="mkb-material-card">
-        <h3>PTFE blokken</h3>
-        <p>Zeer lage wrijving en goede bestendigheid tegen hoge temperaturen en veel chemicaliën.</p>
-        <strong>Draaien · frezen · nauwkeurig boren</strong>
-      </article>
-      <article class="mkb-material-card">
-        <h3>Speciale kunststoffen</h3>
-        <p>Onder meer PEEK, PVDF, polycarbonaat, acrylaat, ABS, PU en gemodificeerde kwaliteiten op aanvraag.</p>
-        <strong>Ook voedselveilig · antistatisch · gevuld</strong>
-      </article>
+      <details class="mkb-material-detail">
+        <summary>
+          <strong>HDPE- en HMPE-blokken</strong>
+          <span>Slagvast, vochtbestendig en geschikt voor glijden en slijtage</span>
+        </summary>
+        <div class="mkb-material-content">
+          <dl class="mkb-material-facts">
+            <div><dt>Eigenschappen</dt><dd>HDPE neemt weinig vocht op en is goed bestand tegen veel chemicaliën. HMPE heeft daarnaast een zeer goede slijtvastheid en lage wrijving.</dd></div>
+            <div><dt>Toepassingen</dt><dd>Oplegblokken, stootblokken, geleidingen, glijblokken, slijtstukken en onderdelen in vochtige omgevingen.</dd></div>
+            <div><dt>Typische kleuren</dt><dd>Naturel of wit, zwart, groen en blauw; andere kleuren zijn afhankelijk van kwaliteit en voorraad.</dd></div>
+            <div><dt>Bewerking</dt><dd>Zagen, frezen, boren en bij geschikte kwaliteiten lassen.</dd></div>
+            <div><dt>Relatieve materiaalprijs</dt><dd>HDPE is vaak relatief voordelig. HMPE ligt doorgaans hoger door de extra slijtvaste eigenschappen.</dd></div>
+          </dl>
+        </div>
+      </details>
+
+      <details class="mkb-material-detail">
+        <summary>
+          <strong>POM-blokken</strong>
+          <span>Sterk, maatvast en zeer geschikt voor nauwkeurige onderdelen</span>
+        </summary>
+        <div class="mkb-material-content">
+          <dl class="mkb-material-facts">
+            <div><dt>Eigenschappen</dt><dd>POM combineert een hoge stijfheid met geringe vochtopname, goede maatvastheid en gunstige glij- en slijteigenschappen.</dd></div>
+            <div><dt>Toepassingen</dt><dd>Precisieblokken, lagerblokken, afstandsstukken, machineonderdelen, geleidingen en componenten met passingmaten.</dd></div>
+            <div><dt>Typische kleuren</dt><dd>Naturel of wit en zwart. Blauwe en detecteerbare kwaliteiten zijn voor geselecteerde toepassingen beschikbaar.</dd></div>
+            <div><dt>Bewerking</dt><dd>Nauwkeurig frezen, draaien, boren, ruimen en tappen.</dd></div>
+            <div><dt>Relatieve materiaalprijs</dt><dd>POM valt vaak in de middencategorie en wordt gekozen wanneer maatvastheid en nauwkeurige bewerking belangrijk zijn.</dd></div>
+          </dl>
+        </div>
+      </details>
+
+      <details class="mkb-material-detail">
+        <summary>
+          <strong>PA- en PETP-blokken</strong>
+          <span>Technische kunststoffen voor mechanische en slijtende belasting</span>
+        </summary>
+        <div class="mkb-material-content">
+          <dl class="mkb-material-facts">
+            <div><dt>Eigenschappen</dt><dd>PA is sterk en slijtvast, maar vocht kan de maat beïnvloeden. PETP neemt weinig vocht op en is maatvaster met goede glij-eigenschappen.</dd></div>
+            <div><dt>Toepassingen</dt><dd>Geleidingen, bussen, tandwielen, draagblokken, rollen en mechanisch belaste machineonderdelen.</dd></div>
+            <div><dt>Typische kleuren</dt><dd>PA is veelal naturel of zwart en in speciale varianten blauw. PETP is doorgaans naturel, wit, zwart of grijs, afhankelijk van de kwaliteit.</dd></div>
+            <div><dt>Bewerking</dt><dd>Frezen, draaien, boren en contourbewerking.</dd></div>
+            <div><dt>Relatieve materiaalprijs</dt><dd>PA en PETP bevinden zich meestal in de middencategorie; de gekozen kwaliteit en afmeting bepalen het verschil.</dd></div>
+          </dl>
+        </div>
+      </details>
+
+      <details class="mkb-material-detail">
+        <summary>
+          <strong>PVC- en PP-blokken</strong>
+          <span>Voor chemische belasting, apparatenbouw en vochtige omgevingen</span>
+        </summary>
+        <div class="mkb-material-content">
+          <dl class="mkb-material-facts">
+            <div><dt>Eigenschappen</dt><dd>PVC is stijf en goed chemisch bestendig. PP is licht, neemt nauwelijks vocht op en is bestand tegen veel chemicaliën.</dd></div>
+            <div><dt>Toepassingen</dt><dd>Apparatenbouw, tanks, installatiedelen, montageblokken en componenten in natte of chemisch belaste omgevingen.</dd></div>
+            <div><dt>Typische kleuren</dt><dd>PVC onder meer grijs, wit en zwart; PP vaak naturel, grijs, wit of zwart. Beschikbaarheid verschilt per kwaliteit.</dd></div>
+            <div><dt>Bewerking</dt><dd>Zagen, frezen, boren, lassen en bij passende kwaliteit lijmen.</dd></div>
+            <div><dt>Relatieve materiaalprijs</dt><dd>Standaard PP en PVC zijn vaak relatief voordelig tot gemiddeld geprijsd.</dd></div>
+          </dl>
+        </div>
+      </details>
+
+      <details class="mkb-material-detail">
+        <summary>
+          <strong>PTFE- en PVDF-blokken</strong>
+          <span>Voor lage wrijving, chemicaliën en veeleisende omstandigheden</span>
+        </summary>
+        <div class="mkb-material-content">
+          <dl class="mkb-material-facts">
+            <div><dt>Eigenschappen</dt><dd>PTFE heeft een zeer lage wrijving en brede chemische bestendigheid, maar is relatief zacht. PVDF combineert chemische bestendigheid met meer mechanische sterkte.</dd></div>
+            <div><dt>Toepassingen</dt><dd>Glijdelen, afdichtingen, chemische apparatuur, voedingsmiddelen-, farmaceutische en procestechnische onderdelen.</dd></div>
+            <div><dt>Typische kleuren</dt><dd>PTFE is meestal naturel wit; gevulde varianten kunnen donkerder zijn. PVDF is vaak naturel wit en in geselecteerde kwaliteiten zwart.</dd></div>
+            <div><dt>Bewerking</dt><dd>Draaien, frezen en nauwkeurig boren met aandacht voor materiaalgedrag en toleranties.</dd></div>
+            <div><dt>Relatieve materiaalprijs</dt><dd>PTFE en PVDF liggen doorgaans relatief hoger dan standaard technische kunststoffen.</dd></div>
+          </dl>
+        </div>
+      </details>
+
+      <details class="mkb-material-detail">
+        <summary>
+          <strong>PEEK en speciale kunststoffen</strong>
+          <span>Voor hoge temperaturen en uitzonderlijke technische eisen</span>
+        </summary>
+        <div class="mkb-material-content">
+          <dl class="mkb-material-facts">
+            <div><dt>Eigenschappen</dt><dd>PEEK behoudt goede mechanische eigenschappen bij hoge temperaturen. Speciale kwaliteiten kunnen gevuld, antistatisch, detecteerbaar of voedselgeschikt zijn.</dd></div>
+            <div><dt>Toepassingen</dt><dd>Hoogbelaste machineonderdelen en toepassingen waar standaard POM, PA of PETP niet voldoende is.</dd></div>
+            <div><dt>Typische kleuren</dt><dd>PEEK is meestal naturel beige of zwart; geselecteerde speciale kwaliteiten zijn ook blauw of wit. Andere kunststoffen verschillen per type.</dd></div>
+            <div><dt>Materialen</dt><dd>Onder meer PEEK, polycarbonaat, acrylaat, ABS, PU en gemodificeerde of gevulde kunststoffen.</dd></div>
+            <div><dt>Relatieve materiaalprijs</dt><dd>PEEK en specialistische kwaliteiten vallen meestal in de hoogste relatieve prijscategorie.</dd></div>
+          </dl>
+        </div>
+      </details>
     </div>
 
     <div class="mkb-callout">
       <div>
-        <strong>Weet u nog niet welk materiaal geschikt is?</strong>
-        <p>Beschrijf waarvoor het blok wordt gebruikt. Dan kunnen we gericht meedenken over een passende kunststofsoort.</p>
+        <strong>Kleur en beschikbaarheid worden altijd gecontroleerd</strong>
+        <p>De genoemde kleuren zijn gebruikelijk, maar verschillen per kunststofkwaliteit, plaat- of stafmaat en actuele voorraad.</p>
+      </div>
+      <a class="mkb-btn" href="#offerte" data-analytics="quote_cta" data-location="blocks_materials">Vraag materiaaladvies</a>
+    </div>
+  </div>
+</section>
+
+<section class="mkb-section mkb-section-soft" aria-labelledby="mkb-price-title">
+  <div class="mkb-container">
+    <div class="mkb-section-intro">
+      <div>
+        <p class="mkb-eyebrow">Prijs en offerte</p>
+        <h2 class="mkb-heading" id="mkb-price-title">Wat bepaalt de prijs van kunststof blokken?</h2>
+      </div>
+      <p>
+        Voor kunststof blokken bestaat geen vaste prijs per stuk. Materiaal,
+        uitgangsmaat, bewerkingen, nauwkeurigheid en aantal bepalen samen de offerte.
+      </p>
+    </div>
+
+    <div class="mkb-price-grid">
+      <article class="mkb-price-card">
+        <h3>Materiaal en volume</h3>
+        <p>Een groter blok vraagt meer uitgangsmateriaal. De relatieve materiaalprijs verschilt sterk tussen bijvoorbeeld HDPE, POM, PTFE en PEEK.</p>
+      </article>
+      <article class="mkb-price-card">
+        <h3>Zaagverlies en restmateriaal</h3>
+        <p>De beschikbare handelsmaat en de vraag of overblijvend materiaal bruikbaar is, hebben invloed op het materiaalaandeel in de prijs.</p>
+      </article>
+      <article class="mkb-price-card">
+        <h3>Opstart en bewerking</h3>
+        <p>Programmeren, opspannen, gereedschap en controle kosten voorbereiding. Een eenvoudig gezaagd blok vraagt minder stappen dan CNC-maatwerk.</p>
+      </article>
+      <article class="mkb-price-card">
+        <h3>Aantal en toleranties</h3>
+        <p>Bij seriewerk worden opstartkosten over meer delen verdeeld en daalt de prijs per stuk meestal. Nauwe toleranties vragen extra bewerking en controle.</p>
+      </article>
+    </div>
+
+    <div class="mkb-price-guide">
+      <strong>Globale vergelijking van materiaalprijzen</strong>
+      <ul class="mkb-price-levels">
+        <li><b>Relatief voordelig:</b> standaard HDPE, PP en PVC.</li>
+        <li><b>Middencategorie:</b> HMPE, POM, PA en PETP.</li>
+        <li><b>Relatief hoger:</b> PTFE en PVDF.</li>
+        <li><b>Specialistisch:</b> PEEK en speciale gevulde of gecertificeerde kwaliteiten.</li>
+      </ul>
+      <p class="mkb-inline-links">Dit is alleen een globale indeling. Kwaliteit, kleur, afmeting, voorraad en benodigde bewerking kunnen de verhouding veranderen.</p>
+    </div>
+  </div>
+</section>
+
+<section class="mkb-section" aria-labelledby="mkb-expert-title">
+  <div class="mkb-container">
+    <div class="mkb-section-intro">
+      <div>
+        <p class="mkb-eyebrow">Persoonlijk materiaaladvies</p>
+        <h2 class="mkb-heading" id="mkb-expert-title">Gratis en vrijblijvend advies van ervaren kunststofspecialisten</h2>
+      </div>
+      <p>
+        Ons team werkt dagelijks met kunststof maatwerk en helpt u graag met
+        materiaalkeuze, maakbaarheid, toleranties en bewerkingen. Dat advies is
+        gratis en verplicht u nergens toe.
+      </p>
+    </div>
+
+    <div class="mkb-expert-grid">
+      <div class="mkb-expert-panel">
+        <h3>We kiezen op basis van de toepassing</h3>
+        <p class="mkb-inline-links">
+          U hoeft niet zelf alle kunststoffen te kennen. Beschrijf wat het blok
+          moet doen en in welke omgeving het wordt gebruikt. Onze experts kijken
+          onder meer naar belasting, slijtage, wrijving, vocht, temperatuur,
+          chemicaliën, maatvastheid en contact met voedingsmiddelen.
+        </p>
+      </div>
+      <div>
+        <h3 class="mkb-process-heading">Wat gebeurt er na uw offerteaanvraag?</h3>
+        <div class="mkb-process-grid">
+          <article class="mkb-process-card">
+            <span class="mkb-process-number" aria-hidden="true">1</span>
+            <h3>U stuurt de informatie</h3>
+            <p>Afmetingen, aantal, toepassing en eventueel een foto, schets of technisch bestand.</p>
+          </article>
+          <article class="mkb-process-card">
+            <span class="mkb-process-number" aria-hidden="true">2</span>
+            <h3>Een expert beoordeelt de aanvraag</h3>
+            <p>We controleren materiaal, maakbaarheid en ontbrekende gegevens en nemen zo nodig kort contact op.</p>
+          </article>
+          <article class="mkb-process-card">
+            <span class="mkb-process-number" aria-hidden="true">3</span>
+            <h3>U ontvangt een vrijblijvende offerte</h3>
+            <p>Met de voorgestelde uitvoering, prijs en een passende indicatie van de levertijd.</p>
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="mkb-callout">
+      <div>
+        <strong>Laat ons gerust meedenken</strong>
+        <p>Ook met alleen een praktische omschrijving kunnen we vaak al gericht adviseren.</p>
       </div>
       <div class="mkb-actions">
-        <a class="mkb-btn" href="#offerte" data-analytics="quote_cta" data-location="blocks_materials">Vraag materiaaladvies</a>
+        <a class="mkb-btn" href="#offerte" data-analytics="quote_cta" data-location="blocks_expert">Vraag gratis advies</a>
         {% if site.whatsapp %}
           <a
             class="mkb-btn mkb-btn-whatsapp"
-            href="https://wa.me/{{ site.whatsapp }}?text=Hallo%2C%20ik%20wil%20graag%20advies%20over%20het%20materiaal%20voor%20kunststof%20blokken."
+            href="https://wa.me/{{ site.whatsapp }}?text=Hallo%2C%20ik%20wil%20graag%20vrijblijvend%20advies%20over%20een%20kunststof%20blok."
             target="_blank"
             rel="noopener"
             data-analytics="whatsapp_click"
-            data-location="blocks_materials"
-          >WhatsApp</a>
+            data-location="blocks_expert"
+          >Stel uw vraag via WhatsApp</a>
         {% endif %}
       </div>
     </div>
@@ -1361,7 +1826,15 @@ bodyClass: "mkb-page"
       </details>
       <details>
         <summary>Hoe snel kunnen kunststof blokken worden geleverd?</summary>
-        <p>De levertijd hangt af van het materiaal, de afmetingen, de bewerkingen en het aantal. Veel maatwerk kan snel worden geproduceerd; bij de offerte geven we een passende indicatie.</p>
+        <p>De levertijd hangt af van materiaal, afmetingen, bewerkingen en aantal. Bij eenvoudig zaagwerk uit voorraad kan levering soms al de volgende werkdag plaatsvinden. In de offerte geven we altijd een passende indicatie.</p>
+      </details>
+      <details>
+        <summary>Wat bepaalt de prijs van een kunststof blok?</summary>
+        <p>De prijs wordt vooral bepaald door kunststofsoort, afmetingen, benodigd uitgangsmateriaal, zaagverlies, bewerkingen, toleranties en aantal. Bij seriewerk worden opstartkosten over meer delen verdeeld en daalt de prijs per stuk meestal.</p>
+      </details>
+      <details>
+        <summary>Is materiaaladvies gratis en vrijblijvend?</summary>
+        <p>Ja. Ons ervaren team helpt u gratis en vrijblijvend een geschikte kunststof te kiezen op basis van de toepassing, belasting, omgeving en gewenste bewerking.</p>
       </details>
       <details>
         <summary>Heb ik een technische tekening nodig?</summary>
@@ -1482,7 +1955,23 @@ bodyClass: "mkb-page"
       "name": "Hoe snel kunnen kunststof blokken worden geleverd?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "De levertijd hangt af van het materiaal, de afmetingen, de bewerkingen en het aantal. Bij de offerte wordt een passende indicatie gegeven."
+        "text": "De levertijd hangt af van materiaal, afmetingen, bewerkingen en aantal. Bij eenvoudig zaagwerk uit voorraad kan levering soms al de volgende werkdag plaatsvinden. In de offerte wordt altijd een passende indicatie gegeven."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wat bepaalt de prijs van een kunststof blok?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "De prijs wordt vooral bepaald door kunststofsoort, afmetingen, benodigd uitgangsmateriaal, zaagverlies, bewerkingen, toleranties en aantal. Bij seriewerk worden opstartkosten over meer delen verdeeld en daalt de prijs per stuk meestal."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is materiaaladvies gratis en vrijblijvend?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja. Het ervaren team helpt gratis en vrijblijvend een geschikte kunststof te kiezen op basis van de toepassing, belasting, omgeving en gewenste bewerking."
       }
     },
     {

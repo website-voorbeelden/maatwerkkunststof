@@ -250,4 +250,41 @@
       if (event.target === dialog) dialog.close();
     });
   });
+
+  document.querySelectorAll('[data-counter]').forEach((counter) => {
+    const target = Number(counter.dataset.target);
+    const suffix = counter.dataset.suffix || '';
+    const finalValue = `${target}${suffix}`;
+    const reduceMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+
+    if (!Number.isFinite(target) || reduceMotion || !('IntersectionObserver' in window)) {
+      counter.textContent = finalValue;
+      return;
+    }
+
+    counter.textContent = `0${suffix}`;
+    const observer = new IntersectionObserver((entries) => {
+      if (!entries.some((entry) => entry.isIntersecting)) return;
+
+      const startTime = performance.now();
+      const duration = 2200;
+
+      const updateCounter = (currentTime) => {
+        const progress = Math.min((currentTime - startTime) / duration, 1);
+        const easedProgress = 1 - Math.pow(1 - progress, 3);
+        counter.textContent = `${Math.floor(target * easedProgress)}${suffix}`;
+
+        if (progress < 1) {
+          window.requestAnimationFrame(updateCounter);
+        } else {
+          counter.textContent = finalValue;
+        }
+      };
+
+      window.requestAnimationFrame(updateCounter);
+      observer.disconnect();
+    }, { threshold: 0.35 });
+
+    observer.observe(counter);
+  });
 })();
