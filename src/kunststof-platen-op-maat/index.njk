@@ -1,79 +1,376 @@
 ---
 layout: base.njk
-title: Kunststof platen op maat | Gezaagd en volledig bewerkt
-description: Kunststof platen op maat bestellen? Iedere gewenste afmeting, dikte, kleur en materiaalsoort. Ook frezen, boren en vormdelen. Vraag een offerte aan.
+title: Kunststof platen op maat | CNC gefreesd maatwerk
+description: "Kunststof platen en vlakke vormdelen op maat. Gezaagd, CNC gefreesd, geboord of gegraveerd: van montageplaat tot letters en logo's."
 image: /assets/images/kunststof-plaat-op-maat-gesneden.webp
-imageAlt: Kunststof plaat op maat gesneden met een CNC-machine
+imageAlt: Kunststof plaat wordt met een CNC-machine op maat bewerkt
 breadcrumb: Kunststof platen op maat
+bodyClass: mkp-page
 ---
+
+<style>
+  body.mkp-page {
+    --mkp-ink: #142b33;
+    --mkp-text: #536369;
+    --mkp-line: #dce5df;
+    --mkp-soft: #f3f7ef;
+    --mkp-green: #74c200;
+    --mkp-green-dark: #4f8f00;
+    --mkp-white: #fff;
+    --mkp-radius: 14px;
+  }
+
+  body.mkp-page main { overflow: clip; }
+  .mkp-container { width: min(calc(100% - 32px), 1180px); margin-inline: auto; }
+  .mkp-section { padding: 68px 0; }
+  .mkp-soft { background: var(--mkp-soft); }
+  .mkp-eyebrow { margin: 0 0 10px; color: var(--mkp-green-dark); font-size: .73rem; font-weight: 850; letter-spacing: .13em; line-height: 1.35; text-transform: uppercase; }
+  .mkp-heading { max-width: 790px; margin: 0; color: var(--mkp-ink); font-size: clamp(2rem, 5vw, 3.05rem); font-weight: 780; letter-spacing: -.04em; line-height: 1.08; }
+  .mkp-section-head { display: grid; gap: 14px; margin-bottom: 30px; }
+  .mkp-section-head > p:last-child,
+  .mkp-copy p { max-width: 790px; margin: 0; color: var(--mkp-text); line-height: 1.72; }
+  .mkp-copy { display: grid; gap: 16px; align-content: center; }
+  .mkp-copy a,
+  .mkp-material-content a { color: var(--mkp-green-dark); font-weight: 750; }
+
+  .mkp-trust { border-block: 1px solid var(--mkp-line); background: var(--mkp-white); }
+  .mkp-trust-grid { display: grid; }
+  .mkp-trust-item { display: grid; gap: 3px; padding: 24px 0; text-align: center; }
+  .mkp-trust-item + .mkp-trust-item { border-top: 1px solid var(--mkp-line); }
+  .mkp-trust-item strong { color: var(--mkp-ink); font-size: 1.35rem; letter-spacing: -.025em; }
+  .mkp-trust-item span { color: var(--mkp-text); font-size: .82rem; }
+
+  .mkp-intro-grid,
+  .mkp-media-grid,
+  .mkp-price-grid,
+  .mkp-faq-grid { display: grid; gap: 34px; }
+  .mkp-note { align-self: start; border: 1px solid #cfe0c4; border-radius: var(--mkp-radius); padding: 26px; background: #fbfdf9; }
+  .mkp-note h3 { margin: 0 0 9px; color: var(--mkp-ink); font-size: 1.13rem; }
+  .mkp-note p { margin: 0; color: var(--mkp-text); font-size: .9rem; line-height: 1.65; }
+  .mkp-note a { display: inline-block; margin-top: 15px; color: var(--mkp-green-dark); font-size: .88rem; font-weight: 800; text-decoration: none; }
+
+  .mkp-capability-grid,
+  .mkp-application-grid,
+  .mkp-process-grid { display: grid; gap: 14px; }
+  .mkp-card { border: 1px solid var(--mkp-line); border-radius: 11px; padding: 21px; background: var(--mkp-white); }
+  .mkp-card h3 { margin: 0 0 8px; color: var(--mkp-ink); font-size: 1rem; line-height: 1.3; }
+  .mkp-card p { margin: 0; color: var(--mkp-text); font-size: .84rem; line-height: 1.62; }
+  .mkp-card-mark { display: grid; width: 32px; height: 32px; place-items: center; margin-bottom: 16px; border-radius: 8px; color: var(--mkp-green-dark); background: #edf6e7; font-size: .82rem; font-weight: 850; }
+
+  .mkp-cnc-panel { display: grid; gap: 28px; align-items: center; }
+  .mkp-cnc-image { overflow: hidden; aspect-ratio: 1 / 1; margin: 0; border: 1px solid var(--mkp-line); border-radius: var(--mkp-radius); background: #fff; }
+  .mkp-cnc-image img { width: 100%; height: 100%; object-fit: cover; }
+  .mkp-checks { display: grid; gap: 11px; margin: 5px 0 0; padding: 0; list-style: none; }
+  .mkp-checks li { position: relative; padding-left: 27px; color: var(--mkp-ink); font-size: .88rem; font-weight: 700; line-height: 1.5; }
+  .mkp-checks li::before { position: absolute; top: .35em; left: 1px; width: 12px; height: 7px; border-bottom: 2px solid var(--mkp-green-dark); border-left: 2px solid var(--mkp-green-dark); content: ""; transform: rotate(-45deg); }
+
+  .mkp-material-grid { display: grid; gap: 13px; }
+  .mkp-material { overflow: hidden; border: 1px solid var(--mkp-line); border-radius: 11px; background: var(--mkp-white); }
+  .mkp-material[open] { border-color: #b9d2a9; box-shadow: 0 12px 30px rgba(20, 43, 51, .06); }
+  .mkp-material summary { position: relative; display: grid; gap: 3px; min-height: 78px; align-content: center; padding: 17px 50px 17px 20px; cursor: pointer; list-style: none; }
+  .mkp-material summary::-webkit-details-marker { display: none; }
+  .mkp-material summary::after { position: absolute; top: 50%; right: 19px; width: 25px; height: 25px; border-radius: 50%; color: var(--mkp-green-dark); background: #edf6e7; content: "+"; font-size: 1.2rem; font-weight: 500; line-height: 23px; text-align: center; transform: translateY(-50%); }
+  .mkp-material[open] summary::after { content: "−"; }
+  .mkp-material summary strong { color: var(--mkp-ink); font-size: .96rem; }
+  .mkp-material summary span { color: var(--mkp-text); font-size: .78rem; line-height: 1.45; }
+  .mkp-material-content { display: grid; gap: 15px; border-top: 1px solid var(--mkp-line); padding: 18px 20px 21px; }
+  .mkp-material-content > p { margin: 0; color: var(--mkp-text); font-size: .84rem; line-height: 1.65; }
+  .mkp-material-facts { display: grid; gap: 9px; margin: 0; }
+  .mkp-material-facts div { border-left: 2px solid #dfe8da; padding-left: 11px; }
+  .mkp-material-facts dt { color: var(--mkp-ink); font-size: .73rem; font-weight: 820; }
+  .mkp-material-facts dd { margin: 2px 0 0; color: var(--mkp-text); font-size: .77rem; line-height: 1.52; }
+
+  .mkp-application-card { position: relative; overflow: hidden; border: 1px solid var(--mkp-line); border-radius: 11px; padding: 22px; background: var(--mkp-white); }
+  .mkp-application-card::before { position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--mkp-green); content: ""; }
+  .mkp-application-card h3 { margin: 0 0 7px; color: var(--mkp-ink); font-size: .98rem; }
+  .mkp-application-card p { margin: 0; color: var(--mkp-text); font-size: .82rem; line-height: 1.58; }
+
+  .mkp-price-copy { display: grid; gap: 15px; }
+  .mkp-price-copy p { margin: 0; color: var(--mkp-text); line-height: 1.72; }
+  .mkp-price-note { align-self: start; border-radius: var(--mkp-radius); padding: 27px; color: #fff; background: var(--mkp-ink); }
+  .mkp-price-note h3 { margin: 0 0 9px; font-size: 1.15rem; }
+  .mkp-price-note p { margin: 0; color: #dce5e6; font-size: .87rem; line-height: 1.65; }
+
+  .mkp-process-card { border-top: 3px solid var(--mkp-green); border-radius: 0 0 11px 11px; padding: 22px; background: var(--mkp-soft); }
+  .mkp-process-card span { display: block; margin-bottom: 12px; color: var(--mkp-green-dark); font-size: 1.5rem; font-weight: 850; }
+  .mkp-process-card h3 { margin: 0 0 7px; color: var(--mkp-ink); font-size: 1rem; }
+  .mkp-process-card p { margin: 0; color: var(--mkp-text); font-size: .83rem; line-height: 1.58; }
+  .mkp-advice { display: grid; gap: 14px; align-items: center; margin-top: 22px; border: 1px solid #cfe0c4; border-radius: 11px; padding: 20px; background: #fbfdf9; }
+  .mkp-advice strong,
+  .mkp-advice span { display: block; }
+  .mkp-advice strong { margin-bottom: 3px; color: var(--mkp-ink); font-size: .93rem; }
+  .mkp-advice span { color: var(--mkp-text); font-size: .8rem; line-height: 1.5; }
+  .mkp-advice a { color: var(--mkp-green-dark); font-size: .85rem; font-weight: 820; text-decoration: none; }
+
+  .mkp-faq-list { display: grid; gap: 10px; }
+  .mkp-faq-list details { border-bottom: 1px solid var(--mkp-line); }
+  .mkp-faq-list summary { position: relative; padding: 17px 38px 17px 0; color: var(--mkp-ink); font-size: .94rem; font-weight: 780; line-height: 1.45; cursor: pointer; list-style: none; }
+  .mkp-faq-list summary::-webkit-details-marker { display: none; }
+  .mkp-faq-list summary::after { position: absolute; top: 16px; right: 4px; color: var(--mkp-green-dark); content: "+"; font-size: 1.2rem; font-weight: 500; }
+  .mkp-faq-list details[open] summary::after { content: "−"; }
+  .mkp-faq-list p { margin: -2px 35px 18px 0; color: var(--mkp-text); font-size: .86rem; line-height: 1.65; }
+
+  .mkp-final { padding: 50px 0; color: #fff; background: var(--mkp-ink); }
+  .mkp-final-inner { display: grid; gap: 22px; align-items: center; }
+  .mkp-final h2 { margin: 0 0 8px; color: #fff; font-size: clamp(1.65rem, 4vw, 2.35rem); letter-spacing: -.035em; }
+  .mkp-final p { max-width: 700px; margin: 0; color: #dce5e6; line-height: 1.6; }
+  .mkp-button { display: inline-flex; min-height: 50px; align-items: center; justify-content: center; border-radius: 8px; padding: 13px 20px; color: #fff; background: var(--mkp-green); font-size: .9rem; font-weight: 800; text-decoration: none; transition: background-color .22s ease, transform .22s ease; }
+  .mkp-button:hover,
+  .mkp-button:focus-visible { color: #fff; background: var(--mkp-green-dark); transform: translateY(-1px); }
+
+  @media (min-width: 680px) {
+    .mkp-trust-grid { grid-template-columns: repeat(3, 1fr); }
+    .mkp-trust-item { padding: 27px 18px; }
+    .mkp-trust-item + .mkp-trust-item { border-top: 0; border-left: 1px solid var(--mkp-line); }
+    .mkp-capability-grid,
+    .mkp-material-grid,
+    .mkp-application-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .mkp-process-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .mkp-advice { grid-template-columns: 1fr auto; }
+  }
+
+  @media (min-width: 900px) {
+    .mkp-section { padding: 82px 0; }
+    .mkp-intro-grid { grid-template-columns: minmax(0, 1.45fr) minmax(300px, .7fr); gap: 70px; }
+    .mkp-cnc-panel { grid-template-columns: minmax(340px, .85fr) minmax(0, 1.15fr); gap: 64px; }
+    .mkp-capability-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .mkp-application-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .mkp-price-grid { grid-template-columns: minmax(0, 1.4fr) minmax(300px, .65fr); gap: 65px; }
+    .mkp-faq-grid { grid-template-columns: minmax(280px, .7fr) minmax(0, 1.3fr); gap: 70px; }
+    .mkp-final-inner { grid-template-columns: 1fr auto; }
+  }
+</style>
+
 {% set conversion = {
   prefix: "platen",
-  eyebrow: "Plaatmateriaal exact op maat",
-  title: "Kunststof platen op maat",
-  lead: "Gezaagde kunststof plaatdelen, panelen en gefreesde vormdelen in iedere gewenste afmeting, dikte, kleur en kunststofsoort.",
-  product: "Kunststof platen",
-  placeholder: "Bijvoorbeeld: lengte, breedte, dikte, materiaal, aantal en bewerkingen",
-  whatsappText: "Hallo%2C%20ik%20heb%20een%20vraag%20over%20kunststof%20platen%20op%20maat.",
+  eyebrow: "Vlak kunststof maatwerk",
+  title: "Kunststof platen en vormdelen op maat",
+  lead: "Van een rechthoekige plaat tot een CNC-gefreesd onderdeel met contouren, gaten, tekst of uitsparingen. Als enkelstuk, prototype of terugkerende serie.",
+  product: "Kunststof platen en vlakke vormdelen",
+  placeholder: "Bijvoorbeeld: maat, dikte, materiaal, aantal en gewenste vorm of bewerking",
+  whatsappText: "Hallo%2C%20ik%20heb%20een%20vraag%20over%20kunststof%20platen%20of%20vlakke%20vormdelen%20op%20maat.",
   images: [
-    { src: "/assets/images/kunststof-plaat-op-maat-gesneden.webp", width: 1024, height: 1024, alt: "Blauwe kunststof plaat op maat gesneden met een CNC-machine" },
+    { src: "/assets/images/kunststof-plaat-op-maat-gesneden.webp", width: 1024, height: 1024, alt: "Blauwe kunststof plaat wordt met een CNC-machine op maat bewerkt" },
+    { src: "/assets/images/hdpe-plaat-maatwerk.webp", width: 1200, height: 1200, alt: "Zwarte HDPE plaat met CNC-gefreesde vormdelen, gaten en contouren" },
+    { src: "/assets/images/ptfe-plaat-maatwerk.webp", width: 1024, height: 1024, alt: "Witte PTFE plaat met op maat gefreesde stroken en vormdelen" },
+    { src: "/assets/images/pu-plaat-maatwerk.webp", width: 1200, height: 1200, alt: "Oranje PU plaat met op maat gemaakte stroken en gatenpatronen" },
+    { src: "/assets/images/kunststof-maatwerk-mat-zwart.webp", width: 1200, height: 1200, alt: "Matzwarte kunststof plaat met CNC-gefreesde vlakke onderdelen" },
     { src: "/assets/images/kunststof-platen-kleuren.webp", width: 1024, height: 1024, alt: "Kunststof platen in verschillende kleuren en diktes" }
   ]
 } %}
 {% include "product-conversion-hero.njk" %}
 
-<section class="section" id="specificaties">
-  <div class="container content-grid">
-    <div class="prose">
-      <p class="eyebrow">Meer dan alleen rechthoekig zagen</p>
-      <h2>Kunststof plaat laten zagen, frezen of boren</h2>
-      <p>Een plaat kan eenvoudig op lengte en breedte worden gezaagd, maar ook worden uitgevoerd als technisch paneel met gatenpatroon, uitsparingen, sleuven, radiushoeken of een volledig gefreesde contour. Zowel dunne afdekplaten als zware constructieve plaatdelen zijn mogelijk.</p>
-      <p>Geef bij uw aanvraag de gewenste buitenmaten, dikte, materiaal, kleur en eventuele bewerkingen door. Bij een complexe vorm kunt u het beste een PDF, DXF, DWG of duidelijke schets meesturen.</p>
+<section class="mkp-trust" aria-label="Ervaring en mogelijkheden">
+  <div class="mkp-container">
+    <div class="mkp-trust-grid">
+      <div class="mkp-trust-item"><strong>8+ jaar</strong><span>ervaring met kunststof maatwerk</span></div>
+      <div class="mkp-trust-item"><strong>15+ soorten</strong><span>technische kunststoffen op voorraad</span></div>
+      <div class="mkp-trust-item"><strong>1 stuk of serie</strong><span>van proefdeel tot herhaalproductie</span></div>
     </div>
-    <aside class="spec-card">
-      <h2>Mogelijke specificaties</h2>
-      <dl>
-        <div><dt>Vorm</dt><dd>Rechthoekig, rond of vrije contour</dd></div>
-        <div><dt>Dikte</dt><dd>Afhankelijk van materiaal en toepassing</dd></div>
-        <div><dt>Bewerking</dt><dd>Zagen, frezen, boren, graveren en buigen</dd></div>
-        <div><dt>Afwerking</dt><dd>Rechte, gefreesde of afgeschuinde randen</dd></div>
-        <div><dt>Aantallen</dt><dd>Van één plaatdeel tot series</dd></div>
-      </dl>
+  </div>
+</section>
+
+<section class="mkp-section" aria-labelledby="mkp-definition-title">
+  <div class="mkp-container mkp-intro-grid">
+    <div class="mkp-copy">
+      <div><p class="mkp-eyebrow">Van plaat naar eindproduct</p><h2 class="mkp-heading" id="mkp-definition-title">Meer dan een kunststof plaat op lengte en breedte</h2></div>
+      <p>Een kunststof plaat op maat kan een eenvoudig rechthoekig zaagdeel zijn, maar plaatmateriaal is ook het uitgangspunt voor vlakke technische onderdelen. Met CNC-bewerking maken we vrije contouren, gatenpatronen, sleuven, kamers, afgeronde hoeken en plaatselijke verdiepingen. U ontvangt dus desgewenst een onderdeel dat direct gemonteerd of verder verwerkt kan worden.</p>
+      <p>Dat maakt deze pagina geschikt voor onder meer montageplaten, frontpanelen, afschermplaten, machineplaten, sjablonen, letters, cijfers, logo-vormen en platte vervangingsonderdelen. De gewenste functie bepaalt samen met maat, dikte en omgeving welke kunststof en bewerking logisch zijn.</p>
+      <p>Is het onderdeel vooral lang en smal, bekijk dan onze <a href="/kunststof-stroken-op-maat/">kunststof stroken op maat</a>. Voor een compact en dik massief deel is een <a href="/kunststof-blokken-op-maat/">kunststof blok op maat</a> vaak een beter uitgangspunt.</p>
+    </div>
+    <aside class="mkp-note">
+      <h3>Een schets of voorbeeld is vaak al genoeg</h3>
+      <p>U hoeft nog geen definitieve technische tekening te hebben. Stuur een globale maat, foto, handgetekende schets of bestaand onderdeel. Ons team denkt gratis en vrijblijvend mee over materiaal, maakbaarheid en een praktische uitvoering.</p>
+      <a href="#offerte">Bespreek uw plaatdeel →</a>
     </aside>
   </div>
 </section>
 
-<section class="section section-muted">
-  <div class="container media-copy-grid">
-    <div class="media-copy-image">
-      <img src="/assets/images/kunststof-platen-kleuren.webp" width="1024" height="1024" loading="lazy" alt="Kunststof plaatmateriaal in rood, geel, groen, wit, zwart, grijs en blauw">
+<section class="mkp-section mkp-soft" aria-labelledby="mkp-possibilities-title">
+  <div class="mkp-container">
+    <div class="mkp-section-head">
+      <div><p class="mkp-eyebrow">CNC-maatwerk uit plaat</p><h2 class="mkp-heading" id="mkp-possibilities-title">Welke vormen en bewerkingen zijn mogelijk?</h2></div>
+      <p>We kiezen de productiemethode op basis van vorm, tolerantie, randkwaliteit en aantal. Eenvoudige rechthoeken kunnen efficiënt worden gezaagd; complexere vlakke onderdelen worden CNC-gefreesd.</p>
     </div>
-    <div>
-      <p class="eyebrow">Materiaal voor de toepassing</p>
-      <h2>Van transparante afscherming tot zware technische plaat</h2>
-      <p>De eisen aan kunststof plaatmateriaal lopen sterk uiteen. Voor transparante bescherming kan polycarbonaat of acrylaat geschikt zijn, terwijl PE, HMPE, POM, PVC of PP vaker worden gekozen voor technische, slijtvaste of chemisch bestendige toepassingen.</p>
-      <ul class="check-list">
-        <li>Technische en constructieve plaatdelen</li>
-        <li>Transparante of gekleurde afschermplaten</li>
-        <li>Slijtvaste bekleding en machinepanelen</li>
-        <li>Vormdelen met gaten, uitsparingen en contouren</li>
+    <div class="mkp-capability-grid">
+      <article class="mkp-card"><span class="mkp-card-mark">01</span><h3>Recht op maat gezaagd</h3><p>Platen, panelen en rechthoekige delen volgens lengte, breedte en dikte, van één stuk tot een efficiënt ingedeelde serie.</p></article>
+      <article class="mkp-card"><span class="mkp-card-mark">02</span><h3>Vrije CNC-contouren</h3><p>Ronde, ovale, gebogen of volledig vrije buitenvormen op basis van een schets of technisch bestand.</p></article>
+      <article class="mkp-card"><span class="mkp-card-mark">03</span><h3>Gaten en verzinkingen</h3><p>Doorgaande of blinde gaten, bevestigingspatronen, verzinkingen en waar passend schroefdraad voor directe montage.</p></article>
+      <article class="mkp-card"><span class="mkp-card-mark">04</span><h3>Sleuven, kamers en uitsparingen</h3><p>Langgaten, kabeldoorvoeren, pockets, sponningen en lokale uitsparingen voor componenten, passing of gewichtsbesparing.</p></article>
+      <article class="mkp-card"><span class="mkp-card-mark">05</span><h3>Letters, cijfers en logo-vormen</h3><p>Losse kunststof letters, cijfers, symbolen en contouren uit plaat, bijvoorbeeld voor signing, displays, mallen of interne markering.</p></article>
+      <article class="mkp-card"><span class="mkp-card-mark">06</span><h3>Randen en gravering</h3><p>Afgeronde of afgeschuinde kanten en eenvoudige tekst, nummering of markering in het oppervlak wanneer de uitvoering dat toelaat.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="mkp-section" aria-labelledby="mkp-cnc-title">
+  <div class="mkp-container mkp-cnc-panel">
+    <figure class="mkp-cnc-image"><img src="/assets/images/hdpe-plaat-maatwerk.webp" width="1200" height="1200" loading="lazy" alt="HDPE plaat met verschillende CNC-gefreesde onderdelen op maat"></figure>
+    <div class="mkp-copy">
+      <div><p class="mkp-eyebrow">Nauwkeurig en herhaalbaar</p><h2 class="mkp-heading" id="mkp-cnc-title">CNC frezen van kunststof plaatmateriaal</h2></div>
+      <p>Bij CNC-frezen volgt het gereedschap een digitaal programma. Daardoor kunnen buitencontour, gaten en uitsparingen in één vaste werkwijze worden gemaakt. Dat is interessant voor een eenmalig maatdeel, maar vooral ook wanneer dezelfde plaat later opnieuw nodig is.</p>
+      <p>Kunststof reageert anders op bewerking dan metaal. Materiaalsoort, plaatdikte, warmteontwikkeling, opspanning en gewenste tolerantie beïnvloeden het resultaat. We stemmen daarom gereedschap en bewerkingsvolgorde af op het gekozen materiaal en de functie van het onderdeel.</p>
+      <ul class="mkp-checks">
+        <li>Van eenvoudige 2D-contour tot plaatdeel met meerdere bewerkingen</li>
+        <li>Geschikt voor prototypes, vervangingsdelen en terugkerende series</li>
+        <li>Maatvoering vastleggen voor consistente herhaalbestellingen</li>
+        <li>Advies over een functionele tolerantie zonder onnodige bewerkingskosten</li>
       </ul>
     </div>
   </div>
 </section>
 
-<section class="section">
-  <div class="container">
-    <div class="section-heading section-heading-wide">
-      <div><p class="eyebrow">Veel voorkomende toepassingen</p><h2>Kunststof plaatwerk voor iedere sector</h2></div>
-      <p>Van eenvoudig beschermpaneel tot nauwkeurig industrieel onderdeel.</p>
+<section class="mkp-section mkp-soft" aria-labelledby="mkp-applications-title">
+  <div class="mkp-container">
+    <div class="mkp-section-head">
+      <div><p class="mkp-eyebrow">Praktische toepassingen</p><h2 class="mkp-heading" id="mkp-applications-title">Wat kan er van kunststof plaat op maat worden gemaakt?</h2></div>
+      <p>Vlak plaatwerk komt terug in machinebouw, apparatenbouw, logistiek, voedingsmiddelenproductie, interieurbouw en visuele communicatie. Enkele veelgevraagde uitvoeringen:</p>
     </div>
-    <div class="info-card-grid">
-      <article><h3>Afscherming</h3><p>Machinekappen, beschermplaten, vensters en scheidingspanelen.</p></article>
-      <article><h3>Constructie</h3><p>Bodems, zijwanden, dragers, montageplaten en maatpanelen.</p></article>
-      <article><h3>Slijtbescherming</h3><p>Bekleding voor bakken, glijvlakken, transport en materiaalgeleiding.</p></article>
-      <article><h3>Precisievormdelen</h3><p>Gefreesde platen met uitsparingen, kamers en nauwkeurige gatenpatronen.</p></article>
+    <div class="mkp-application-grid">
+      <article class="mkp-application-card"><h3>Montage- en basisplaten</h3><p>Stijve platen met een gatenpatroon, uitsparingen en verzinkingen voor sensoren, componenten, schakelkasten of machineframes.</p></article>
+      <article class="mkp-application-card"><h3>Frontpanelen en bedieningsplaten</h3><p>Panelen met openingen voor knoppen, displays, kabels en bevestiging, eventueel voorzien van gegraveerde posities of nummering.</p></article>
+      <article class="mkp-application-card"><h3>Letters, cijfers en logo's</h3><p>CNC-gefreesde contourletters, huisnummers, beeldmerken en vormen uit gekleurde, zwarte, witte of transparante kunststof plaat.</p></article>
+      <article class="mkp-application-card"><h3>Machineafscherming en vensters</h3><p>Transparante of dichte beschermplaten, kijkvensters en scheidingspanelen met montagegaten en contouren voor de installatie.</p></article>
+      <article class="mkp-application-card"><h3>Sjablonen, mallen en positioneerplaten</h3><p>Herhaalbare hulpmiddelen voor boren, monteren, controleren, uitlijnen, markeren of positioneren in werkplaats en productie.</p></article>
+      <article class="mkp-application-card"><h3>Slijt- en bekledingsplaten</h3><p>Vervangbare bekleding voor glijvlakken, stortpunten, bakken en materiaalgeleiding om de onderliggende constructie te beschermen.</p></article>
+      <article class="mkp-application-card"><h3>Technische pakkingen en vlakke ringen</h3><p>Vlakke afdichtingsvormen, afstandsdelen en flensachtige contouren uit passend plaatmateriaal. Voor echte gedraaide delen zijn <a href="/kunststof-ringen-op-maat/">kunststof ringen op maat</a> vaak geschikter.</p></article>
+      <article class="mkp-application-card"><h3>Vervangingsdelen voor machines</h3><p>Een versleten of niet meer leverbare vlakke component namaken aan de hand van een voorbeeld, foto, schets of maatvoering.</p></article>
+      <article class="mkp-application-card"><h3>Kleine series en productonderdelen</h3><p>Consistente plaatdelen voor apparaten, displays, meubels, verpakkingsmachines of eigen producten, met dezelfde vorm per levering.</p></article>
     </div>
   </div>
 </section>
 
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"Kunststof platen op maat","provider":{"@type":"Organization","name":"MaatwerkKunststof.nl"},"areaServed":["Nederland","België"],"description":"Kunststof platen en vormdelen in iedere gewenste maat, dikte, kunststofsoort en bewerking."}</script>
+<section class="mkp-section" aria-labelledby="mkp-material-title">
+  <div class="mkp-container">
+    <div class="mkp-section-head">
+      <div><p class="mkp-eyebrow">Materiaalkeuze</p><h2 class="mkp-heading" id="mkp-material-title">Welke kunststof plaat past bij uw maatwerk?</h2></div>
+      <p>De beste plaat is niet automatisch de hardste of kostbaarste. Open een materiaal voor typische eigenschappen, toepassingen, kleuren en aandachtspunten bij bewerking.</p>
+    </div>
+    <div class="mkp-material-grid">
+      <details class="mkp-material" name="mkp-materials">
+        <summary><strong>HDPE plaat op maat</strong><span>Taai, vochtbestendig en breed inzetbaar</span></summary>
+        <div class="mkp-material-content"><p>HDPE is een praktische keuze voor robuuste plaatdelen die vocht, stoten en veel gangbare chemicaliën moeten verdragen. Het is lichter en minder stijf dan POM of PVC, maar goed inzetbaar voor bescherm-, montage- en bekledingsdelen.</p><dl class="mkp-material-facts"><div><dt>Toepassingen</dt><dd>Snijplaten, afscherming, montageplaten, tank- en machineonderdelen, vulplaten en vochtbestendige panelen.</dd></div><div><dt>Kleuren</dt><dd>Veelal naturel of wit, zwart, groen en blauw; andere kleuren en kwaliteiten zijn afhankelijk van voorraad.</dd></div><div><dt>Bewerking</dt><dd>Zagen, CNC-frezen, boren, verzinken, graveren en bij geschikte kwaliteiten lassen.</dd></div><div><dt>Aandachtspunt</dt><dd>HDPE zet relatief sterk uit bij temperatuurverandering. Bevestiging en tolerantie moeten daar ruimte voor laten.</dd></div></dl></div>
+      </details>
+      <details class="mkp-material" name="mkp-materials">
+        <summary><strong>HMPE plaat en slijtwerk</strong><span>Zeer slijtvast, slagvast en wrijvingsarm</span></summary>
+        <div class="mkp-material-content"><p>HMPE, ook UHMW-PE genoemd, wordt gekozen voor plaatdelen die glijden, geleiden of slijtage opvangen. Het materiaal is taai en neemt vrijwel geen vocht op, maar is minder stijf dan veel constructieve kunststoffen.</p><dl class="mkp-material-facts"><div><dt>Toepassingen</dt><dd>Slijtplaten, geleidingen, bekleding, glijvlakken, kettingbanen en stootvaste machineonderdelen.</dd></div><div><dt>Kleuren</dt><dd>Onder meer naturel of wit, groen, zwart en blauw; gemodificeerde kwaliteiten kunnen afwijken.</dd></div><div><dt>Bewerking</dt><dd>Zagen, frezen, boren, sleuven en vrije contouren; voor nauw maatwerk houden we rekening met materiaalgedrag.</dd></div><div><dt>Prijsbeeld</dt><dd>Meestal relatief hoger dan standaard HDPE, maar gekozen waar slijtage en standtijd zwaarder wegen.</dd></div></dl></div>
+      </details>
+      <details class="mkp-material" name="mkp-materials">
+        <summary><strong>POM, PETP en PA plaat</strong><span>Voor maatvaste en mechanisch belaste onderdelen</span></summary>
+        <div class="mkp-material-content"><p>POM laat zich nauwkeurig bewerken en neemt weinig vocht op. PETP is eveneens maatvast en slijtvast. PA is taaier en sterk bij mechanische belasting, maar vochtopname kan de maat beïnvloeden. De functie bepaalt welke van deze technische kunststoffen past.</p><dl class="mkp-material-facts"><div><dt>Toepassingen</dt><dd>Precisieplaten, montageplaten, mallen, geleidingen, dragers, tand- en machinevormen en maatdelen met passing.</dd></div><div><dt>Kleuren</dt><dd>POM meestal naturel of zwart; PA vaak naturel of zwart; PETP veelal naturel, wit, grijs of zwart.</dd></div><div><dt>Bewerking</dt><dd>Precisiefrezen, boren, ruimen, tappen, kamers, contouren en een nauwkeurig gatenpatroon.</dd></div><div><dt>Prijsbeeld</dt><dd>Doorgaans een middencategorie, waarbij de materiaalkeuze vooral door nauwkeurigheid en belasting wordt bepaald.</dd></div></dl></div>
+      </details>
+      <details class="mkp-material" name="mkp-materials">
+        <summary><strong>PVC en PP plaat</strong><span>Voor apparatenbouw, vocht en chemische omgevingen</span></summary>
+        <div class="mkp-material-content"><p>PVC is relatief stijf en wordt veel gebruikt voor panelen, bakken en installatiedelen. PP is lichter en taaier en laat zich goed lassen. De werkelijke chemische bestendigheid moet altijd worden beoordeeld op medium, concentratie en temperatuur.</p><dl class="mkp-material-facts"><div><dt>Toepassingen</dt><dd>Montagepanelen, laboratoriumdelen, waterbehandeling, tankbouw, chemische installaties en constructieve plaatdelen.</dd></div><div><dt>Kleuren</dt><dd>PVC vooral grijs, wit of zwart; PP vaak naturel, grijs, wit of zwart.</dd></div><div><dt>Bewerking</dt><dd>Zagen, CNC-frezen, boren, graveren en lassen; geschikte PVC-kwaliteiten kunnen ook worden gelijmd.</dd></div><div><dt>Prijsbeeld</dt><dd>Standaard PVC en PP zijn meestal relatief voordelig tot gemiddeld geprijsd.</dd></div></dl></div>
+      </details>
+      <details class="mkp-material" name="mkp-materials">
+        <summary><strong>PTFE en PVDF plaatwerk</strong><span>Voor lage wrijving, chemie en veeleisende omgevingen</span></summary>
+        <div class="mkp-material-content"><p>PTFE heeft een zeer lage wrijving en brede chemische bestendigheid, maar is relatief zacht en kan onder langdurige belasting vervormen. PVDF is stijver en wordt gebruikt in chemische, zuivere en buitenomgevingen waar standaardmaterialen niet voldoen.</p><dl class="mkp-material-facts"><div><dt>Toepassingen</dt><dd>Isolatieplaten, afdichtingsdelen, glijvlakken, chemische installaties en proces- of laboratoriumonderdelen.</dd></div><div><dt>Kleuren</dt><dd>PTFE meestal wit; gevulde kwaliteiten kunnen donkerder zijn. PVDF is veelal naturel wit en soms zwart.</dd></div><div><dt>Bewerking</dt><dd>Zagen, CNC-frezen en boren, afgestemd op spanning, opspanning, tolerantie en materiaalgedrag.</dd></div><div><dt>Prijsbeeld</dt><dd>PTFE en PVDF liggen meestal relatief hoger dan gangbare technische plaatmaterialen.</dd></div></dl></div>
+      </details>
+      <details class="mkp-material" name="mkp-materials">
+        <summary><strong>PU plaat op maat</strong><span>Elastisch, dempend en slijtvast</span></summary>
+        <div class="mkp-material-content"><p>Polyurethaan, vaak PU genoemd, is geen stijve constructieplaat zoals POM of PVC. Het is een elastomeer dat wordt gekozen wanneer veerkracht, demping, grip of slijtvastheid gewenst is. De hardheid heeft veel invloed op gedrag en bewerkbaarheid.</p><dl class="mkp-material-facts"><div><dt>Toepassingen</dt><dd>Schrapers, stootplaten, dempers, beschermlagen, slijtstukken en flexibele afdichtende vormdelen.</dd></div><div><dt>Kleuren</dt><dd>Vaak geel, oranje, rood, naturel of zwart; kleur en hardheid hangen samen met de beschikbare kwaliteit.</dd></div><div><dt>Bewerking</dt><dd>Snijden, zagen, boren of frezen is afhankelijk van hardheid, dikte, vorm en gewenste tolerantie.</dd></div><div><dt>Aandachtspunt</dt><dd>Geef belasting, beweging, omgeving en gewenste flexibiliteit door; alleen de buitenmaat is voor PU meestal niet genoeg.</dd></div></dl></div>
+      </details>
+      <details class="mkp-material" name="mkp-materials">
+        <summary><strong>Polycarbonaat en acrylaat</strong><span>Transparante of gekleurde panelen en visuele vormen</span></summary>
+        <div class="mkp-material-content"><p>Polycarbonaat is taai en wordt vaak gebruikt voor beschermende transparante platen. Acrylaat, ook PMMA genoemd, heeft een heldere uitstraling en is interessant voor displays, letters en visuele toepassingen. De juiste keuze hangt af van slagbelasting, buitengebruik, randafwerking en uitstraling.</p><dl class="mkp-material-facts"><div><dt>Toepassingen</dt><dd>Machinevensters, beschermkappen, displays, letters, logo-vormen, afdekplaten en transparante montagepanelen.</dd></div><div><dt>Kleuren</dt><dd>Helder, opaal, wit, zwart en diverse kleuren of tinten, afhankelijk van materiaal en plaatdikte.</dd></div><div><dt>Bewerking</dt><dd>Zagen, CNC-frezen, boren, contouren en randafwerking; bevestigingsgaten vragen aandacht voor spanning en uitzetting.</dd></div><div><dt>Aandachtspunt</dt><dd>Polycarbonaat en acrylaat zijn niet onderling uitwisselbaar; slagvastheid, krasgevoeligheid en optiek verschillen.</dd></div></dl></div>
+      </details>
+      <details class="mkp-material" name="mkp-materials">
+        <summary><strong>PEEK en speciale plaatkwaliteiten</strong><span>Voor hoge technische, thermische of certificeringseisen</span></summary>
+        <div class="mkp-material-content"><p>Wanneer gangbare kunststoffen niet voldoen, zijn onder meer PEEK en gevulde, antistatische, elektrisch geleidende, detecteerbare of voedselgeschikte kwaliteiten mogelijk. We beoordelen eerst welke eigenschap werkelijk nodig is, zodat de keuze technisch en economisch logisch blijft.</p><dl class="mkp-material-facts"><div><dt>Toepassingen</dt><dd>Hoogbelaste precisiedelen, cleanroom- en procesonderdelen, isolatieplaten en componenten met bijzondere verklaringen.</dd></div><div><dt>Kleuren</dt><dd>Afhankelijk van basismateriaal en modificatie; PEEK is vaak naturel beige of zwart.</dd></div><div><dt>Bewerking</dt><dd>Precisiezagen en CNC-bewerken volgens materiaaleigenschappen, stabiliteit, dikte en gewenste maatvoering.</dd></div><div><dt>Prijsbeeld</dt><dd>Speciale en gecertificeerde kwaliteiten liggen meestal relatief hoger en worden gericht gekozen.</dd></div></dl></div>
+      </details>
+    </div>
+    <div class="mkp-advice"><div><strong>Weet u nog niet welk plaatmateriaal geschikt is?</strong><span>Vertel wat het onderdeel moet doen en waar het wordt gebruikt. Wij denken dagelijks met dit soort toepassingen mee.</span></div><a href="#offerte">Vraag gratis materiaaladvies →</a></div>
+  </div>
+</section>
+
+<section class="mkp-section mkp-soft" aria-labelledby="mkp-price-title">
+  <div class="mkp-container">
+    <div class="mkp-section-head"><div><p class="mkp-eyebrow">Prijsopbouw</p><h2 class="mkp-heading" id="mkp-price-title">Wat kost kunststof plaatwerk op maat?</h2></div><p>Een vaste meter- of stukprijs zegt bij maatwerk weinig. Materiaalgebruik, plaatdikte, bewerking en aantal bepalen samen wat de meest logische uitvoering kost.</p></div>
+    <div class="mkp-price-grid">
+      <div class="mkp-price-copy">
+        <p>Bij een eenvoudig rechthoekig plaatdeel bestaat de prijs vooral uit het gekozen materiaal, de dikte, de benodigde plaatruimte en het zagen. Bij een CNC-gefreesd vormdeel tellen ook programmering, opspanning, freeslengte, aantal gaten, kamers, randafwerking en gewenste tolerantie mee.</p>
+        <p>De vorm bepaalt hoeveel onderdelen efficiënt uit een handelsplaat kunnen worden genest. Een slimme indeling en bruikbaar restmateriaal kunnen het materiaalaandeel relatief gunstiger maken. Bij een afwijkende kleur, bijzondere dikte of gecertificeerde kwaliteit kan speciaal uitgangsmateriaal nodig zijn.</p>
+        <p>Voor letters, logo's en andere vrije contouren zijn vooral formaat, lijndikte, aantal losse vormen, materiaal en afwerking bepalend. Bij series worden voorbereiding en programmering over meerdere onderdelen verdeeld, waardoor de prijs per stuk meestal daalt.</p>
+      </div>
+      <aside class="mkp-price-note"><h3>Offerte zonder compleet tekenpakket</h3><p>Een globale buitenmaat, dikte, aantal en foto of schets zijn genoeg om te beginnen. Als een kleine aanpassing in materiaal, vorm of indeling gunstiger is, nemen we dat mee in het voorstel. De beoordeling is gratis en vrijblijvend.</p></aside>
+    </div>
+  </div>
+</section>
+
+<section class="mkp-section" aria-labelledby="mkp-process-title">
+  <div class="mkp-container">
+    <div class="mkp-section-head"><div><p class="mkp-eyebrow">Van idee naar plaatdeel</p><h2 class="mkp-heading" id="mkp-process-title">Samen bepalen we materiaal en uitvoering</h2></div><p>Ons team heeft veel ervaring met kunststof maatwerk en helpt ook wanneer maat, materiaal of tekening nog niet definitief zijn.</p></div>
+    <div class="mkp-process-grid">
+      <article class="mkp-process-card"><span aria-hidden="true">1</span><h3>U laat zien wat u nodig heeft</h3><p>Met een maat, omschrijving, foto, schets, PDF, DXF, DWG of STEP-bestand. Ook een bestaand voorbeeld kan het uitgangspunt zijn.</p></article>
+      <article class="mkp-process-card"><span aria-hidden="true">2</span><h3>Een expert beoordeelt het maatwerk</h3><p>We kijken naar functie, materiaal, plaatindeling, maakbaarheid, noodzakelijke tolerantie en een passende bewerkingsmethode.</p></article>
+      <article class="mkp-process-card"><span aria-hidden="true">3</span><h3>U ontvangt een vrijblijvend voorstel</h3><p>Met de voorgestelde uitvoering, prijs en leverindicatie. Eenvoudig zaagwerk uit voorraad kan soms al de volgende werkdag.</p></article>
+    </div>
+    <div class="mkp-advice"><div><strong>Enkelstuk, prototype of terugkerende serie</strong><span>We leggen materiaal en uitvoering vast, zodat een goedgekeurd plaatdeel later consistent kan worden herhaald.</span></div><a href="#offerte">Start uw aanvraag →</a></div>
+  </div>
+</section>
+
+<section class="mkp-section" aria-labelledby="mkp-faq-title">
+  <div class="mkp-container mkp-faq-grid">
+    <div><p class="mkp-eyebrow">Veelgestelde vragen</p><h2 class="mkp-heading" id="mkp-faq-title">Over kunststof platen en CNC-maatwerk</h2></div>
+    <div class="mkp-faq-list">
+      <details><summary>Kan een kunststof plaat in iedere vorm worden gefreesd?</summary><p>Veel ronde, gebogen en vrije 2D-contouren zijn mogelijk. Zeer scherpe binnenhoeken, dunne verbindingen en kleine details kunnen door freesdiameter of materiaalgedrag een aanpassing vragen. Dat beoordelen we vooraf.</p></details>
+      <details><summary>Maken jullie ook kunststof letters, cijfers en logo's?</summary><p>Ja, losse letters, cijfers, symbolen en logo-contouren kunnen uit geschikte kunststof plaat worden CNC-gefreesd. Formaat, minimale lijndikte, kleur, dikte en gewenste randafwerking bepalen de uitvoering.</p></details>
+      <details><summary>Wat is het verschil tussen zagen en CNC frezen?</summary><p>Zagen is efficiënt voor rechte rechthoekige plaatdelen. CNC-frezen is geschikt voor vrije buitencontouren, nauwkeurige gatenpatronen, sleuven, kamers, verzinkingen en gecombineerde bewerkingen.</p></details>
+      <details><summary>Welke bestanden kan ik meesturen?</summary><p>Een PDF, DXF, DWG, STEP of STP-bestand is welkom. Heeft u dat niet, dan kunt u ook een foto, duidelijke schets, globale maat of bestaand voorbeeld meesturen.</p></details>
+      <details><summary>Kan ik één kunststof plaatdeel laten maken?</summary><p>Ja. We maken enkelstuks, prototypes, kleine aantallen en terugkerende series. Voor series daalt de prijs per onderdeel meestal doordat voorbereiding over meerdere delen wordt verdeeld.</p></details>
+      <details><summary>Welke diktes en afmetingen zijn mogelijk?</summary><p>Dat hangt af van materiaalsoort, beschikbare handelsformaten, vorm, vlakheid en tolerantie. Geef de gewenste maat door; als een andere uitgangsmaat praktischer is, vermelden we dat in het voorstel.</p></details>
+      <details><summary>Kan transparante kunststof op maat worden gemaakt?</summary><p>Ja. Polycarbonaat en acrylaat kunnen worden gezaagd en CNC-bewerkt tot vensters, beschermplaten, panelen, letters en andere vormen. Slagbelasting, optiek, randafwerking en bevestiging bepalen welk materiaal beter past.</p></details>
+      <details><summary>Wat bepaalt de prijs van CNC-gefreesd plaatwerk?</summary><p>Materiaal, dikte, plaatgebruik, contourlengte, aantal gaten en kamers, tolerantie, afwerking en aantal bepalen samen de prijs. Een efficiënte nesting en grotere serie kunnen de prijs per stuk verlagen.</p></details>
+      <details><summary>Hoe snel kunnen kunststof platen worden geleverd?</summary><p>De levertijd hangt af van materiaal, maat, bewerking en aantal. Eenvoudig zaagwerk uit voorraad kan soms al de volgende werkdag; bij CNC-maatwerk ontvangt u een passende leverindicatie in de offerte.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="mkp-final">
+  <div class="mkp-container mkp-final-inner">
+    <div><h2>Laat uw kunststof plaat of vormdeel maken</h2><p>Stuur een maat, schets, bestand of foto. Dan beoordelen we gratis en vrijblijvend welke kunststof en bewerking bij uw onderdeel passen.</p></div>
+    <a class="mkp-button" href="#offerte" data-analytics="quote_cta" data-location="plates_final">Start uw offerteaanvraag</a>
+  </div>
+</section>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Kunststof platen en vormdelen op maat",
+  "provider": {"@type":"Organization","name":"MaatwerkKunststof.nl","url":"https://maatwerkkunststof.nl"},
+  "areaServed": ["Nederland", "België"],
+  "serviceType": "Kunststof plaat zagen en CNC frezen op maat",
+  "description": "Kunststof platen en vlakke vormdelen op maat, gezaagd of CNC-gefreesd met contouren, gaten, sleuven, tekst en uitsparingen."
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://maatwerkkunststof.nl/"},
+    {"@type":"ListItem","position":2,"name":"Kunststof platen op maat","item":"https://maatwerkkunststof.nl/kunststof-platen-op-maat/"}
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"Kan een kunststof plaat in iedere vorm worden gefreesd?","acceptedAnswer":{"@type":"Answer","text":"Veel ronde, gebogen en vrije 2D-contouren zijn mogelijk. Zeer scherpe binnenhoeken, dunne verbindingen en kleine details kunnen door freesdiameter of materiaalgedrag een aanpassing vragen."}},
+    {"@type":"Question","name":"Maken jullie ook kunststof letters, cijfers en logo's?","acceptedAnswer":{"@type":"Answer","text":"Ja, losse letters, cijfers, symbolen en logo-contouren kunnen uit geschikte kunststof plaat worden CNC-gefreesd. Formaat, minimale lijndikte, kleur, dikte en randafwerking bepalen de uitvoering."}},
+    {"@type":"Question","name":"Wat is het verschil tussen zagen en CNC frezen?","acceptedAnswer":{"@type":"Answer","text":"Zagen is efficiënt voor rechte rechthoekige plaatdelen. CNC-frezen is geschikt voor vrije buitencontouren, nauwkeurige gatenpatronen, sleuven, kamers, verzinkingen en gecombineerde bewerkingen."}},
+    {"@type":"Question","name":"Welke bestanden kan ik meesturen?","acceptedAnswer":{"@type":"Answer","text":"Een PDF, DXF, DWG, STEP of STP-bestand is welkom. Een foto, duidelijke schets, globale maat of bestaand voorbeeld is ook voldoende om te beginnen."}},
+    {"@type":"Question","name":"Kan ik één kunststof plaatdeel laten maken?","acceptedAnswer":{"@type":"Answer","text":"Ja. Enkelstuks, prototypes, kleine aantallen en terugkerende series zijn mogelijk."}},
+    {"@type":"Question","name":"Welke diktes en afmetingen zijn mogelijk?","acceptedAnswer":{"@type":"Answer","text":"Dat hangt af van materiaalsoort, beschikbare handelsformaten, vorm, vlakheid en tolerantie. Geef de gewenste maat door voor een gerichte beoordeling."}},
+    {"@type":"Question","name":"Kan transparante kunststof op maat worden gemaakt?","acceptedAnswer":{"@type":"Answer","text":"Ja. Polycarbonaat en acrylaat kunnen worden gezaagd en CNC-bewerkt tot vensters, beschermplaten, panelen, letters en andere vormen."}},
+    {"@type":"Question","name":"Wat bepaalt de prijs van CNC-gefreesd plaatwerk?","acceptedAnswer":{"@type":"Answer","text":"Materiaal, dikte, plaatgebruik, contourlengte, aantal gaten en kamers, tolerantie, afwerking en aantal bepalen samen de prijs."}},
+    {"@type":"Question","name":"Hoe snel kunnen kunststof platen worden geleverd?","acceptedAnswer":{"@type":"Answer","text":"De levertijd hangt af van materiaal, maat, bewerking en aantal. Eenvoudig zaagwerk uit voorraad kan soms al de volgende werkdag."}}
+  ]
+}
+</script>
