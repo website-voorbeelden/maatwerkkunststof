@@ -33,12 +33,12 @@ bodyClass: mkp-page
   .mkp-copy a,
   .mkp-material-content a { color: var(--mkp-green-dark); font-weight: 750; }
 
-  .mkp-trust { position: relative; z-index: 2; margin-top: -28px; }
-  .mkp-trust-grid { display: grid; overflow: hidden; border: 1px solid rgba(20, 43, 51, .12); border-radius: var(--mkp-radius); background: var(--mkp-white); box-shadow: 0 18px 46px rgba(20, 43, 51, .1); }
-  .mkp-trust-item { display: grid; min-height: 142px; place-content: center; gap: 5px; padding: 24px; text-align: center; }
+  .mkp-trust { border-block: 1px solid var(--mkp-line); background: var(--mkp-white); }
+  .mkp-trust-grid { display: grid; }
+  .mkp-trust-item { display: grid; gap: 3px; padding: 24px 0; text-align: center; }
   .mkp-trust-item + .mkp-trust-item { border-top: 1px solid var(--mkp-line); }
-  .mkp-trust-item strong { color: var(--mkp-green-dark); font-size: clamp(2rem, 6vw, 3rem); font-weight: 850; letter-spacing: -.045em; line-height: 1; }
-  .mkp-trust-item span { color: var(--mkp-ink); font-size: .86rem; font-weight: 750; line-height: 1.4; }
+  .mkp-trust-item strong { color: var(--mkp-ink); font-size: 1.35rem; font-weight: 800; letter-spacing: -.025em; line-height: 1.2; }
+  .mkp-trust-item span { color: var(--mkp-text); font-size: .82rem; font-weight: 400; line-height: 1.4; }
 
   .mkp-intro-grid,
   .mkp-media-grid,
