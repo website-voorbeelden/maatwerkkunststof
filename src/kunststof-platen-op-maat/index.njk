@@ -33,12 +33,12 @@ bodyClass: mkp-page
   .mkp-copy a,
   .mkp-material-content a { color: var(--mkp-green-dark); font-weight: 750; }
 
-  .mkp-trust { border-block: 1px solid var(--mkp-line); background: var(--mkp-white); }
-  .mkp-trust-grid { display: grid; }
-  .mkp-trust-item { display: grid; gap: 3px; padding: 24px 0; text-align: center; }
+  .mkp-trust { position: relative; z-index: 2; margin-top: -28px; }
+  .mkp-trust-grid { display: grid; overflow: hidden; border: 1px solid rgba(20, 43, 51, .12); border-radius: var(--mkp-radius); background: var(--mkp-white); box-shadow: 0 18px 46px rgba(20, 43, 51, .1); }
+  .mkp-trust-item { display: grid; min-height: 116px; place-content: center; gap: 4px; padding: 22px; text-align: center; }
   .mkp-trust-item + .mkp-trust-item { border-top: 1px solid var(--mkp-line); }
-  .mkp-trust-item strong { color: var(--mkp-ink); font-size: 1.35rem; font-weight: 800; letter-spacing: -.025em; line-height: 1.2; }
-  .mkp-trust-item span { color: var(--mkp-text); font-size: .82rem; font-weight: 400; line-height: 1.4; }
+  .mkp-trust-item strong { color: var(--mkp-green-dark); font-size: 1.35rem; font-weight: 850; line-height: 1.1; }
+  .mkp-trust-item span { color: var(--mkp-ink); font-size: .82rem; font-weight: 720; }
 
   .mkp-intro-grid,
   .mkp-media-grid,
@@ -120,8 +120,7 @@ bodyClass: mkp-page
 
   @media (min-width: 680px) {
     .mkp-container { width: min(calc(100% - 48px), 1180px); }
-    .mkp-trust-grid { grid-template-columns: repeat(3, 1fr); }
-    .mkp-trust-item { padding: 27px 18px; }
+    .mkp-trust-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
     .mkp-trust-item + .mkp-trust-item { border-top: 0; border-left: 1px solid var(--mkp-line); }
     .mkp-capability-grid,
     .mkp-material-grid,
@@ -164,9 +163,9 @@ bodyClass: mkp-page
 <section class="mkp-trust" aria-label="Ervaring en mogelijkheden">
   <div class="mkp-container">
     <div class="mkp-trust-grid">
-      <div class="mkp-trust-item"><strong data-counter data-target="8" data-suffix="+">8+</strong><span>jaar ervaring met kunststof maatwerk</span></div>
-      <div class="mkp-trust-item"><strong data-counter data-target="15" data-suffix="+">15+</strong><span>kunststofsoorten op voorraad</span></div>
-      <div class="mkp-trust-item"><strong>Vanaf 1</strong><span>plaatdeel, prototype of serie</span></div>
+      <div class="mkp-trust-item"><strong>8+ jaar</strong><span>ervaring met kunststof maatwerk</span></div>
+      <div class="mkp-trust-item"><strong>15+ soorten</strong><span>technische kunststoffen op voorraad</span></div>
+      <div class="mkp-trust-item"><strong>1 stuk of serie</strong><span>van plaatdeel tot herhaalproductie</span></div>
     </div>
   </div>
 </section>
