@@ -12,7 +12,7 @@ bodyClass: mkp-page
   body.mkp-page {
     --mkp-ink: #142b33;
     --mkp-text: #536369;
-    --mkp-line: #dce5df;
+    --mkp-line: #dce2e3;
     --mkp-soft: #f3f7ef;
     --mkp-green: #74c200;
     --mkp-green-dark: #4f8f00;
@@ -22,7 +22,7 @@ bodyClass: mkp-page
 
   body.mkp-page main { overflow: clip; }
   .mkp-container { width: min(calc(100% - 32px), 1180px); margin-inline: auto; }
-  .mkp-section { padding: 68px 0; }
+  .mkp-section { padding: 66px 0; }
   .mkp-soft { background: var(--mkp-soft); }
   .mkp-eyebrow { margin: 0 0 10px; color: var(--mkp-green-dark); font-size: .73rem; font-weight: 850; letter-spacing: .13em; line-height: 1.35; text-transform: uppercase; }
   .mkp-heading { max-width: 790px; margin: 0; color: var(--mkp-ink); font-size: clamp(2rem, 5vw, 3.05rem); font-weight: 780; letter-spacing: -.04em; line-height: 1.08; }
@@ -33,18 +33,18 @@ bodyClass: mkp-page
   .mkp-copy a,
   .mkp-material-content a { color: var(--mkp-green-dark); font-weight: 750; }
 
-  .mkp-trust { border-block: 1px solid var(--mkp-line); background: var(--mkp-white); }
-  .mkp-trust-grid { display: grid; }
-  .mkp-trust-item { display: grid; gap: 3px; padding: 24px 0; text-align: center; }
+  .mkp-trust { position: relative; z-index: 2; margin-top: -28px; }
+  .mkp-trust-grid { display: grid; overflow: hidden; border: 1px solid rgba(20, 43, 51, .12); border-radius: var(--mkp-radius); background: var(--mkp-white); box-shadow: 0 18px 46px rgba(20, 43, 51, .1); }
+  .mkp-trust-item { display: grid; min-height: 142px; place-content: center; gap: 5px; padding: 24px; text-align: center; }
   .mkp-trust-item + .mkp-trust-item { border-top: 1px solid var(--mkp-line); }
-  .mkp-trust-item strong { color: var(--mkp-ink); font-size: 1.35rem; letter-spacing: -.025em; }
-  .mkp-trust-item span { color: var(--mkp-text); font-size: .82rem; }
+  .mkp-trust-item strong { color: var(--mkp-green-dark); font-size: clamp(2rem, 6vw, 3rem); font-weight: 850; letter-spacing: -.045em; line-height: 1; }
+  .mkp-trust-item span { color: var(--mkp-ink); font-size: .86rem; font-weight: 750; line-height: 1.4; }
 
   .mkp-intro-grid,
   .mkp-media-grid,
   .mkp-price-grid,
   .mkp-faq-grid { display: grid; gap: 34px; }
-  .mkp-note { align-self: start; border: 1px solid #cfe0c4; border-radius: var(--mkp-radius); padding: 26px; background: #fbfdf9; }
+  .mkp-note { align-self: start; border: 1px solid rgba(116, 194, 0, .34); border-radius: var(--mkp-radius); padding: 24px; background: linear-gradient(145deg, #fbfdf8 0%, var(--mkp-soft) 100%); }
   .mkp-note h3 { margin: 0 0 9px; color: var(--mkp-ink); font-size: 1.13rem; }
   .mkp-note p { margin: 0; color: var(--mkp-text); font-size: .9rem; line-height: 1.65; }
   .mkp-note a { display: inline-block; margin-top: 15px; color: var(--mkp-green-dark); font-size: .88rem; font-weight: 800; text-decoration: none; }
@@ -52,10 +52,9 @@ bodyClass: mkp-page
   .mkp-capability-grid,
   .mkp-application-grid,
   .mkp-process-grid { display: grid; gap: 14px; }
-  .mkp-card { border: 1px solid var(--mkp-line); border-radius: 11px; padding: 21px; background: var(--mkp-white); }
+  .mkp-card { border: 1px solid var(--mkp-line); border-radius: 10px; padding: 22px; background: var(--mkp-white); }
   .mkp-card h3 { margin: 0 0 8px; color: var(--mkp-ink); font-size: 1rem; line-height: 1.3; }
   .mkp-card p { margin: 0; color: var(--mkp-text); font-size: .84rem; line-height: 1.62; }
-  .mkp-card-mark { display: grid; width: 32px; height: 32px; place-items: center; margin-bottom: 16px; border-radius: 8px; color: var(--mkp-green-dark); background: #edf6e7; font-size: .82rem; font-weight: 850; }
 
   .mkp-cnc-panel { display: grid; gap: 28px; align-items: center; }
   .mkp-cnc-image { overflow: hidden; aspect-ratio: 1 / 1; margin: 0; border: 1px solid var(--mkp-line); border-radius: var(--mkp-radius); background: #fff; }
@@ -67,42 +66,43 @@ bodyClass: mkp-page
   .mkp-material-grid { display: grid; gap: 13px; }
   .mkp-material { overflow: hidden; border: 1px solid var(--mkp-line); border-radius: 11px; background: var(--mkp-white); }
   .mkp-material[open] { border-color: #b9d2a9; box-shadow: 0 12px 30px rgba(20, 43, 51, .06); }
-  .mkp-material summary { position: relative; display: grid; gap: 3px; min-height: 78px; align-content: center; padding: 17px 50px 17px 20px; cursor: pointer; list-style: none; }
+  .mkp-material summary { position: relative; display: grid; gap: 4px; min-height: 78px; align-content: center; padding: 21px 54px 21px 22px; cursor: pointer; list-style: none; }
   .mkp-material summary::-webkit-details-marker { display: none; }
-  .mkp-material summary::after { position: absolute; top: 50%; right: 19px; width: 25px; height: 25px; border-radius: 50%; color: var(--mkp-green-dark); background: #edf6e7; content: "+"; font-size: 1.2rem; font-weight: 500; line-height: 23px; text-align: center; transform: translateY(-50%); }
+  .mkp-material summary::after { position: absolute; top: 50%; right: 22px; color: var(--mkp-green-dark); content: "+"; font-size: 1.55rem; font-weight: 500; transform: translateY(-50%); }
   .mkp-material[open] summary::after { content: "−"; }
   .mkp-material summary strong { color: var(--mkp-ink); font-size: .96rem; }
   .mkp-material summary span { color: var(--mkp-text); font-size: .78rem; line-height: 1.45; }
-  .mkp-material-content { display: grid; gap: 15px; border-top: 1px solid var(--mkp-line); padding: 18px 20px 21px; }
-  .mkp-material-content > p { margin: 0; color: var(--mkp-text); font-size: .84rem; line-height: 1.65; }
-  .mkp-material-facts { display: grid; gap: 9px; margin: 0; }
-  .mkp-material-facts div { border-left: 2px solid #dfe8da; padding-left: 11px; }
-  .mkp-material-facts dt { color: var(--mkp-ink); font-size: .73rem; font-weight: 820; }
-  .mkp-material-facts dd { margin: 2px 0 0; color: var(--mkp-text); font-size: .77rem; line-height: 1.52; }
+  .mkp-material-content { display: grid; gap: 20px; border-top: 1px solid var(--mkp-line); padding: 22px; }
+  .mkp-material-content > p { margin: 0; color: var(--mkp-text); font-size: .88rem; line-height: 1.7; }
+  .mkp-material-facts { display: grid; gap: 14px; margin: 0; }
+  .mkp-material-facts div { display: grid; gap: 3px; align-content: start; }
+  .mkp-material-facts div:nth-child(2),
+  .mkp-material-facts div:nth-child(3) { border-left: 3px solid var(--mkp-green); border-radius: 0 8px 8px 0; padding: 13px 15px; background: var(--mkp-soft); }
+  .mkp-material-facts dt { color: var(--mkp-ink); font-size: .72rem; font-weight: 820; letter-spacing: .04em; text-transform: uppercase; }
+  .mkp-material-facts dd { margin: 0; color: var(--mkp-text); font-size: .82rem; line-height: 1.58; }
 
-  .mkp-application-card { position: relative; overflow: hidden; border: 1px solid var(--mkp-line); border-radius: 11px; padding: 22px; background: var(--mkp-white); }
-  .mkp-application-card::before { position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--mkp-green); content: ""; }
+  .mkp-application-card { border: 1px solid var(--mkp-line); border-radius: 10px; padding: 22px; background: var(--mkp-white); }
   .mkp-application-card h3 { margin: 0 0 7px; color: var(--mkp-ink); font-size: .98rem; }
   .mkp-application-card p { margin: 0; color: var(--mkp-text); font-size: .82rem; line-height: 1.58; }
 
   .mkp-price-copy { display: grid; gap: 15px; }
   .mkp-price-copy p { margin: 0; color: var(--mkp-text); line-height: 1.72; }
-  .mkp-price-note { align-self: start; border-radius: var(--mkp-radius); padding: 27px; color: #fff; background: var(--mkp-ink); }
-  .mkp-price-note h3 { margin: 0 0 9px; font-size: 1.15rem; }
-  .mkp-price-note p { margin: 0; color: #dce5e6; font-size: .87rem; line-height: 1.65; }
+  .mkp-price-note { align-self: start; border-left: 4px solid var(--mkp-green); border-radius: 0 12px 12px 0; padding: 23px 24px; background: var(--mkp-white); }
+  .mkp-price-note h3 { margin: 0 0 9px; color: var(--mkp-ink); font-size: 1.04rem; }
+  .mkp-price-note p { margin: 0; color: var(--mkp-text); font-size: .86rem; line-height: 1.67; }
 
-  .mkp-process-card { border-top: 3px solid var(--mkp-green); border-radius: 0 0 11px 11px; padding: 22px; background: var(--mkp-soft); }
-  .mkp-process-card span { display: block; margin-bottom: 12px; color: var(--mkp-green-dark); font-size: 1.5rem; font-weight: 850; }
+  .mkp-process-card { position: relative; border: 1px solid var(--mkp-line); border-radius: 10px; padding: 62px 22px 22px; background: var(--mkp-white); }
+  .mkp-process-card span { position: absolute; top: 20px; left: 22px; display: grid; width: 30px; height: 30px; place-items: center; border-radius: 50%; color: var(--mkp-white); background: var(--mkp-green-dark); font-size: .78rem; font-weight: 850; }
   .mkp-process-card h3 { margin: 0 0 7px; color: var(--mkp-ink); font-size: 1rem; }
   .mkp-process-card p { margin: 0; color: var(--mkp-text); font-size: .83rem; line-height: 1.58; }
-  .mkp-advice { display: grid; gap: 14px; align-items: center; margin-top: 22px; border: 1px solid #cfe0c4; border-radius: 11px; padding: 20px; background: #fbfdf9; }
+  .mkp-advice { display: grid; gap: 18px; align-items: center; margin-top: 22px; border: 1px solid rgba(116, 194, 0, .42); border-radius: 12px; padding: 22px; background: var(--mkp-white); box-shadow: 0 12px 32px rgba(20, 43, 51, .06); }
   .mkp-advice strong,
   .mkp-advice span { display: block; }
   .mkp-advice strong { margin-bottom: 3px; color: var(--mkp-ink); font-size: .93rem; }
   .mkp-advice span { color: var(--mkp-text); font-size: .8rem; line-height: 1.5; }
   .mkp-advice a { color: var(--mkp-green-dark); font-size: .85rem; font-weight: 820; text-decoration: none; }
 
-  .mkp-faq-list { display: grid; gap: 10px; }
+  .mkp-faq-list { display: grid; gap: 10px; border-top: 1px solid var(--mkp-line); }
   .mkp-faq-list details { border-bottom: 1px solid var(--mkp-line); }
   .mkp-faq-list summary { position: relative; padding: 17px 38px 17px 0; color: var(--mkp-ink); font-size: .94rem; font-weight: 780; line-height: 1.45; cursor: pointer; list-style: none; }
   .mkp-faq-list summary::-webkit-details-marker { display: none; }
@@ -110,15 +110,16 @@ bodyClass: mkp-page
   .mkp-faq-list details[open] summary::after { content: "−"; }
   .mkp-faq-list p { margin: -2px 35px 18px 0; color: var(--mkp-text); font-size: .86rem; line-height: 1.65; }
 
-  .mkp-final { padding: 50px 0; color: #fff; background: var(--mkp-ink); }
+  .mkp-final { padding: 56px 0; color: var(--mkp-ink); background: var(--mkp-soft); }
   .mkp-final-inner { display: grid; gap: 22px; align-items: center; }
-  .mkp-final h2 { margin: 0 0 8px; color: #fff; font-size: clamp(1.65rem, 4vw, 2.35rem); letter-spacing: -.035em; }
-  .mkp-final p { max-width: 700px; margin: 0; color: #dce5e6; line-height: 1.6; }
+  .mkp-final h2 { margin: 0 0 8px; color: var(--mkp-ink); font-size: clamp(1.8rem, 5vw, 2.8rem); letter-spacing: -.035em; }
+  .mkp-final p { max-width: 720px; margin: 0; color: var(--mkp-text); line-height: 1.6; }
   .mkp-button { display: inline-flex; min-height: 50px; align-items: center; justify-content: center; border-radius: 8px; padding: 13px 20px; color: #fff; background: var(--mkp-green); font-size: .9rem; font-weight: 800; text-decoration: none; transition: background-color .22s ease, transform .22s ease; }
   .mkp-button:hover,
   .mkp-button:focus-visible { color: #fff; background: var(--mkp-green-dark); transform: translateY(-1px); }
 
   @media (min-width: 680px) {
+    .mkp-container { width: min(calc(100% - 48px), 1180px); }
     .mkp-trust-grid { grid-template-columns: repeat(3, 1fr); }
     .mkp-trust-item { padding: 27px 18px; }
     .mkp-trust-item + .mkp-trust-item { border-top: 0; border-left: 1px solid var(--mkp-line); }
@@ -130,7 +131,8 @@ bodyClass: mkp-page
   }
 
   @media (min-width: 900px) {
-    .mkp-section { padding: 82px 0; }
+    .mkp-section { padding: 92px 0; }
+    .mkp-section-head { grid-template-columns: minmax(0, 1fr) minmax(330px, .72fr); gap: 60px; align-items: end; margin-bottom: 40px; }
     .mkp-intro-grid { grid-template-columns: minmax(0, 1.45fr) minmax(300px, .7fr); gap: 70px; }
     .mkp-cnc-panel { grid-template-columns: minmax(340px, .85fr) minmax(0, 1.15fr); gap: 64px; }
     .mkp-capability-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
@@ -145,17 +147,16 @@ bodyClass: mkp-page
   prefix: "platen",
   eyebrow: "Vlak kunststof maatwerk",
   title: "Kunststof platen en vormdelen op maat",
-  lead: "Van een rechthoekige plaat tot een CNC-gefreesd onderdeel met contouren, gaten, tekst of uitsparingen. Als enkelstuk, prototype of terugkerende serie.",
+  lead: "Wij zagen en CNC-frezen kunststof plaat volgens uw maatvoering. Ook met gaten, uitsparingen, gravering en vrije contouren, als enkelstuk of serie.",
   product: "Kunststof platen en vlakke vormdelen",
   placeholder: "Bijvoorbeeld: maat, dikte, materiaal, aantal en gewenste vorm of bewerking",
   whatsappText: "Hallo%2C%20ik%20heb%20een%20vraag%20over%20kunststof%20platen%20of%20vlakke%20vormdelen%20op%20maat.",
   images: [
-    { src: "/assets/images/kunststof-plaat-op-maat-gesneden.webp", width: 1024, height: 1024, alt: "Blauwe kunststof plaat wordt met een CNC-machine op maat bewerkt" },
     { src: "/assets/images/hdpe-plaat-maatwerk.webp", width: 1200, height: 1200, alt: "Zwarte HDPE plaat met CNC-gefreesde vormdelen, gaten en contouren" },
     { src: "/assets/images/ptfe-plaat-maatwerk.webp", width: 1024, height: 1024, alt: "Witte PTFE plaat met op maat gefreesde stroken en vormdelen" },
     { src: "/assets/images/pu-plaat-maatwerk.webp", width: 1200, height: 1200, alt: "Oranje PU plaat met op maat gemaakte stroken en gatenpatronen" },
-    { src: "/assets/images/kunststof-maatwerk-mat-zwart.webp", width: 1200, height: 1200, alt: "Matzwarte kunststof plaat met CNC-gefreesde vlakke onderdelen" },
-    { src: "/assets/images/kunststof-platen-kleuren.webp", width: 1024, height: 1024, alt: "Kunststof platen in verschillende kleuren en diktes" }
+    { src: "/assets/images/kunststof-platen-kleuren.webp", width: 1024, height: 1024, alt: "Kunststof platen in verschillende kleuren en diktes" },
+    { src: "/assets/images/kunststof-plaat-op-maat-gesneden.webp", width: 1024, height: 1024, alt: "Blauwe kunststof plaat wordt met een CNC-machine op maat bewerkt" }
   ]
 } %}
 {% include "product-conversion-hero.njk" %}
@@ -163,9 +164,9 @@ bodyClass: mkp-page
 <section class="mkp-trust" aria-label="Ervaring en mogelijkheden">
   <div class="mkp-container">
     <div class="mkp-trust-grid">
-      <div class="mkp-trust-item"><strong>8+ jaar</strong><span>ervaring met kunststof maatwerk</span></div>
-      <div class="mkp-trust-item"><strong>15+ soorten</strong><span>technische kunststoffen op voorraad</span></div>
-      <div class="mkp-trust-item"><strong>1 stuk of serie</strong><span>van proefdeel tot herhaalproductie</span></div>
+      <div class="mkp-trust-item"><strong data-counter data-target="8" data-suffix="+">8+</strong><span>jaar ervaring met kunststof maatwerk</span></div>
+      <div class="mkp-trust-item"><strong data-counter data-target="15" data-suffix="+">15+</strong><span>kunststofsoorten op voorraad</span></div>
+      <div class="mkp-trust-item"><strong>Vanaf 1</strong><span>plaatdeel, prototype of serie</span></div>
     </div>
   </div>
 </section>
@@ -173,14 +174,14 @@ bodyClass: mkp-page
 <section class="mkp-section" aria-labelledby="mkp-definition-title">
   <div class="mkp-container mkp-intro-grid">
     <div class="mkp-copy">
-      <div><p class="mkp-eyebrow">Van plaat naar eindproduct</p><h2 class="mkp-heading" id="mkp-definition-title">Meer dan een kunststof plaat op lengte en breedte</h2></div>
-      <p>Een kunststof plaat op maat kan een eenvoudig rechthoekig zaagdeel zijn, maar plaatmateriaal is ook het uitgangspunt voor vlakke technische onderdelen. Met CNC-bewerking maken we vrije contouren, gatenpatronen, sleuven, kamers, afgeronde hoeken en plaatselijke verdiepingen. U ontvangt dus desgewenst een onderdeel dat direct gemonteerd of verder verwerkt kan worden.</p>
-      <p>Dat maakt deze pagina geschikt voor onder meer montageplaten, frontpanelen, afschermplaten, machineplaten, sjablonen, letters, cijfers, logo-vormen en platte vervangingsonderdelen. De gewenste functie bepaalt samen met maat, dikte en omgeving welke kunststof en bewerking logisch zijn.</p>
+      <div><p class="mkp-eyebrow">Zagen en CNC-frezen</p><h2 class="mkp-heading" id="mkp-definition-title">Kunststof plaat op maat: recht gezaagd of volledig bewerkt</h2></div>
+      <p>Voor een rechthoekige plaat zijn lengte, breedte en dikte meestal voldoende. Moet het onderdeel direct gemonteerd kunnen worden, dan kunnen we ook de buitencontour, gaten, sleuven, kamers, afgeronde hoeken en plaatselijke verdiepingen CNC-frezen.</p>
+      <p>Zo maken we onder meer montageplaten, frontpanelen, afschermplaten, machineplaten, sjablonen, letters, cijfers, logo-vormen en vlakke vervangingsonderdelen. We stemmen materiaal en bewerking af op de belasting, omgeving en gewenste maatvoering.</p>
       <p>Is het onderdeel vooral lang en smal, bekijk dan onze <a href="/kunststof-stroken-op-maat/">kunststof stroken op maat</a>. Voor een compact en dik massief deel is een <a href="/kunststof-blokken-op-maat/">kunststof blok op maat</a> vaak een beter uitgangspunt.</p>
     </div>
     <aside class="mkp-note">
-      <h3>Een schets of voorbeeld is vaak al genoeg</h3>
-      <p>U hoeft nog geen definitieve technische tekening te hebben. Stuur een globale maat, foto, handgetekende schets of bestaand onderdeel. Ons team denkt gratis en vrijblijvend mee over materiaal, maakbaarheid en een praktische uitvoering.</p>
+      <h3>Geen technische tekening? Geen probleem</h3>
+      <p>Stuur een globale maat, foto, handgetekende schets of bestaand onderdeel. Daarmee kunnen we de mogelijkheden bespreken en gericht vragen wat nog ontbreekt. Dit advies is gratis en vrijblijvend.</p>
       <a href="#offerte">Bespreek uw plaatdeel →</a>
     </aside>
   </div>
@@ -189,16 +190,16 @@ bodyClass: mkp-page
 <section class="mkp-section mkp-soft" aria-labelledby="mkp-possibilities-title">
   <div class="mkp-container">
     <div class="mkp-section-head">
-      <div><p class="mkp-eyebrow">CNC-maatwerk uit plaat</p><h2 class="mkp-heading" id="mkp-possibilities-title">Welke vormen en bewerkingen zijn mogelijk?</h2></div>
+      <div><p class="mkp-eyebrow">Bewerkingen</p><h2 class="mkp-heading" id="mkp-possibilities-title">Zagen, frezen, boren en graveren</h2></div>
       <p>We kiezen de productiemethode op basis van vorm, tolerantie, randkwaliteit en aantal. Eenvoudige rechthoeken kunnen efficiënt worden gezaagd; complexere vlakke onderdelen worden CNC-gefreesd.</p>
     </div>
     <div class="mkp-capability-grid">
-      <article class="mkp-card"><span class="mkp-card-mark">01</span><h3>Recht op maat gezaagd</h3><p>Platen, panelen en rechthoekige delen volgens lengte, breedte en dikte, van één stuk tot een efficiënt ingedeelde serie.</p></article>
-      <article class="mkp-card"><span class="mkp-card-mark">02</span><h3>Vrije CNC-contouren</h3><p>Ronde, ovale, gebogen of volledig vrije buitenvormen op basis van een schets of technisch bestand.</p></article>
-      <article class="mkp-card"><span class="mkp-card-mark">03</span><h3>Gaten en verzinkingen</h3><p>Doorgaande of blinde gaten, bevestigingspatronen, verzinkingen en waar passend schroefdraad voor directe montage.</p></article>
-      <article class="mkp-card"><span class="mkp-card-mark">04</span><h3>Sleuven, kamers en uitsparingen</h3><p>Langgaten, kabeldoorvoeren, pockets, sponningen en lokale uitsparingen voor componenten, passing of gewichtsbesparing.</p></article>
-      <article class="mkp-card"><span class="mkp-card-mark">05</span><h3>Letters, cijfers en logo-vormen</h3><p>Losse kunststof letters, cijfers, symbolen en contouren uit plaat, bijvoorbeeld voor signing, displays, mallen of interne markering.</p></article>
-      <article class="mkp-card"><span class="mkp-card-mark">06</span><h3>Randen en gravering</h3><p>Afgeronde of afgeschuinde kanten en eenvoudige tekst, nummering of markering in het oppervlak wanneer de uitvoering dat toelaat.</p></article>
+      <article class="mkp-card"><h3>Recht op maat gezaagd</h3><p>Platen, panelen en rechthoekige delen volgens lengte, breedte en dikte, van één stuk tot een efficiënt ingedeelde serie.</p></article>
+      <article class="mkp-card"><h3>Vrije CNC-contouren</h3><p>Ronde, ovale, gebogen of volledig vrije buitenvormen op basis van een schets of technisch bestand.</p></article>
+      <article class="mkp-card"><h3>Gaten en verzinkingen</h3><p>Doorgaande of blinde gaten, bevestigingspatronen, verzinkingen en waar passend schroefdraad voor directe montage.</p></article>
+      <article class="mkp-card"><h3>Sleuven, kamers en uitsparingen</h3><p>Langgaten, kabeldoorvoeren, pockets, sponningen en lokale uitsparingen voor componenten, passing of gewichtsbesparing.</p></article>
+      <article class="mkp-card"><h3>Letters, cijfers en logo-vormen</h3><p>Losse kunststof letters, cijfers, symbolen en contouren uit plaat, bijvoorbeeld voor signing, displays, mallen of interne markering.</p></article>
+      <article class="mkp-card"><h3>Randen en gravering</h3><p>Afgeronde of afgeschuinde kanten en eenvoudige tekst, nummering of markering in het oppervlak wanneer de uitvoering dat toelaat.</p></article>
     </div>
   </div>
 </section>
@@ -207,7 +208,7 @@ bodyClass: mkp-page
   <div class="mkp-container mkp-cnc-panel">
     <figure class="mkp-cnc-image"><img src="/assets/images/hdpe-plaat-maatwerk.webp" width="1200" height="1200" loading="lazy" alt="HDPE plaat met verschillende CNC-gefreesde onderdelen op maat"></figure>
     <div class="mkp-copy">
-      <div><p class="mkp-eyebrow">Nauwkeurig en herhaalbaar</p><h2 class="mkp-heading" id="mkp-cnc-title">CNC frezen van kunststof plaatmateriaal</h2></div>
+      <div><p class="mkp-eyebrow">CNC-frezen</p><h2 class="mkp-heading" id="mkp-cnc-title">CNC frezen van kunststof plaatmateriaal</h2></div>
       <p>Bij CNC-frezen volgt het gereedschap een digitaal programma. Daardoor kunnen buitencontour, gaten en uitsparingen in één vaste werkwijze worden gemaakt. Dat is interessant voor een eenmalig maatdeel, maar vooral ook wanneer dezelfde plaat later opnieuw nodig is.</p>
       <p>Kunststof reageert anders op bewerking dan metaal. Materiaalsoort, plaatdikte, warmteontwikkeling, opspanning en gewenste tolerantie beïnvloeden het resultaat. We stemmen daarom gereedschap en bewerkingsvolgorde af op het gekozen materiaal en de functie van het onderdeel.</p>
       <ul class="mkp-checks">
@@ -243,8 +244,8 @@ bodyClass: mkp-page
 <section class="mkp-section" aria-labelledby="mkp-material-title">
   <div class="mkp-container">
     <div class="mkp-section-head">
-      <div><p class="mkp-eyebrow">Materiaalkeuze</p><h2 class="mkp-heading" id="mkp-material-title">Welke kunststof plaat past bij uw maatwerk?</h2></div>
-      <p>De beste plaat is niet automatisch de hardste of kostbaarste. Open een materiaal voor typische eigenschappen, toepassingen, kleuren en aandachtspunten bij bewerking.</p>
+      <div><p class="mkp-eyebrow">Materiaalkeuze</p><h2 class="mkp-heading" id="mkp-material-title">Kunststof plaat per materiaalsoort</h2></div>
+      <p>HDPE, POM, PVC, PTFE en andere kunststoffen verschillen sterk in stijfheid, slijtvastheid, vochtopname, chemische bestendigheid en bewerkbaarheid. Open een materiaal voor de belangrijkste toepassingen, kleuren en aandachtspunten.</p>
     </div>
     <div class="mkp-material-grid">
       <details class="mkp-material" name="mkp-materials">
@@ -300,7 +301,7 @@ bodyClass: mkp-page
 
 <section class="mkp-section" aria-labelledby="mkp-process-title">
   <div class="mkp-container">
-    <div class="mkp-section-head"><div><p class="mkp-eyebrow">Van idee naar plaatdeel</p><h2 class="mkp-heading" id="mkp-process-title">Samen bepalen we materiaal en uitvoering</h2></div><p>Ons team heeft veel ervaring met kunststof maatwerk en helpt ook wanneer maat, materiaal of tekening nog niet definitief zijn.</p></div>
+    <div class="mkp-section-head"><div><p class="mkp-eyebrow">Uw aanvraag</p><h2 class="mkp-heading" id="mkp-process-title">Zo beoordelen we een kunststof plaatdeel</h2></div><p>Ons team werkt dagelijks met kunststof maatwerk. Ook zonder definitieve materiaalkeuze of technische tekening kunt u een aanvraag indienen.</p></div>
     <div class="mkp-process-grid">
       <article class="mkp-process-card"><span aria-hidden="true">1</span><h3>U laat zien wat u nodig heeft</h3><p>Met een maat, omschrijving, foto, schets, PDF, DXF, DWG of STEP-bestand. Ook een bestaand voorbeeld kan het uitgangspunt zijn.</p></article>
       <article class="mkp-process-card"><span aria-hidden="true">2</span><h3>Een expert beoordeelt het maatwerk</h3><p>We kijken naar functie, materiaal, plaatindeling, maakbaarheid, noodzakelijke tolerantie en een passende bewerkingsmethode.</p></article>
