@@ -789,6 +789,61 @@ bodyClass: "mkb-page"
     margin-bottom: 34px;
   }
 
+  .mkb-case-grid {
+    display: grid;
+    gap: 18px;
+  }
+
+  .mkb-case-card {
+    display: grid;
+    overflow: hidden;
+    border: 1px solid var(--mkb-line);
+    border-radius: var(--mkb-radius);
+    background: var(--mkb-white);
+    box-shadow: 0 12px 30px rgba(20, 43, 51, 0.06);
+  }
+
+  .mkb-case-image {
+    margin: 0;
+    background: #e9eeeb;
+  }
+
+  .mkb-case-image img {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+  }
+
+  .mkb-case-content {
+    display: grid;
+    gap: 13px;
+    align-content: center;
+    padding: 24px;
+  }
+
+  .mkb-case-content h3 {
+    margin: 0;
+    color: var(--mkb-ink);
+    font-size: clamp(1.25rem, 3vw, 1.65rem);
+    line-height: 1.18;
+  }
+
+  .mkb-case-content p {
+    margin: 0;
+    color: var(--mkb-text);
+    font-size: 0.86rem;
+    line-height: 1.7;
+  }
+
+  .mkb-case-label {
+    color: var(--mkb-green-dark);
+    font-size: 0.7rem;
+    font-weight: 850;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+  }
+
   .mkb-process-card {
     position: relative;
     padding-top: 62px;
@@ -1108,6 +1163,19 @@ bodyClass: "mkb-page"
     .mkb-price-story {
       grid-template-columns: minmax(0, 1.25fr) minmax(320px, 0.75fr);
       gap: 64px;
+    }
+
+    .mkb-case-card {
+      grid-template-columns: 300px minmax(0, 1fr);
+    }
+
+    .mkb-case-image img {
+      aspect-ratio: auto;
+      min-height: 260px;
+    }
+
+    .mkb-case-content {
+      padding: 34px 38px;
     }
 
     .mkb-process-grid {
@@ -1889,42 +1957,78 @@ bodyClass: "mkb-page"
   </div>
 </section>
 
-<section class="mkb-section mkb-section-soft" aria-labelledby="mkb-series-title">
-  <div class="mkb-container mkb-split mkb-split-reverse">
-    <figure class="mkb-split-image">
-      <img
-        src="/assets/images/bak-kunststof-blokken-480.webp"
-        srcset="/assets/images/bak-kunststof-blokken-480.webp 480w, /assets/images/bak-kunststof-blokken-640.webp 640w, /assets/images/bak-kunststof-blokken-800.webp 800w, /assets/images/bak-kunststof-blokken.webp 1200w"
-        sizes="(min-width: 1228px) 486px, (min-width: 920px) 44vw, calc(100vw - 32px)"
-        width="1200"
-        height="1200"
-        loading="lazy"
-        alt="Serie kunststof blokken op gelijke maat geproduceerd"
-      >
-    </figure>
-
-    <div class="mkb-copy">
+<section class="mkb-section mkb-section-soft" aria-labelledby="mkb-cases-title">
+  <div class="mkb-container">
+    <div class="mkb-section-intro">
       <div>
-        <p class="mkb-eyebrow">Enkelstuks en series</p>
-        <h2 class="mkb-heading" id="mkb-series-title">Van één kunststof blok tot een complete serie</h2>
+        <p class="mkb-eyebrow">Uit de praktijk</p>
+        <h2 class="mkb-heading" id="mkb-cases-title">Van slijtblok tot terugkerende serie</h2>
       </div>
       <p>
-        Ook voor één vervangingsonderdeel, prototype of klein kunststof blok
-        kunt u een aanvraag doen. Bij terugkerende productie leggen we de
-        materiaalkeuze, maatvoering en bewerkingen vast voor een consistente serie.
+        Twee voorbeelden van hoe kunststof blokken in de praktijk worden ingezet.
+        Ook voor één vervangingsdeel, prototype of een terugkerende serie kunt u
+        een aanvraag doen.
       </p>
-      <p>
-        Dat maakt opschalen eenvoudig: eerst een proefdeel beoordelen en daarna
-        dezelfde kunststof blokken in grotere aantallen laten produceren. Vermeld
-        het gewenste aantal in uw aanvraag, zodat we de productiemethode daarop
-        kunnen afstemmen.
-      </p>
-      <ul class="mkb-checks">
-        <li>Reparatie- en vervangingsdelen</li>
-        <li>Prototypes en testseries</li>
-        <li>Kleine en grotere productieseries</li>
-        <li>Herhaalbare maatvoering en bewerking</li>
-      </ul>
+    </div>
+
+    <div class="mkb-case-grid">
+      <article class="mkb-case-card">
+        <figure class="mkb-case-image">
+          <img
+            src="/assets/images/klantfoto-kunststof-slijtblok.webp"
+            width="300"
+            height="300"
+            loading="lazy"
+            decoding="async"
+            alt="Zwart kunststof slijtblok op maat voor een industriële productielijn"
+          >
+        </figure>
+        <div class="mkb-case-content">
+          <span class="mkb-case-label">Klanttoepassing · enkelstuk</span>
+          <h3>Slijtblok voor een industriële productielijn</h3>
+          <p>
+            Dit kunststof blok is exact op maat gezaagd voor montage onder een
+            bewegend metalen onderdeel. Het vangt daar continu wrijving en belasting
+            op. De klant had geen compleet nieuw machineonderdeel nodig, maar een
+            passend slijtblok dat eenvoudig kon worden vervangen.
+          </p>
+          <p>
+            Door kunststof in plaats van metaal te gebruiken, slijt het bewegende
+            onderdeel minder snel, maakt de installatie minder geluid en is er
+            nauwelijks smering nodig.
+          </p>
+        </div>
+      </article>
+
+      <article class="mkb-case-card">
+        <figure class="mkb-case-image">
+          <img
+            src="/assets/images/bak-kunststof-blokken-480.webp"
+            srcset="/assets/images/bak-kunststof-blokken-480.webp 480w, /assets/images/bak-kunststof-blokken-640.webp 640w, /assets/images/bak-kunststof-blokken-800.webp 800w"
+            sizes="(min-width: 920px) 260px, calc(100vw - 32px)"
+            width="480"
+            height="480"
+            loading="lazy"
+            decoding="async"
+            alt="Serie kunststof blokken met herhaalbare gelijke maatvoering"
+          >
+        </figure>
+        <div class="mkb-case-content">
+          <span class="mkb-case-label">Seriewerk · herhaalbare maatvoering</span>
+          <h3>Meerdere kunststof blokken in één consistente serie</h3>
+          <p>
+            Bij seriewerk leggen we materiaal, afmetingen en eventuele bewerkingen
+            vast. Zo kunnen kunststof blokken met dezelfde maatvoering efficiënt en
+            consistent worden geproduceerd, ook wanneer later opnieuw onderdelen
+            nodig zijn.
+          </p>
+          <p>
+            De voorbereiding en machine-instelling worden over meerdere delen
+            verdeeld. Daardoor daalt de prijs per stuk meestal ten opzichte van één
+            los maatdeel, terwijl de uitvoering onderling gelijk blijft.
+          </p>
+        </div>
+      </article>
     </div>
   </div>
 </section>
