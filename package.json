@@ -4,8 +4,9 @@
   "private": true,
   "description": "SEO-first offertewebsite voor kunststof maatwerk, gebouwd met Eleventy en Cloudflare Pages.",
   "scripts": {
-    "dev": "eleventy --serve",
-    "build": "eleventy",
+    "clean": "node -e \"require('node:fs').rmSync('_site', { recursive: true, force: true })\"",
+    "dev": "npm run clean && eleventy --serve",
+    "build": "npm run clean && eleventy",
     "preview": "npx wrangler pages dev _site"
   },
   "devDependencies": {

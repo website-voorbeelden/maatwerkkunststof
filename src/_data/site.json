@@ -12,7 +12,9 @@
   "whatsapp": "31612249916",
   "addressLocality": "Nederland",
   "tracking": {
-    "gtmId": ""
+    "gtmId": "",
+    "gaMeasurementId": "G-H5W22WKMWK",
+    "clarityProjectId": "y9dr0pypxw"
   },
   "social": {
     "linkedin": ""

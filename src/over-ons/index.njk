@@ -1,47 +1,290 @@
 ---
 layout: base.njk
-title: Over MaatwerkKunststof.nl | Kunststof maatwerk aanvragen
-description: MaatwerkKunststof.nl brengt aanvragen voor kunststof op maat snel bij de juiste productiemogelijkheid. Zakelijk, duidelijk en volledig op aanvraag.
+title: Over ons | Ervaring met kunststof maatwerk
+description: Maak kennis met het team achter MaatwerkKunststof.nl. Vanuit Brabant helpen we dagelijks bedrijven en particulieren met kunststof onderdelen op maat.
 image: /assets/images/bak-kunststof-stroken.webp
 imageAlt: Serie kunststof stroken op maat
 breadcrumb: Over ons
 ---
-{% include "breadcrumbs.njk" %}
-<section class="simple-hero">
-  <div class="container simple-hero-inner">
-    <p class="eyebrow">Over MaatwerkKunststof.nl</p>
-    <h1>Eén duidelijk aanspreekpunt voor kunststof maatwerk</h1>
-    <p class="hero-lead">Geen standaardwebshop met beperkte maten, maar een offerteplatform voor onderdelen die precies moeten passen bij uw toepassing.</p>
-  </div>
-</section>
 
-<section class="section">
-  <div class="container media-copy-grid">
-    <div class="media-copy-image">
-      <img src="/assets/images/bak-kunststof-stroken.webp" width="1200" height="1200" alt="Meerdere kunststof stroken op maat in productiekratten">
-    </div>
-    <div>
-      <p class="eyebrow">Onze werkwijze</p>
-      <h2>Van aanvraag naar passende uitvoering</h2>
-      <p>MaatwerkKunststof.nl is ingericht voor aanvragen die niet goed binnen een standaardproduct passen. U levert de maatvoering, toepassing en gewenste aantallen aan. Vervolgens beoordelen we welke productiemethode, kunststofsoort en uitvoering het beste aansluit.</p>
-      <p>Omdat aanvragen sterk verschillen, werken we met vrijblijvende offertes in plaats van vaste online prijzen. Zo wordt niet alleen naar de afmetingen gekeken, maar ook naar toleranties, materiaalkeuze, bewerking en aantallen.</p>
-      <a class="button button-secondary" href="#offerte">Leg uw aanvraag voor</a>
-    </div>
-  </div>
-</section>
+<style>
+  .mko-page {
+    --mko-ink: #142b33;
+    --mko-text: #536369;
+    --mko-line: #dce2e3;
+    --mko-soft: #f3f7ef;
+    --mko-green: #74c200;
+  }
 
-<section class="section section-muted">
-  <div class="container">
-    <div class="section-heading section-heading-wide">
-      <div><p class="eyebrow">Waar we voor staan</p><h2>Zakelijk, duidelijk en oplossingsgericht</h2></div>
-      <p>We houden het proces eenvoudig en vragen alleen om informatie die nodig is om uw aanvraag goed te beoordelen.</p>
-    </div>
-    <div class="info-card-grid info-card-grid-three">
-      <article><h3>Breed inzetbaar</h3><p>Van eenvoudige zaagdelen tot volledig bewerkte technische componenten.</p></article>
-      <article><h3>Geen standaardbeperking</h3><p>Materiaal, vorm, kleur en aantallen worden per aanvraag bekeken.</p></article>
-      <article><h3>Vrijblijvende beoordeling</h3><p>Een aanvraag verplicht u niet tot aankoop of productie.</p></article>
-    </div>
-  </div>
-</section>
+  .mko-page .section {
+    padding-block: 68px;
+  }
 
-{% include "offerte-form.njk" %}
+  .mko-intro-grid h1 {
+    margin: 0;
+    color: var(--mko-ink);
+    font-size: clamp(2.2rem, 4.8vw, 3.7rem);
+    font-weight: 780;
+    letter-spacing: -0.045em;
+    line-height: 1.06;
+  }
+
+  .mko-intro-grid,
+  .mko-advice-grid,
+  .mko-review {
+    display: grid;
+    gap: 28px;
+  }
+
+  .mko-copy {
+    max-width: 760px;
+  }
+
+  .mko-copy p,
+  .mko-advice-copy p {
+    margin: 0 0 16px;
+    color: var(--mko-text);
+    line-height: 1.75;
+  }
+
+  .mko-copy p:last-child,
+  .mko-advice-copy p:last-child {
+    margin-bottom: 0;
+  }
+
+  .mko-stats {
+    background: var(--mko-soft);
+  }
+
+  .mko-soft-section {
+    background: var(--mko-soft);
+  }
+
+  .mko-stat-grid {
+    display: grid;
+    gap: 1px;
+    overflow: hidden;
+    border: 1px solid var(--mko-line);
+    border-radius: 12px;
+    background: var(--mko-line);
+  }
+
+  .mko-stat {
+    min-width: 0;
+    padding: 26px 24px;
+    background: #fff;
+  }
+
+  .mko-stat strong {
+    display: block;
+    margin-bottom: 6px;
+    color: var(--mko-green);
+    font-size: clamp(2rem, 6vw, 3.2rem);
+    font-weight: 800;
+    letter-spacing: -0.05em;
+    line-height: 1;
+  }
+
+  .mko-stat span {
+    color: var(--mko-ink);
+    font-size: 0.9rem;
+    font-weight: 720;
+    line-height: 1.45;
+  }
+
+  .mko-principles {
+    display: grid;
+    gap: 12px;
+    margin: 26px 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .mko-principles li {
+    position: relative;
+    padding-left: 24px;
+    color: var(--mko-ink);
+    font-size: 0.9rem;
+    font-weight: 680;
+    line-height: 1.5;
+  }
+
+  .mko-principles li::before {
+    position: absolute;
+    top: 0.66em;
+    left: 0;
+    width: 11px;
+    height: 2px;
+    background: var(--mko-green);
+    content: "";
+  }
+
+  .mko-review {
+    align-items: end;
+    border: 1px solid var(--mko-line);
+    border-radius: 12px;
+    padding: 26px;
+    background: var(--mko-soft);
+  }
+
+  .mko-review blockquote {
+    margin: 0;
+    color: var(--mko-ink);
+    font-size: clamp(1.15rem, 2.5vw, 1.55rem);
+    font-weight: 680;
+    letter-spacing: -0.025em;
+    line-height: 1.5;
+  }
+
+  .mko-review cite {
+    color: var(--mko-text);
+    font-size: 0.84rem;
+    font-style: normal;
+    line-height: 1.55;
+  }
+
+  .mko-review cite strong,
+  .mko-review cite span {
+    display: block;
+  }
+
+  .mko-review cite strong {
+    color: var(--mko-ink);
+  }
+
+  @media (min-width: 720px) {
+    .mko-page .section {
+      padding-block: 86px;
+    }
+
+    .mko-intro-grid,
+    .mko-advice-grid {
+      grid-template-columns: minmax(260px, 0.72fr) minmax(0, 1.28fr);
+      gap: 70px;
+    }
+
+    .mko-stat-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .mko-review {
+      grid-template-columns: minmax(0, 1fr) minmax(220px, 0.32fr);
+      gap: 50px;
+      padding: 34px 38px;
+    }
+  }
+</style>
+
+<div class="mko-page">
+  <section class="section">
+    <div class="container mko-intro-grid">
+      <div>
+        <p class="eyebrow">Over ons</p>
+        <h1>Wij gaan geen uitdaging in kunststof uit de weg</h1>
+      </div>
+      <div class="mko-copy">
+        <p>
+          We zijn een hecht team uit Brabant en werken iedere dag met kunststof
+          maatwerk. Een onderdeel kan op het eerste gezicht eenvoudig lijken,
+          terwijl materiaalgedrag, belasting, vocht, temperatuur, slijtage en
+          maatvoering veel invloed hebben op het resultaat. Door onze ervaring
+          weten we welke vragen belangrijk zijn en waar in de uitvoering rekening
+          mee moet worden gehouden.
+        </p>
+        <p>
+          We kijken niet alleen naar waarom een aanvraag lastig is, maar vooral
+          naar wat er wél mogelijk is. Een duidelijke omschrijving, globale maat
+          of bestaand voorbeeld is vaak al voldoende om samen de eerste stap te
+          zetten.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section mko-stats" aria-label="Ervaring in cijfers">
+    <div class="container mko-stat-grid">
+      <div class="mko-stat">
+        <strong data-counter data-target="8" data-suffix="+">8+</strong>
+        <span>jaar ervaring met kunststof maatwerk</span>
+      </div>
+      <div class="mko-stat">
+        <strong data-counter data-target="1000" data-suffix="+">1000+</strong>
+        <span>unieke kunststof maatdelen geleverd</span>
+      </div>
+      <div class="mko-stat">
+        <strong data-counter data-target="15" data-suffix="+">15+</strong>
+        <span>verschillende kunststoffen op voorraad</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container mko-advice-grid">
+      <div>
+        <p class="eyebrow">Wat we doen</p>
+        <h2>Kunststof op maat voor bedrijven en particulieren</h2>
+      </div>
+      <div class="mko-advice-copy">
+        <p>
+          We leveren kunststof blokken, platen, stroken, ringen en volledig
+          bewerkte onderdelen op maat. Dat kan een eenvoudig gezaagd maatdeel
+          zijn, maar ook een vervangingsonderdeel, prototype of terugkerende
+          serie met gaten, sleuven, kamers, schroefdraad of een vrije contour.
+        </p>
+        <p>
+          Bedrijven schakelen ons onder meer in voor machinebouw, onderhoud en
+          technische toepassingen. Particulieren kunnen net zo goed bij ons
+          terecht voor één onderdeel dat nergens als standaardproduct te vinden
+          is. We bekijken iedere aanvraag op materiaal, maakbaarheid, gewenste
+          nauwkeurigheid en een praktische manier van produceren.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section mko-soft-section">
+    <div class="container mko-advice-grid">
+      <div>
+        <p class="eyebrow">Eerlijk meedenken</p>
+        <h2>Een passende oplossing gaat voor de hoogste prijs</h2>
+      </div>
+      <div class="mko-advice-copy">
+        <p>
+          We vinden het leuk om mee te denken over materiaal, vorm en
+          uitvoering. Soms is de gevraagde kunststof precies de juiste keuze.
+          Soms werkt een andere kwaliteit, eenvoudigere bewerking of ruimere
+          tolerantie net zo goed en is die oplossing voordeliger voor de klant.
+          Als dat zo is, zeggen we dat eerlijk.
+        </p>
+        <p>
+          U hoeft daarom niet vooraf alle technische details te kennen. Een
+          foto, schets, bestaande maat of uitleg over de toepassing geeft ons
+          vaak genoeg informatie om gericht mee te denken. Dat advies is gratis
+          en vrijblijvend.
+        </p>
+        <ul class="mko-principles">
+          <li>Van één maatdeel of prototype tot een terugkerende serie</li>
+          <li>Flexibel in materiaal, vorm, bewerking en aantallen</li>
+          <li>Bij eenvoudig werk uit voorraad soms al de volgende werkdag</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="mko-review-title">
+    <div class="container">
+      <p class="eyebrow">Wat klanten over ons zeggen</p>
+      <div class="mko-review">
+        <blockquote id="mko-review-title">
+          “Al jarenlang een betrouwbare partner voor kunststof maatwerk. Ze
+          denken goed mee, leveren snel en de kwaliteit is altijd goed.”
+        </blockquote>
+        <cite>
+          <strong>Product Engineer</strong>
+          <span>Internationaal opererende machinebouwer</span>
+        </cite>
+      </div>
+    </div>
+  </section>
+
+</div>

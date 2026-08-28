@@ -100,6 +100,7 @@
     const status = form.querySelector('[data-form-status]');
     const submitButton = form.querySelector('[data-submit-button]');
     const fileInput = form.querySelector('input[type="file"]');
+    const fileFeedback = form.querySelector('[data-file-feedback]');
 
     if (startedField) startedField.value = String(Date.now());
 
@@ -113,6 +114,24 @@
       const totalSize = files.reduce((sum, file) => sum + file.size, 0);
       const invalid = files.length > 3 || totalSize > 8 * 1024 * 1024;
       fileInput.setCustomValidity(invalid ? 'Selecteer maximaal 3 bestanden van samen maximaal 8 MB.' : '');
+
+      if (fileFeedback) {
+        if (!files.length) {
+          fileFeedback.textContent = 'Nog geen bestand geselecteerd.';
+          fileFeedback.classList.remove('has-files', 'has-error');
+        } else if (invalid) {
+          fileFeedback.textContent = 'Te veel of te grote bestanden. Kies maximaal 3 bestanden van samen maximaal 8 MB.';
+          fileFeedback.classList.remove('has-files');
+          fileFeedback.classList.add('has-error');
+        } else {
+          const fileNames = files.map((file) => file.name).join(', ');
+          fileFeedback.textContent = files.length === 1
+            ? `Toegevoegd: ${fileNames}`
+            : `${files.length} bestanden toegevoegd: ${fileNames}`;
+          fileFeedback.classList.add('has-files');
+          fileFeedback.classList.remove('has-error');
+        }
+      }
     });
 
     form.addEventListener('submit', async (event) => {
@@ -155,6 +174,14 @@
         submitButton.disabled = false;
         submitButton.textContent = originalText;
       }
+    });
+  });
+
+  const contactTopicSelect = document.querySelector('[data-contact-topic-select]');
+  document.querySelectorAll('[data-contact-topic-link]').forEach((link) => {
+    link.addEventListener('click', () => {
+      if (!contactTopicSelect) return;
+      contactTopicSelect.value = link.dataset.contactTopicLink || '';
     });
   });
 

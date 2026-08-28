@@ -102,6 +102,7 @@ export async function onRequestPost(context) {
     bedrijf: clean(form.get('bedrijf'), 120),
     email: clean(form.get('email'), 160).toLowerCase(),
     telefoon: clean(form.get('telefoon'), 40),
+    onderwerp: clean(form.get('onderwerp'), 100),
     product: clean(form.get('product'), 100),
     aantal: clean(form.get('aantal'), 60),
     specificaties: clean(form.get('specificaties'), 4000),
@@ -162,12 +163,13 @@ export async function onRequestPost(context) {
     ...(data.bedrijf ? [['Bedrijf', data.bedrijf]] : []),
     ['E-mail', data.email],
     ['Telefoon', data.telefoon || 'Niet ingevuld'],
+    ...(data.onderwerp ? [['Onderwerp', data.onderwerp]] : []),
     ['Product', data.product || 'Niet gekozen'],
     ['Aantal', data.aantal || 'Niet ingevuld'],
     ['Pagina', data.pagina || 'Onbekend']
   ];
 
-  const subjectProduct = data.product || 'kunststof maatwerk';
+  const subjectProduct = data.product || data.onderwerp || 'kunststof maatwerk';
   const htmlRows = rows.map(([label, value]) => `
     <tr>
       <th style="padding:9px 12px;text-align:left;border-bottom:1px solid #dbe4df;color:#142b33;vertical-align:top">${escapeHtml(label)}</th>

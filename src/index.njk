@@ -4,6 +4,9 @@ title: "Kunststof op maat | Blokken, platen, stroken en ringen"
 description: "Kunststof op maat laten maken? Wij leveren kunststof blokken, stroken, platen, ringen en volledig bewerkte kunststof onderdelen. Van enkelstuks tot grotere series."
 image: "/assets/images/kunststof-blokken-andere-hoek.webp"
 imageAlt: "Kunststof blokken en technische onderdelen op maat"
+preloadImage: "/assets/images/kunststof-blokken-andere-hoek-800.webp"
+preloadImageSrcset: "/assets/images/kunststof-blokken-andere-hoek-640.webp 640w, /assets/images/kunststof-blokken-andere-hoek-800.webp 800w"
+preloadImageSizes: "(min-width: 1200px) 540px, (min-width: 900px) 46vw, calc(100vw - 32px)"
 bodyClass: "mkh-home"
 ---
 
@@ -300,6 +303,38 @@ bodyClass: "mkh-home"
     line-height: 1.7;
   }
 
+  .mkh-home-longform {
+    max-width: 1040px;
+  }
+
+  .mkh-home-longform > p {
+    max-width: 880px;
+    margin: 18px 0 0;
+    color: var(--mkh-text);
+    line-height: 1.75;
+  }
+
+  .mkh-detail-columns {
+    display: grid;
+    gap: 30px;
+    margin-top: 34px;
+    padding-top: 30px;
+    border-top: 1px solid var(--mkh-line);
+  }
+
+  .mkh-detail-columns h3 {
+    margin: 0 0 10px;
+    color: var(--mkh-ink);
+    font-size: 1.08rem;
+  }
+
+  .mkh-detail-columns p {
+    margin: 0;
+    color: var(--mkh-text);
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+
   .mkh-simple-list {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -327,90 +362,294 @@ bodyClass: "mkh-home"
     content: "";
   }
 
-  /* Material table */
+  /* Featured materials */
 
-  .mkh-material-table {
+  .mkh-material-showcase {
+    display: grid;
+    gap: 30px 22px;
+  }
+
+  .mkh-material-feature {
+    min-width: 0;
+    text-align: center;
+  }
+
+  .mkh-material-feature > a {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .mkh-material-circle {
+    overflow: hidden;
+    width: min(100%, 230px);
+    aspect-ratio: 1;
+    margin: 0 auto 18px;
+    border: 1px solid var(--mkh-line);
+    border-radius: 50%;
+    background: var(--mkh-white);
+    box-shadow: 0 10px 30px rgba(20, 43, 51, 0.07);
+    transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+  }
+
+  .mkh-material-circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.35s ease;
+  }
+
+  .mkh-material-feature > a:hover .mkh-material-circle,
+  .mkh-material-feature > a:focus-visible .mkh-material-circle {
+    border-color: var(--mkh-orange);
+    box-shadow: 0 14px 34px rgba(20, 43, 51, 0.11);
+    transform: translateY(-3px);
+  }
+
+  .mkh-material-feature > a:hover .mkh-material-circle img,
+  .mkh-material-feature > a:focus-visible .mkh-material-circle img {
+    transform: scale(1.035);
+  }
+
+  .mkh-material-feature h3 {
+    margin: 0 0 7px;
+    color: var(--mkh-ink);
+    font-size: 1.08rem;
+    letter-spacing: -0.02em;
+  }
+
+  .mkh-material-feature p {
+    max-width: 250px;
+    margin: 0 auto;
+    color: var(--mkh-text);
+    font-size: 0.84rem;
+    line-height: 1.58;
+  }
+
+  .mkh-material-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 16px;
+    margin: 52px 0 18px;
+    color: var(--mkh-muted);
+    font-size: 0.74rem;
+  }
+
+  .mkh-material-legend span {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .mkh-material-legend b {
+    font-size: 0.86rem;
+  }
+
+  .mkh-material-legend .is-good b {
+    color: var(--mkh-orange-dark);
+  }
+
+  .mkh-material-legend .is-conditional b {
+    color: #9a6a00;
+  }
+
+  .mkh-material-legend .is-limited b {
+    color: #8a4a4a;
+  }
+
+  /* Material accordion */
+
+  .mkh-material-accordion {
     overflow: hidden;
     border: 1px solid var(--mkh-line);
     border-radius: var(--mkh-radius);
     background: var(--mkh-white);
   }
 
-  .mkh-material-row {
-    display: grid;
-    gap: 9px;
-    padding: 19px;
+  .mkh-material-detail {
     border-bottom: 1px solid var(--mkh-line);
   }
 
-  .mkh-material-row:last-child {
+  .mkh-material-detail:last-child {
     border-bottom: 0;
   }
 
-  .mkh-material-row-head {
+  .mkh-material-detail summary {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 28px;
+    gap: 8px 16px;
+    align-items: center;
+    min-height: 84px;
+    padding: 23px 25px;
+    color: var(--mkh-ink);
+    cursor: pointer;
+    list-style: none;
+    transition: background-color 0.22s ease;
+  }
+
+  .mkh-material-detail summary::-webkit-details-marker {
     display: none;
   }
 
-  .mkh-material-row p {
-    margin: 0;
-    color: var(--mkh-text);
-    font-size: 0.82rem;
-    line-height: 1.58;
-  }
-
-  .mkh-material-name strong,
-  .mkh-material-name span {
-    display: block;
-  }
-
-  .mkh-material-name strong {
-    margin-bottom: 2px;
-    color: var(--mkh-ink);
-    font-size: 0.95rem;
-  }
-
-  .mkh-material-name span {
-    color: var(--mkh-muted);
-    font-size: 0.73rem;
-  }
-
-  .mkh-material-processing {
-    position: relative;
-    padding-left: 18px;
-  }
-
-  .mkh-material-processing::before {
-    position: absolute;
-    top: 0.67em;
-    left: 0;
-    width: 9px;
-    height: 2px;
-    background: var(--mkh-orange);
-    content: "";
-  }
-
-  .mkh-material-footer {
-    display: grid;
-    gap: 18px;
-    align-items: center;
-    margin-top: 20px;
-    border-radius: var(--mkh-radius);
-    padding: 21px;
+  .mkh-material-detail summary:hover,
+  .mkh-material-detail summary:focus-visible,
+  .mkh-material-detail[open] summary {
     background: var(--mkh-soft);
   }
 
-  .mkh-material-footer strong {
+  .mkh-material-summary-name strong,
+  .mkh-material-summary-name small {
     display: block;
-    margin-bottom: 4px;
-    color: var(--mkh-ink);
   }
 
-  .mkh-material-footer p {
-    max-width: 760px;
+  .mkh-material-summary-name strong {
+    margin-bottom: 4px;
+    font-size: 1.08rem;
+  }
+
+  .mkh-material-summary-name small {
+    color: var(--mkh-muted);
+    font-size: 0.77rem;
+    font-weight: 550;
+  }
+
+  .mkh-material-summary-text {
+    grid-column: 1;
+    color: var(--mkh-text);
+    font-size: 0.86rem;
+    line-height: 1.55;
+  }
+
+  .mkh-material-detail summary::after {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    color: var(--mkh-orange);
+    content: "+";
+    font-size: 1.45rem;
+    font-weight: 500;
+    line-height: 1;
+    text-align: center;
+  }
+
+  .mkh-material-detail[open] summary::after {
+    content: "−";
+  }
+
+  .mkh-material-panel {
+    display: grid;
+    gap: 28px 34px;
+    padding: 8px 25px 32px;
+    background: var(--mkh-white);
+  }
+
+  .mkh-material-specs {
+    display: grid;
+    grid-column: 1 / -1;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1px;
+    overflow: hidden;
+    border: 1px solid var(--mkh-line);
+    border-radius: 8px;
+    background: var(--mkh-line);
+  }
+
+  .mkh-material-specs > span {
+    min-width: 0;
+    padding: 13px 15px;
+    background: var(--mkh-soft);
+  }
+
+  .mkh-material-specs small,
+  .mkh-material-specs strong {
+    display: block;
+  }
+
+  .mkh-material-specs small {
+    margin-bottom: 3px;
+    color: var(--mkh-muted);
+    font-size: 0.66rem;
+    font-weight: 720;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+  }
+
+  .mkh-material-specs strong {
+    color: var(--mkh-ink);
+    font-size: 0.82rem;
+    line-height: 1.35;
+  }
+
+  .mkh-material-panel h3 {
+    margin: 0 0 8px;
+    color: var(--mkh-ink);
+    font-size: 0.92rem;
+    letter-spacing: 0.01em;
+  }
+
+  .mkh-material-panel p {
     margin: 0;
     color: var(--mkh-text);
-    font-size: 0.84rem;
-    line-height: 1.55;
+    font-size: 0.87rem;
+    line-height: 1.7;
+  }
+
+  .mkh-material-panel a {
+    color: var(--mkh-ink);
+    font-weight: 750;
+    text-decoration-color: var(--mkh-orange);
+    text-underline-offset: 4px;
+  }
+
+  .mkh-operation-badges,
+  .mkh-application-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin: 13px 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .mkh-operation-badges li,
+  .mkh-application-tags li {
+    border: 1px solid var(--mkh-line);
+    border-radius: 999px;
+    padding: 5px 9px;
+    background: var(--mkh-white);
+    font-size: 0.7rem;
+    font-weight: 700;
+    line-height: 1.25;
+  }
+
+  .mkh-operation-badges .is-good {
+    border-color: rgba(79, 143, 0, 0.32);
+    color: #416f08;
+    background: #f3f8ec;
+  }
+
+  .mkh-operation-badges .is-conditional {
+    border-color: rgba(154, 106, 0, 0.3);
+    color: #795500;
+    background: #fff9e9;
+  }
+
+  .mkh-operation-badges .is-limited {
+    border-color: rgba(138, 74, 74, 0.25);
+    color: #7b4848;
+    background: #faf3f3;
+  }
+
+  .mkh-application-tags li {
+    color: var(--mkh-text);
+    background: var(--mkh-soft);
+  }
+
+  .mkh-material-caution {
+    margin-top: 10px !important;
+    color: var(--mkh-muted) !important;
+    font-size: 0.76rem !important;
   }
 
   /* Examples */
@@ -455,6 +694,51 @@ bodyClass: "mkh-home"
     color: var(--mkh-text);
     font-size: 0.82rem;
     line-height: 1.55;
+  }
+
+  .mkh-testimonial {
+    display: grid;
+    gap: 22px;
+    align-items: end;
+    margin-top: 28px;
+    border: 1px solid var(--mkh-line);
+    border-radius: var(--mkh-radius);
+    padding: 24px;
+    background: var(--mkh-soft);
+  }
+
+  .mkh-testimonial-label {
+    margin: 0 0 10px;
+    color: var(--mkh-orange-dark);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
+  }
+
+  .mkh-testimonial blockquote {
+    margin: 0;
+    color: var(--mkh-ink);
+    font-size: clamp(1.05rem, 2.1vw, 1.35rem);
+    font-weight: 680;
+    letter-spacing: -0.02em;
+    line-height: 1.5;
+  }
+
+  .mkh-testimonial cite {
+    color: var(--mkh-text);
+    font-size: 0.82rem;
+    font-style: normal;
+    line-height: 1.55;
+  }
+
+  .mkh-testimonial cite strong,
+  .mkh-testimonial cite span {
+    display: block;
+  }
+
+  .mkh-testimonial cite strong {
+    color: var(--mkh-ink);
   }
 
   /* Applications */
@@ -746,6 +1030,16 @@ bodyClass: "mkh-home"
       grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
+    .mkh-testimonial {
+      grid-template-columns: minmax(0, 1fr) minmax(220px, 0.32fr);
+      gap: 42px;
+      padding: 30px 34px;
+    }
+
+    .mkh-material-showcase {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
     .mkh-application-grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
@@ -757,6 +1051,26 @@ bodyClass: "mkh-home"
 
     .mkh-form-grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .mkh-detail-columns {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 56px;
+    }
+
+    .mkh-material-detail summary {
+      grid-template-columns: minmax(150px, 0.55fr) minmax(0, 1.45fr) 28px;
+      gap: 18px;
+    }
+
+    .mkh-material-summary-text {
+      grid-column: 2;
+      grid-row: 1;
+    }
+
+    .mkh-material-detail summary::after {
+      grid-column: 3;
+      grid-row: 1;
     }
   }
 
@@ -790,6 +1104,10 @@ bodyClass: "mkh-home"
       grid-template-columns: repeat(4, minmax(0, 1fr));
     }
 
+    .mkh-material-showcase {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
     .mkh-product-copy {
       min-height: 220px;
     }
@@ -801,30 +1119,14 @@ bodyClass: "mkh-home"
       gap: 76px;
     }
 
-    .mkh-material-row {
-      grid-template-columns:
-        minmax(150px, 0.55fr)
-        minmax(0, 1.4fr)
-        minmax(220px, 0.9fr);
-      gap: 26px;
-      align-items: start;
-      padding: 20px 24px;
+    .mkh-material-panel {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 34px 54px;
+      padding: 12px 28px 36px;
     }
 
-    .mkh-material-row-head {
-      display: grid;
-      color: var(--mkh-white);
-      background: var(--mkh-ink);
-      font-size: 0.76rem;
-    }
-
-    .mkh-material-row-head strong {
-      color: var(--mkh-white);
-    }
-
-    .mkh-material-footer {
-      grid-template-columns: minmax(0, 1fr) auto;
-      padding: 24px;
+    .mkh-material-specs {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
     }
 
     .mkh-application-grid {
@@ -917,11 +1219,14 @@ bodyClass: "mkh-home"
 
     <figure class="mkh-hero-image">
       <img
-        src="/assets/images/kunststof-blokken-andere-hoek.webp"
-        width="900"
-        height="900"
+        src="/assets/images/kunststof-blokken-andere-hoek-800.webp"
+        srcset="/assets/images/kunststof-blokken-andere-hoek-640.webp 640w, /assets/images/kunststof-blokken-andere-hoek-800.webp 800w"
+        sizes="(min-width: 1200px) 540px, (min-width: 900px) 46vw, calc(100vw - 32px)"
+        width="800"
+        height="800"
         alt="Kunststof blokken en plaatdelen op maat"
         fetchpriority="high"
+        decoding="async"
       >
     </figure>
   </div>
@@ -934,13 +1239,15 @@ bodyClass: "mkh-home"
         <p class="mkh-eyebrow">Producten op maat</p>
 
         <h2 class="mkh-heading" id="mkh-products-title">
-          Wat wilt u laten maken?
+          Kunststof onderdelen in iedere vorm
         </h2>
       </div>
 
       <p>
-        Kies de productgroep die het beste bij uw aanvraag past. Ook
-        afwijkende vormen en volledig bewerkte onderdelen zijn mogelijk.
+        Blokken, stroken, platen en ringen zijn veelvoorkomende
+        uitgangsvormen. Met zagen, frezen en draaien kunnen we in de praktijk
+        vrijwel iedere 2D- of 3D-vorm maken. De productgroepen hieronder zijn
+        daarom een startpunt en geen beperking.
       </p>
     </div>
 
@@ -952,11 +1259,11 @@ bodyClass: "mkh-home"
           aria-label="Bekijk kunststof blokken op maat"
         >
           <img
-            src="/assets/images/kunststof-blokken-hyperrealistisch.webp"
-            width="700"
-            height="700"
+            src="/assets/images/kunststof-blokken-home.jpg"
+            width="1254"
+            height="1254"
             loading="lazy"
-            alt="Zwarte, witte en blauwe kunststof blokken op maat"
+            alt="Grijze kunststof blokken en plaatdelen op maat met boorgaten"
           >
         </a>
 
@@ -974,39 +1281,6 @@ bodyClass: "mkh-home"
 
           <a class="mkh-link" href="/kunststof-blokken-op-maat/">
             Bekijk kunststof blokken
-          </a>
-        </div>
-      </article>
-
-      <article class="mkh-product-card">
-        <a
-          class="mkh-product-image"
-          href="/kunststof-stroken-op-maat/"
-          aria-label="Bekijk kunststof stroken op maat"
-        >
-          <img
-            src="https://ruplatec.com/cdn/shop/files/PVC_strips.png?v=1769962637&width=1206"
-            width="800"
-            height="800"
-            loading="lazy"
-            alt="PVC en kunststof stroken op maat"
-          >
-        </a>
-
-        <div class="mkh-product-copy">
-          <h3>
-            <a href="/kunststof-stroken-op-maat/">
-              Kunststof stroken
-            </a>
-          </h3>
-
-          <p>
-            Smalle of brede stroken voor geleiding, bescherming,
-            constructie en slijtage.
-          </p>
-
-          <a class="mkh-link" href="/kunststof-stroken-op-maat/">
-            Bekijk kunststof stroken
           </a>
         </div>
       </article>
@@ -1047,15 +1321,48 @@ bodyClass: "mkh-home"
       <article class="mkh-product-card">
         <a
           class="mkh-product-image"
+          href="/kunststof-stroken-op-maat/"
+          aria-label="Bekijk kunststof stroken op maat"
+        >
+          <img
+            src="/assets/images/kunststof-stroken-home.jpg"
+            width="1024"
+            height="1024"
+            loading="lazy"
+            alt="Kunststof stroken op maat in verschillende kleuren"
+          >
+        </a>
+
+        <div class="mkh-product-copy">
+          <h3>
+            <a href="/kunststof-stroken-op-maat/">
+              Kunststof stroken
+            </a>
+          </h3>
+
+          <p>
+            Smalle of brede stroken voor geleiding, bescherming,
+            constructie en slijtage.
+          </p>
+
+          <a class="mkh-link" href="/kunststof-stroken-op-maat/">
+            Bekijk kunststof stroken
+          </a>
+        </div>
+      </article>
+
+      <article class="mkh-product-card">
+        <a
+          class="mkh-product-image"
           href="/kunststof-ringen-op-maat/"
           aria-label="Bekijk kunststof ringen op maat"
         >
           <img
-            src="https://ruplatec.com/cdn/shop/files/Custom_rubber_rings.png?v=1770974445&width=1646"
-            width="800"
-            height="800"
+            src="/assets/images/kunststof-ringen-home.jpg"
+            width="1024"
+            height="1024"
             loading="lazy"
-            alt="Ringen op maat in verschillende diameters"
+            alt="Kunststof ringen op maat in verschillende kleuren en diameters"
           >
         </a>
 
@@ -1084,364 +1391,61 @@ bodyClass: "mkh-home"
   class="mkh-section mkh-section-soft"
   aria-labelledby="mkh-custom-title"
 >
-  <div class="mkh-container mkh-split">
-    <figure class="mkh-square-image">
-      <img
-        src="/assets/images/strook-met-gaten.webp"
-        width="800"
-        height="800"
-        loading="lazy"
-        alt="Kunststof strook op maat voorzien van boorgaten"
-      >
-    </figure>
-
-    <div class="mkh-split-copy">
-      <p class="mkh-eyebrow">Volledig bewerkt kunststof</p>
+  <div class="mkh-container">
+    <div class="mkh-home-longform">
+      <p class="mkh-eyebrow">Zagen en volledig bewerken</p>
 
       <h2 class="mkh-heading" id="mkh-custom-title">
-        Direct klaar voor gebruik
+        Kunststof op maat laten maken
       </h2>
 
       <p>
-        Kunststof op maat kan eenvoudig worden gezaagd, maar ook volledig
-        worden afgewerkt. Geef de gewenste maten, kleur, aantallen, gaten en
-        overige bewerkingen door. Wij bekijken welke productiemethode daarbij
-        past.
+        Bij kunststof op maat gaat het niet alleen om een plaat die op lengte
+        en breedte wordt gezaagd. Wij leveren ook blokken, stroken, ringen,
+        bussen, rollen, afstandsdelen, slijtstukken en andere technische
+        kunststof onderdelen. Een onderdeel kan als eenvoudig zaagdeel
+        worden geleverd of direct worden afgewerkt zodat het gemonteerd kan
+        worden.
       </p>
-
-      <ul class="mkh-simple-list">
-        <li>Zagen en CNC-frezen</li>
-        <li>Draaien en boren</li>
-        <li>Gaten en sleuven</li>
-        <li>Schroefdraad</li>
-        <li>Contouren en afrondingen</li>
-        <li>Lassen en lijmen</li>
-        <li>Graveren</li>
-        <li>Samenstellen</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<section class="mkh-section" aria-labelledby="mkh-material-title">
-  <div class="mkh-container">
-    <div class="mkh-section-intro">
-      <div>
-        <p class="mkh-eyebrow">Materialen en mogelijkheden</p>
-
-        <h2 class="mkh-heading" id="mkh-material-title">
-          Technische kunststoffen voor iedere toepassing
-        </h2>
-      </div>
 
       <p>
-        Iedere kunststof heeft andere eigenschappen. De juiste keuze hangt
-        onder meer af van slijtage, belasting, temperatuur, vocht,
-        chemicaliën, voedselcontact en gewenste maatvastheid.
+        We maken enkelstuks, prototypes, vervangingsonderdelen en terugkerende
+        series voor bedrijven én particulieren. Voor een eenvoudig onderdeel
+        zijn lengte, breedte, dikte en aantal vaak voldoende. Bij complexer
+        maatwerk kan een foto, schets, bestaand voorbeeld of technische
+        tekening worden gebruikt. U hoeft de kunststofsoort niet vooraf te
+        kennen; de functie en omstandigheden zijn vaak een beter startpunt.
       </p>
-    </div>
 
-    <div class="mkh-material-table">
-      <div class="mkh-material-row mkh-material-row-head" aria-hidden="true">
-        <strong>Materiaal</strong>
-        <strong>Eigenschappen en toepassingen</strong>
-        <strong>Relevante bewerkingen</strong>
+      <div class="mkh-detail-columns">
+        <div>
+          <h3>Welke bewerkingen zijn mogelijk?</h3>
+          <p>
+            Afhankelijk van het materiaal kunnen we kunststof zagen,
+            CNC-frezen, draaien, boren, ruimen, tappen, verzinken, graveren,
+            lassen, lijmen, buigen of warmvormen. Ook gatenpatronen, sleuven,
+            kamers, sponningen, afrondingen en vrije buitencontouren zijn
+            mogelijk. Niet iedere bewerking past bij iedere kunststof;
+            daarom bekijken we materiaal en uitvoering samen.
+          </p>
+        </div>
+
+        <div>
+          <h3>Waar letten we bij kunststof maatwerk op?</h3>
+          <p>
+            Belangrijke punten zijn belasting, slijtage, wrijving, vocht,
+            temperatuur, chemicaliën, voedselcontact en de gewenste
+            maatvastheid. Daarnaast hebben aantallen, toleranties,
+            materiaalbeschikbaarheid en de hoeveelheid restmateriaal invloed
+            op de uitvoering en prijs. Alleen eisen die voor de werking
+            nodig zijn hoeven nauwkeurig te worden vastgelegd.
+          </p>
+        </div>
       </div>
-
-      <article class="mkh-material-row">
-        <div class="mkh-material-name">
-          <strong>PE en HDPE</strong>
-          <span>Polyethyleen</span>
-        </div>
-
-        <p>
-          Slagvast, vochtbestendig en goed bestand tegen veel chemicaliën.
-          Veel gebruikt voor kunststof blokken, platen, afstandsdelen,
-          beschermdelen en industriële maatwerkonderdelen.
-        </p>
-
-        <p class="mkh-material-processing">
-          Zagen, CNC-frezen, draaien, boren, lassen en contourbewerking.
-        </p>
-      </article>
-
-      <article class="mkh-material-row">
-        <div class="mkh-material-name">
-          <strong>HMPE en UHMWPE</strong>
-          <span>Slijtvast polyethyleen</span>
-        </div>
-
-        <p>
-          Zeer slijtvast, slagvast en voorzien van een lage
-          wrijvingsweerstand. Geschikt voor geleidingen, glijplaten,
-          slijtstroken, kettinggeleiders en zwaarbelaste blokken.
-        </p>
-
-        <p class="mkh-material-processing">
-          Zagen, frezen, draaien, boren, verzinken en gatenpatronen.
-        </p>
-      </article>
-
-      <article class="mkh-material-row">
-        <div class="mkh-material-name">
-          <strong>POM</strong>
-          <span>Acetaal</span>
-        </div>
-
-        <p>
-          Sterk, maatvast en geschikt voor nauwkeurige technische
-          onderdelen. Veel toegepast voor lagerblokken, afstandsstukken,
-          tandwielen, rollen en machinecomponenten.
-        </p>
-
-        <p class="mkh-material-processing">
-          Precisiefrezen, draaien, boren, tappen, ruimen en graveren.
-        </p>
-      </article>
-
-      <article class="mkh-material-row">
-        <div class="mkh-material-name">
-          <strong>PA</strong>
-          <span>Nylon</span>
-        </div>
-
-        <p>
-          Sterke en slijtvaste technische kunststof met goede mechanische
-          eigenschappen. Geschikt voor rollen, tandwielen, bussen,
-          geleidingen en constructieve onderdelen.
-        </p>
-
-        <p class="mkh-material-processing">
-          Frezen, draaien, boren, tappen, zagen en contourbewerking.
-        </p>
-      </article>
-
-      <article class="mkh-material-row">
-        <div class="mkh-material-name">
-          <strong>PVC</strong>
-          <span>Hard of flexibel</span>
-        </div>
-
-        <p>
-          Chemisch bestendig en breed toepasbaar voor platen, stroken,
-          bakken, afschermingen en technische constructies. Leverbaar in
-          verschillende kleuren en uitvoeringen.
-        </p>
-
-        <p class="mkh-material-processing">
-          Zagen, frezen, boren, lassen, lijmen, buigen en warmvormen.
-        </p>
-      </article>
-
-      <article class="mkh-material-row">
-        <div class="mkh-material-name">
-          <strong>PP</strong>
-          <span>Polypropyleen</span>
-        </div>
-
-        <p>
-          Licht, taai en goed bestand tegen vocht en chemicaliën. Vaak
-          gebruikt in apparatenbouw, tankbouw, laboratoria en
-          voedselgerelateerde omgevingen.
-        </p>
-
-        <p class="mkh-material-processing">
-          Zagen, frezen, boren, lassen, buigen en samenstellen.
-        </p>
-      </article>
-
-      <article class="mkh-material-row">
-        <div class="mkh-material-name">
-          <strong>PTFE</strong>
-          <span>Teflon</span>
-        </div>
-
-        <p>
-          Zeer lage wrijving en uitstekende bestendigheid tegen
-          temperaturen en chemicaliën. Geschikt voor glijdelen, ringen,
-          isolerende onderdelen en technische afdichtingsdelen.
-        </p>
-
-        <p class="mkh-material-processing">
-          Draaien, frezen, boren, snijden en nauwkeurige contourbewerking.
-        </p>
-      </article>
-
-      <article class="mkh-material-row">
-        <div class="mkh-material-name">
-          <strong>PETP</strong>
-          <span>Technisch polyester</span>
-        </div>
-
-        <p>
-          Maatvast, sterk en weinig vochtopnemend. Geschikt voor
-          precisieonderdelen, bussen, geleidingen en mechanisch belaste
-          componenten.
-        </p>
-
-        <p class="mkh-material-processing">
-          Frezen, draaien, boren, tappen en precisiebewerking.
-        </p>
-      </article>
-
-      <article class="mkh-material-row">
-        <div class="mkh-material-name">
-          <strong>Polycarbonaat</strong>
-          <span>PC</span>
-        </div>
-
-        <p>
-          Transparant en zeer slagvast. Veel gebruikt voor beschermkappen,
-          machineafscherming, ramen, panelen en stootvaste onderdelen.
-        </p>
-
-        <p class="mkh-material-processing">
-          Zagen, frezen, boren, polijsten, buigen en warmvormen.
-        </p>
-      </article>
-
-      <article class="mkh-material-row">
-        <div class="mkh-material-name">
-          <strong>Acrylaat</strong>
-          <span>PMMA</span>
-        </div>
-
-        <p>
-          Heldere kunststof met een verzorgde uitstraling. Geschikt voor
-          displays, afschermingen, panelen, naamplaten en zichtwerk in
-          verschillende kleuren.
-        </p>
-
-        <p class="mkh-material-processing">
-          Zagen, frezen, laseren, boren, polijsten, lijmen en warmvormen.
-        </p>
-      </article>
-
-      <article class="mkh-material-row">
-        <div class="mkh-material-name">
-          <strong>ABS</strong>
-          <span>Slagvaste kunststof</span>
-        </div>
-
-        <p>
-          Stevig, licht en goed vormbaar. Geschikt voor behuizingen,
-          beschermdelen, prototypes, afdekkingen en technische
-          plaatonderdelen.
-        </p>
-
-        <p class="mkh-material-processing">
-          Zagen, frezen, boren, lijmen, graveren en thermovormen.
-        </p>
-      </article>
-
-      <article class="mkh-material-row">
-        <div class="mkh-material-name">
-          <strong>PVDF</strong>
-          <span>Chemisch bestendig</span>
-        </div>
-
-        <p>
-          Hoogwaardige kunststof voor chemisch en thermisch veeleisende
-          toepassingen. Veel gebruikt in procesindustrie, apparatenbouw en
-          technische installaties.
-        </p>
-
-        <p class="mkh-material-processing">
-          Zagen, frezen, draaien, boren, lassen en precisiebewerking.
-        </p>
-      </article>
-
-      <article class="mkh-material-row">
-        <div class="mkh-material-name">
-          <strong>PEEK</strong>
-          <span>High-performance kunststof</span>
-        </div>
-
-        <p>
-          Zeer sterk en bestand tegen hoge temperaturen, slijtage en
-          chemicaliën. Geschikt voor zwaarbelaste precisieonderdelen en
-          specialistische technische toepassingen.
-        </p>
-
-        <p class="mkh-material-processing">
-          CNC-frezen, draaien, boren, tappen en zeer nauwkeurige bewerking.
-        </p>
-      </article>
-
-      <article class="mkh-material-row">
-        <div class="mkh-material-name">
-          <strong>PU</strong>
-          <span>Polyurethaan</span>
-        </div>
-
-        <p>
-          Elastisch en zeer slijtvast. Geschikt voor stootdelen,
-          schrapers, buffers, rollen, beschermdelen en onderdelen die
-          schokken moeten opvangen.
-        </p>
-
-        <p class="mkh-material-processing">
-          Snijden, waterstraalsnijden, frezen, draaien en maatwerk gieten.
-        </p>
-      </article>
-    </div>
-
-    <div class="mkh-material-footer">
-      <div>
-        <strong>Andere kunststof of speciale kwaliteit nodig?</strong>
-        <p>
-          Ook glasvezelgevulde, antistatische, voedselveilige,
-          hittebestendige en andere gemodificeerde kunststoffen kunnen
-          worden aangevraagd.
-        </p>
-      </div>
-
-      <a class="mkh-btn" href="#offerte">
-        Materiaal aanvragen
-      </a>
     </div>
   </div>
 </section>
 
-<section
-  class="mkh-section mkh-section-soft"
-  aria-labelledby="mkh-precision-title"
->
-  <div class="mkh-container mkh-split">
-    <figure class="mkh-square-image">
-      <img
-        src="/assets/images/kunststof-blokken-meetlint.webp"
-        width="800"
-        height="800"
-        loading="lazy"
-        alt="Kunststof blokken gecontroleerd met meetlint"
-      >
-    </figure>
-
-    <div class="mkh-split-copy">
-      <p class="mkh-eyebrow">Exact op maat</p>
-
-      <h2 class="mkh-heading" id="mkh-precision-title">
-        Volgens afmetingen of technische tekening
-      </h2>
-
-      <p>
-        Voor eenvoudig maatwerk zijn lengte, breedte, dikte en aantal vaak
-        voldoende. Voor complexere onderdelen kunt u een foto, schets,
-        bestaand voorbeeld of technische tekening meesturen.
-      </p>
-
-      <ul class="mkh-simple-list">
-        <li>Op de millimeter gezaagd</li>
-        <li>Toleranties op aanvraag</li>
-        <li>Iedere gewenste kleur</li>
-        <li>Boorgaten en uitsparingen</li>
-        <li>Enkelstuks en prototypes</li>
-        <li>Kleine en grote series</li>
-      </ul>
-    </div>
-  </div>
-</section>
 
 <section class="mkh-section" aria-labelledby="mkh-examples-title">
   <div class="mkh-container">
@@ -1450,13 +1454,14 @@ bodyClass: "mkh-home"
         <p class="mkh-eyebrow">Voorbeelden van maatwerk</p>
 
         <h2 class="mkh-heading" id="mkh-examples-title">
-          Van eenvoudig zaagdeel tot bewerkt onderdeel
+          Voorbeelden uit de praktijk
         </h2>
       </div>
 
       <p>
-        De foto’s geven een indruk van de mogelijkheden. Ook andere vormen,
-        afmetingen, kleuren en bewerkingen kunnen worden aangevraagd.
+        Drie praktische voorbeelden van losse onderdelen en seriewerk.
+        Een bestaand onderdeel, foto of globale maat kan al voldoende zijn
+        om een vergelijkbare aanvraag te beoordelen.
       </p>
     </div>
 
@@ -1464,61 +1469,77 @@ bodyClass: "mkh-home"
       <article class="mkh-example-card">
         <figure>
           <img
+            src="/assets/images/klantfoto-kunststof-slijtblok.webp"
+            width="700"
+            height="700"
+            loading="lazy"
+            alt="Zwart kunststof slijtblok op maat voor een industriële productielijn"
+          >
+        </figure>
+
+        <div class="mkh-example-copy">
+          <h3>Slijtblok voor een productielijn</h3>
+          <p>
+            Op maat gezaagd om wrijving en belasting onder een bewegend
+            metalen onderdeel op te vangen.
+          </p>
+        </div>
+      </article>
+
+      <article class="mkh-example-card">
+        <figure>
+          <img
+            src="/assets/images/kunststof-ring-met-kraag.webp"
+            width="700"
+            height="700"
+            loading="lazy"
+            alt="Transparante kunststof ring met kraag op maat"
+          >
+        </figure>
+
+        <div class="mkh-example-copy">
+          <h3>Kunststof ring met kraag</h3>
+          <p>
+            Een afwijkende ringvorm waarbij binnenmaat, buitenmaat, dikte en
+            kraag op de aansluiting worden afgestemd.
+          </p>
+        </div>
+      </article>
+
+      <article class="mkh-example-card">
+        <figure>
+          <img
             src="/assets/images/bak-kunststof-stroken.webp"
             width="700"
             height="700"
             loading="lazy"
-            alt="Serie kunststof stroken op gelijke maat"
+            alt="Serie kunststof stroken met gelijke afmetingen"
           >
         </figure>
 
         <div class="mkh-example-copy">
-          <h3>Enkelstuks en series</h3>
+          <h3>Terugkerend seriewerk</h3>
           <p>
-            Van één vervangingsonderdeel tot een terugkerende productieserie.
-          </p>
-        </div>
-      </article>
-
-      <article class="mkh-example-card">
-        <figure>
-          <img
-            src="https://l8cc8kc00hql36vg-67041689713.shopifypreview.com/cdn/shop/files/teflon_witte_strip.jpg?v=1777794556&width=3840"
-            width="700"
-            height="700"
-            loading="lazy"
-            alt="Witte PTFE strook op maat met boorgat"
-          >
-        </figure>
-
-        <div class="mkh-example-copy">
-          <h3>Gaten en uitsparingen</h3>
-          <p>
-            Onderdelen kunnen direct worden voorzien van gaten en andere
-            bewerkingen.
-          </p>
-        </div>
-      </article>
-
-      <article class="mkh-example-card">
-        <figure>
-          <img
-            src="/assets/images/kunststof-blokken-hyperrealistisch.webp"
-            width="700"
-            height="700"
-            loading="lazy"
-            alt="Zwarte, witte en blauwe kunststof blokken voor technische toepassingen"
-          >
-        </figure>
-
-        <div class="mkh-example-copy">
-          <h3>Massieve delen</h3>
-          <p>
-            Kunststof blokken als halffabricaat of volledig bewerkt onderdeel.
+            Na goedkeuring kunnen materiaal, uitvoering en maatvoering voor
+            een volgende serie worden herhaald.
           </p>
         </div>
       </article>
     </div>
+
+    <aside class="mkh-testimonial" aria-label="Klantreactie">
+      <div>
+        <p class="mkh-testimonial-label">Wat een klant over ons zegt</p>
+        <blockquote>
+          “Al jarenlang een betrouwbare partner voor kunststof maatwerk. Ze
+          denken goed mee, leveren snel en de kwaliteit is altijd goed.”
+        </blockquote>
+      </div>
+      <cite>
+        <strong>Product Engineer</strong>
+        <span>Internationaal opererende machinebouwer</span>
+      </cite>
+    </aside>
   </div>
 </section>
 
@@ -1590,80 +1611,798 @@ bodyClass: "mkh-home"
   </div>
 </section>
 
-<section class="mkh-section" aria-labelledby="mkh-process-title">
+<section class="mkh-section" aria-labelledby="mkh-materials-title">
   <div class="mkh-container">
     <div class="mkh-section-intro">
       <div>
-        <p class="mkh-eyebrow">Werkwijze</p>
+        <p class="mkh-eyebrow">Materiaalinformatie</p>
 
-        <h2 class="mkh-heading" id="mkh-process-title">
-          Eenvoudig een offerte aanvragen
+        <h2 class="mkh-heading" id="mkh-materials-title">
+          Kunststoffen, maatwerk en bewerkingen
         </h2>
       </div>
-
-      <p>
-        Geen ingewikkelde configurator. Vertel ons wat u nodig heeft en
-        voeg eventueel een foto of tekening toe.
-      </p>
     </div>
 
-    <ol class="mkh-process-grid">
-      <li class="mkh-process-card">
-        <span class="mkh-process-number">01</span>
-        <h3>Stuur uw aanvraag</h3>
-        <p>
-          Beschrijf de afmetingen, toepassing en gewenste bewerkingen.
-        </p>
-      </li>
+    <div class="mkh-material-showcase">
+      <article class="mkh-material-feature">
+        <a href="/hdpe-op-maat/">
+          <figure class="mkh-material-circle">
+            <img
+              src="/assets/images/hdpe-plaat-maatwerk.webp"
+              width="1200"
+              height="1200"
+              loading="lazy"
+              alt="Zwarte HDPE plaat met verschillende onderdelen op maat"
+            >
+          </figure>
+          <h3>HDPE</h3>
+        </a>
+      </article>
 
-      <li class="mkh-process-card">
-        <span class="mkh-process-number">02</span>
-        <h3>Wij beoordelen het werk</h3>
-        <p>
-          We bekijken het materiaal, de maakbaarheid en productiemethode.
-        </p>
-      </li>
+      <article class="mkh-material-feature">
+        <a href="/pom-op-maat/">
+          <figure class="mkh-material-circle">
+            <img
+              src="/assets/images/pom-plaat-maatwerk.jpg"
+              width="1400"
+              height="1400"
+              loading="lazy"
+              alt="Zwarte POM plaat met nauwkeurig bewerkte onderdelen"
+            >
+          </figure>
+          <h3>POM</h3>
+        </a>
+      </article>
 
-      <li class="mkh-process-card">
-        <span class="mkh-process-number">03</span>
-        <h3>Ontvang een offerte</h3>
-        <p>
-          U ontvangt een vrijblijvende prijs voor de voorgestelde uitvoering.
-        </p>
-      </li>
-    </ol>
+      <article class="mkh-material-feature">
+        <a href="/pu-op-maat/">
+          <figure class="mkh-material-circle">
+            <img
+              src="/assets/images/pu-plaat-maatwerk.webp"
+              width="1200"
+              height="1200"
+              loading="lazy"
+              alt="Gele PU plaat met polyurethaan stroken en maatdelen"
+            >
+          </figure>
+          <h3>PU</h3>
+        </a>
+      </article>
+
+      <article class="mkh-material-feature">
+        <a href="/ptfe-op-maat/">
+          <figure class="mkh-material-circle">
+            <img
+              src="/assets/images/ptfe-plaat-maatwerk.webp"
+              width="1200"
+              height="1200"
+              loading="lazy"
+              alt="Witte PTFE plaat met stroken en technische maatdelen"
+            >
+          </figure>
+          <h3>PTFE</h3>
+        </a>
+      </article>
+    </div>
+
+    <div class="mkh-material-legend" aria-label="Legenda bewerkingen">
+      <span class="is-good"><b>✓</b> goed mogelijk</span>
+      <span class="is-conditional"><b>~</b> afhankelijk van kwaliteit</span>
+      <span class="is-limited"><b>×</b> meestal niet gekozen</span>
+    </div>
+
+    <div class="mkh-material-accordion">
+      <details class="mkh-material-detail" name="home-materials">
+        <summary>
+          <span class="mkh-material-summary-name">
+            <strong>PE en HDPE</strong>
+            <small>Polyethyleen, veelal PE-HD of PE300</small>
+          </span>
+          <span class="mkh-material-summary-text">Taai en vochtbestendig voor robuuste platen, blokken en beschermdelen.</span>
+        </summary>
+        <div class="mkh-material-panel">
+          <div class="mkh-material-specs" aria-label="Indicatieve eigenschappen van PE en HDPE">
+            <span><small>Typische hardheid</small><strong>Middelhard</strong></span>
+            <span><small>Temperatuurklasse</small><strong>Standaard</strong></span>
+            <span><small>Vochtopname</small><strong>Zeer laag</strong></span>
+            <span><small>Relatief prijsniveau</small><strong>€</strong></span>
+          </div>
+          <div>
+            <h3>Eigenschappen</h3>
+            <p>HDPE neemt nauwelijks vocht op, is slagvast en bestand tegen veel verdunde chemicaliën. Het is minder stijf en maatvast dan POM, maar juist geschikt wanneer een onderdeel tegen vocht, stoten en dagelijks gebruik moet kunnen.</p>
+          </div>
+          <div>
+            <h3>Maatwerk en toepassingen</h3>
+            <p>We maken onder meer oplegblokken, afstandsblokken, machineplaten, vulstukken, beschermplaten, snijplaten, ringen en onderdelen voor natte of hygiënische omgevingen.</p>
+          <ul class="mkh-application-tags" aria-label="Meer toepassingen">
+            <li>Stootplaten</li>
+            <li>Werkbladen</li>
+            <li>Bootdelen</li>
+            <li>Voedingsmachine-delen</li>
+          </ul>
+          </div>
+          <div>
+            <h3>Bewerkingen en aandachtspunten</h3>
+            <p>Zagen, CNC-frezen, draaien, boren, verzinken en lassen zijn mogelijk. Bij dunne delen, grote temperatuurverschillen en nauwe toleranties houden we rekening met uitzetting en vervorming.</p>
+          <ul class="mkh-operation-badges" aria-label="Geschiktheid bewerkingen">
+            <li class="is-good">✓ Zagen</li>
+            <li class="is-good">✓ Frezen</li>
+            <li class="is-good">✓ Draaien</li>
+            <li class="is-good">✓ Lassen</li>
+            <li class="is-limited">× Lijmen</li>
+            <li class="is-conditional">~ Warmvormen</li>
+          </ul>
+            <p class="mkh-material-caution"><a href="/hdpe-op-maat/">Lees alles over HDPE op maat →</a></p>
+          </div>
+          <div>
+            <h3>Uitvoeringen, kleuren en prijs</h3>
+            <p>HDPE is vooral verkrijgbaar als plaat, staf en soms buis of profiel. Naturel/wit en zwart zijn gangbaar; blauw, groen en speciale voedselgeschikte of gerecyclede kwaliteiten zijn afhankelijk van voorraad. Standaard HDPE is binnen technische kunststoffen doorgaans relatief voordelig. Afmeting, plaatindeling en restmateriaal bepalen een belangrijk deel van de prijs.</p>
+          </div>
+        </div>
+      </details>
+
+      <details class="mkh-material-detail" name="home-materials">
+        <summary>
+          <span class="mkh-material-summary-name">
+            <strong>HMPE en UHMWPE</strong>
+            <small>PE500 en PE1000</small>
+          </span>
+          <span class="mkh-material-summary-text">Slijtvast en wrijvingsarm voor geleidingen en bewegende contactdelen.</span>
+        </summary>
+        <div class="mkh-material-panel">
+          <div class="mkh-material-specs" aria-label="Indicatieve eigenschappen van HMPE en UHMWPE">
+            <span><small>Typische hardheid</small><strong>Middelhard</strong></span>
+            <span><small>Temperatuurklasse</small><strong>Standaard</strong></span>
+            <span><small>Vochtopname</small><strong>Zeer laag</strong></span>
+            <span><small>Relatief prijsniveau</small><strong>€€</strong></span>
+          </div>
+          <div>
+            <h3>Eigenschappen</h3>
+            <p>HMPE en vooral UHMWPE combineren een hoge slagvastheid met goede glij- en slijteigenschappen. PE1000 wordt gekozen voor zwaardere glijslijtage; PE500 kan een praktische tussenstap zijn.</p>
+          </div>
+          <div>
+            <h3>Maatwerk en toepassingen</h3>
+            <p>Kettinggeleiders, slijtstroken, glijplaten, bunkerbekleding, stootdelen, transportgeleidingen, profielen en blokken die langs product of metaal bewegen.</p>
+          <ul class="mkh-application-tags" aria-label="Meer toepassingen">
+            <li>Doseergeleiders</li>
+            <li>Kettingbanen</li>
+            <li>Bunkerbekleding</li>
+            <li>Schrapers</li>
+          </ul>
+          </div>
+          <div>
+            <h3>Bewerkingen en aandachtspunten</h3>
+            <p>Zagen, frezen, draaien, boren en verzinken zijn gangbaar. Het materiaal is relatief flexibel en heeft een hoge uitzetting; verlijmen is door de lage oppervlakte-energie niet de eerste keuze.</p>
+          <ul class="mkh-operation-badges" aria-label="Geschiktheid bewerkingen">
+            <li class="is-good">✓ Zagen</li>
+            <li class="is-good">✓ Frezen</li>
+            <li class="is-good">✓ Draaien</li>
+            <li class="is-conditional">~ Lassen</li>
+            <li class="is-limited">× Lijmen</li>
+            <li class="is-conditional">~ Warmvormen</li>
+          </ul>
+          </div>
+          <div>
+            <h3>Uitvoeringen, kleuren en prijs</h3>
+            <p>PE500 en PE1000 worden vooral als plaat, staf en bewerkt profiel geleverd. Naturel, groen, zwart en blauw komen veel voor, naast gemodificeerde glij- of antistatische kwaliteiten. HMPE en UHMWPE liggen doorgaans boven standaard HDPE; PE1000 en speciale kwaliteiten hebben meestal een relatief hoger materiaalniveau dan PE500.</p>
+          </div>
+        </div>
+      </details>
+
+      <details class="mkh-material-detail" name="home-materials">
+        <summary>
+          <span class="mkh-material-summary-name">
+            <strong>POM</strong>
+            <small>Polyoxymethyleen, POM-C of POM-H</small>
+          </span>
+          <span class="mkh-material-summary-text">Stijf en maatvast voor nauwkeurige, goed verspaanbare technische onderdelen.</span>
+        </summary>
+        <div class="mkh-material-panel">
+          <div class="mkh-material-specs" aria-label="Indicatieve eigenschappen van POM">
+            <span><small>Typische hardheid</small><strong>Hard</strong></span>
+            <span><small>Temperatuurklasse</small><strong>Verhoogd</strong></span>
+            <span><small>Vochtopname</small><strong>Zeer laag</strong></span>
+            <span><small>Relatief prijsniveau</small><strong>€€</strong></span>
+          </div>
+          <div>
+            <h3>Eigenschappen</h3>
+            <p>POM heeft een lage vochtopname, goede glijeigenschappen en blijft onder normale omstandigheden relatief maatvast. POM-C is een brede algemene keuze; POM-H kan extra stijfheid en sterkte bieden.</p>
+          </div>
+          <div>
+            <h3>Maatwerk en toepassingen</h3>
+            <p>Lagerbussen, rollen, tandwielachtige delen, afstandsringen, nokken, geleidingen, precisieblokken en machineonderdelen met passingen of meerdere bewerkingen.</p>
+          <ul class="mkh-application-tags" aria-label="Meer toepassingen">
+            <li>Doseerwielen</li>
+            <li>Ventieldelen</li>
+            <li>Koppelingen</li>
+            <li>Meetcomponenten</li>
+          </ul>
+          </div>
+          <div>
+            <h3>Bewerkingen en aandachtspunten</h3>
+            <p>POM is zeer geschikt voor zagen, CNC-frezen, draaien, boren, ruimen en schroefdraad. Betrouwbaar verlijmen is lastig; mechanisch bevestigen of uit één stuk maken is vaak beter.</p>
+          <ul class="mkh-operation-badges" aria-label="Geschiktheid bewerkingen">
+            <li class="is-good">✓ Zagen</li>
+            <li class="is-good">✓ Frezen</li>
+            <li class="is-good">✓ Draaien</li>
+            <li class="is-good">✓ Schroefdraad</li>
+            <li class="is-limited">× Lijmen</li>
+            <li class="is-limited">× Lassen</li>
+          </ul>
+            <p class="mkh-material-caution"><a href="/pom-op-maat/">Lees alles over POM op maat →</a></p>
+          </div>
+          <div>
+            <h3>Uitvoeringen, kleuren en prijs</h3>
+            <p>POM wordt geleverd als plaat, staf en buis, veelal in naturel/wit, zwart of blauw. Daarnaast bestaan voedselgeschikte, detecteerbare, antistatische en glijgemodificeerde kwaliteiten. POM valt doorgaans in de middencategorie. Bij precisiedelen bepalen machinetijd, meerdere opspanningen en toleranties vaak meer dan alleen het materiaalgewicht.</p>
+          </div>
+        </div>
+      </details>
+
+      <details class="mkh-material-detail" name="home-materials">
+        <summary>
+          <span class="mkh-material-summary-name">
+            <strong>PA</strong>
+            <small>Polyamide of nylon</small>
+          </span>
+          <span class="mkh-material-summary-text">Sterk, taai en slijtvast voor zwaarbelaste mechanische onderdelen.</span>
+        </summary>
+        <div class="mkh-material-panel">
+          <div class="mkh-material-specs" aria-label="Indicatieve eigenschappen van PA">
+            <span><small>Typische hardheid</small><strong>Hard en taai</strong></span>
+            <span><small>Temperatuurklasse</small><strong>Verhoogd</strong></span>
+            <span><small>Vochtopname</small><strong>Middel tot hoog</strong></span>
+            <span><small>Relatief prijsniveau</small><strong>€€</strong></span>
+          </div>
+          <div>
+            <h3>Eigenschappen</h3>
+            <p>Polyamide combineert sterkte, taaiheid, demping en goede slijteigenschappen. Er bestaan verschillende typen, waaronder PA6 en PA66, met elk eigen gedrag bij belasting, temperatuur en vocht.</p>
+          </div>
+          <div>
+            <h3>Maatwerk en toepassingen</h3>
+            <p>Wielen, rollen, bussen, tandwielen, kabelschijven, geleidingen, stootdelen en constructieve onderdelen die metaal kunnen vervangen of geluid moeten beperken.</p>
+          <ul class="mkh-application-tags" aria-label="Meer toepassingen">
+            <li>Kabelrollen</li>
+            <li>Lagerblokken</li>
+            <li>Tandheugels</li>
+            <li>Hijsschijven</li>
+          </ul>
+          </div>
+          <div>
+            <h3>Bewerkingen en aandachtspunten</h3>
+            <p>Zagen, frezen, draaien, boren en tappen zijn mogelijk. PA neemt vocht op; daardoor kunnen afmetingen en eigenschappen veranderen. Dat is belangrijk bij passingen en een natte toepassing.</p>
+          <ul class="mkh-operation-badges" aria-label="Geschiktheid bewerkingen">
+            <li class="is-good">✓ Zagen</li>
+            <li class="is-good">✓ Frezen</li>
+            <li class="is-good">✓ Draaien</li>
+            <li class="is-good">✓ Schroefdraad</li>
+            <li class="is-conditional">~ Lijmen</li>
+            <li class="is-conditional">~ Lassen</li>
+          </ul>
+          </div>
+          <div>
+            <h3>Uitvoeringen, kleuren en prijs</h3>
+            <p>PA is beschikbaar als geëxtrudeerde of gegoten plaat, staf en buis. Naturel, zwart, blauw en groen zijn gangbaar, evenals oliegevulde of versterkte varianten. Het prijsniveau is meestal middenklasse, maar grote gegoten uitgangsdelen en speciale kwaliteiten kunnen daarvan afwijken. Houd bij de maatvoering rekening met conditionering en vocht.</p>
+          </div>
+        </div>
+      </details>
+
+      <details class="mkh-material-detail" name="home-materials">
+        <summary>
+          <span class="mkh-material-summary-name">
+            <strong>PVC</strong>
+            <small>Hard PVC of flexibel PVC</small>
+          </span>
+          <span class="mkh-material-summary-text">Chemisch bestendig plaatmateriaal voor constructies, bakken en afscherming.</span>
+        </summary>
+        <div class="mkh-material-panel">
+          <div class="mkh-material-specs" aria-label="Indicatieve eigenschappen van PVC">
+            <span><small>Typische hardheid</small><strong>Middelhard tot hard</strong></span>
+            <span><small>Temperatuurklasse</small><strong>Standaard</strong></span>
+            <span><small>Vochtopname</small><strong>Zeer laag</strong></span>
+            <span><small>Relatief prijsniveau</small><strong>€</strong></span>
+          </div>
+          <div>
+            <h3>Eigenschappen</h3>
+            <p>Hard PVC is vormvast, relatief sterk en bestand tegen veel zuren en logen. Flexibele PVC-kwaliteiten hebben andere eigenschappen; de juiste uitvoering hangt af van temperatuur, chemicaliën en gewenste buigzaamheid.</p>
+          </div>
+          <div>
+            <h3>Maatwerk en toepassingen</h3>
+            <p>Lekbakken, kappen, platen, wanden, stroken, laboratoriumdelen, ventilatiecomponenten, vloeistofbakken en gelaste technische constructies.</p>
+          <ul class="mkh-application-tags" aria-label="Meer toepassingen">
+            <li>Zuurkastdelen</li>
+            <li>Ventilatiekanalen</li>
+            <li>Pompplaten</li>
+            <li>Wandbekleding</li>
+          </ul>
+          </div>
+          <div>
+            <h3>Bewerkingen en aandachtspunten</h3>
+            <p>Zagen, frezen, boren, lijmen, lassen, buigen en warmvormen zijn afhankelijk van de kwaliteit mogelijk. Voor druk, hoge temperatuur of voedselcontact is een passende materiaalverklaring nodig.</p>
+          <ul class="mkh-operation-badges" aria-label="Geschiktheid bewerkingen">
+            <li class="is-good">✓ Zagen</li>
+            <li class="is-good">✓ Frezen</li>
+            <li class="is-good">✓ Lassen</li>
+            <li class="is-good">✓ Lijmen</li>
+            <li class="is-good">✓ Buigen</li>
+            <li class="is-good">✓ Warmvormen</li>
+          </ul>
+          </div>
+          <div>
+            <h3>Uitvoeringen, kleuren en prijs</h3>
+            <p>Hard PVC is verkrijgbaar als plaat, staf, buis en lasmateriaal, vaak in grijs, wit of transparant. Andere kleuren en flexibel PVC hangen van de uitvoering af. Standaard plaatmateriaal is relatief toegankelijk geprijsd; bij bakken en constructies zitten de kosten vooral in lassen, buigen, montage en controle op lekkage.</p>
+          </div>
+        </div>
+      </details>
+
+      <details class="mkh-material-detail" name="home-materials">
+        <summary>
+          <span class="mkh-material-summary-name">
+            <strong>PP</strong>
+            <small>Polypropyleen</small>
+          </span>
+          <span class="mkh-material-summary-text">Licht en chemisch bestendig voor bakken, platen en gelaste constructies.</span>
+        </summary>
+        <div class="mkh-material-panel">
+          <div class="mkh-material-specs" aria-label="Indicatieve eigenschappen van PP">
+            <span><small>Typische hardheid</small><strong>Middelhard</strong></span>
+            <span><small>Temperatuurklasse</small><strong>Standaard</strong></span>
+            <span><small>Vochtopname</small><strong>Zeer laag</strong></span>
+            <span><small>Relatief prijsniveau</small><strong>€</strong></span>
+          </div>
+          <div>
+            <h3>Eigenschappen</h3>
+            <p>PP is licht, taai en neemt nauwelijks vocht op. Het is bestand tegen veel chemicaliën en wordt veel toegepast wanneer een gelaste plaatconstructie of een onderdeel voor een natte procesomgeving nodig is.</p>
+          </div>
+          <div>
+            <h3>Maatwerk en toepassingen</h3>
+            <p>Bakken, tanks zonder druk, machineplaten, laboratoriumdelen, afschermingen, leidingonderdelen, vulstukken en onderdelen voor water- of procesinstallaties.</p>
+          <ul class="mkh-application-tags" aria-label="Meer toepassingen">
+            <li>Galvanobakken</li>
+            <li>Filterplaten</li>
+            <li>Opvangbakken</li>
+            <li>Procesafscherming</li>
+          </ul>
+          </div>
+          <div>
+            <h3>Bewerkingen en aandachtspunten</h3>
+            <p>Zagen, frezen, boren, lassen, buigen en samenstellen zijn mogelijk. Verlijmen is lastig en de stijfheid en temperatuurbestendigheid moeten bij constructieve delen worden beoordeeld.</p>
+          <ul class="mkh-operation-badges" aria-label="Geschiktheid bewerkingen">
+            <li class="is-good">✓ Zagen</li>
+            <li class="is-good">✓ Frezen</li>
+            <li class="is-good">✓ Lassen</li>
+            <li class="is-good">✓ Buigen</li>
+            <li class="is-limited">× Lijmen</li>
+            <li class="is-conditional">~ Draaien</li>
+          </ul>
+          </div>
+          <div>
+            <h3>Uitvoeringen, kleuren en prijs</h3>
+            <p>PP wordt veel geleverd als plaat, staf en lasdraad in naturel, grijs, wit of zwart. Er bestaan onder meer voedselgeschikte, vlamvertragende en elektrisch aangepaste kwaliteiten. Standaard PP is relatief voordelig. Bij een compleet product bepalen laswerk, plaatindeling, verstevigingen en samenstelling een groot deel van de uiteindelijke prijs.</p>
+          </div>
+        </div>
+      </details>
+
+      <details class="mkh-material-detail" name="home-materials">
+        <summary>
+          <span class="mkh-material-summary-name">
+            <strong>PTFE</strong>
+            <small>Polytetrafluorethyleen</small>
+          </span>
+          <span class="mkh-material-summary-text">Wrijvingsarm en zeer chemisch bestendig voor ringen, bussen en isolatiedelen.</span>
+        </summary>
+        <div class="mkh-material-panel">
+          <div class="mkh-material-specs" aria-label="Indicatieve eigenschappen van PTFE">
+            <span><small>Typische hardheid</small><strong>Relatief zacht</strong></span>
+            <span><small>Temperatuurklasse</small><strong>Zeer hoog</strong></span>
+            <span><small>Vochtopname</small><strong>Zeer laag</strong></span>
+            <span><small>Relatief prijsniveau</small><strong>€€€</strong></span>
+          </div>
+          <div>
+            <h3>Eigenschappen</h3>
+            <p>PTFE heeft een zeer lage wrijving, een antikleefkarakter en een brede chemische en thermische bestendigheid. Het is zachter en minder maatvast onder langdurige belasting dan POM of PEEK.</p>
+          </div>
+          <div>
+            <h3>Maatwerk en toepassingen</h3>
+            <p>Glijringen, steunringen, bussen, isolatiedelen, kleponderdelen, afdichtingsonderdelen, stroken en technische delen die weinig mogen aanhechten.</p>
+          <ul class="mkh-application-tags" aria-label="Meer toepassingen">
+            <li>Klepzittingen</li>
+            <li>Lagerstrips</li>
+            <li>Isolatoren</li>
+            <li>Back-upringen</li>
+          </ul>
+          </div>
+          <div>
+            <h3>Bewerkingen en aandachtspunten</h3>
+            <p>Zagen, draaien, frezen, boren, verzinken en schroefdraad zijn mogelijk. Kruip, vervorming, passing en het gebruik van gevuld of ongevuld PTFE verdienen vooraf aandacht.</p>
+          <ul class="mkh-operation-badges" aria-label="Geschiktheid bewerkingen">
+            <li class="is-good">✓ Zagen</li>
+            <li class="is-good">✓ Frezen</li>
+            <li class="is-good">✓ Draaien</li>
+            <li class="is-good">✓ Boren</li>
+            <li class="is-limited">× Lijmen</li>
+            <li class="is-limited">× Lassen</li>
+          </ul>
+            <p class="mkh-material-caution"><a href="/ptfe-op-maat/">Lees alles over PTFE op maat →</a></p>
+          </div>
+          <div>
+            <h3>Uitvoeringen, kleuren en prijs</h3>
+            <p>Ongevuld PTFE is meestal wit en leverbaar als plaat, staf, buis en folie. Gevulde kwaliteiten kunnen door glas, koolstof, grafiet of andere toevoegingen een andere kleur en eigenschap krijgen. PTFE heeft een relatief hoger prijsniveau. Een efficiënte uitgangsmaat en beperkt restmateriaal zijn daarom belangrijk, vooral bij grote ringen en dikke delen.</p>
+          </div>
+        </div>
+      </details>
+
+      <details class="mkh-material-detail" name="home-materials">
+        <summary>
+          <span class="mkh-material-summary-name">
+            <strong>PETP</strong>
+            <small>Polyethyleentereftalaat, technisch polyester</small>
+          </span>
+          <span class="mkh-material-summary-text">Maatvast en goed verspaanbaar voor nauwkeurige glij- en machineonderdelen.</span>
+        </summary>
+        <div class="mkh-material-panel">
+          <div class="mkh-material-specs" aria-label="Indicatieve eigenschappen van PETP">
+            <span><small>Typische hardheid</small><strong>Hard</strong></span>
+            <span><small>Temperatuurklasse</small><strong>Verhoogd</strong></span>
+            <span><small>Vochtopname</small><strong>Laag</strong></span>
+            <span><small>Relatief prijsniveau</small><strong>€€</strong></span>
+          </div>
+          <div>
+            <h3>Eigenschappen</h3>
+            <p>PETP combineert stijfheid, slijtvastheid, lage vochtopname en goede maatvastheid. Daardoor is het bruikbaar voor nauwkeurige onderdelen die mechanisch worden belast.</p>
+          </div>
+          <div>
+            <h3>Maatwerk en toepassingen</h3>
+            <p>Precisiebussen, geleiderollen, dragers, nokken, afstandsdelen, glijcomponenten en onderdelen voor machines waar een nette oppervlakte en stabiele maat belangrijk zijn.</p>
+          <ul class="mkh-application-tags" aria-label="Meer toepassingen">
+            <li>Doseercomponenten</li>
+            <li>Tandwielen</li>
+            <li>Lagerhouders</li>
+            <li>Meetdelen</li>
+          </ul>
+          </div>
+          <div>
+            <h3>Bewerkingen en aandachtspunten</h3>
+            <p>Zagen, CNC-frezen, draaien, boren, ruimen en tappen zijn goed mogelijk. Voor heet water, stoom, chemicaliën of voedselcontact moet de specifieke kwaliteit worden gecontroleerd.</p>
+          <ul class="mkh-operation-badges" aria-label="Geschiktheid bewerkingen">
+            <li class="is-good">✓ Zagen</li>
+            <li class="is-good">✓ Frezen</li>
+            <li class="is-good">✓ Draaien</li>
+            <li class="is-good">✓ Schroefdraad</li>
+            <li class="is-conditional">~ Lijmen</li>
+            <li class="is-limited">× Lassen</li>
+          </ul>
+          </div>
+          <div>
+            <h3>Uitvoeringen, kleuren en prijs</h3>
+            <p>PETP is verkrijgbaar als plaat en staf, meestal naturel, zwart of blauw. Speciale glij- of voedselgeschikte kwaliteiten zijn op aanvraag mogelijk. Het materiaal valt doorgaans in de middencategorie. Een passende stafdiameter of plaatdikte voorkomt onnodige verspaning en helpt de onderdeelprijs beheersbaar te houden.</p>
+          </div>
+        </div>
+      </details>
+
+      <details class="mkh-material-detail" name="home-materials">
+        <summary>
+          <span class="mkh-material-summary-name">
+            <strong>Polycarbonaat</strong>
+            <small>PC</small>
+          </span>
+          <span class="mkh-material-summary-text">Transparant en slagvast voor machinekappen, ramen en beschermplaten.</span>
+        </summary>
+        <div class="mkh-material-panel">
+          <div class="mkh-material-specs" aria-label="Indicatieve eigenschappen van Polycarbonaat">
+            <span><small>Typische hardheid</small><strong>Hard en slagvast</strong></span>
+            <span><small>Temperatuurklasse</small><strong>Verhoogd</strong></span>
+            <span><small>Vochtopname</small><strong>Laag</strong></span>
+            <span><small>Relatief prijsniveau</small><strong>€€</strong></span>
+          </div>
+          <div>
+            <h3>Eigenschappen</h3>
+            <p>Polycarbonaat is transparant en veel slagvaster dan standaard glas of acrylaat. De krasbestendigheid, UV-bestendigheid en chemische bestendigheid hangen af van de gekozen kwaliteit en eventuele coating.</p>
+          </div>
+          <div>
+            <h3>Maatwerk en toepassingen</h3>
+            <p>Machinekappen, beschermramen, afschermingen, panelen, inspectievensters, gebogen kappen en transparante onderdelen die stoten moeten kunnen verdragen.</p>
+          <ul class="mkh-application-tags" aria-label="Meer toepassingen">
+            <li>Veiligheidsschermen</li>
+            <li>Spatkappen</li>
+            <li>Deurpanelen</li>
+            <li>Lichtkappen</li>
+          </ul>
+          </div>
+          <div>
+            <h3>Bewerkingen en aandachtspunten</h3>
+            <p>Zagen, frezen, boren, polijsten, buigen en warmvormen zijn mogelijk. Voor zichtwerk zijn gereedschap, randafwerking, krasbescherming en minimale buigradius belangrijk.</p>
+          <ul class="mkh-operation-badges" aria-label="Geschiktheid bewerkingen">
+            <li class="is-good">✓ Zagen</li>
+            <li class="is-good">✓ Frezen</li>
+            <li class="is-good">✓ Boren</li>
+            <li class="is-good">✓ Warmvormen</li>
+            <li class="is-conditional">~ Lijmen</li>
+            <li class="is-good">✓ Buigen</li>
+          </ul>
+          </div>
+          <div>
+            <h3>Uitvoeringen, kleuren en prijs</h3>
+            <p>Polycarbonaat wordt vooral als transparante, opale of gekleurde plaat geleverd en is ook als staf of buis verkrijgbaar. UV-beschermde, kraswerende en voedselgeschikte uitvoeringen zijn specifieke kwaliteiten. Prijs en levertijd hangen sterk af van dikte, coating, kleur en afwerking; gepolijste of gebogen zichtdelen vragen extra arbeid.</p>
+          </div>
+        </div>
+      </details>
+
+      <details class="mkh-material-detail" name="home-materials">
+        <summary>
+          <span class="mkh-material-summary-name">
+            <strong>Acrylaat</strong>
+            <small>PMMA</small>
+          </span>
+          <span class="mkh-material-summary-text">Helder en fraai af te werken voor displays, panelen en zichtdelen.</span>
+        </summary>
+        <div class="mkh-material-panel">
+          <div class="mkh-material-specs" aria-label="Indicatieve eigenschappen van Acrylaat">
+            <span><small>Typische hardheid</small><strong>Hard maar bros</strong></span>
+            <span><small>Temperatuurklasse</small><strong>Standaard</strong></span>
+            <span><small>Vochtopname</small><strong>Laag</strong></span>
+            <span><small>Relatief prijsniveau</small><strong>€€</strong></span>
+          </div>
+          <div>
+            <h3>Eigenschappen</h3>
+            <p>Acrylaat heeft een hoge lichtdoorlaat en kan zeer helder worden afgewerkt. Het is stijver en krasvaster dan standaard polycarbonaat, maar ook brosser bij slagbelasting.</p>
+          </div>
+          <div>
+            <h3>Maatwerk en toepassingen</h3>
+            <p>Displays, naamplaten, transparante panelen, vitrinedelen, afscherming, lichtdelen, letters, kleurplaten en onderdelen waarbij uitstraling belangrijk is.</p>
+          <ul class="mkh-application-tags" aria-label="Meer toepassingen">
+            <li>Letters</li>
+            <li>Lichtbakken</li>
+            <li>Vitrines</li>
+            <li>Machinevensters</li>
+          </ul>
+          </div>
+          <div>
+            <h3>Bewerkingen en aandachtspunten</h3>
+            <p>Zagen, frezen, laseren, boren, polijsten, lijmen, graveren en warmvormen zijn mogelijk. Binnenhoeken, boorafstand tot de rand en spanning door montage vragen aandacht.</p>
+          <ul class="mkh-operation-badges" aria-label="Geschiktheid bewerkingen">
+            <li class="is-good">✓ Zagen</li>
+            <li class="is-good">✓ Frezen</li>
+            <li class="is-good">✓ Laseren</li>
+            <li class="is-good">✓ Polijsten</li>
+            <li class="is-good">✓ Lijmen</li>
+            <li class="is-good">✓ Warmvormen</li>
+          </ul>
+          </div>
+          <div>
+            <h3>Uitvoeringen, kleuren en prijs</h3>
+            <p>Acrylaat is leverbaar als gegoten of geëxtrudeerde plaat, staf en buis, transparant of in veel kleuren en structuren. Gegoten en geëxtrudeerd materiaal gedragen zich niet volledig hetzelfde bij bewerking en verlijming. De basisplaat is vaak overzichtelijk geprijsd; polijsten, graveren, verlijmen, complexe contouren en kleine zichtfouten maken de afwerking arbeidsintensiever.</p>
+          </div>
+        </div>
+      </details>
+
+      <details class="mkh-material-detail" name="home-materials">
+        <summary>
+          <span class="mkh-material-summary-name">
+            <strong>ABS</strong>
+            <small>Acrylonitril-butadieen-styreen</small>
+          </span>
+          <span class="mkh-material-summary-text">Slagvaste plaatkunststof voor behuizingen, prototypes en gevormde onderdelen.</span>
+        </summary>
+        <div class="mkh-material-panel">
+          <div class="mkh-material-specs" aria-label="Indicatieve eigenschappen van ABS">
+            <span><small>Typische hardheid</small><strong>Middelhard</strong></span>
+            <span><small>Temperatuurklasse</small><strong>Standaard</strong></span>
+            <span><small>Vochtopname</small><strong>Laag</strong></span>
+            <span><small>Relatief prijsniveau</small><strong>€</strong></span>
+          </div>
+          <div>
+            <h3>Eigenschappen</h3>
+            <p>ABS is licht, redelijk slagvast en goed vormbaar. Het oppervlak is geschikt voor zichtdelen en prototypes, maar standaard ABS is niet voor iedere buiten-, hitte- of chemische toepassing bedoeld.</p>
+          </div>
+          <div>
+            <h3>Maatwerk en toepassingen</h3>
+            <p>Behuizingen, afdekkappen, panelen, prototypes, montageplaten, beschermdelen, interieurdelen en vacuüm- of thermogevormde componenten.</p>
+          <ul class="mkh-application-tags" aria-label="Meer toepassingen">
+            <li>Instrumentpanelen</li>
+            <li>Omkastingen</li>
+            <li>Modelbouw</li>
+            <li>Interieurpanelen</li>
+          </ul>
+          </div>
+          <div>
+            <h3>Bewerkingen en aandachtspunten</h3>
+            <p>Zagen, frezen, boren, lijmen, graveren en thermovormen zijn mogelijk. Wanddikte, binnenradius, UV-belasting en de gewenste oppervlakteafwerking bepalen mede de uitvoering.</p>
+          <ul class="mkh-operation-badges" aria-label="Geschiktheid bewerkingen">
+            <li class="is-good">✓ Zagen</li>
+            <li class="is-good">✓ Frezen</li>
+            <li class="is-good">✓ Boren</li>
+            <li class="is-good">✓ Lijmen</li>
+            <li class="is-good">✓ Thermovormen</li>
+            <li class="is-conditional">~ Lassen</li>
+          </ul>
+          </div>
+          <div>
+            <h3>Uitvoeringen, kleuren en prijs</h3>
+            <p>ABS wordt vooral als gladde, matte of gestructureerde plaat geleverd, vaak in zwart of wit en soms in andere kleuren. Voor thermovormen bestaan verschillende plaatkwaliteiten en diktes. Standaard ABS is relatief toegankelijk, maar een mal, prototypewerk, kleine serie of specifieke oppervlakteafwerking kan een groter deel van de productprijs vormen.</p>
+          </div>
+        </div>
+      </details>
+
+      <details class="mkh-material-detail" name="home-materials">
+        <summary>
+          <span class="mkh-material-summary-name">
+            <strong>PVDF</strong>
+            <small>Polyvinylideenfluoride</small>
+          </span>
+          <span class="mkh-material-summary-text">Hoogwaardige fluorkunststof voor chemisch veeleisende installaties.</span>
+        </summary>
+        <div class="mkh-material-panel">
+          <div class="mkh-material-specs" aria-label="Indicatieve eigenschappen van PVDF">
+            <span><small>Typische hardheid</small><strong>Middelhard</strong></span>
+            <span><small>Temperatuurklasse</small><strong>Hoog</strong></span>
+            <span><small>Vochtopname</small><strong>Zeer laag</strong></span>
+            <span><small>Relatief prijsniveau</small><strong>€€€</strong></span>
+          </div>
+          <div>
+            <h3>Eigenschappen</h3>
+            <p>PVDF combineert een hoge chemische bestendigheid met betere mechanische stijfheid dan PTFE. Het wordt gekozen voor zuivere of agressieve procesomgevingen en is leverbaar in specifieke gecertificeerde kwaliteiten.</p>
+          </div>
+          <div>
+            <h3>Maatwerk en toepassingen</h3>
+            <p>Procesdelen, kleponderdelen, leidingcomponenten, isolatiedelen, machineplaten, bussen en constructies voor vloeistof- of chemische behandeling.</p>
+          <ul class="mkh-application-tags" aria-label="Meer toepassingen">
+            <li>Cleanroomdelen</li>
+            <li>Filterhuizen</li>
+            <li>Pompcomponenten</li>
+            <li>Chemieleidingen</li>
+          </ul>
+          </div>
+          <div>
+            <h3>Bewerkingen en aandachtspunten</h3>
+            <p>Zagen, frezen, draaien, boren, lassen en nauwkeurig afwerken zijn mogelijk. Medium, temperatuur, zuiverheidseisen en verklaring van de gekozen kwaliteit zijn leidend.</p>
+          <ul class="mkh-operation-badges" aria-label="Geschiktheid bewerkingen">
+            <li class="is-good">✓ Zagen</li>
+            <li class="is-good">✓ Frezen</li>
+            <li class="is-good">✓ Draaien</li>
+            <li class="is-good">✓ Lassen</li>
+            <li class="is-limited">× Lijmen</li>
+            <li class="is-conditional">~ Warmvormen</li>
+          </ul>
+          </div>
+          <div>
+            <h3>Uitvoeringen, kleuren en prijs</h3>
+            <p>PVDF wordt als plaat, staf, buis en lasmateriaal geleverd, meestal naturel. Andere uitvoeringen zijn sterk afhankelijk van leverancier en certificering. Het is een specialistische kunststof met een relatief hoger prijsniveau. Kwaliteitsverklaringen, zuiverheid, laswerk en beperkte beschikbaarheid kunnen belangrijker zijn dan alleen de afmeting.</p>
+          </div>
+        </div>
+      </details>
+
+      <details class="mkh-material-detail" name="home-materials">
+        <summary>
+          <span class="mkh-material-summary-name">
+            <strong>PEEK</strong>
+            <small>Polyetheretherketon</small>
+          </span>
+          <span class="mkh-material-summary-text">Sterke high-performance kunststof voor hitte en zwaar belaste precisiedelen.</span>
+        </summary>
+        <div class="mkh-material-panel">
+          <div class="mkh-material-specs" aria-label="Indicatieve eigenschappen van PEEK">
+            <span><small>Typische hardheid</small><strong>Zeer hard en stijf</strong></span>
+            <span><small>Temperatuurklasse</small><strong>Zeer hoog</strong></span>
+            <span><small>Vochtopname</small><strong>Zeer laag</strong></span>
+            <span><small>Relatief prijsniveau</small><strong>€€€€</strong></span>
+          </div>
+          <div>
+            <h3>Eigenschappen</h3>
+            <p>PEEK behoudt mechanische eigenschappen bij hogere temperaturen en heeft een goede slijtage- en chemische bestendigheid. Naast naturel bestaan gevulde en gecertificeerde kwaliteiten met andere eigenschappen.</p>
+          </div>
+          <div>
+            <h3>Maatwerk en toepassingen</h3>
+            <p>Lagerdelen, kleponderdelen, isolatoren, afdichtingsonderdelen, precisiebussen, slijtcomponenten en kleine technisch kritische onderdelen waar standaardkunststoffen tekortschieten.</p>
+          <ul class="mkh-application-tags" aria-label="Meer toepassingen">
+            <li>Hoogtemperatuurbussen</li>
+            <li>Connectoren</li>
+            <li>Klepzittingen</li>
+            <li>Slijtringen</li>
+          </ul>
+          </div>
+          <div>
+            <h3>Bewerkingen en aandachtspunten</h3>
+            <p>Zagen, CNC-frezen, draaien, boren, ruimen en schroefdraad zijn mogelijk. Materiaalkosten, restmateriaal, warmte tijdens bewerking en onnodig nauwe toleranties wegen relatief zwaar.</p>
+          <ul class="mkh-operation-badges" aria-label="Geschiktheid bewerkingen">
+            <li class="is-good">✓ Zagen</li>
+            <li class="is-good">✓ Frezen</li>
+            <li class="is-good">✓ Draaien</li>
+            <li class="is-good">✓ Boren</li>
+            <li class="is-conditional">~ Lijmen</li>
+            <li class="is-conditional">~ Warmvormen</li>
+          </ul>
+          </div>
+          <div>
+            <h3>Uitvoeringen, kleuren en prijs</h3>
+            <p>PEEK is leverbaar als plaat, staf en buis, meestal naturel/beige of zwart. Glasvezel-, koolstof-, lager- en gecertificeerde kwaliteiten hebben ieder andere eigenschappen en prijzen. PEEK behoort tot de specialistische en relatief kostbare kunststoffen. Slim nesten, een passende uitgangsvorm en het vermijden van onnodig ruime voorbewerkingsmaten beperken verspilling.</p>
+          </div>
+        </div>
+      </details>
+
+      <details class="mkh-material-detail" name="home-materials">
+        <summary>
+          <span class="mkh-material-summary-name">
+            <strong>PU</strong>
+            <small>Massief polyurethaan-elastomeer</small>
+          </span>
+          <span class="mkh-material-summary-text">Elastisch en slijtvast voor buffers, schrapers, rollen en demping.</span>
+        </summary>
+        <div class="mkh-material-panel">
+          <div class="mkh-material-specs" aria-label="Indicatieve eigenschappen van PU">
+            <span><small>Typische hardheid</small><strong>Shore A tot Shore D</strong></span>
+            <span><small>Temperatuurklasse</small><strong>Standaard</strong></span>
+            <span><small>Vochtopname</small><strong>Kwaliteitsafhankelijk</strong></span>
+            <span><small>Relatief prijsniveau</small><strong>€€–€€€</strong></span>
+          </div>
+          <div>
+            <h3>Eigenschappen</h3>
+            <p>Massief PU combineert elasticiteit, demping en slijtvastheid. Hardheid, polyester- of polyetherbasis en gegoten PU of TPU hebben veel invloed op waterbestendigheid, scheursterkte en vervorming.</p>
+          </div>
+          <div>
+            <h3>Maatwerk en toepassingen</h3>
+            <p>Buffers, aanslagen, schrapers, rollen, wielen, machinevoeten, beschermstroken, drukpads en contactdelen die schokken of herhaalde wrijving moeten opvangen.</p>
+          <ul class="mkh-application-tags" aria-label="Meer toepassingen">
+            <li>Transportwielen</li>
+            <li>Stopblokken</li>
+            <li>Afstrijkers</li>
+            <li>Klemblokken</li>
+          </ul>
+          </div>
+          <div>
+            <h3>Bewerkingen en aandachtspunten</h3>
+            <p>Snijden, zagen, frezen, draaien en boren zijn afhankelijk van hardheid en dikte mogelijk. Bij zacht PU zijn terugveren, opspanning en een functionele tolerantie belangrijk.</p>
+          <ul class="mkh-operation-badges" aria-label="Geschiktheid bewerkingen">
+            <li class="is-conditional">~ Snijden</li>
+            <li class="is-conditional">~ Zagen</li>
+            <li class="is-conditional">~ Frezen</li>
+            <li class="is-conditional">~ Draaien</li>
+            <li class="is-conditional">~ Lijmen</li>
+            <li class="is-conditional">~ Warmvormen TPU</li>
+          </ul>
+            <p class="mkh-material-caution"><a href="/pu-op-maat/">Lees alles over PU op maat →</a></p>
+          </div>
+          <div>
+            <h3>Uitvoeringen, kleuren en prijs</h3>
+            <p>Massief PU is beschikbaar als plaat, staf, buis, profiel of gegoten uitgangsdeel, in uiteenlopende Shore-hardheden en kleuren zoals naturel, geel, rood, blauw en zwart. Prijs en beschikbaarheid hangen sterk af van hardheid, polyester- of polyetherbasis, hoeveelheid en eventuele minimale productiehoeveelheid. Een standaard plaatdeel is anders geprijsd dan een speciale gegoten kwaliteit.</p>
+          </div>
+        </div>
+      </details>
+    </div>
   </div>
 </section>
 
 <section class="mkh-section mkh-section-soft">
   <div class="mkh-container mkh-seo-grid">
     <div>
-      <p class="mkh-eyebrow">Kunststof op maat laten maken</p>
+      <p class="mkh-eyebrow">Gratis en vrijblijvend advies</p>
 
       <h2 class="mkh-heading">
-        Van eenvoudig maatdeel tot technisch eindproduct
+        Hulp bij het kiezen van de juiste kunststof
       </h2>
     </div>
 
     <div class="mkh-seo-copy">
       <p>
-        MaatwerkKunststof.nl levert kunststof op maat voor bedrijven,
-        werkplaatsen en particulieren. Dat kan een eenvoudig kunststof
-        blokje, een gezaagde strook of een volledige plaat zijn, maar ook
-        een nauwkeurig bewerkt technisch onderdeel.
+        De juiste kunststof is niet automatisch de hardste of meest
+        specialistische kwaliteit. Een onderdeel dat continu schuift vraagt
+        iets anders dan een afstandsblok, transparante afscherming, elastische
+        buffer of plaatdeel in een natte omgeving.
       </p>
 
       <p>
-        Wij verwerken standaardkunststoffen, hard kunststof, slijtvaste
-        materialen en specialistische technische kunststoffen. Onderdelen
-        kunnen worden voorzien van gaten, sleuven, schroefdraad, contouren,
-        afrondingen en ander frees- of draaiwerk.
+        Ons team werkt dagelijks met kunststof maatwerk en helpt graag bij
+        vragen over materiaal, uitvoering en maakbaarheid. Beschrijf wat het
+        onderdeel moet doen en waar het wordt gebruikt. We kijken dan onder
+        meer naar belasting, slijtage, wrijving, temperatuur, vocht,
+        chemicaliën en de maatvastheid die werkelijk nodig is.
       </p>
 
       <p>
-        Geef door wat het onderdeel moet doen, welke afmetingen belangrijk
-        zijn en welke omstandigheden relevant zijn. Vervolgens bekijken we
-        welke kunststofsoort en bewerking het beste bij de toepassing passen.
+        Daarbij nemen we ook de praktische kant mee: welke kwaliteit op
+        voorraad is, uit welke plaat of staf het onderdeel efficiënt kan
+        worden gemaakt en welke bewerking bij het materiaal past. Dit
+        meedenken is gratis en vrijblijvend; u hoeft dus nog geen volledige
+        tekening of definitieve materiaalkeuze te hebben.
       </p>
     </div>
   </div>
@@ -1855,16 +2594,6 @@ bodyClass: "mkh-home"
         </p>
       </div>
 
-      <label class="mkh-checkbox">
-        <input name="privacy_akkoord" type="checkbox" value="ja" required>
-        <span>
-          Ik ga akkoord met de verwerking van mijn gegevens volgens het
-          <a href="/privacybeleid/" target="_blank" rel="noopener">
-            privacybeleid
-          </a>.
-        </span>
-      </label>
-
       <div
         class="mkh-form-status form-status"
         role="status"
@@ -1923,61 +2652,20 @@ bodyClass: "mkh-home"
     {
       "@type": "ListItem",
       "position": 2,
-      "name": "Kunststof stroken op maat",
-      "url": "https://maatwerkkunststof.nl/kunststof-stroken-op-maat/"
+      "name": "Kunststof platen op maat",
+      "url": "https://maatwerkkunststof.nl/kunststof-platen-op-maat/"
     },
     {
       "@type": "ListItem",
       "position": 3,
-      "name": "Kunststof platen op maat",
-      "url": "https://maatwerkkunststof.nl/kunststof-platen-op-maat/"
+      "name": "Kunststof stroken op maat",
+      "url": "https://maatwerkkunststof.nl/kunststof-stroken-op-maat/"
     },
     {
       "@type": "ListItem",
       "position": 4,
       "name": "Kunststof ringen op maat",
       "url": "https://maatwerkkunststof.nl/kunststof-ringen-op-maat/"
-    }
-  ]
-}
-</script>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Kan ik ook één kunststof onderdeel bestellen?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Ja. Enkelstuks, prototypes, vervangingsonderdelen en grotere series kunnen worden aangevraagd."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Welke kunststofsoorten zijn mogelijk?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Vrijwel alle standaard en technische kunststoffen zijn mogelijk, waaronder PE, HDPE, HMPE, POM, PA, PVC, PP, PTFE, PETP, polycarbonaat, acrylaat, PVDF, PEEK en PU."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Kunnen jullie kunststof volledig bewerken?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Ja. Naast zagen zijn onder meer frezen, draaien, boren, tappen, verzinken, lassen, lijmen, vormen en samenstellen mogelijk."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Heb ik een technische tekening nodig?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Nee. Voor eenvoudig maatwerk is een omschrijving met afmetingen vaak voldoende. Een foto, schets of bestaand onderdeel kan ook worden gebruikt."
-      }
     }
   ]
 }

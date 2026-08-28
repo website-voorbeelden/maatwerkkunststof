@@ -52,11 +52,12 @@
             <input id="{{ conversion.prefix }}-bestanden" name="bestanden" type="file" multiple accept=".pdf,.png,.jpg,.jpeg,.webp,.heic,.dxf,.dwg,.step,.stp">
           </label>
           <p class="pc-field-help">Optioneel. Maximaal 3 bestanden, samen maximaal 8 MB.</p>
+          <p class="file-selection" data-file-feedback aria-live="polite">Nog geen bestand geselecteerd.</p>
         </div>
 
         <div class="form-status" role="status" aria-live="polite" data-form-status></div>
         <button class="button button-full" type="submit" data-submit-button>Offerteaanvraag versturen</button>
-        <p class="pc-form-note">Vrijblijvend en zonder aankoopverplichting.</p>
+        <p class="pc-form-note">Vrijblijvend en zonder aankoopverplichting. We gebruiken uw gegevens alleen om uw aanvraag te beantwoorden. <a href="/privacybeleid/">Lees ons privacybeleid</a>.</p>
       </form>
 
       <ul class="pc-usps" aria-label="Voordelen van MaatwerkKunststof.nl">
@@ -88,13 +89,15 @@
         {% endif %}
       </figure>
 
-      <div class="pc-gallery-thumbs" data-gallery-thumbs aria-label="Kies een foto">
-        {% for image in conversion.images %}
-          <button class="pc-gallery-thumb" type="button" aria-pressed="{{ 'true' if loop.first else 'false' }}" aria-label="Bekijk foto {{ loop.index }} van {{ conversion.title | lower }}" data-gallery-thumb data-src="{{ image.src }}" data-full-src="{{ image.src }}" data-alt="{{ image.alt }}">
-            <img src="{{ image.src }}" width="160" height="160" {% if not loop.first %}loading="lazy"{% endif %} decoding="async" alt="" aria-hidden="true">
-          </button>
-        {% endfor %}
-      </div>
+      {% if conversion.images | length > 1 %}
+        <div class="pc-gallery-thumbs" data-gallery-thumbs aria-label="Kies een foto">
+          {% for image in conversion.images %}
+            <button class="pc-gallery-thumb" type="button" aria-pressed="{{ 'true' if loop.first else 'false' }}" aria-label="Bekijk foto {{ loop.index }} van {{ conversion.title | lower }}" data-gallery-thumb data-src="{{ image.src }}" data-full-src="{{ image.src }}" data-alt="{{ image.alt }}">
+              <img src="{{ image.src }}" width="160" height="160" {% if not loop.first %}loading="lazy"{% endif %} decoding="async" alt="" aria-hidden="true">
+            </button>
+          {% endfor %}
+        </div>
+      {% endif %}
 
       <dialog class="pc-gallery-dialog" data-gallery-dialog aria-label="Vergrote productfoto">
         <button class="pc-gallery-close" type="button" data-gallery-close aria-label="Vergrote foto sluiten">×</button>

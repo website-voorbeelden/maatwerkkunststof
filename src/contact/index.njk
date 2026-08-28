@@ -1,39 +1,484 @@
 ---
 layout: base.njk
-title: Contact en offerte aanvragen | MaatwerkKunststof.nl
-description: Neem contact op over kunststof op maat of stuur direct uw maten, aantallen en technische tekening voor een vrijblijvende offerte.
+title: Klantenservice en contact | MaatwerkKunststof.nl
+description: Stel een vraag over een offerte, bestelling, levering, klacht of retour van kunststof maatwerk via het contactformulier of WhatsApp.
 breadcrumb: Contact
 ---
-{% include "breadcrumbs.njk" %}
-<section class="simple-hero simple-hero-compact">
-  <div class="container simple-hero-inner">
-    <p class="eyebrow">Contact</p>
-    <h1>Bespreek uw kunststof maatwerk</h1>
-    <p class="hero-lead">De snelste route is het offerteformulier. Voeg direct uw maatvoering, aantallen en eventuele tekening toe.</p>
-  </div>
-</section>
 
-<section class="section contact-details-section">
-  <div class="container contact-details-grid">
-    <div class="contact-card">
-      <p class="eyebrow">Per e-mail</p>
-      <h2>Stuur uw aanvraag rechtstreeks</h2>
-      <p>Heeft u de specificaties al in een e-mail staan? Stuur deze dan naar:</p>
-      <a class="contact-link" href="mailto:{{ site.email }}" data-analytics="email_click">{{ site.email }}</a>
-      <p class="small-copy contact-method-label">Liever bellen of WhatsAppen?</p>
-      <div class="contact-method-links">
-        <a href="tel:{{ site.phone }}">{{ site.phoneDisplay }}</a>
-        <a href="https://wa.me/{{ site.whatsapp }}" target="_blank" rel="noopener" data-analytics="whatsapp_click" data-location="contact">WhatsApp</a>
+<style>
+  .mkc-page {
+    --mkc-ink: #142b33;
+    --mkc-text: #536369;
+    --mkc-muted: #78858b;
+    --mkc-line: #dce2e3;
+    --mkc-soft: #f3f7ef;
+    --mkc-green: #74c200;
+    --mkc-green-dark: #4f8f00;
+    --mkc-whatsapp: #128c4a;
+  }
+
+  .mkc-container {
+    width: min(calc(100% - 32px), 1180px);
+    margin-inline: auto;
+  }
+
+  .mkc-section {
+    padding-block: 68px;
+  }
+
+  .mkc-eyebrow {
+    margin: 0 0 10px;
+    color: var(--mkc-green-dark);
+    font-size: 0.73rem;
+    font-weight: 800;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+  }
+
+  .mkc-heading {
+    margin: 0;
+    color: var(--mkc-ink);
+    font-weight: 780;
+    letter-spacing: -0.045em;
+    line-height: 1.07;
+  }
+
+  .mkc-heading {
+    font-size: clamp(2rem, 4.5vw, 3.25rem);
+  }
+
+  .mkc-service {
+    position: relative;
+    overflow: hidden;
+    background: #fff;
+    isolation: isolate;
+  }
+
+  .mkc-service::before {
+    position: absolute;
+    z-index: -1;
+    inset: 42% 0 0;
+    background: var(--mkc-soft);
+    content: "";
+  }
+
+  .mkc-service-inner {
+    display: grid;
+    gap: 28px;
+    align-items: end;
+    min-height: 390px;
+    padding-top: 62px;
+  }
+
+  .mkc-person {
+    align-self: end;
+    max-width: 260px;
+    margin: 0 auto;
+    line-height: 0;
+  }
+
+  .mkc-person img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .mkc-service-content {
+    padding-bottom: 42px;
+  }
+
+  .mkc-service-content h2 {
+    margin: 0 0 30px;
+    color: var(--mkc-ink);
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    letter-spacing: -0.04em;
+    line-height: 1.08;
+  }
+
+  .mkc-service-content > p {
+    max-width: 680px;
+    margin: 0 0 22px;
+    color: var(--mkc-text);
+    line-height: 1.65;
+  }
+
+  .mkc-contact-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+
+  .mkc-contact-button {
+    display: inline-flex;
+    min-height: 48px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--mkc-ink);
+    border-radius: 7px;
+    padding: 12px 18px;
+    color: #fff;
+    background: var(--mkc-ink);
+    font-size: 0.88rem;
+    font-weight: 750;
+    text-decoration: none;
+    transition: background-color .22s ease, border-color .22s ease, transform .22s ease;
+  }
+
+  .mkc-contact-button:hover,
+  .mkc-contact-button:focus-visible {
+    border-color: var(--mkc-green-dark);
+    background: var(--mkc-green-dark);
+    transform: translateY(-1px);
+  }
+
+  .mkc-contact-button-primary {
+    border-color: var(--mkc-green);
+    color: #fff;
+    background: var(--mkc-green);
+  }
+
+  .mkc-contact-button-primary:hover,
+  .mkc-contact-button-primary:focus-visible {
+    border-color: var(--mkc-green-dark);
+    background: var(--mkc-green-dark);
+  }
+
+  .mkc-contact-button-whatsapp {
+    border-color: var(--mkc-whatsapp);
+    color: var(--mkc-whatsapp);
+    background: transparent;
+  }
+
+  .mkc-contact-button-whatsapp:hover,
+  .mkc-contact-button-whatsapp:focus-visible {
+    border-color: var(--mkc-whatsapp);
+    color: #fff;
+    background: var(--mkc-whatsapp);
+  }
+
+  .mkc-section-head {
+    display: grid;
+    gap: 14px;
+    margin-bottom: 30px;
+  }
+
+  .mkc-section-head > p {
+    max-width: 700px;
+    margin: 0;
+    color: var(--mkc-text);
+    line-height: 1.68;
+  }
+
+  .mkc-topic-grid {
+    display: grid;
+    gap: 12px;
+  }
+
+  .mkc-topic-card {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--mkc-line);
+    border-radius: 10px;
+    padding: 22px;
+    background: #fff;
+  }
+
+  .mkc-topic-card h3 {
+    margin: 0 0 8px;
+    color: var(--mkc-ink);
+    font-size: 1.05rem;
+  }
+
+  .mkc-topic-card p {
+    margin: 0 0 18px;
+    color: var(--mkc-text);
+    font-size: .86rem;
+    line-height: 1.6;
+  }
+
+  .mkc-topic-card a {
+    margin-top: auto;
+    color: var(--mkc-ink);
+    font-size: .82rem;
+    font-weight: 760;
+    text-decoration-color: var(--mkc-green-dark);
+    text-underline-offset: 4px;
+    transition: color .2s ease;
+  }
+
+  .mkc-topic-card a:hover,
+  .mkc-topic-card a:focus-visible {
+    color: var(--mkc-green-dark);
+  }
+
+  .mkc-faq-grid {
+    display: block;
+  }
+
+  .mkc-faq-grid > div:first-child {
+    max-width: 760px;
+    margin-bottom: 30px;
+  }
+
+  .mkc-faq-list {
+    border-top: 1px solid var(--mkc-line);
+  }
+
+  .mkc-faq-list details {
+    border-bottom: 1px solid var(--mkc-line);
+  }
+
+  .mkc-faq-list summary {
+    position: relative;
+    padding: 18px 38px 18px 0;
+    color: var(--mkc-ink);
+    font-size: .9rem;
+    font-weight: 740;
+    cursor: pointer;
+    list-style: none;
+  }
+
+  .mkc-faq-list summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .mkc-faq-list summary::after {
+    position: absolute;
+    top: 14px;
+    right: 3px;
+    color: var(--mkc-green);
+    content: "+";
+    font-size: 1.35rem;
+  }
+
+  .mkc-faq-list details[open] summary::after {
+    content: "−";
+  }
+
+  .mkc-faq-list p {
+    margin: 0 30px 19px 0;
+    color: var(--mkc-text);
+    font-size: .85rem;
+    line-height: 1.62;
+  }
+
+  .quote-section-light {
+    color: var(--mkc-ink);
+    background: #fff !important;
+  }
+
+  .quote-section-light .eyebrow-light {
+    color: var(--mkc-green-dark);
+  }
+
+  .quote-section-light .quote-intro h2,
+  .quote-section-light .quote-intro p,
+  .quote-section-light .check-list-light li {
+    color: var(--mkc-ink);
+  }
+
+  .quote-section-light .quote-intro > p:not(.eyebrow) {
+    color: var(--mkc-text);
+  }
+
+  .quote-section-light .check-list li::before {
+    border-color: var(--mkc-green);
+  }
+
+  .quote-section-light .quote-form {
+    border: 1px solid var(--mkc-line);
+    background: #fff;
+    box-shadow: 0 14px 36px rgba(20, 43, 51, .08);
+  }
+
+  @media (min-width: 640px) {
+    .mkc-container {
+      width: min(calc(100% - 48px), 1180px);
+    }
+
+    .mkc-service-inner {
+      grid-template-columns: 210px minmax(0, 1fr);
+      gap: 42px;
+      padding-top: 26px;
+    }
+
+    .mkc-person {
+      max-width: 210px;
+    }
+
+    .mkc-service-content {
+      padding-block: 38px;
+    }
+
+    .mkc-topic-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (min-width: 900px) {
+    .mkc-section {
+      padding-block: 88px;
+    }
+
+    .mkc-service-inner {
+      grid-template-columns: 285px minmax(0, 1fr);
+      gap: 58px;
+    }
+
+    .mkc-person {
+      max-width: 285px;
+    }
+
+    .mkc-topic-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+  }
+
+  @media (max-width: 899px) {
+    .mkc-service::before {
+      inset-block-start: calc(100% - 150px);
+    }
+
+    .mkc-service-inner {
+      min-height: 0;
+      padding-top: 54px;
+      text-align: center;
+    }
+
+    .mkc-service-content {
+      padding-bottom: 0;
+    }
+
+    .mkc-service-content > p {
+      margin-inline: auto;
+    }
+
+    .mkc-contact-actions {
+      justify-content: center;
+    }
+
+    .mkc-person {
+      order: 2;
+      width: 230px;
+      margin-top: 10px;
+    }
+  }
+</style>
+
+<div class="mkc-page">
+  <section class="mkc-section">
+    <div class="mkc-container">
+      <div class="mkc-section-head">
+        <div>
+          <p class="mkc-eyebrow">Klantenservice en contact</p>
+          <h1 class="mkc-heading">Waar gaat uw vraag over?</h1>
+        </div>
+        <p>
+          Vermeld bij een bestaande bestelling bij voorkeur het offerte- of
+          ordernummer. Bij maatwerk helpt een foto of korte omschrijving vaak
+          meer dan een lange uitleg.
+        </p>
       </div>
-      <p class="small-copy">Vermeld bij voorkeur afmetingen, aantallen, materiaalvoorkeur en toepassing.</p>
+      <div class="mkc-topic-grid">
+        <article class="mkc-topic-card">
+          <h3>Nieuwe aanvraag</h3>
+          <p>Stuur de maten, aantallen en eventueel een foto, schets of tekening.</p>
+          <a href="#offerte" data-contact-topic-link="Nieuwe aanvraag">Stel uw vraag →</a>
+        </article>
+        <article class="mkc-topic-card">
+          <h3>Vraag over een bestelling</h3>
+          <p>Noem het order- of offertenummer en vertel kort waar we mee kunnen helpen.</p>
+          <a href="#offerte" data-contact-topic-link="Vraag over een bestelling">Stel uw vraag →</a>
+        </article>
+        <article class="mkc-topic-card">
+          <h3>Levering en planning</h3>
+          <p>Vraag naar de actuele planning of geef een gewenste leverdatum door.</p>
+          <a href="#offerte" data-contact-topic-link="Levering en planning">Stel uw vraag →</a>
+        </article>
+        <article class="mkc-topic-card">
+          <h3>Retour of klacht</h3>
+          <p>Stuur het ordernummer, een omschrijving en bij schade een paar duidelijke foto’s.</p>
+          <a href="#offerte" data-contact-topic-link="Retour of klacht">Stel uw vraag →</a>
+        </article>
+      </div>
     </div>
-    <div class="contact-card contact-card-dark">
-      <p class="eyebrow eyebrow-light">Offerteformulier</p>
-      <h2>Alles in één keer aanleveren</h2>
-      <p>Gebruik het formulier hieronder om uw contactgegevens, specificaties en bestanden tegelijk te versturen.</p>
-      <a class="button button-outline-light" href="#offerte">Naar het formulier</a>
+  </section>
+
+  {% set quoteEyebrow = "Contactformulier" %}
+  {% set quoteTitle = "Stel uw vraag" %}
+  {% set quoteIntro = "Kies waar uw vraag over gaat en vertel kort waarmee we kunnen helpen. U kunt indien gewenst een foto, schets of technische tekening toevoegen." %}
+  {% set quoteCompact = true %}
+  {% set quoteContactTopics = true %}
+  {% set quoteButtonLabel = "Vraag versturen" %}
+  {% set quotePlaceholder = "Omschrijf uw vraag en vermeld bij een bestaande bestelling bij voorkeur het offerte- of ordernummer." %}
+  {% set quoteHidePrivacyCheckbox = true %}
+  {% set quoteLight = true %}
+  {% include "offerte-form.njk" %}
+
+  <section class="mkc-section" aria-labelledby="mkc-faq-title">
+    <div class="mkc-container mkc-faq-grid">
+      <div>
+        <p class="mkc-eyebrow">Klantenservice</p>
+        <h2 class="mkc-heading" id="mkc-faq-title">Veelgestelde vragen</h2>
+      </div>
+      <div class="mkc-faq-list">
+        <details>
+          <summary>Kan ik een lopende bestelling nog wijzigen?</summary>
+          <p>Stel uw vraag zo snel mogelijk via het formulier. Zolang materiaal nog niet is gezaagd of bewerkt, kunnen we bekijken of een wijziging mogelijk is. Na de start van het maatwerk kan dat niet altijd meer.</p>
+        </details>
+        <details>
+          <summary>Hoe vraag ik de status van mijn bestelling op?</summary>
+          <p>Kies in het formulier voor ‘Vraag over een bestelling’ en vermeld uw offerte- of ordernummer. Dan kunnen we de opdracht sneller terugvinden en de actuele planning doorgeven.</p>
+        </details>
+        <details>
+          <summary>Wat moet ik meesturen bij schade of een afwijking?</summary>
+          <p>Stuur een overzichtsfoto, een detailfoto van de schade of maatvoering en het ordernummer. Bewaar het product en de verpakking totdat we de melding hebben beoordeeld.</p>
+        </details>
+        <details>
+          <summary>Kan ik ook zonder technische tekening een aanvraag doen?</summary>
+          <p>Ja. Een omschrijving, globale maten, foto, eenvoudige schets of bestaand voorbeeld is vaak genoeg om te beginnen. Ontbrekende informatie kunnen we daarna samen aanvullen.</p>
+        </details>
+        <details>
+          <summary>Kan ik een kunststof maatwerkproduct retourneren?</summary>
+          <p>Een onderdeel dat speciaal volgens uw maten of keuzes is gemaakt, valt voor consumenten doorgaans niet onder de bedenktijd van 14 dagen en kan meestal niet zonder reden worden geretourneerd. Is het beschadigd, verkeerd uitgevoerd of wijkt het af van de afspraak, kies dan in het formulier voor ‘Retour of klacht’. Voeg waar mogelijk foto’s en het ordernummer toe en stuur het product niet terug voordat u onze retourinstructies heeft ontvangen.</p>
+        </details>
+        <details>
+          <summary>Hoe snel kan mijn onderdeel worden geleverd?</summary>
+          <p>Dat hangt af van het materiaal, de afmetingen, de bewerkingen en het aantal. Eenvoudig zaagwerk uit voorraad kan soms al de volgende werkdag; bij ander maatwerk ontvangt u een passende leverindicatie.</p>
+        </details>
+        <details>
+          <summary>Kunnen jullie helpen als ik het materiaal nog niet weet?</summary>
+          <p>Ja. Beschrijf wat het onderdeel moet doen en waar het wordt gebruikt. We kunnen dan meedenken over eigenschappen zoals slijtage, wrijving, temperatuur, vocht, chemicaliën en maatvastheid.</p>
+        </details>
+        <details>
+          <summary>Waar hangt de prijs van kunststof maatwerk vanaf?</summary>
+          <p>Onder meer van de kunststofsoort, afmeting, hoeveelheid materiaal, bewerkingen, toleranties en het aantal. Bij meerdere gelijke onderdelen worden voorbereiding en insteltijd over meer stuks verdeeld.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+</div>
+
+<section class="mkc-page mkc-service" aria-labelledby="mkc-service-title">
+  <div class="mkc-container mkc-service-inner">
+    <figure class="mkc-person">
+      <img
+        src="/assets/images/klantenservice-medewerker.webp"
+        width="1254"
+        height="1254"
+        loading="lazy"
+        decoding="async"
+        alt="Medewerker van de klantenservice van MaatwerkKunststof.nl"
+      >
+    </figure>
+    <div class="mkc-service-content">
+      <p class="mkc-eyebrow">Persoonlijk contact</p>
+      <h2 id="mkc-service-title">Kunnen we u helpen?</h2>
+      <div class="mkc-contact-actions">
+        <a class="mkc-contact-button mkc-contact-button-primary" href="#offerte" data-contact-topic-link="Andere vraag">Stel uw vraag →</a>
+        <a class="mkc-contact-button mkc-contact-button-whatsapp" href="https://wa.me/{{ site.whatsapp }}" target="_blank" rel="noopener" data-analytics="whatsapp_click" data-location="customer_service">WhatsApp</a>
+      </div>
     </div>
   </div>
 </section>
-
-{% include "offerte-form.njk" %}
