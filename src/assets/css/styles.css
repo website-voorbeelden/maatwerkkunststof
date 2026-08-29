@@ -229,6 +229,7 @@ ul,ol{margin-top:0}
 .whatsapp-availability__button:hover,.whatsapp-availability__button:focus-visible{border-color:var(--orange-700);color:var(--orange-700);background:var(--steel-50);transform:translateY(-1px)}
 .whatsapp-availability__button svg{width:19px;height:19px;fill:currentColor}
 .whatsapp-availability__status{display:grid;gap:3px;margin:14px 0 12px;border:0;padding:0;color:var(--steel-700);background:transparent;font-size:.87rem;font-weight:400;line-height:1.58}
+.whatsapp-availability__status[hidden]{display:none!important}
 .whatsapp-availability__status strong{color:inherit;font-weight:400}
 .whatsapp-availability__status-label{display:flex;align-items:center;gap:7px;color:var(--steel-700);font-weight:400}
 .whatsapp-availability__status-label i,.whatsapp-availability__toggle-dot{width:8px;height:8px;border-radius:50%;background:var(--orange-600);box-shadow:0 0 0 4px rgba(116,194,0,.13),0 0 9px rgba(116,194,0,.55)}
