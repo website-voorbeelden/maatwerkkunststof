@@ -496,41 +496,11 @@ bodyClass: "mkh-home"
     line-height: 1.58;
   }
 
-  .mkh-material-legend {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px 16px;
-    margin: 52px 0 18px;
-    color: var(--mkh-muted);
-    font-size: 0.74rem;
-  }
-
-  .mkh-material-legend span {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-  }
-
-  .mkh-material-legend b {
-    font-size: 0.86rem;
-  }
-
-  .mkh-material-legend .is-good b {
-    color: var(--mkh-orange-dark);
-  }
-
-  .mkh-material-legend .is-conditional b {
-    color: #9a6a00;
-  }
-
-  .mkh-material-legend .is-limited b {
-    color: #8a4a4a;
-  }
-
   /* Material accordion */
 
   .mkh-material-accordion {
     overflow: hidden;
+    margin-top: 52px;
     border: 1px solid var(--mkh-line);
     border-radius: var(--mkh-radius);
     background: var(--mkh-white);
@@ -1012,7 +982,7 @@ bodyClass: "mkh-home"
   .mkh-field input:focus,
   .mkh-field textarea:focus {
     border-color: var(--mkh-orange);
-    outline: 3px solid rgba(230, 91, 40, 0.16);
+    outline: 3px solid rgba(116, 194, 0, 0.16);
   }
 
   .mkh-field-help,
@@ -1877,12 +1847,6 @@ bodyClass: "mkh-home"
       </article>
     </div>
 
-    <div class="mkh-material-legend" aria-label="Legenda bewerkingen">
-      <span class="is-good"><b>✓</b> goed mogelijk</span>
-      <span class="is-conditional"><b>~</b> afhankelijk van kwaliteit</span>
-      <span class="is-limited"><b>×</b> meestal niet gekozen</span>
-    </div>
-
     <div class="mkh-material-accordion">
       <details class="mkh-material-detail" name="home-materials">
         <summary>
@@ -1897,7 +1861,7 @@ bodyClass: "mkh-home"
             <span><small>Typische hardheid</small><strong>Middelhard</strong></span>
             <span><small>Temperatuurklasse</small><strong>Standaard</strong></span>
             <span><small>Vochtopname</small><strong>Zeer laag</strong></span>
-            <span><small>Relatief prijsniveau</small><strong>€</strong></span>
+            <span><small>Relatief prijsniveau</small><strong>Voordelig</strong></span>
           </div>
           <div>
             <h3>Eigenschappen</h3>
@@ -1946,7 +1910,7 @@ bodyClass: "mkh-home"
             <span><small>Typische hardheid</small><strong>Middelhard</strong></span>
             <span><small>Temperatuurklasse</small><strong>Standaard</strong></span>
             <span><small>Vochtopname</small><strong>Zeer laag</strong></span>
-            <span><small>Relatief prijsniveau</small><strong>€€</strong></span>
+            <span><small>Relatief prijsniveau</small><strong>Gemiddeld</strong></span>
           </div>
           <div>
             <h3>Eigenschappen</h3>
@@ -1994,7 +1958,7 @@ bodyClass: "mkh-home"
             <span><small>Typische hardheid</small><strong>Hard</strong></span>
             <span><small>Temperatuurklasse</small><strong>Verhoogd</strong></span>
             <span><small>Vochtopname</small><strong>Zeer laag</strong></span>
-            <span><small>Relatief prijsniveau</small><strong>€€</strong></span>
+            <span><small>Relatief prijsniveau</small><strong>Gemiddeld</strong></span>
           </div>
           <div>
             <h3>Eigenschappen</h3>
@@ -2043,7 +2007,7 @@ bodyClass: "mkh-home"
             <span><small>Typische hardheid</small><strong>Hard en taai</strong></span>
             <span><small>Temperatuurklasse</small><strong>Verhoogd</strong></span>
             <span><small>Vochtopname</small><strong>Middel tot hoog</strong></span>
-            <span><small>Relatief prijsniveau</small><strong>€€</strong></span>
+            <span><small>Relatief prijsniveau</small><strong>Gemiddeld</strong></span>
           </div>
           <div>
             <h3>Eigenschappen</h3>
@@ -2091,7 +2055,7 @@ bodyClass: "mkh-home"
             <span><small>Typische hardheid</small><strong>Middelhard tot hard</strong></span>
             <span><small>Temperatuurklasse</small><strong>Standaard</strong></span>
             <span><small>Vochtopname</small><strong>Zeer laag</strong></span>
-            <span><small>Relatief prijsniveau</small><strong>€</strong></span>
+            <span><small>Relatief prijsniveau</small><strong>Voordelig</strong></span>
           </div>
           <div>
             <h3>Eigenschappen</h3>
@@ -2139,7 +2103,7 @@ bodyClass: "mkh-home"
             <span><small>Typische hardheid</small><strong>Middelhard</strong></span>
             <span><small>Temperatuurklasse</small><strong>Standaard</strong></span>
             <span><small>Vochtopname</small><strong>Zeer laag</strong></span>
-            <span><small>Relatief prijsniveau</small><strong>€</strong></span>
+            <span><small>Relatief prijsniveau</small><strong>Voordelig</strong></span>
           </div>
           <div>
             <h3>Eigenschappen</h3>
@@ -2187,7 +2151,7 @@ bodyClass: "mkh-home"
             <span><small>Typische hardheid</small><strong>Relatief zacht</strong></span>
             <span><small>Temperatuurklasse</small><strong>Zeer hoog</strong></span>
             <span><small>Vochtopname</small><strong>Zeer laag</strong></span>
-            <span><small>Relatief prijsniveau</small><strong>€€€</strong></span>
+            <span><small>Relatief prijsniveau</small><strong>Relatief hoog</strong></span>
           </div>
           <div>
             <h3>Eigenschappen</h3>
@@ -2236,7 +2200,7 @@ bodyClass: "mkh-home"
             <span><small>Typische hardheid</small><strong>Hard</strong></span>
             <span><small>Temperatuurklasse</small><strong>Verhoogd</strong></span>
             <span><small>Vochtopname</small><strong>Laag</strong></span>
-            <span><small>Relatief prijsniveau</small><strong>€€</strong></span>
+            <span><small>Relatief prijsniveau</small><strong>Gemiddeld</strong></span>
           </div>
           <div>
             <h3>Eigenschappen</h3>
@@ -2284,7 +2248,7 @@ bodyClass: "mkh-home"
             <span><small>Typische hardheid</small><strong>Hard en slagvast</strong></span>
             <span><small>Temperatuurklasse</small><strong>Verhoogd</strong></span>
             <span><small>Vochtopname</small><strong>Laag</strong></span>
-            <span><small>Relatief prijsniveau</small><strong>€€</strong></span>
+            <span><small>Relatief prijsniveau</small><strong>Gemiddeld</strong></span>
           </div>
           <div>
             <h3>Eigenschappen</h3>
@@ -2332,7 +2296,7 @@ bodyClass: "mkh-home"
             <span><small>Typische hardheid</small><strong>Hard maar bros</strong></span>
             <span><small>Temperatuurklasse</small><strong>Standaard</strong></span>
             <span><small>Vochtopname</small><strong>Laag</strong></span>
-            <span><small>Relatief prijsniveau</small><strong>€€</strong></span>
+            <span><small>Relatief prijsniveau</small><strong>Gemiddeld</strong></span>
           </div>
           <div>
             <h3>Eigenschappen</h3>
@@ -2380,7 +2344,7 @@ bodyClass: "mkh-home"
             <span><small>Typische hardheid</small><strong>Middelhard</strong></span>
             <span><small>Temperatuurklasse</small><strong>Standaard</strong></span>
             <span><small>Vochtopname</small><strong>Laag</strong></span>
-            <span><small>Relatief prijsniveau</small><strong>€</strong></span>
+            <span><small>Relatief prijsniveau</small><strong>Voordelig</strong></span>
           </div>
           <div>
             <h3>Eigenschappen</h3>
@@ -2428,7 +2392,7 @@ bodyClass: "mkh-home"
             <span><small>Typische hardheid</small><strong>Middelhard</strong></span>
             <span><small>Temperatuurklasse</small><strong>Hoog</strong></span>
             <span><small>Vochtopname</small><strong>Zeer laag</strong></span>
-            <span><small>Relatief prijsniveau</small><strong>€€€</strong></span>
+            <span><small>Relatief prijsniveau</small><strong>Relatief hoog</strong></span>
           </div>
           <div>
             <h3>Eigenschappen</h3>
@@ -2476,7 +2440,7 @@ bodyClass: "mkh-home"
             <span><small>Typische hardheid</small><strong>Zeer hard en stijf</strong></span>
             <span><small>Temperatuurklasse</small><strong>Zeer hoog</strong></span>
             <span><small>Vochtopname</small><strong>Zeer laag</strong></span>
-            <span><small>Relatief prijsniveau</small><strong>€€€€</strong></span>
+            <span><small>Relatief prijsniveau</small><strong>Specialistisch</strong></span>
           </div>
           <div>
             <h3>Eigenschappen</h3>
@@ -2524,7 +2488,7 @@ bodyClass: "mkh-home"
             <span><small>Typische hardheid</small><strong>Shore A tot Shore D</strong></span>
             <span><small>Temperatuurklasse</small><strong>Standaard</strong></span>
             <span><small>Vochtopname</small><strong>Kwaliteitsafhankelijk</strong></span>
-            <span><small>Relatief prijsniveau</small><strong>€€–€€€</strong></span>
+            <span><small>Relatief prijsniveau</small><strong>Gemiddeld tot hoog</strong></span>
           </div>
           <div>
             <h3>Eigenschappen</h3>

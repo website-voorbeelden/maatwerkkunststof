@@ -70,6 +70,7 @@
     const shownKey = 'mk_whatsapp_availability_shown';
     const whatsappToggle = whatsappAvailability.querySelector('[data-whatsapp-availability-toggle]');
     const whatsappStatus = whatsappAvailability.querySelector('.whatsapp-availability__status');
+    const whatsappOfflineNote = whatsappAvailability.querySelector('.whatsapp-availability__offline-note');
     const mobileWhatsappQuery = window.matchMedia('(max-width: 719px)');
     const forceLocalPreview = ['localhost', '127.0.0.1'].includes(window.location.hostname)
       && new URLSearchParams(window.location.search).has('previewWhatsapp');
@@ -98,6 +99,7 @@
       const employeeIsOnline = forceLocalPreview || isDutchBusinessHours();
       whatsappAvailability.hidden = !whatsappReady || isDismissed();
       if (whatsappStatus) whatsappStatus.hidden = !employeeIsOnline;
+      if (whatsappOfflineNote) whatsappOfflineNote.hidden = employeeIsOnline;
     };
 
     const scheduleWhatsappAvailability = (delay) => {
@@ -124,12 +126,8 @@
     });
 
     whatsappAvailability.querySelector('[data-whatsapp-availability-close]')?.addEventListener('click', () => {
-      if (mobileWhatsappQuery.matches) {
-        collapseWhatsappAvailability();
-        whatsappToggle?.focus();
-        return;
-      }
       try { sessionStorage.setItem(dismissedKey, 'true'); } catch { /* storage may be unavailable */ }
+      collapseWhatsappAvailability();
       whatsappAvailability.hidden = true;
     });
 
@@ -296,6 +294,7 @@
     const defaultImageSizes = mainImage.sizes;
     let activeIndex = Math.max(0, thumbnails.findIndex((thumbnail) => thumbnail.getAttribute('aria-pressed') === 'true'));
     let touchStartX = null;
+    let openedWithPointer = false;
 
     const selectImage = (index, moveThumbnail = true) => {
       activeIndex = (index + thumbnails.length) % thumbnails.length;
@@ -359,6 +358,14 @@
       selectImage(activeIndex + (distance < 0 ? 1 : -1));
     }, { passive: true });
 
+    openButton?.addEventListener('pointerdown', () => {
+      openedWithPointer = true;
+    }, { passive: true });
+
+    openButton?.addEventListener('keydown', () => {
+      openedWithPointer = false;
+    });
+
     openButton?.addEventListener('click', () => {
       if (!dialog || !dialogImage || typeof dialog.showModal !== 'function') return;
       dialogImage.src = thumbnails[activeIndex]?.dataset.fullSrc || mainImage.currentSrc || mainImage.src;
@@ -369,6 +376,10 @@
     closeButton?.addEventListener('click', () => dialog?.close());
     dialog?.addEventListener('click', (event) => {
       if (event.target === dialog) dialog.close();
+    });
+    dialog?.addEventListener('close', () => {
+      if (!openedWithPointer) return;
+      window.requestAnimationFrame(() => openButton?.blur());
     });
   });
 

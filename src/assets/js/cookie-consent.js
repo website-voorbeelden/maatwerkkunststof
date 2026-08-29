@@ -133,7 +133,6 @@
     const summary = consent.querySelector('[data-cookie-summary]');
     const preferencesPanel = consent.querySelector('[data-cookie-preferences-panel]');
     const analyticsInput = consent.querySelector('[data-cookie-analytics]');
-    const firstButton = consent.querySelector('[data-cookie-accept]');
 
     const showSummary = () => {
       summary.hidden = false;
@@ -151,7 +150,6 @@
       consent.hidden = false;
       preferences ? showPreferences() : showSummary();
       document.body.classList.add('cookie-consent-open');
-      if (!preferences) firstButton.focus();
     };
 
     const close = () => {
@@ -175,6 +173,8 @@
       button.addEventListener('click', () => open(true));
     });
 
-    if (!readConsent()) open(false);
+    if (!readConsent()) {
+      window.setTimeout(() => open(false), 2000);
+    }
   });
 })();
