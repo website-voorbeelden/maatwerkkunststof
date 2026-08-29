@@ -84,8 +84,8 @@
           <img class="pc-gallery-main" src="{{ conversion.images[0].src }}" width="{{ conversion.images[0].width or 1200 }}" height="{{ conversion.images[0].height or 1200 }}" alt="{{ conversion.images[0].alt }}" sizes="(min-width: 1180px) 559px, (min-width: 920px) 48vw, calc(100vw - 32px)" fetchpriority="high" data-gallery-main>
         </button>
         {% if conversion.images | length > 1 %}
-          <button class="pc-gallery-control pc-gallery-prev" type="button" data-gallery-prev aria-label="Vorige foto">‹</button>
-          <button class="pc-gallery-control pc-gallery-next" type="button" data-gallery-next aria-label="Volgende foto">›</button>
+          <button class="pc-gallery-control pc-gallery-prev" type="button" data-gallery-prev aria-label="Vorige foto"><svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M12.5 4.5 7 10l5.5 5.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <button class="pc-gallery-control pc-gallery-next" type="button" data-gallery-next aria-label="Volgende foto"><svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="m7.5 4.5 5.5 5.5-5.5 5.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
         {% endif %}
       </figure>
 

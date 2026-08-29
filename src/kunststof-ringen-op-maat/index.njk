@@ -1,6 +1,6 @@
 ---
 layout: base.njk
-title: Kunststof ringen | Ringen en revetten op maat
+title: Kunststof ringen op maat - PTFE, POM, HDPE en meer
 description: "Kunststof ringen, revetten en afstandsringen op maat in PTFE, POM, PA, HDPE en meer. Ook ringen met kraag, enkelstuks en series."
 image: /assets/images/rubber-ringen-op-maat.webp
 imageAlt: Kunststof en rubber ringen in verschillende kleuren en maten
@@ -85,6 +85,9 @@ bodyClass: mkr-page
   .mkr-material-facts div:nth-child(3) { border-left: 3px solid var(--mkr-green); border-radius: 0 8px 8px 0; padding: 13px 15px; background: var(--mkr-soft); }
   .mkr-material-facts dt { color: var(--mkr-ink); font-size: .72rem; font-weight: 820; letter-spacing: .04em; text-transform: uppercase; }
   .mkr-material-facts dd { margin: 0; color: var(--mkr-text); font-size: .82rem; line-height: 1.58; }
+  .mkr-material-link { display: inline-flex; margin-top: 20px; color: var(--mkr-green-dark); font-size: .82rem; font-weight: 780; text-decoration: none; }
+  .mkr-material-link:hover,
+  .mkr-material-link:focus-visible { text-decoration: underline; text-underline-offset: 3px; }
 
   .mkr-callout { display: grid; gap: 18px; align-items: center; margin-top: 22px; border: 1px solid rgba(116, 194, 0, .42); border-radius: 12px; padding: 22px; background: var(--mkr-white); box-shadow: 0 12px 32px rgba(20, 43, 51, .06); }
   .mkr-callout strong,
@@ -108,6 +111,9 @@ bodyClass: mkr-page
   .mkr-case-label { color: var(--mkr-green-dark); font-size: .7rem; font-weight: 850; letter-spacing: .09em; text-transform: uppercase; }
   .mkr-case-content h3 { margin: 0; color: var(--mkr-ink); font-size: clamp(1.25rem, 3vw, 1.65rem); line-height: 1.18; }
   .mkr-case-content p { margin: 0; color: var(--mkr-text); font-size: .86rem; line-height: 1.7; }
+  .mkr-case-step { position: relative; z-index: 1; }
+  .mkr-case-step::after { position: absolute; bottom: -24px; left: 50%; z-index: 2; display: grid; width: 30px; height: 30px; place-items: center; transform: translateX(-50%); border: 1px solid rgba(116, 194, 0, .45); border-radius: 50%; color: var(--mkr-green-dark); background: var(--mkr-white); content: "↓"; font-size: 1rem; font-weight: 800; }
+  .mkr-section-head-single { max-width: 760px; }
 
   .mkr-price-copy { display: grid; gap: 16px; }
   .mkr-price-copy p { margin: 0; color: var(--mkr-text); font-size: .87rem; line-height: 1.72; }
@@ -116,7 +122,7 @@ bodyClass: mkr-page
   .mkr-price-note p { margin: 0; color: var(--mkr-text); font-size: .86rem; line-height: 1.67; }
 
   .mkr-process-card { position: relative; border: 1px solid var(--mkr-line); border-radius: 10px; padding: 62px 22px 22px; background: var(--mkr-white); }
-  .mkr-process-card > span { position: absolute; top: 20px; left: 22px; display: grid; width: 30px; height: 30px; place-items: center; border-radius: 50%; color: var(--mkr-white); background: var(--mkr-green-dark); font-size: .78rem; font-weight: 850; }
+  .mkr-process-card > span { position: absolute; top: 20px; left: 22px; display: grid; width: 30px; height: 30px; place-items: center; border-radius: 50%; color: var(--mkr-white); background: var(--mkr-green); font-size: .78rem; font-weight: 850; }
   .mkr-process-card h3 { margin: 0 0 7px; color: var(--mkr-ink); font-size: 1rem; }
   .mkr-process-card p { margin: 0; color: var(--mkr-text); font-size: .83rem; line-height: 1.58; }
 
@@ -153,9 +159,11 @@ bodyClass: mkr-page
     .mkr-section-head { grid-template-columns: minmax(0, 1fr) minmax(330px, .72fr); gap: 60px; align-items: end; margin-bottom: 40px; }
     .mkr-intro-grid { grid-template-columns: minmax(0, 1.05fr) minmax(330px, .95fr); gap: 70px; align-items: center; }
     .mkr-dimensions { grid-template-columns: minmax(400px, .92fr) minmax(0, 1.08fr); gap: 72px; }
-    .mkr-case { grid-template-columns: 360px minmax(0, 1fr); }
-    .mkr-case-image img { min-height: 340px; aspect-ratio: auto; }
+    .mkr-section-head.mkr-section-head-single { display: block; max-width: 760px; }
+    .mkr-case { grid-template-columns: 320px minmax(0, 1fr); }
+    .mkr-case-image img { min-height: 280px; aspect-ratio: auto; }
     .mkr-case-content { padding: 36px 42px; }
+    .mkr-case-step::after { left: 160px; }
     .mkr-application-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
     .mkr-price-grid { grid-template-columns: minmax(0, 1.25fr) minmax(320px, .75fr); gap: 64px; }
     .mkr-faq-grid { grid-template-columns: minmax(0, .72fr) minmax(0, 1.28fr); gap: 80px; }
@@ -226,7 +234,7 @@ bodyClass: mkr-page
 
 <section class="mkr-section" aria-labelledby="mkr-dimensions-title">
   <div class="mkr-container mkr-dimensions">
-    <figure class="mkr-dimensions-image"><img src="/assets/images/witte-kunststof-ringen-realistisch.webp" width="1200" height="1200" loading="lazy" alt="Twee witte kunststof ringen met nauwkeurige binnen- en buitendiameter"></figure>
+    <figure class="mkr-dimensions-image"><img src="/assets/images/maatvoering-kunststof-ring.webp" width="800" height="800" loading="lazy" decoding="async" alt="Technische weergave van de binnenmaat, buitenmaat en breedte van een kunststof ring"></figure>
     <div class="mkr-copy">
       <div><p class="mkr-eyebrow">Maatvoering</p><h2 class="mkr-heading" id="mkr-dimensions-title">Welke maten bepalen een kunststof ring?</h2></div>
       <p>Voor een vlakke kunststof ring zijn binnendiameter, buitendiameter en dikte meestal de belangrijkste maten. Bij een passing controleren we ook hoeveel speling nodig is en of de maat over een as, in een boring of tussen twee onderdelen moet aansluiten.</p>
@@ -251,19 +259,27 @@ bodyClass: mkr-page
     <div class="mkr-material-grid">
       <details class="mkr-material" name="mkr-materials">
         <summary><strong>PTFE ringen</strong><span>Lage wrijving en brede chemische bestendigheid</span></summary>
-        <div class="mkr-material-content"><p>PTFE wordt veel gevraagd voor ringen die moeten glijden, isoleren of met agressieve media in aanraking komen. Het materiaal kleeft weinig en neemt vrijwel geen vocht op, maar is relatief zacht en kan onder langdurige druk vervormen.</p><dl class="mkr-material-facts"><div><dt>Toepassingen</dt><dd>Glijringen, isolatieringen, vlakke afdichtingsringen, chemische installaties en steunringen bij afdichtingen.</dd></div><div><dt>Kleuren</dt><dd>Meestal naturel wit; gevulde PTFE-kwaliteiten kunnen grijs, bruin of zwart zijn.</dd></div><div><dt>Bewerkingen</dt><dd>Draaien, frezen, boren en profileren met aandacht voor opspanning, uitzetting en vervorming.</dd></div><div><dt>Prijsbeeld</dt><dd>PTFE ligt doorgaans relatief hoger dan HDPE, PP, PVC en veel gangbare technische kunststoffen.</dd></div></dl></div>
+        <div class="mkr-material-content"><p>PTFE wordt veel gevraagd voor ringen die moeten glijden, isoleren of met agressieve media in aanraking komen. Het materiaal kleeft weinig en neemt vrijwel geen vocht op, maar is relatief zacht en kan onder langdurige druk vervormen.</p><dl class="mkr-material-facts"><div><dt>Toepassingen</dt><dd>Glijringen, isolatieringen, vlakke afdichtingsringen, chemische installaties en steunringen bij afdichtingen.</dd></div><div><dt>Kleuren</dt><dd>Meestal naturel wit; gevulde PTFE-kwaliteiten kunnen grijs, bruin of zwart zijn.</dd></div><div><dt>Bewerkingen</dt><dd>Draaien, frezen, boren en profileren met aandacht voor opspanning, uitzetting en vervorming.</dd></div><div><dt>Prijsbeeld</dt><dd>PTFE ligt doorgaans relatief hoger dan HDPE, PP, PVC en veel gangbare technische kunststoffen.</dd></div></dl><a class="mkr-material-link" href="/ptfe-op-maat/">Meer over PTFE op maat →</a></div>
       </details>
       <details class="mkr-material" name="mkr-materials">
         <summary><strong>POM ringen en revetten</strong><span>Maatvast, stijf en nauwkeurig te bewerken</span></summary>
-        <div class="mkr-material-content"><p>POM is geschikt voor nauwkeurige afstandsringen, revetten en kraagringen. Het neemt weinig vocht op, heeft goede glij-eigenschappen en laat zich strak draaien, frezen, boren en tappen.</p><dl class="mkr-material-facts"><div><dt>Toepassingen</dt><dd>Afstandsringen, lager- en geleideringen, maatvaste sluitringen, kraagringen en technische machineonderdelen.</dd></div><div><dt>Kleuren</dt><dd>Veelal naturel of wit en zwart; speciale en detecteerbare kwaliteiten zijn afhankelijk van voorraad.</dd></div><div><dt>Bewerkingen</dt><dd>Precisiedraaien, frezen, ruimen, boren, tappen en het maken van groeven, trappen en passingmaten.</dd></div><div><dt>Prijsbeeld</dt><dd>POM valt meestal in de middencategorie en wordt vooral gekozen voor nauwkeurigheid en stijfheid.</dd></div></dl></div>
+        <div class="mkr-material-content"><p>POM is geschikt voor nauwkeurige afstandsringen, revetten en kraagringen. Het neemt weinig vocht op, heeft goede glij-eigenschappen en laat zich strak draaien, frezen, boren en tappen.</p><dl class="mkr-material-facts"><div><dt>Toepassingen</dt><dd>Afstandsringen, lager- en geleideringen, maatvaste sluitringen, kraagringen en technische machineonderdelen.</dd></div><div><dt>Kleuren</dt><dd>Veelal naturel of wit en zwart; speciale en detecteerbare kwaliteiten zijn afhankelijk van voorraad.</dd></div><div><dt>Bewerkingen</dt><dd>Precisiedraaien, frezen, ruimen, boren, tappen en het maken van groeven, trappen en passingmaten.</dd></div><div><dt>Prijsbeeld</dt><dd>POM valt meestal in de middencategorie en wordt vooral gekozen voor nauwkeurigheid en stijfheid.</dd></div></dl><a class="mkr-material-link" href="/pom-op-maat/">Meer over POM op maat →</a></div>
+      </details>
+      <details class="mkr-material" name="mkr-materials">
+        <summary><strong>PU ringen</strong><span>Elastisch, slijtvast en geschikt voor demping</span></summary>
+        <div class="mkr-material-content"><p>PU staat voor polyurethaan. Massief PU zit qua gedrag tussen een stijve kunststof en zachter rubber in: het kan onder belasting vervormen en grotendeels terugveren, terwijl het oppervlak goed bestand kan zijn tegen slijtage en inscheuren. De PU-soort en Shore-hardheid zijn bepalend voor de werking.</p><dl class="mkr-material-facts"><div><dt>Toepassingen</dt><dd>Dempingsringen, stootringen, schraperringen, beschermringen, flexibele afstandsringen en slijtvaste contactdelen.</dd></div><div><dt>Kleuren</dt><dd>Onder meer naturel, geel, rood, blauw en zwart, afhankelijk van hardheid, samenstelling en leverancier.</dd></div><div><dt>Bewerkingen</dt><dd>Snijden, zagen, frezen, draaien en boren, afhankelijk van de hardheid en stabiliteit van het materiaal.</dd></div><div><dt>Aandachtspunt</dt><dd>Water, olie, temperatuur en gewenste vervorming bepalen mede of polyester-PU, polyether-PU of een andere kwaliteit past.</dd></div></dl><a class="mkr-material-link" href="/pu-op-maat/">Meer over PU op maat →</a></div>
       </details>
       <details class="mkr-material" name="mkr-materials">
         <summary><strong>PA en PETP ringen</strong><span>Voor mechanische belasting, slijtage en geleiding</span></summary>
         <div class="mkr-material-content"><p>PA is taai en slijtvast, maar neemt vocht op waardoor maatvoering kan veranderen. PETP neemt minder vocht op en blijft maatvaster. De keuze hangt af van schokken, druk, beweging en de vereiste passing.</p><dl class="mkr-material-facts"><div><dt>Toepassingen</dt><dd>Geleideringen, drukringen, afstandsringen, lagerringen en mechanisch belaste machineonderdelen.</dd></div><div><dt>Kleuren</dt><dd>PA vaak naturel of zwart; PETP meestal naturel, wit, zwart of grijs.</dd></div><div><dt>Bewerkingen</dt><dd>Draaien, frezen, boren, groeven, afschuinen en nauwkeurig nabewerken.</dd></div><div><dt>Aandachtspunt</dt><dd>Bij een nauwe passing moet vooral bij PA rekening worden gehouden met vocht en gebruiksomgeving.</dd></div></dl></div>
       </details>
       <details class="mkr-material" name="mkr-materials">
-        <summary><strong>HDPE en HMPE ringen</strong><span>Taai, vochtbestendig en geschikt voor bescherming of slijtage</span></summary>
-        <div class="mkr-material-content"><p>HDPE is een praktische keuze voor robuuste, vochtbestendige ringen en revetten. HMPE heeft een lagere wrijving en betere slijtvastheid en wordt vaker gekozen voor glijdende of schurende toepassingen.</p><dl class="mkr-material-facts"><div><dt>Toepassingen</dt><dd>Beschermringen, vulringen, slijt- en glijringen, grote revetten en onderdelen in vochtige omgevingen.</dd></div><div><dt>Kleuren</dt><dd>Onder meer naturel of wit, zwart, groen en blauw; speciale kwaliteiten kunnen afwijken.</dd></div><div><dt>Bewerkingen</dt><dd>Draaien, frezen, boren en contourbewerking met aandacht voor flexibiliteit en thermische uitzetting.</dd></div><div><dt>Prijsbeeld</dt><dd>HDPE is doorgaans relatief voordelig; HMPE ligt hoger maar wordt gericht voor slijtage en lage wrijving gekozen.</dd></div></dl></div>
+        <summary><strong>HDPE ringen en revetten</strong><span>Taai, vochtbestendig en praktisch voor robuust gebruik</span></summary>
+        <div class="mkr-material-content"><p>HDPE, voluit hogedichtheidpolyethyleen, is een praktische keuze voor robuuste ringen en revetten die met vocht, vuil of lichte chemicaliën in aanraking komen. Het materiaal is taai en neemt vrijwel geen water op, maar is minder stijf en maatvast dan POM.</p><dl class="mkr-material-facts"><div><dt>Toepassingen</dt><dd>Grote vulringen, beschermringen, afstandsringen, isolerende revetten en onderdelen in natte of vuile omgevingen.</dd></div><div><dt>Kleuren</dt><dd>Onder meer naturel of wit, zwart, groen en blauw; speciale en voedselgeschikte kwaliteiten zijn afhankelijk van voorraad.</dd></div><div><dt>Bewerkingen</dt><dd>Draaien, frezen, boren en contourbewerking met aandacht voor flexibiliteit en thermische uitzetting.</dd></div><div><dt>Prijsbeeld</dt><dd>Standaard HDPE is doorgaans relatief voordelig en daardoor ook interessant voor grotere diameters.</dd></div></dl><a class="mkr-material-link" href="/hdpe-op-maat/">Meer over HDPE op maat →</a></div>
+      </details>
+      <details class="mkr-material" name="mkr-materials">
+        <summary><strong>HMPE ringen</strong><span>Zeer slijtvast met een lage wrijving</span></summary>
+        <div class="mkr-material-content"><p>HMPE wordt gekozen wanneer slijtage en glijdend contact zwaarder wegen dan een zeer strakke maatvoering. Het materiaal heeft een hoge slagvastheid, een lage wrijving en is geschikt voor ringen die langs een as, geleiding of productstroom bewegen.</p><dl class="mkr-material-facts"><div><dt>Toepassingen</dt><dd>Slijtringen, glijringen, geleideringen, beschermringen en robuuste lagerachtige onderdelen.</dd></div><div><dt>Kleuren</dt><dd>Veelal naturel of wit, groen en zwart; gemodificeerde kwaliteiten en andere kleuren zijn afhankelijk van leverancier.</dd></div><div><dt>Bewerkingen</dt><dd>Draaien, frezen, boren, groeven en profileren met rekening voor de taaiheid en thermische uitzetting.</dd></div><div><dt>Prijsbeeld</dt><dd>HMPE ligt doorgaans hoger dan standaard HDPE, maar wordt gericht gekozen voor een langere levensduur bij slijtage en glijden.</dd></div></dl></div>
       </details>
       <details class="mkr-material" name="mkr-materials">
         <summary><strong>PVC, PP en PVDF ringen</strong><span>Voor vocht, apparatenbouw en chemische omgevingen</span></summary>
@@ -321,18 +337,28 @@ bodyClass: mkr-page
 
 <section class="mkr-section" aria-labelledby="mkr-case-title">
   <div class="mkr-container">
-    <div class="mkr-section-head">
+    <div class="mkr-section-head mkr-section-head-single">
       <div><p class="mkr-eyebrow">Klantvoorbeelden</p><h2 class="mkr-heading" id="mkr-case-title">Kunststof ringen in de praktijk</h2></div>
-      <p>Twee verschillende aanvragen laten goed zien waarom alleen de diameter nog weinig zegt. Profiel, materiaal en functie bepalen samen de uitvoering.</p>
     </div>
     <div class="mkr-case-grid">
+      <div class="mkr-case-step">
+        <article class="mkr-case">
+          <figure class="mkr-case-image"><img src="/assets/images/kunststof-ring-met-kraag-cad.webp" width="800" height="800" loading="lazy" decoding="async" alt="3D-model met de maatvoering van een kunststof ring met kraag"></figure>
+          <div class="mkr-case-content">
+            <span class="mkr-case-label">Technische voorbereiding</span>
+            <h3>Getrapte ring uitgewerkt in een 3D-model</h3>
+            <p>Bij een ring met kraag zijn alleen de binnen- en buitendiameter niet genoeg. Ook de kraagdiameter, kraaghoogte, totale hoogte en de overgang tussen beide diameters worden vastgelegd.</p>
+            <p>Zo kunnen vorm en maatvoering vooraf worden gecontroleerd. Het uitgangspunt kan een technische tekening, schets, bestaand onderdeel of digitaal model zijn.</p>
+          </div>
+        </article>
+      </div>
       <article class="mkr-case">
-        <figure class="mkr-case-image"><img src="/assets/images/kunststof-ring-met-kraag.webp" width="1200" height="1200" loading="lazy" alt="Kunststof ring met kraag voor centrering en afstand"></figure>
+        <figure class="mkr-case-image"><img src="/assets/images/kunststof-ring-met-kraag.webp" width="1200" height="1200" loading="lazy" decoding="async" alt="Gemaakte kunststof ring met kraag volgens opgegeven maatvoering"></figure>
         <div class="mkr-case-content">
-          <span class="mkr-case-label">Toepassing: centreren en afstand houden</span>
-          <h3>Kunststof ring met kraag als centreerdeel</h3>
-          <p>Deze uitvoering combineert een vlakke flens met een smallere kraag. De kraag valt in de boring en centreert het onderdeel; de flens blijft tegen het oppervlak liggen en bepaalt de axiale positie. Tegelijk voorkomt de kunststof direct contact tussen de omliggende delen.</p>
-          <p>Voor zo'n kraagring leggen we naast binnen- en buitendiameter ook kraagdiameter, totale hoogte, kraaghoogte en gewenste speling vast. Een oude ring, foto of eenvoudige doorsnedetekening is vaak voldoende om te beginnen.</p>
+          <span class="mkr-case-label">Gemaakt volgens maatvoering</span>
+          <h3>Kunststof ring met kraag als eindonderdeel</h3>
+          <p>De smallere kraag kan in een boring vallen en het onderdeel centreren. De bredere flens blijft tegen het oppervlak liggen en begrenst de positie in de lengterichting.</p>
+          <p>Wanneer materiaal en maatvoering zijn vastgelegd, kan dezelfde uitvoering later opnieuw worden gemaakt voor vervanging of seriewerk.</p>
         </div>
       </article>
       <article class="mkr-case">

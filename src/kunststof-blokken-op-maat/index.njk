@@ -51,7 +51,7 @@ bodyClass: "mkb-page"
 
   .mkb-eyebrow {
     margin: 0 0 10px;
-    color: var(--mkb-orange);
+    color: var(--mkb-orange-dark);
     font-size: 0.72rem;
     font-weight: 840;
     letter-spacing: 0.13em;
@@ -76,7 +76,7 @@ bodyClass: "mkb-page"
   }
 
   .mkb-section-intro > p,
-  .mkb-copy p {
+  .mkb-copy p:not(.mkb-eyebrow) {
     margin: 0;
     color: var(--mkb-text);
     line-height: 1.72;
@@ -130,7 +130,7 @@ bodyClass: "mkb-page"
   .mkb-btn-green:focus-visible {
     border-color: var(--mkb-green-dark);
     color: var(--mkb-white);
-    background: var(--mkb-green-dark);
+    background: var(--mkb-green);
   }
 
   .mkb-btn-whatsapp {
@@ -232,12 +232,18 @@ bodyClass: "mkb-page"
     place-items: center;
     border: 1px solid rgba(255, 255, 255, 0.65);
     border-radius: 50%;
+    padding: 0;
     color: var(--mkb-ink);
     background: rgba(255, 255, 255, 0.92);
     box-shadow: 0 8px 20px rgba(20, 38, 46, 0.16);
-    font-size: 1.25rem;
     cursor: pointer;
     transform: translateY(-50%);
+  }
+
+  .mkb-gallery-control svg {
+    display: block;
+    width: 18px;
+    height: 18px;
   }
 
   .mkb-gallery-prev {
@@ -859,7 +865,7 @@ bodyClass: "mkb-page"
     place-items: center;
     border-radius: 50%;
     color: var(--mkb-white);
-    background: var(--mkb-green-dark);
+    background: var(--mkb-green);
     font-size: 0.78rem;
     font-weight: 850;
   }
@@ -1363,8 +1369,8 @@ bodyClass: "mkb-page"
             data-gallery-main
           >
         </button>
-        <button class="mkb-gallery-control mkb-gallery-prev" type="button" data-gallery-prev aria-label="Vorige foto">‹</button>
-        <button class="mkb-gallery-control mkb-gallery-next" type="button" data-gallery-next aria-label="Volgende foto">›</button>
+        <button class="mkb-gallery-control mkb-gallery-prev" type="button" data-gallery-prev aria-label="Vorige foto"><svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M12.5 4.5 7 10l5.5 5.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <button class="mkb-gallery-control mkb-gallery-next" type="button" data-gallery-next aria-label="Volgende foto"><svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="m7.5 4.5 5.5 5.5-5.5 5.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
       </figure>
 
       <div class="mkb-gallery-thumbs" aria-label="Kies een foto">

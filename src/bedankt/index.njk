@@ -7,17 +7,16 @@ bodyClass: thank-you-page
 ---
 <section class="thank-you-section">
   <div class="container thank-you-card">
-    <span class="success-mark" aria-hidden="true">✓</span>
-    <p class="eyebrow">Aanvraag ontvangen</p>
-    <h1>Bedankt voor uw offerteaanvraag</h1>
-    <p>Uw gegevens zijn verzonden. We bekijken de specificaties en nemen contact op wanneer er aanvullende informatie nodig is.</p>
+    <h1>Bedankt voor uw aanvraag</h1>
+    <p>Uw aanvraag is goed ontvangen. We nemen zo snel mogelijk contact met u op.</p>
     <div class="thank-you-actions">
       <a class="button" href="/">Terug naar de homepage</a>
-      <a class="text-link" href="/contact/">Contactgegevens bekijken <span aria-hidden="true">→</span></a>
     </div>
   </div>
 </section>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  window.dataLayer.push({ event: 'quote_form_success', page_path: window.location.pathname });
+  if (window.MKCookieConsent?.hasAnalyticsConsent()) {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: 'quote_form_success', page_path: window.location.pathname });
+  }
 </script>

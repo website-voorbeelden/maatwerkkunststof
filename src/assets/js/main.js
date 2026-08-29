@@ -64,10 +64,102 @@
     window.requestAnimationFrame(updateMobileHeader);
   }, { passive: true });
 
+  const whatsappAvailability = document.querySelector('[data-whatsapp-availability]');
+  if (whatsappAvailability) {
+    const dismissedKey = 'mk_whatsapp_availability_dismissed';
+    const shownKey = 'mk_whatsapp_availability_shown';
+    const whatsappToggle = whatsappAvailability.querySelector('[data-whatsapp-availability-toggle]');
+    const whatsappStatus = whatsappAvailability.querySelector('.whatsapp-availability__status');
+    const mobileWhatsappQuery = window.matchMedia('(max-width: 719px)');
+    const forceLocalPreview = ['localhost', '127.0.0.1'].includes(window.location.hostname)
+      && new URLSearchParams(window.location.search).has('previewWhatsapp');
+    let whatsappReady = false;
+    let whatsappReadyTimer;
+    const isDismissed = () => {
+      try { return sessionStorage.getItem(dismissedKey) === 'true'; } catch { return false; }
+    };
+    const hasBeenShown = () => {
+      try { return sessionStorage.getItem(shownKey) === 'true'; } catch { return false; }
+    };
+    const isDutchBusinessHours = () => {
+      const parts = new Intl.DateTimeFormat('en-GB', {
+        timeZone: 'Europe/Amsterdam',
+        weekday: 'short',
+        hour: '2-digit',
+        minute: '2-digit',
+        hourCycle: 'h23'
+      }).formatToParts(new Date());
+      const values = Object.fromEntries(parts.map((part) => [part.type, part.value]));
+      const weekdays = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'];
+      const minutes = (Number(values.hour) * 60) + Number(values.minute);
+      return weekdays.includes(values.weekday) && minutes >= 9 * 60 && minutes < 17 * 60;
+    };
+    const updateWhatsappAvailability = () => {
+      const employeeIsOnline = forceLocalPreview || isDutchBusinessHours();
+      whatsappAvailability.hidden = !whatsappReady || isDismissed();
+      if (whatsappStatus) whatsappStatus.hidden = !employeeIsOnline;
+    };
+
+    const scheduleWhatsappAvailability = (delay) => {
+      window.clearTimeout(whatsappReadyTimer);
+      if (whatsappReady || isDismissed() || (!forceLocalPreview && hasBeenShown())) return;
+      whatsappAvailability.hidden = true;
+      whatsappReadyTimer = window.setTimeout(() => {
+        whatsappReady = true;
+        if (!forceLocalPreview) {
+          try { sessionStorage.setItem(shownKey, 'true'); } catch { /* storage may be unavailable */ }
+        }
+        updateWhatsappAvailability();
+      }, delay);
+    };
+
+    const collapseWhatsappAvailability = () => {
+      whatsappAvailability.classList.remove('is-expanded');
+      whatsappToggle?.setAttribute('aria-expanded', 'false');
+    };
+
+    whatsappToggle?.addEventListener('click', () => {
+      const expanded = whatsappAvailability.classList.toggle('is-expanded');
+      whatsappToggle.setAttribute('aria-expanded', String(expanded));
+    });
+
+    whatsappAvailability.querySelector('[data-whatsapp-availability-close]')?.addEventListener('click', () => {
+      if (mobileWhatsappQuery.matches) {
+        collapseWhatsappAvailability();
+        whatsappToggle?.focus();
+        return;
+      }
+      try { sessionStorage.setItem(dismissedKey, 'true'); } catch { /* storage may be unavailable */ }
+      whatsappAvailability.hidden = true;
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && whatsappAvailability.classList.contains('is-expanded')) {
+        collapseWhatsappAvailability();
+        whatsappToggle?.focus();
+      }
+    });
+
+    mobileWhatsappQuery.addEventListener?.('change', collapseWhatsappAvailability);
+
+    window.addEventListener('mk:consent-updated', () => {
+      scheduleWhatsappAvailability(7 * 1000);
+    });
+
+    scheduleWhatsappAvailability(
+      window.MKCookieConsent?.hasConsentChoice?.() ? 7 * 1000 : 30 * 1000
+    );
+    window.setInterval(updateWhatsappAvailability, 60 * 1000);
+    document.addEventListener('visibilitychange', () => {
+      if (!document.hidden) updateWhatsappAvailability();
+    });
+  }
+
   window.dataLayer = window.dataLayer || [];
 
   document.querySelectorAll('[data-analytics]').forEach((element) => {
     element.addEventListener('click', () => {
+      if (!window.MKCookieConsent?.hasAnalyticsConsent()) return;
       window.dataLayer.push({
         event: element.dataset.analytics,
         click_location: element.dataset.location || '',
@@ -159,11 +251,13 @@
           throw new Error(result.message || 'De aanvraag kon niet worden verstuurd. Probeer het opnieuw.');
         }
 
-        window.dataLayer.push({
-          event: 'quote_form_submit',
-          product_type: form.elements.namedItem('product')?.value || '',
-          page_path: window.location.pathname
-        });
+        if (window.MKCookieConsent?.hasAnalyticsConsent()) {
+          window.dataLayer.push({
+            event: 'quote_form_submit',
+            product_type: form.elements.namedItem('product')?.value || '',
+            page_path: window.location.pathname
+          });
+        }
 
         window.location.assign('/bedankt/');
       } catch (error) {
