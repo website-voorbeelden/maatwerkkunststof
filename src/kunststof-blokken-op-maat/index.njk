@@ -729,6 +729,21 @@ bodyClass: "mkb-page"
     line-height: 1.58;
   }
 
+  .mkb-material-link {
+    display: inline-flex;
+    margin-top: 20px;
+    color: var(--mkb-green-dark);
+    font-size: 0.82rem;
+    font-weight: 780;
+    text-decoration: none;
+  }
+
+  .mkb-material-link:hover,
+  .mkb-material-link:focus-visible {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
   .mkb-callout {
     display: grid;
     gap: 18px;
@@ -1700,6 +1715,7 @@ bodyClass: "mkb-page"
             <div class="mkb-material-highlight"><dt>Mogelijke bewerkingen</dt><dd>Zagen, frezen, boren, lijmen en bij geschikte uitvoeringen lassen.</dd></div>
             <div><dt>Prijsbeeld</dt><dd>Standaard PVC-U is vaak relatief voordelig tot gemiddeld geprijsd.</dd></div>
           </dl>
+          <a class="mkb-material-link" href="/pvc-op-maat/">Meer over PVC op maat →</a>
         </div>
       </details>
 

@@ -467,6 +467,21 @@ bodyClass: mks-page
     line-height: 1.68;
   }
 
+  .mks-material-link {
+    display: inline-flex;
+    width: max-content;
+    color: var(--mks-green-dark);
+    font-size: 0.82rem;
+    font-weight: 780;
+    text-decoration: none;
+  }
+
+  .mks-material-link:hover,
+  .mks-material-link:focus-visible {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
   .mks-material-facts {
     display: grid;
     gap: 12px;
@@ -1138,6 +1153,7 @@ bodyClass: mks-page
             <div class="mks-material-highlight"><dt>Bewerkingen</dt><dd>Zagen, frezen, boren, lassen en bij passende PVC-kwaliteiten lijmen.</dd></div>
             <div><dt>Prijsbeeld</dt><dd>Standaard PVC en PP zijn meestal relatief voordelig tot gemiddeld geprijsd.</dd></div>
           </dl>
+          <a class="mks-material-link" href="/pvc-op-maat/">Meer over PVC op maat →</a>
         </div>
       </details>
 

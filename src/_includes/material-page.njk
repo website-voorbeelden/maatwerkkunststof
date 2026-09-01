@@ -47,7 +47,7 @@
 {% if material.grades %}
 <section class="mat-section mat-soft" aria-labelledby="mat-grades-title">
   <div class="mat-container mat-longform">
-    <p class="mat-eyebrow">Polyethyleen begrijpen</p>
+    <p class="mat-eyebrow">{{ material.gradesEyebrow or "Materiaalsoorten" }}</p>
     <h2 class="mat-heading" id="mat-grades-title">{{ material.gradesTitle }}</h2>
     <p class="mat-longform-lead">{{ material.gradesIntro }}</p>
     <div class="mat-grade-article">
@@ -63,6 +63,7 @@
 </section>
 {% endif %}
 
+{% if material.forms %}
 <section class="mat-section" aria-labelledby="mat-forms-title">
   <div class="mat-container">
     <div class="mat-section-head">
@@ -79,22 +80,58 @@
     </div>
   </div>
 </section>
+{% endif %}
+
+{% if material.spotlightTitle %}
+<section class="mat-section mat-soft" aria-labelledby="mat-spotlight-title">
+  <div class="mat-container{% if not material.spotlightImage %} mat-longform{% endif %}">
+    <div class="mat-spotlight-layout">
+      <div>
+        <p class="mat-eyebrow">{{ material.spotlightEyebrow or "Uitgelicht" }}</p>
+        <h2 class="mat-heading" id="mat-spotlight-title">{{ material.spotlightTitle }}</h2>
+        <div class="mat-editorial-copy">
+          {% for paragraph in material.spotlightParagraphs %}<p>{{ paragraph | safe }}</p>{% endfor %}
+        </div>
+      </div>
+      {% if material.spotlightImage %}
+        <figure class="mat-spotlight-image">
+          <img src="{{ material.spotlightImage.src }}" width="{{ material.spotlightImage.width }}" height="{{ material.spotlightImage.height }}" alt="{{ material.spotlightImage.alt }}" loading="lazy" decoding="async">
+        </figure>
+      {% endif %}
+    </div>
+  </div>
+</section>
+{% endif %}
 
 {% if material.examples %}
-<section class="mat-section mat-soft" aria-labelledby="mat-examples-title">
+<section class="mat-section{% if not material.examplesPlain %} mat-soft{% endif %}" aria-labelledby="mat-examples-title">
   <div class="mat-container">
     <div class="mat-section-head">
       <div><p class="mat-eyebrow">Uit de praktijk</p><h2 class="mat-heading" id="mat-examples-title">{{ material.examplesTitle }}</h2></div>
       <p>{{ material.examplesIntro }}</p>
     </div>
+    {% if material.examplesCompactPair %}
+      <div class="mat-example-process" aria-label="Van digitaal model naar uitgevoerd PVC-onderdeel">
+        <figure><img src="{{ material.examples[0].images[0].src }}" width="{{ material.examples[0].images[0].width }}" height="{{ material.examples[0].images[0].height }}" alt="{{ material.examples[0].images[0].alt }}" loading="lazy" decoding="async"></figure>
+        <span aria-hidden="true">→</span>
+        <figure><img src="{{ material.examples[0].images[1].src }}" width="{{ material.examples[0].images[1].width }}" height="{{ material.examples[0].images[1].height }}" alt="{{ material.examples[0].images[1].alt }}" loading="lazy" decoding="async"></figure>
+      </div>
+    {% else %}
     <div class="mat-example-grid">
       {% for example in material.examples %}
-        <article class="mat-example-card">
-          <img src="{{ example.image }}" width="{{ example.width }}" height="{{ example.height }}" alt="{{ example.alt }}" loading="lazy" decoding="async">
-          <div><h3>{{ example.title }}</h3><p>{{ example.text }}</p></div>
+        <article class="mat-example-card{% if example.images %} is-wide{% endif %}">
+          {% if example.images %}
+            <div class="mat-example-media-pair">
+              {% for image in example.images %}<img src="{{ image.src }}" width="{{ image.width }}" height="{{ image.height }}" alt="{{ image.alt }}" loading="lazy" decoding="async">{% endfor %}
+            </div>
+          {% else %}
+            <img src="{{ example.image }}" width="{{ example.width }}" height="{{ example.height }}" alt="{{ example.alt }}" loading="lazy" decoding="async">
+          {% endif %}
+          <div class="mat-example-copy"><h3>{{ example.title }}</h3><p>{{ example.text }}</p></div>
         </article>
       {% endfor %}
     </div>
+    {% endif %}
   </div>
 </section>
 {% endif %}
@@ -231,6 +268,7 @@
 {% set quotePlaceholder = "Vertel kort wat u nodig heeft. Een globale maat of eenvoudige omschrijving is al genoeg." %}
 {% set quoteHidePrivacyCheckbox = true %}
 {% set quoteCompact = true %}
+{% set quoteLight = material.quoteLight or false %}
 {% include "offerte-form.njk" %}
 
 <script type="application/ld+json">
@@ -255,4 +293,3 @@
   ]
 }
 </script>
-

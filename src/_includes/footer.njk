@@ -34,8 +34,12 @@
 
     <div>
       <h2>Direct aanvragen</h2>
-      <p>Stuur uw maten, aantallen en eventueel een tekening. U ontvangt een vrijblijvende beoordeling.</p>
-      <a class="button button-outline-light button-small" href="{{ footerQuoteHref }}" data-analytics="quote_cta" data-location="footer">Start uw aanvraag</a>
+      <ul class="footer-links">
+        <li><a href="tel:{{ site.phone }}">{{ site.phoneDisplay }}</a></li>
+        <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
+        <li><a href="{{ footerQuoteHref }}" data-analytics="quote_cta" data-location="footer">Offerte aanvragen</a></li>
+        <li><a href="https://wa.me/{{ site.whatsapp }}" target="_blank" rel="noopener" data-analytics="whatsapp_click" data-location="footer">WhatsApp</a></li>
+      </ul>
     </div>
   </div>
   <div class="container footer-bottom">

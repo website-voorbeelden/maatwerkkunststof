@@ -2,6 +2,7 @@
   'use strict';
 
   const STORAGE_KEY = 'mk_cookie_consent_v1';
+  const DISMISSED_KEY = 'mk_cookie_consent_dismissed';
   const config = window.MK_TRACKING_CONFIG || {};
   let analyticsLoaded = false;
 
@@ -133,6 +134,15 @@
     const summary = consent.querySelector('[data-cookie-summary]');
     const preferencesPanel = consent.querySelector('[data-cookie-preferences-panel]');
     const analyticsInput = consent.querySelector('[data-cookie-analytics]');
+    let showTimer;
+
+    const wasDismissed = () => {
+      try {
+        return sessionStorage.getItem(DISMISSED_KEY) === 'true';
+      } catch {
+        return false;
+      }
+    };
 
     const showSummary = () => {
       summary.hidden = false;
@@ -147,14 +157,26 @@
     };
 
     const open = (preferences = false) => {
+      window.clearTimeout(showTimer);
       consent.hidden = false;
       preferences ? showPreferences() : showSummary();
       document.body.classList.add('cookie-consent-open');
     };
 
     const close = () => {
+      window.clearTimeout(showTimer);
       consent.hidden = true;
       document.body.classList.remove('cookie-consent-open');
+    };
+
+    const dismiss = () => {
+      try {
+        sessionStorage.setItem(DISMISSED_KEY, 'true');
+      } catch {
+        /* Closing remains possible if storage is unavailable. */
+      }
+      close();
+      window.dispatchEvent(new CustomEvent('mk:consent-dismissed'));
     };
 
     consent.querySelector('[data-cookie-accept]')?.addEventListener('click', () => {
@@ -164,6 +186,9 @@
 
     consent.querySelector('[data-cookie-preferences]')?.addEventListener('click', showPreferences);
     consent.querySelector('[data-cookie-back]')?.addEventListener('click', showSummary);
+    consent.querySelectorAll('[data-cookie-close]').forEach((button) => {
+      button.addEventListener('click', dismiss);
+    });
     consent.querySelector('[data-cookie-save]')?.addEventListener('click', () => {
       saveConsent(analyticsInput.checked);
       close();
@@ -173,8 +198,8 @@
       button.addEventListener('click', () => open(true));
     });
 
-    if (!readConsent()) {
-      window.setTimeout(() => open(false), 2000);
+    if (!readConsent() && !wasDismissed()) {
+      showTimer = window.setTimeout(() => open(false), 25 * 1000);
     }
   });
 })();

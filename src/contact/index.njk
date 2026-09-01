@@ -108,6 +108,27 @@ breadcrumb: Contact
     gap: 14px;
   }
 
+  .mkc-section-contact {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 22px;
+    margin: 2px 0 0;
+    color: var(--mkc-text);
+    font-size: .9rem;
+  }
+
+  .mkc-section-contact a {
+    color: var(--mkc-ink);
+    font-weight: 760;
+    text-decoration-color: var(--mkc-green-dark);
+    text-underline-offset: 4px;
+  }
+
+  .mkc-section-contact a:hover,
+  .mkc-section-contact a:focus-visible {
+    color: var(--mkc-green-dark);
+  }
+
   .mkc-contact-button {
     display: inline-flex;
     min-height: 48px;
@@ -375,9 +396,17 @@ breadcrumb: Contact
           <h1 class="mkc-heading">Waar gaat uw vraag over?</h1>
         </div>
         <p>
-          Vermeld bij een bestaande bestelling bij voorkeur het offerte- of
-          ordernummer. Bij maatwerk helpt een foto of korte omschrijving vaak
-          meer dan een lange uitleg.
+          Heeft u een nieuwe aanvraag, een vraag over een bestelling of is er
+          iets niet naar verwachting? Kies hieronder het onderwerp dat het beste
+          bij uw vraag past. Vermeld bij een bestaande bestelling bij voorkeur
+          het offerte- of ordernummer. Voor kunststof maatwerk is een foto,
+          schets of korte omschrijving vaak al voldoende om uw vraag goed te
+          kunnen beoordelen.
+        </p>
+        <p class="mkc-section-contact">
+          <span>Direct contact:</span>
+          <a href="tel:{{ site.phone }}">{{ site.phoneDisplay }}</a>
+          <a href="mailto:{{ site.email }}">{{ site.email }}</a>
         </p>
       </div>
       <div class="mkc-topic-grid">

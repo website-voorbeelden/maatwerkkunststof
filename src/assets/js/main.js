@@ -143,6 +143,9 @@
     window.addEventListener('mk:consent-updated', () => {
       scheduleWhatsappAvailability(7 * 1000);
     });
+    window.addEventListener('mk:consent-dismissed', () => {
+      scheduleWhatsappAvailability(7 * 1000);
+    });
 
     scheduleWhatsappAvailability(
       window.MKCookieConsent?.hasConsentChoice?.() ? 7 * 1000 : 30 * 1000
