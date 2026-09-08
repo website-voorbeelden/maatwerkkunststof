@@ -1,7 +1,7 @@
 <section class="pc-hero" aria-labelledby="{{ conversion.prefix }}-title">
   <div class="container pc-grid">
     <div class="pc-info">
-      <p class="eyebrow">{{ conversion.eyebrow }}</p>
+      {% if conversion.eyebrow %}<p class="eyebrow">{{ conversion.eyebrow }}</p>{% endif %}
       <h1 id="{{ conversion.prefix }}-title">{{ conversion.title }}</h1>
       <p class="pc-lead">{{ conversion.lead }}</p>
 
@@ -57,14 +57,17 @@
 
         <div class="form-status" role="status" aria-live="polite" data-form-status></div>
         <button class="button button-full" type="submit" data-submit-button>Offerteaanvraag versturen</button>
-        <p class="pc-form-note">Vrijblijvend en zonder aankoopverplichting. We gebruiken uw gegevens alleen om uw aanvraag te beantwoorden. <a href="/privacybeleid/">Lees ons privacybeleid</a>.</p>
       </form>
 
       <ul class="pc-usps" aria-label="Voordelen van MaatwerkKunststof.nl">
-        <li>Snel geleverd</li>
-        <li>Scherpe prijzen</li>
-        <li>Klantgericht advies</li>
-        <li>Specialist in maatwerk</li>
+        {% if conversion.usps %}
+          {% for usp in conversion.usps %}<li>{{ usp }}</li>{% endfor %}
+        {% else %}
+          <li>Snel geleverd</li>
+          <li>Scherpe prijzen</li>
+          <li>Klantgericht advies</li>
+          <li>Specialist in maatwerk</li>
+        {% endif %}
       </ul>
 
       {% if site.whatsapp %}

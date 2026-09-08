@@ -1,0 +1,426 @@
+---
+layout: base.njk
+title: Teflon (PTFE) strips | Glijstrips, stroken en meer
+description: "Teflon strips en PTFE stroken op maat vanaf één stuk. Recht, flexibel of bewerkt als glijstrip, met gaten, sleuven of een eigen contour."
+image: /assets/images/teflon-strip-met-gaten.jpg
+imageAlt: Witte Teflon strip op maat met verzonken gaten
+preloadImage: /assets/images/teflon-strip-met-gaten.jpg
+bodyClass: mtr-page
+---
+
+<style>
+  body.mtr-page {
+    --mtr-ink: #142b33;
+    --mtr-text: #53636a;
+    --mtr-line: #dce2e3;
+    --mtr-soft: #f3f7ef;
+    --mtr-green: #74c200;
+    --mtr-green-dark: #4f8f00;
+    --mtr-white: #fff;
+    --mtr-radius: 14px;
+    background: var(--mtr-white);
+  }
+
+  body.mtr-page main { overflow: clip; }
+  .mtr-container { width: min(calc(100% - 32px), 1180px); margin-inline: auto; }
+  .mtr-section { padding: 66px 0; }
+  .mtr-soft { background: var(--mtr-soft); }
+  body.mtr-page .eyebrow,
+  body.mtr-page .mtr-eyebrow,
+  body.mtr-page .mtr-case-label { color: var(--mtr-green-dark); }
+  .mtr-eyebrow { margin: 0 0 10px; font-size: .72rem; font-weight: 840; letter-spacing: .13em; line-height: 1.35; text-transform: uppercase; }
+  .mtr-heading { max-width: 810px; margin: 0; color: var(--mtr-ink); font-size: clamp(2rem, 5vw, 3.05rem); font-weight: 770; letter-spacing: -.04em; line-height: 1.08; }
+  .mtr-section-head { display: grid; gap: 14px; margin-bottom: 32px; }
+  .mtr-section-head > p:last-child,
+  .mtr-copy p { max-width: 790px; margin: 0; color: var(--mtr-text); line-height: 1.72; }
+  .mtr-copy { display: grid; gap: 16px; align-content: center; }
+  .mtr-copy a { color: var(--mtr-green-dark); font-weight: 750; text-underline-offset: 3px; }
+
+  .mtr-intro-grid,
+  .mtr-price-grid,
+  .mtr-faq-grid { display: grid; gap: 34px; }
+  .mtr-note { align-self: start; border: 1px solid rgba(116, 194, 0, .34); border-radius: var(--mtr-radius); padding: 24px; background: linear-gradient(145deg, #fbfdf8 0%, var(--mtr-soft) 100%); }
+  .mtr-note h3 { margin: 0 0 10px; color: var(--mtr-ink); font-size: 1.06rem; }
+  .mtr-note p { margin: 0; color: var(--mtr-text); font-size: .85rem; line-height: 1.68; }
+  .mtr-note a { display: inline-block; margin-top: 15px; color: var(--mtr-green-dark); font-size: .84rem; font-weight: 780; text-decoration: none; }
+
+  .mtr-card-grid,
+  .mtr-application-grid { display: grid; gap: 14px; }
+  .mtr-card,
+  .mtr-application-card { border: 1px solid var(--mtr-line); border-radius: 10px; padding: 22px; background: var(--mtr-white); }
+  .mtr-card h3,
+  .mtr-application-card h3 { margin: 0 0 7px; color: var(--mtr-ink); font-size: 1rem; line-height: 1.3; }
+  .mtr-card p,
+  .mtr-application-card p { margin: 0; color: var(--mtr-text); font-size: .83rem; line-height: 1.59; }
+
+  .mtr-dimensions { display: grid; gap: 28px; align-items: center; }
+  .mtr-dimensions-image { overflow: hidden; aspect-ratio: 1; margin: 0; border-radius: var(--mtr-radius); background: #e7e5df; }
+  .mtr-dimensions-image img { width: 100%; height: 100%; object-fit: cover; }
+  .mtr-specs { display: grid; gap: 11px; margin: 4px 0 0; padding: 0; list-style: none; }
+  .mtr-specs li { position: relative; padding-left: 26px; color: var(--mtr-ink); font-size: .87rem; font-weight: 700; line-height: 1.5; }
+  .mtr-specs li::before { position: absolute; top: .32em; left: 1px; width: 12px; height: 7px; border-bottom: 2px solid var(--mtr-green-dark); border-left: 2px solid var(--mtr-green-dark); content: ""; transform: rotate(-45deg); }
+
+  .mtr-material-grid { display: grid; gap: 14px; align-items: start; }
+  .mtr-material { overflow: hidden; border: 1px solid var(--mtr-line); border-radius: 11px; background: var(--mtr-white); transition: border-color .22s ease, box-shadow .22s ease; }
+  .mtr-material[open] { border-color: rgba(79, 143, 0, .55); box-shadow: 0 12px 30px rgba(20, 43, 51, .07); }
+  .mtr-material summary { position: relative; padding: 21px 54px 21px 22px; color: var(--mtr-ink); cursor: pointer; list-style: none; }
+  .mtr-material summary::-webkit-details-marker { display: none; }
+  .mtr-material summary::after { position: absolute; top: 50%; right: 22px; color: var(--mtr-green-dark); content: "+"; font-size: 1.55rem; font-weight: 500; transform: translateY(-50%); }
+  .mtr-material[open] summary::after { content: "−"; }
+  .mtr-material summary strong,
+  .mtr-material summary span { display: block; }
+  .mtr-material summary strong { margin-bottom: 4px; font-size: 1rem; }
+  .mtr-material summary span { color: var(--mtr-text); font-size: .78rem; line-height: 1.48; }
+  .mtr-material-content { border-top: 1px solid var(--mtr-line); padding: 22px; }
+  .mtr-material-content > p { margin: 0 0 20px; color: var(--mtr-text); font-size: .88rem; line-height: 1.7; }
+  .mtr-material-facts { display: grid; gap: 14px; margin: 0; }
+  .mtr-material-facts div { display: grid; gap: 3px; align-content: start; }
+  .mtr-material-facts div:nth-child(2),
+  .mtr-material-facts div:nth-child(3) { border-left: 3px solid var(--mtr-green); border-radius: 0 8px 8px 0; padding: 13px 15px; background: var(--mtr-soft); }
+  .mtr-material-facts dt { color: var(--mtr-ink); font-size: .72rem; font-weight: 820; letter-spacing: .04em; text-transform: uppercase; }
+  .mtr-material-facts dd { margin: 0; color: var(--mtr-text); font-size: .82rem; line-height: 1.58; }
+  .mtr-callout { display: grid; gap: 18px; align-items: center; margin-top: 22px; border: 1px solid rgba(116, 194, 0, .42); border-radius: 12px; padding: 22px; background: var(--mtr-white); box-shadow: 0 12px 32px rgba(20, 43, 51, .06); }
+  .mtr-callout strong,
+  .mtr-callout span { display: block; }
+  .mtr-callout strong { margin-bottom: 4px; color: var(--mtr-ink); font-size: .95rem; }
+  .mtr-callout span { color: var(--mtr-text); font-size: .81rem; line-height: 1.55; }
+  .mtr-callout a { color: var(--mtr-green-dark); font-size: .84rem; font-weight: 780; text-decoration: none; }
+
+  .mtr-case-grid { display: grid; gap: 18px; }
+  .mtr-case { display: grid; overflow: hidden; border: 1px solid var(--mtr-line); border-radius: var(--mtr-radius); background: var(--mtr-white); box-shadow: 0 12px 30px rgba(20, 43, 51, .06); }
+  .mtr-case-image { margin: 0; background: #e7e5df; }
+  .mtr-case-image img { width: 100%; height: 100%; aspect-ratio: 1; object-fit: cover; }
+  .mtr-case-content { display: grid; gap: 13px; align-content: center; padding: 24px; }
+  .mtr-case-label { font-size: .7rem; font-weight: 850; letter-spacing: .09em; text-transform: uppercase; }
+  .mtr-case-content h3 { margin: 0; color: var(--mtr-ink); font-size: clamp(1.25rem, 3vw, 1.65rem); line-height: 1.18; }
+  .mtr-case-content p { margin: 0; color: var(--mtr-text); font-size: .86rem; line-height: 1.7; }
+  .mtr-case-step { position: relative; z-index: 1; }
+  .mtr-case-step::after { position: absolute; bottom: -24px; left: 50%; z-index: 2; display: grid; width: 30px; height: 30px; place-items: center; transform: translateX(-50%); border: 1px solid rgba(116, 194, 0, .45); border-radius: 50%; color: var(--mtr-green-dark); background: var(--mtr-white); content: "↓"; font-size: 1rem; font-weight: 800; }
+
+  .mtr-price-copy { display: grid; gap: 16px; }
+  .mtr-price-copy p { margin: 0; color: var(--mtr-text); font-size: .87rem; line-height: 1.72; }
+  .mtr-price-note { align-self: start; border-left: 4px solid var(--mtr-green); border-radius: 0 12px 12px 0; padding: 23px 24px; background: var(--mtr-white); }
+  .mtr-price-note h3 { margin: 0 0 9px; color: var(--mtr-ink); font-size: 1.04rem; }
+  .mtr-price-note p { margin: 0; color: var(--mtr-text); font-size: .86rem; line-height: 1.67; }
+
+  .mtr-faq-list { border-top: 1px solid var(--mtr-line); }
+  .mtr-faq-list details { border-bottom: 1px solid var(--mtr-line); }
+  .mtr-faq-list summary { position: relative; padding: 19px 38px 19px 0; color: var(--mtr-ink); font-size: .9rem; font-weight: 740; line-height: 1.45; cursor: pointer; list-style: none; }
+  .mtr-faq-list summary::-webkit-details-marker { display: none; }
+  .mtr-faq-list summary::after { position: absolute; top: 15px; right: 3px; color: var(--mtr-green); content: "+"; font-size: 1.4rem; }
+  .mtr-faq-list details[open] summary::after { content: "−"; }
+  .mtr-faq-list p { max-width: 760px; margin: 0 0 20px; padding-right: 25px; color: var(--mtr-text); font-size: .85rem; line-height: 1.62; }
+
+  .mtr-final { padding: 56px 0; background: var(--mtr-soft); }
+  .mtr-final-inner { display: grid; gap: 22px; align-items: center; }
+  .mtr-final h2 { max-width: 720px; margin: 0 0 8px; color: var(--mtr-ink); font-size: clamp(1.8rem, 5vw, 2.8rem); }
+  .mtr-final p { max-width: 720px; margin: 0; color: var(--mtr-text); line-height: 1.6; }
+  .mtr-button { display: inline-flex; min-height: 50px; align-items: center; justify-content: center; border-radius: 8px; padding: 13px 20px; color: #fff; background: var(--mtr-green); font-size: .9rem; font-weight: 800; text-decoration: none; transition: background-color .22s ease, transform .22s ease; }
+  .mtr-button:hover,
+  .mtr-button:focus-visible { color: #fff; background: var(--mtr-green-dark); transform: translateY(-1px); }
+
+  @media (min-width: 680px) {
+    .mtr-container { width: min(calc(100% - 48px), 1180px); }
+    .mtr-card-grid,
+    .mtr-material-grid,
+    .mtr-application-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .mtr-callout { grid-template-columns: 1fr auto; padding: 24px; }
+  }
+
+  @media (min-width: 900px) {
+    .mtr-section { padding: 90px 0; }
+    .mtr-section-head { grid-template-columns: minmax(0, 1fr) minmax(330px, .72fr); gap: 60px; align-items: end; margin-bottom: 40px; }
+    .mtr-intro-grid { grid-template-columns: minmax(0, 1.05fr) minmax(330px, .95fr); gap: 70px; align-items: center; }
+    .mtr-dimensions { grid-template-columns: minmax(400px, .92fr) minmax(0, 1.08fr); gap: 72px; }
+    .mtr-application-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .mtr-case { grid-template-columns: 320px minmax(0, 1fr); }
+    .mtr-case-image img { min-height: 280px; aspect-ratio: auto; }
+    .mtr-case-content { padding: 36px 42px; }
+    .mtr-case-step::after { left: 160px; }
+    .mtr-price-grid { grid-template-columns: minmax(0, 1.25fr) minmax(320px, .75fr); gap: 64px; }
+    .mtr-faq-grid { grid-template-columns: minmax(0, .72fr) minmax(0, 1.28fr); gap: 80px; }
+    .mtr-final-inner { grid-template-columns: 1fr auto; }
+  }
+</style>
+
+{% set conversion = {
+  prefix: "teflon-strip",
+  eyebrow: "PTFE strips volgens maat of tekening",
+  title: "Teflon strip",
+  lead: "Teflon strips en stroken op maat in zuiver of gevuld PTFE. Recht, flexibel of verder bewerkt en leverbaar vanaf één stuk.",
+  product: "Teflon strip op maat",
+  placeholder: "Beschrijving",
+  whatsappText: "Hallo%2C%20ik%20heb%20een%20vraag%20over%20een%20Teflon%20strip%20op%20maat.",
+  usps: [
+    "Vanaf één stuk",
+    "Volgens maat of voorbeeld",
+    "Zuiver en gevuld PTFE",
+    "Recht, flexibel of bewerkt"
+  ],
+  images: [
+    { src: "/assets/images/teflon-strip-met-gaten.jpg", width: 1254, height: 1254, alt: "Witte Teflon strip op maat met verzonken gaten" },
+    { src: "/assets/images/teflon-strip-recht-carrousel.webp", width: 1254, height: 1254, alt: "Rechte witte Teflon PTFE strip" },
+    { src: "/assets/images/flexibele-teflon-strook.webp", width: 1254, height: 1254, alt: "Flexibele witte Teflon strook op rol" }
+  ]
+} %}
+{% include "product-conversion-hero.njk" %}
+
+<section class="mtr-section" aria-labelledby="mtr-intro-title">
+  <div class="mtr-container mtr-intro-grid">
+    <div class="mtr-copy">
+      <div><p class="mtr-eyebrow">PTFE strips</p><h2 class="mtr-heading" id="mtr-intro-title">Teflon strips laten maken</h2></div>
+      <p>Wij maken Teflon strips volgens opgegeven lengte, breedte en dikte. Dat kan een rechte PTFE strip zijn, een flexibele Teflon strook op rol of een verder bewerkt onderdeel met gaten, verzinkingen, sleuven of een eigen contour.</p>
+      <p>Een Teflon strip kan vanaf één stuk worden gemaakt op basis van maatvoering, een schets, technische tekening, digitaal model of bestaand onderdeel. Ook prototypes, vervangingsstrips en terugkerende series zijn mogelijk.</p>
+    </div>
+    <aside class="mtr-note">
+      <h3>Bestaande glijstrip vervangen?</h3>
+      <p>Een versleten of niet meer leverbare Teflon glijstrip kan als uitgangspunt dienen. Neem contact op om de mogelijkheden te bespreken.</p>
+      <a href="#offerte">Neem contact op →</a>
+    </aside>
+  </div>
+</section>
+
+<section class="mtr-section mtr-soft" aria-labelledby="mtr-name-title">
+  <div class="mtr-container">
+    <div class="mtr-section-head">
+      <div><p class="mtr-eyebrow">Materiaalnaam</p><h2 class="mtr-heading" id="mtr-name-title">Teflon strip of PTFE strip?</h2></div>
+      <p>Met beide benamingen wordt doorgaans hetzelfde basismateriaal bedoeld.</p>
+    </div>
+    <div class="mtr-copy">
+      <p>PTFE staat voor polytetrafluorethyleen en is de technische materiaalnaam. Teflon™ is een merknaam van Chemours die in het dagelijks taalgebruik vaak als naam voor PTFE wordt gebruikt. Niet iedere PTFE strip is daarom automatisch een officieel Teflon-merkproduct.</p>
+      <p>Voor de toepassing is vooral de gekozen PTFE-kwaliteit belangrijk. Zuiver PTFE en gevulde kwaliteiten gedragen zich verschillend bij druk, slijtage en temperatuur.</p>
+    </div>
+  </div>
+</section>
+
+<section class="mtr-section" aria-labelledby="mtr-types-title">
+  <div class="mtr-container">
+    <div class="mtr-section-head">
+      <div><p class="mtr-eyebrow">Uitvoeringen</p><h2 class="mtr-heading" id="mtr-types-title">Welke PTFE strips maken we?</h2></div>
+      <p>Van een eenvoudige rechte strook tot een monteerbare glijstrip: maat, vorm en bewerking worden afgestemd op de toepassing.</p>
+    </div>
+    <div class="mtr-card-grid">
+      <article class="mtr-card"><h3>Rechte Teflon strip</h3><p>Een vlakke strook met vaste lengte, breedte en dikte, gezaagd of nauwkeurig op eindmaat gefreesd.</p></article>
+      <article class="mtr-card"><h3>Teflon glijstrip</h3><p>Voor een contactvlak met zeer lage wrijving, bijvoorbeeld langs een geleiding, slede, productbaan of bewegend onderdeel.</p></article>
+      <article class="mtr-card"><h3>Flexibele Teflon strook</h3><p>Een dunne PTFE strook die kan worden gebogen of op rol wordt geleverd voor bekleding, isolatie of een antikleefoppervlak.</p></article>
+      <article class="mtr-card"><h3>Strip met gaten of sleuven</h3><p>Met doorgaande gaten, verzinkingen, langgaten of uitsparingen voor montage en afstelling.</p></article>
+      <article class="mtr-card"><h3>Geprofileerde PTFE strip</h3><p>Met sponning, afschuining, afgeronde rand, getrapte doorsnede of een andere gefreesde vorm.</p></article>
+      <article class="mtr-card"><h3>Teflon plakstrip</h3><p>Een dunne strip met behandelde achterzijde en een geschikt kleefsysteem voor lichte toepassingen waarin mechanische bevestiging niet gewenst is.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="mtr-section mtr-soft" aria-labelledby="mtr-glides-title">
+  <div class="mtr-container mtr-dimensions">
+    <figure class="mtr-dimensions-image"><img src="/assets/images/teflon-strip-met-gaten.jpg" width="1254" height="1254" loading="lazy" decoding="async" alt="Teflon glijstrip op maat met verzonken montagegaten"></figure>
+    <div class="mtr-copy">
+      <div><p class="mtr-eyebrow">Glijden en geleiden</p><h2 class="mtr-heading" id="mtr-glides-title">Teflon glijstrip</h2></div>
+      <p>Een Teflon glijstrip vormt een glad contactvlak waarlangs een product, slede, deur of ander machineonderdeel beweegt. PTFE wordt hiervoor vooral gekozen wanneer lage wrijving, geringe hechting, chemische bestendigheid of temperatuur belangrijk is.</p>
+      <p>De glijstrip kan recht of geprofileerd worden uitgevoerd en worden voorzien van verzonken gaten, sleuven of uitsparingen. Montage is ook mogelijk door de strip op te sluiten of in een profiel te leggen. Daarbij houden we rekening met de uitzetting en vervorming van PTFE.</p>
+      <p>Zuiver PTFE is geschikt wanneer de materiaaleigenschappen van ongevuld PTFE nodig zijn. Bij hogere belasting of meer slijtage kan een gevulde PTFE-kwaliteit beter passen. Voor zware slijtage, hoge oppervlaktedruk of een stijvere geleiding kan een andere <a href="/kunststof-stroken/">kunststof glijstrip op maat</a> technisch logischer zijn.</p>
+      <ul class="mtr-specs">
+        <li>Als glijvlak onder sledes en bewegende delen</li>
+        <li>Als zijgeleiding langs product- en transportbanen</li>
+        <li>Met verzonken gaten, sleuven of een profielrand</li>
+        <li>In zuiver of gevuld PTFE, afhankelijk van belasting</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="mtr-section" aria-labelledby="mtr-dimensions-title">
+  <div class="mtr-container mtr-dimensions">
+    <figure class="mtr-dimensions-image"><img src="/assets/images/ptfe-strip-op-maat.webp" width="1254" height="1254" loading="lazy" decoding="async" alt="Rechte witte PTFE strip op maat"></figure>
+    <div class="mtr-copy">
+      <div><p class="mtr-eyebrow">Maatvoering</p><h2 class="mtr-heading" id="mtr-dimensions-title">Welke maten bepalen een Teflon strip?</h2></div>
+      <p>Voor een rechte strip zijn lengte, breedte en dikte de hoofdmaten. Bij een strip met gaten zijn ook de gatdiameter, hartafstanden en eventuele verzinking nodig. Voor een profielstrook worden daarnaast groeven, sponningen, radii en randafwerkingen vastgelegd.</p>
+      <p>PTFE is zachter en zet bij temperatuur sterker uit dan veel andere technische kunststoffen. Daarom stemmen we de relevante tolerantie af op de montage en het gebruik, in plaats van iedere maat onnodig nauw te specificeren.</p>
+      <ul class="mtr-specs">
+        <li>Lengte, breedte en dikte</li>
+        <li>Recht gezaagd of op eindmaat gefreesd</li>
+        <li>Gaten, verzinkingen, sleuven of uitsparingen</li>
+        <li>Randen, sponningen en profielvorm</li>
+        <li>Passing en functionele toleranties</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="mtr-section mtr-soft" aria-labelledby="mtr-materials-title">
+  <div class="mtr-container">
+    <div class="mtr-section-head">
+      <div><p class="mtr-eyebrow">Materiaalkeuze</p><h2 class="mtr-heading" id="mtr-materials-title">Zuiver PTFE en gevulde PTFE-kwaliteiten</h2></div>
+      <p>Vulstoffen veranderen onder meer slijtage, kruip, stijfheid, warmtegeleiding en elektrisch gedrag. De toepassing bepaalt welke samenstelling past. Meer achtergrond vindt u op onze materiaalpagina over <a href="/ptfe-op-maat/">PTFE (Teflon) op maat</a>.</p>
+    </div>
+    <div class="mtr-material-grid">
+      <details class="mtr-material" name="mtr-materials" open>
+        <summary><strong>Zuiver PTFE</strong><span>Lage wrijving, elektrisch isolerend en zeer breed chemisch bestendig</span></summary>
+        <div class="mtr-material-content"><p>Zuiver of ongevuld PTFE wordt gekozen wanneer chemische bestendigheid, elektrische isolatie, een antikleefoppervlak of een breed temperatuurbereik vooropstaat. Het materiaal is relatief zacht en kan onder langdurige druk kruipen.</p><dl class="mtr-material-facts"><div><dt>Typische toepassingen</dt><dd>Glijstrips, isolatiestroken, antikleefdelen en componenten in chemische installaties.</dd></div><div><dt>Sterke punten</dt><dd>Zeer lage wrijving, geringe vochtopname en bestand tegen vrijwel alle gangbare industriële chemicaliën.</dd></div><div><dt>Aandachtspunt</dt><dd>Relatief lage stijfheid, hoge warmte-uitzetting en blijvende vervorming onder belasting.</dd></div></dl></div>
+      </details>
+      <details class="mtr-material" name="mtr-materials">
+        <summary><strong>Glasgevuld PTFE</strong><span>Voor minder kruip en een hogere slijtvastheid</span></summary>
+        <div class="mtr-material-content"><p>Glasvezel wordt aan PTFE toegevoegd om de maatvastheid, drukbestendigheid en slijtvastheid te verbeteren. De exacte samenstelling en chemische omgeving moeten wel bij elkaar passen.</p><dl class="mtr-material-facts"><div><dt>Typische toepassingen</dt><dd>Geleidestrips, lagerstroken en delen die langduriger mechanisch worden belast.</dd></div><div><dt>Sterke punten</dt><dd>Minder kruip en doorgaans slijtvaster en stijver dan zuiver PTFE.</dd></div><div><dt>Aandachtspunt</dt><dd>De vulstof kan de chemische en elektrische eigenschappen veranderen.</dd></div></dl></div>
+      </details>
+      <details class="mtr-material" name="mtr-materials">
+        <summary><strong>Koolstof- of grafietgevuld PTFE</strong><span>Voor glijden, slijtage en zwaardere belasting</span></summary>
+        <div class="mtr-material-content"><p>Koolstof en grafiet worden gebruikt om slijtage, kruip en warmteafvoer te beïnvloeden. Deze kwaliteiten zijn interessant voor bewegende onderdelen en hogere oppervlaktedruk, maar zijn niet automatisch elektrisch isolerend.</p><dl class="mtr-material-facts"><div><dt>Typische toepassingen</dt><dd>Glijstrips, geleidingen, lagerdelen en dynamisch belaste machineonderdelen.</dd></div><div><dt>Sterke punten</dt><dd>Betere slijtage-eigenschappen en vaak gunstiger bij glijdende belasting.</dd></div><div><dt>Aandachtspunt</dt><dd>Elektrische geleidbaarheid, tegenloopvlak en medium moeten per compound worden beoordeeld.</dd></div></dl></div>
+      </details>
+      <details class="mtr-material" name="mtr-materials">
+        <summary><strong>Bronsgevuld PTFE</strong><span>Voor drukbelasting, warmtegeleiding en slijtage</span></summary>
+        <div class="mtr-material-content"><p>Bronsgevuld PTFE is stijver en beter bestand tegen kruip en slijtage dan zuiver PTFE. Het wordt gericht toegepast waar mechanische belasting belangrijker is dan maximale chemische bestendigheid.</p><dl class="mtr-material-facts"><div><dt>Typische toepassingen</dt><dd>Lagerstroken, geleidingen en strips onder hogere druk- of glijbelasting.</dd></div><div><dt>Sterke punten</dt><dd>Goede drukbestendigheid, warmtegeleiding en slijtvastheid.</dd></div><div><dt>Aandachtspunt</dt><dd>Niet bedoeld als eerste keuze voor iedere chemische of elektrisch isolerende toepassing.</dd></div></dl></div>
+      </details>
+      <details class="mtr-material" name="mtr-materials">
+        <summary><strong>Gemodificeerd en speciaal PTFE</strong><span>Voor specifieke eisen aan vervorming, zuiverheid of certificering</span></summary>
+        <div class="mtr-material-content"><p>Naast de gangbare kwaliteiten zijn gemodificeerde en andere gevulde PTFE-compounds mogelijk. Ook geselecteerde kwaliteiten met een passende voedsel- of farmaceutische verklaring kunnen worden aangevraagd.</p><dl class="mtr-material-facts"><div><dt>Mogelijke eisen</dt><dd>Lagere vervorming, andere slijtage-eigenschappen, kleur, detecteerbaarheid of een specifieke materiaalverklaring.</dd></div><div><dt>Specificatie</dt><dd>De compound en verklaring worden vastgelegd op basis van de werkelijke toepassing.</dd></div><div><dt>Aandachtspunt</dt><dd>Wit materiaal of de naam PTFE bewijst op zichzelf geen voedselgeschiktheid of certificering.</dd></div></dl></div>
+      </details>
+    </div>
+    <div class="mtr-callout"><div><strong>PTFE-kwaliteit nog niet bekend?</strong><span>Neem contact op en vertel waarvoor de strip wordt gebruikt. Dan bespreken we welke kwaliteit logisch is.</span></div><a href="#offerte">Neem contact op →</a></div>
+  </div>
+</section>
+
+<section class="mtr-section" aria-labelledby="mtr-methods-title">
+  <div class="mtr-container">
+    <div class="mtr-section-head">
+      <div><p class="mtr-eyebrow">Productie en nabewerking</p><h2 class="mtr-heading" id="mtr-methods-title">Bewerkingen voor PTFE strips</h2></div>
+      <p>PTFE is goed te verspanen, maar is zachter en vervormt makkelijker dan POM of metaal. Opspanning, gereedschap en tolerantie worden daarop afgestemd.</p>
+    </div>
+    <div class="mtr-card-grid">
+      <article class="mtr-card"><h3>Zagen op maat</h3><p>Voor rechte PTFE stroken in de gewenste lengte en breedte, als enkelstuk of efficiënt verdeeld over een plaat.</p></article>
+      <article class="mtr-card"><h3>CNC-frezen</h3><p>Voor nauwkeurige breedtes, vlakke zijden, profielranden, sleuven, uitsparingen en afwijkende contouren.</p></article>
+      <article class="mtr-card"><h3>Boren en verzinken</h3><p>Voor montagegaten, herhaalbare gatenpatronen en verzonken bevestiging zoals bij het getoonde praktijkvoorbeeld.</p></article>
+      <article class="mtr-card"><h3>Snijden en slitten</h3><p>Voor dunne, flexibele Teflon stroken en lange smalle banen uit folie of dun plaatmateriaal.</p></article>
+      <article class="mtr-card"><h3>Groeven en profileren</h3><p>Voor sponningen, afschuiningen, afgeronde randen en een doorsnede die op de geleiding of montage aansluit.</p></article>
+      <article class="mtr-card"><h3>Oppervlak behandelen</h3><p>Wanneer verlijming nodig is, vraagt de achterzijde van PTFE om een geschikte voorbehandeling en een passend kleefsysteem.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="mtr-section mtr-soft" aria-labelledby="mtr-applications-title">
+  <div class="mtr-container">
+    <div class="mtr-section-head">
+      <div><p class="mtr-eyebrow">Toepassingen</p><h2 class="mtr-heading" id="mtr-applications-title">Waarvoor worden Teflon strips gebruikt?</h2></div>
+      <p>PTFE wordt vooral gekozen bij lage wrijving, chemicaliën, temperatuur, elektrische isolatie of een oppervlak waaraan weinig mag hechten.</p>
+    </div>
+    <div class="mtr-application-grid">
+      <article class="mtr-application-card"><h3>Glijstrip voor machines</h3><p>Als wrijvingsarm contactvlak onder een slede, langs een geleiding of tussen bewegende machineonderdelen.</p></article>
+      <article class="mtr-application-card"><h3>Geleiding van producten</h3><p>Als Teflon glijstrip langs een baan waar producten soepel moeten bewegen en weinig aan het oppervlak mogen hechten.</p></article>
+      <article class="mtr-application-card"><h3>Chemische installaties</h3><p>Als beschermende, isolerende of glijdende strook op plaatsen die met agressieve media in contact komen.</p></article>
+      <article class="mtr-application-card"><h3>Warmte- en sealtoepassingen</h3><p>Als antikleefstrook rond apparatuur waar temperatuur en hechting een rol spelen, met een kwaliteit die voor de belasting is geselecteerd.</p></article>
+      <article class="mtr-application-card"><h3>Elektrische isolatie</h3><p>Als isolerende PTFE strook in apparatuur en verbindingen, mits de gekozen kwaliteit elektrisch geschikt is.</p></article>
+      <article class="mtr-application-card"><h3>Teflon plakstrip</h3><p>Voor lichte bekleding of isolatie wanneer een behandelde achterzijde met lijmlaag volstaat; bij belasting is mechanische bevestiging vaak betrouwbaarder.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="mtr-section" aria-labelledby="mtr-properties-title">
+  <div class="mtr-container">
+    <div class="mtr-section-head">
+      <div><p class="mtr-eyebrow">Materiaalkeuze</p><h2 class="mtr-heading" id="mtr-properties-title">Voordelen en beperkingen van PTFE strips</h2></div>
+      <p>PTFE combineert zeer lage wrijving met brede chemische en thermische bestendigheid, maar is niet voor iedere constructie de beste keuze.</p>
+    </div>
+    <div class="mtr-copy">
+      <p>PTFE neemt vrijwel geen vocht op, heeft een oppervlak waaraan weinig materialen hechten en is elektrisch isolerend wanneer een geschikte ongevulde kwaliteit wordt gebruikt. Daardoor past het goed bij chemicaliën, glijdend contact, isolatie en omgevingen waarin andere kunststoffen sneller worden aangetast.</p>
+      <p>Het materiaal is relatief zacht, zet sterk uit bij temperatuurverandering en kan onder langdurige druk blijvend vervormen. Lange, dunne of zwaar belaste stroken vragen daarom aandacht voor ondersteuning en bevestiging. Door de lage oppervlakte-energie is PTFE bovendien lastig te verlijmen zonder speciale voorbehandeling.</p>
+      <p>Is extreme chemische bestendigheid of zeer lage wrijving niet nodig, dan kan een <a href="/kunststof-stroken/">kunststof strip in POM, HMPE, PETP of een ander materiaal</a> stijver, slijtvaster of voordeliger zijn.</p>
+    </div>
+  </div>
+</section>
+
+<section class="mtr-section mtr-soft" aria-labelledby="mtr-case-title">
+  <div class="mtr-container">
+    <div class="mtr-section-head">
+      <div><p class="mtr-eyebrow">Teflon strips</p><h2 class="mtr-heading" id="mtr-case-title">Voorbeelden uit de praktijk</h2></div>
+    </div>
+    <div class="mtr-case-grid">
+      <article class="mtr-case">
+        <figure class="mtr-case-image"><img src="/assets/images/teflon-strip-met-gaten.jpg" width="1254" height="1254" loading="lazy" decoding="async" alt="Witte Teflon strip met twee verzonken montagegaten"></figure>
+        <div class="mtr-case-content">
+          <span class="mtr-case-label">Bewerkte uitvoering</span>
+          <h3>Teflon glijstrip met verzonken gaten</h3>
+          <p>Deze rechte strip is op maat gemaakt en voorzien van verzonken montagegaten. Daardoor kunnen de bevestigingen vlak in het oppervlak vallen en blijft het glijvlak vrij.</p>
+        </div>
+      </article>
+      <article class="mtr-case">
+        <figure class="mtr-case-image"><img src="/assets/images/ptfe-strip-op-maat.webp" width="1254" height="1254" loading="lazy" decoding="async" alt="Rechte witte PTFE strip op maat"></figure>
+        <div class="mtr-case-content">
+          <span class="mtr-case-label">Rechte uitvoering</span>
+          <h3>PTFE strip zonder nabewerking</h3>
+          <p>Een eenvoudige strook wordt rechtstreeks op de gewenste lengte, breedte en dikte gemaakt. Dit is een praktische uitvoering voor isolatie, afscherming of een ononderbroken contactvlak.</p>
+        </div>
+      </article>
+      <article class="mtr-case">
+        <figure class="mtr-case-image"><img src="/assets/images/flexibele-teflon-strook.webp" width="1254" height="1254" loading="lazy" decoding="async" alt="Flexibele witte Teflon strook op rol"></figure>
+        <div class="mtr-case-content">
+          <span class="mtr-case-label">Flexibele uitvoering</span>
+          <h3>Teflon strook op rol</h3>
+          <p>Deze dunne strook kan worden opgerold en volgt een lichte kromming. De breedte en lengte worden afgestemd op de plek waar een flexibele isolerende of antikleeflaag nodig is.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="mtr-section" aria-labelledby="mtr-price-title">
+  <div class="mtr-container">
+    <div class="mtr-section-head">
+      <div><p class="mtr-eyebrow">Prijsopbouw</p><h2 class="mtr-heading" id="mtr-price-title">Wat kost een Teflon strip?</h2></div>
+      <p>De prijs wordt bepaald door de PTFE-kwaliteit, afmetingen, hoeveelheid materiaal, bewerkingen en het aantal strips.</p>
+    </div>
+    <div class="mtr-price-grid">
+      <div class="mtr-price-copy">
+        <p>Bij een rechte strip tellen vooral lengte, breedte, dikte en het gekozen uitgangsmateriaal. Gevuld of gecertificeerd PTFE heeft een ander prijsniveau dan een gangbare ongevulde kwaliteit.</p>
+        <p>Gaten, verzinkingen, sleuven, profielranden en nauwere toleranties vragen extra bewerking. Bij een Teflon plakstrip komen daar de oppervlaktebehandeling en het kleefsysteem bij.</p>
+        <p>Bij series worden voorbereiding en instelling over meerdere strips verdeeld. Daardoor daalt de prijs per stuk meestal.</p>
+      </div>
+      <aside class="mtr-price-note"><h3>Prijs laten berekenen?</h3><p>Neem contact met ons op. We bespreken de uitvoering en maken een vrijblijvende offerte.</p></aside>
+    </div>
+  </div>
+</section>
+
+<section class="mtr-section mtr-soft" aria-labelledby="mtr-faq-title">
+  <div class="mtr-container mtr-faq-grid">
+    <div><p class="mtr-eyebrow">Veelgestelde vragen</p><h2 class="mtr-heading" id="mtr-faq-title">Over Teflon strips en PTFE stroken</h2></div>
+    <div class="mtr-faq-list">
+      <details><summary>Is een Teflon strip hetzelfde als een PTFE strip?</summary><p>In de praktijk bedoelt men meestal hetzelfde materiaal. PTFE is de technische materiaalnaam; Teflon is een merknaam die vaak als algemene benaming voor PTFE wordt gebruikt.</p></details>
+      <details><summary>Maken jullie Teflon strips volledig op maat?</summary><p>Ja. Bij zowel Teflon strip maatwerk als PTFE strip maatwerk kunnen lengte, breedte, dikte, gatenpatroon en verdere bewerkingen worden afgestemd.</p></details>
+      <details><summary>Kan ik één Teflon strook laten maken?</summary><p>Ja. Enkelstuks, vervangingsstrips, prototypes, kleine aantallen en terugkerende series kunnen worden aangevraagd.</p></details>
+      <details><summary>Wanneer kies ik een Teflon glijstrip?</summary><p>Vooral wanneer zeer lage wrijving, geringe hechting, brede chemische bestendigheid of een groot temperatuurbereik belangrijk is. Voor zware slijtage of hoge stijfheid kan een andere kunststof geschikter zijn.</p></details>
+      <details><summary>Kan een PTFE strip gaten en verzinkingen krijgen?</summary><p>Ja. Doorgaande gaten, verzinkingen, sleuven, uitsparingen en gefreesde randen kunnen volgens de gewenste montage worden aangebracht.</p></details>
+      <details><summary>Kan een Teflon strip worden verlijmd?</summary><p>Onbehandeld PTFE is zeer lastig te verlijmen. Voor een Teflon plakstrip is een geschikte oppervlaktebehandeling en lijmlaag nodig; bij mechanische belasting adviseren we vaak een bevestiging met gaten of opsluiting.</p></details>
+      <details><summary>Zijn witte PTFE strips voedselgeschikt?</summary><p>Niet automatisch. Daarvoor is een geselecteerde materiaalvariant met de juiste verklaring nodig. Kleur alleen is geen bewijs van voedselgeschiktheid.</p></details>
+      <details><summary>Heb ik een technische tekening nodig?</summary><p>Nee. Een maat, schets, foto of bestaand voorbeeld is vaak voldoende om de mogelijkheden te bespreken.</p></details>
+      <details><summary>Wat bepaalt de prijs van een Teflon strip?</summary><p>De PTFE-kwaliteit, lengte, breedte, dikte, bewerkingen, tolerantie en het aantal bepalen samen de prijs.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="mtr-final">
+  <div class="mtr-container mtr-final-inner">
+    <div><h2>Teflon strip op maat nodig?</h2><p>Neem contact met ons op. We bespreken de mogelijkheden en maken een vrijblijvende offerte.</p></div>
+    <a class="mtr-button" href="#offerte" data-analytics="quote_cta" data-location="teflon_strip_final">Neem contact op</a>
+  </div>
+</section>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Teflon strip op maat",
+  "provider": {"@type":"Organization","name":"MaatwerkKunststof.nl","url":"https://maatwerkkunststof.nl"},
+  "areaServed": ["Nederland", "België"],
+  "serviceType": "PTFE strips en Teflon stroken op maat",
+  "description": "Teflon strips op maat in zuiver of gevuld PTFE, recht, flexibel of bewerkt met gaten, sleuven en profielranden."
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://maatwerkkunststof.nl/"},
+    {"@type":"ListItem","position":2,"name":"Kunststof stroken","item":"https://maatwerkkunststof.nl/kunststof-stroken/"},
+    {"@type":"ListItem","position":3,"name":"Teflon strip","item":"https://maatwerkkunststof.nl/teflon-strip/"}
+  ]
+}
+</script>

@@ -15,7 +15,15 @@
     }
   };
 
-  const hasAnalyticsConsent = () => readConsent()?.analytics === true;
+  const wasDismissed = () => {
+    try {
+      return sessionStorage.getItem(DISMISSED_KEY) === 'true';
+    } catch {
+      return false;
+    }
+  };
+
+  const hasAnalyticsConsent = () => readConsent()?.analytics !== false;
 
   const deleteCookie = (name) => {
     document.cookie = `${name}=; Max-Age=0; path=/; SameSite=Lax`;
@@ -32,6 +40,10 @@
   };
 
   const updateGoogleConsent = (analytics) => {
+    if (config.gaMeasurementId) {
+      window[`ga-disable-${config.gaMeasurementId}`] = !analytics;
+    }
+
     window.gtag?.('consent', 'update', {
       analytics_storage: analytics ? 'granted' : 'denied',
       ad_storage: 'denied',
@@ -53,7 +65,7 @@
     window.dataLayer = window.dataLayer || [];
     window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
     window.gtag('consent', 'default', {
-      analytics_storage: 'denied',
+      analytics_storage: 'granted',
       ad_storage: 'denied',
       ad_user_data: 'denied',
       ad_personalization: 'denied'
@@ -122,45 +134,27 @@
   window.MKCookieConsent = {
     hasAnalyticsConsent,
     hasConsentChoice: () => Boolean(readConsent()),
+    wasDismissed,
     open: () => document.querySelector('[data-cookie-settings]')?.click()
   };
 
   if (hasAnalyticsConsent()) loadAnalytics();
+  else denyAnalytics();
 
   document.addEventListener('DOMContentLoaded', () => {
     const consent = document.querySelector('[data-cookie-consent]');
     if (!consent) return;
 
-    const summary = consent.querySelector('[data-cookie-summary]');
-    const preferencesPanel = consent.querySelector('[data-cookie-preferences-panel]');
-    const analyticsInput = consent.querySelector('[data-cookie-analytics]');
     let showTimer;
 
-    const wasDismissed = () => {
-      try {
-        return sessionStorage.getItem(DISMISSED_KEY) === 'true';
-      } catch {
-        return false;
-      }
-    };
+    const forceLocalPreview = ['localhost', '127.0.0.1'].includes(window.location.hostname)
+      && new URLSearchParams(window.location.search).has('previewCookies');
 
-    const showSummary = () => {
-      summary.hidden = false;
-      preferencesPanel.hidden = true;
-    };
-
-    const showPreferences = () => {
-      analyticsInput.checked = hasAnalyticsConsent();
-      summary.hidden = true;
-      preferencesPanel.hidden = false;
-      analyticsInput.focus();
-    };
-
-    const open = (preferences = false) => {
+    const open = () => {
       window.clearTimeout(showTimer);
       consent.hidden = false;
-      preferences ? showPreferences() : showSummary();
       document.body.classList.add('cookie-consent-open');
+      window.dispatchEvent(new CustomEvent('mk:consent-opened'));
     };
 
     const close = () => {
@@ -184,22 +178,21 @@
       close();
     });
 
-    consent.querySelector('[data-cookie-preferences]')?.addEventListener('click', showPreferences);
-    consent.querySelector('[data-cookie-back]')?.addEventListener('click', showSummary);
-    consent.querySelectorAll('[data-cookie-close]').forEach((button) => {
-      button.addEventListener('click', dismiss);
-    });
-    consent.querySelector('[data-cookie-save]')?.addEventListener('click', () => {
-      saveConsent(analyticsInput.checked);
+    consent.querySelector('[data-cookie-reject]')?.addEventListener('click', () => {
+      saveConsent(false);
       close();
     });
 
+    consent.querySelector('[data-cookie-close]')?.addEventListener('click', dismiss);
+
     document.querySelectorAll('[data-cookie-settings]').forEach((button) => {
-      button.addEventListener('click', () => open(true));
+      button.addEventListener('click', open);
     });
 
-    if (!readConsent() && !wasDismissed()) {
-      showTimer = window.setTimeout(() => open(false), 25 * 1000);
+    if (forceLocalPreview) {
+      showTimer = window.setTimeout(open, 250);
+    } else if (!readConsent() && !wasDismissed()) {
+      showTimer = window.setTimeout(open, 5 * 1000);
     }
   });
 })();

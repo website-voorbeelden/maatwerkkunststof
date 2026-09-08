@@ -23,26 +23,9 @@
   </div>
 </article>
 
-<section class="mat-section" aria-labelledby="mat-intro-title">
-  <div class="mat-container mat-intro-grid">
-    <div class="mat-copy">
-      <div>
-        <p class="mat-eyebrow">Materiaal uitgelegd</p>
-        <h2 class="mat-heading" id="mat-intro-title">{{ material.introTitle }}</h2>
-      </div>
-      {% for paragraph in material.introParagraphs %}<p>{{ paragraph | safe }}</p>{% endfor %}
-    </div>
-    <aside class="mat-facts" aria-label="{{ material.shortName }} in het kort">
-      <h3>{{ material.shortName }} in het kort</h3>
-      <dl>
-        {% for fact in material.facts %}
-          <div><dt>{{ fact.label }}</dt><dd>{{ fact.value }}</dd></div>
-        {% endfor %}
-      </dl>
-      <a href="#offerte">Bespreek uw toepassing →</a>
-    </aside>
-  </div>
-</section>
+{% if not material.introAfterApplications %}
+  {% include "material-intro.njk" %}
+{% endif %}
 
 {% if material.grades %}
 <section class="mat-section mat-soft" aria-labelledby="mat-grades-title">
@@ -108,12 +91,23 @@
   <div class="mat-container">
     <div class="mat-section-head">
       <div><p class="mat-eyebrow">Uit de praktijk</p><h2 class="mat-heading" id="mat-examples-title">{{ material.examplesTitle }}</h2></div>
-      <p>{{ material.examplesIntro }}</p>
+      {% if material.examplesIntro %}<p>{{ material.examplesIntro }}</p>{% endif %}
     </div>
-    {% if material.examplesCompactPair %}
-      <div class="mat-example-process" aria-label="Van digitaal model naar uitgevoerd PVC-onderdeel">
+    {% if material.examplesFeature %}
+      <article class="mat-example-feature">
+        <div class="mat-example-feature-media">
+          {% for image in material.examples[0].images %}<figure><img src="{{ image.src }}" width="{{ image.width }}" height="{{ image.height }}" alt="{{ image.alt }}" loading="lazy" decoding="async"></figure>{% endfor %}
+        </div>
+        <dl class="mat-example-feature-details">
+          {% for detail in material.examples[0].details %}
+            <div><dt>{{ detail.label }}</dt><dd>{{ detail.value }}</dd></div>
+          {% endfor %}
+        </dl>
+      </article>
+    {% elif material.examplesCompactPair %}
+      <div class="mat-example-process{% if material.examplesCompactPairNoArrow %} without-arrow{% endif %}" aria-label="Model en uitgevoerd onderdeel">
         <figure><img src="{{ material.examples[0].images[0].src }}" width="{{ material.examples[0].images[0].width }}" height="{{ material.examples[0].images[0].height }}" alt="{{ material.examples[0].images[0].alt }}" loading="lazy" decoding="async"></figure>
-        <span aria-hidden="true">→</span>
+        {% if not material.examplesCompactPairNoArrow %}<span aria-hidden="true">→</span>{% endif %}
         <figure><img src="{{ material.examples[0].images[1].src }}" width="{{ material.examples[0].images[1].width }}" height="{{ material.examples[0].images[1].height }}" alt="{{ material.examples[0].images[1].alt }}" loading="lazy" decoding="async"></figure>
       </div>
     {% else %}
@@ -184,6 +178,10 @@
     </div>
   </div>
 </section>
+{% endif %}
+
+{% if material.introAfterApplications %}
+  {% include "material-intro.njk" %}
 {% endif %}
 
 {% if material.editorialTitle %}
