@@ -1,25 +1,14 @@
 module.exports = function (eleventyConfig) {
+  // Preserve the approved complete HTML pages without old layouts or data.
   eleventyConfig.addPassthroughCopy({ 'src/assets': 'assets' });
-  eleventyConfig.addPassthroughCopy({ 'src/_headers': '_headers' });
-  eleventyConfig.addPassthroughCopy({ 'src/_redirects': '_redirects' });
-  eleventyConfig.addPassthroughCopy({ 'src/robots.txt': 'robots.txt' });
-
-  eleventyConfig.addShortcode('year', () => new Date().getFullYear());
-  eleventyConfig.addFilter('sitemapDate', (date) => {
-    const value = date instanceof Date ? date : new Date(date);
-    return value.toISOString().split('T')[0];
-  });
-  eleventyConfig.addFilter('json', (value) => JSON.stringify(value));
-
+  eleventyConfig.ignores.add('src/404.html');
+  for (const file of ['404.html', '_headers', '_redirects', 'robots.txt', 'sitemap.xml', 'llms.txt', 'agents.md']) {
+    eleventyConfig.addPassthroughCopy({ [`src/${file}`]: file });
+  }
   return {
-    dir: {
-      input: 'src',
-      output: '_site',
-      includes: '_includes',
-      data: '_data'
-    },
-    templateFormats: ['njk', 'md', 'html'],
-    htmlTemplateEngine: 'njk',
-    markdownTemplateEngine: 'njk'
+    dir: { input: 'src', output: '_site' },
+    templateFormats: ['html'],
+    htmlTemplateEngine: false,
+    markdownTemplateEngine: false
   };
 };

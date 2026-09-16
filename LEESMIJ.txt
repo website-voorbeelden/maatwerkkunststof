@@ -1,10 +1,15 @@
-Deze bestanden hebben zichtbare namen zodat Finder ze toont.
+DIT IS DE VOLLEDIGE PROJECTMAP VOOR DE GITHUB-BOT
 
-Plaats ze in de hoofdmap van je GitHub-repository en hernoem ze daarna:
+Gebruik deze hele map, niet uitsluitend _site.
 
-1. gitignore.txt -> .gitignore
-2. dev-vars-example.txt -> .dev.vars.example
+- src bevat de nieuwste pagina's, afbeeldingen, sitemap en overige websitebestanden.
+- package.json en package-lock.json bevatten de bestaande buildafhankelijkheden.
+- eleventy.config.js is aangepast zodat de nieuwste HTML behouden blijft bij bouwen.
+- functions bevat de ongewijzigde offerteverwerking.
+- npm run build levert dezelfde website op als de goedgekeurde lokale versie.
 
-Ze moeten naast package.json, README.md en eleventy.config.js staan.
+De oude Nunjucks-bronnen zijn bewust vervangen door volledige HTML-bronbestanden.
+Neem deze vervanging en de configuratiewijziging samen mee naar GitHub.
+De bestaande Cloudflare-buildopdracht npm run build en uitvoermap _site blijven gelden.
 
-Let op: zet nooit je echte RESEND_API_KEY in GitHub. Die komt later als secret in Cloudflare.
+Nog niet gecommit, gepusht of gepubliceerd. Zie README.md voor de overdracht.

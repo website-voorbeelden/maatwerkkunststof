@@ -1,85 +1,45 @@
 # MaatwerkKunststof.nl
 
-SEO-first offertewebsite voor kunststof maatwerk. Gebouwd met Eleventy, geschikt voor GitHub en Cloudflare Pages Functions. Offerteaanvragen worden via Resend verstuurd.
+Volledig publicatieproject met de goedgekeurde website van 16 september 2026.
 
-## Lokaal starten
+## Bronbestanden en bouwen
 
-```bash
-npm install
-npm run dev
-```
+De actuele pagina's staan als volledige HTML-documenten in `src/`. CSS, JavaScript en afbeeldingen staan in `src/assets/`. Dit project gebruikt Eleventy, maar verwerkt deze HTML niet meer via de oude Nunjucks-templates. De oude templates zijn bewust vervangen om de rechtstreeks in HTML gemaakte wijzigingen te behouden.
 
-De website is daarna beschikbaar via het lokale adres dat Eleventy in de terminal toont.
-
-## Productiebuild
-
-```bash
+```sh
+npm ci
 npm run build
 ```
 
-De statische website komt in `_site/`.
+De build schrijft de website naar `_site/`. `npm run dev` start de lokale ontwikkelserver. Wijzig voor toekomstig werk de bestanden in `src/`, niet alleen die in `_site/`.
 
-## Cloudflare Pages instellen
+`src/sitemap.xml` wordt ongewijzigd overgenomen. Werk dit bestand bij wanneer pagina's worden toegevoegd, verwijderd of verplaatst. `robots.txt`, `_headers`, `_redirects`, `llms.txt`, `agents.md` en `404.html` worden eveneens overgenomen.
 
-Gebruik bij het aanmaken van het Cloudflare Pages-project:
+Headers, navigatie en footers staan in de afzonderlijke HTML-pagina's. Een gedeelde wijziging moet daarom op alle betrokken pagina's worden doorgevoerd.
 
-- Framework preset: **Eleventy**
+## Publiceren via de bestaande GitHub-repository
+
+Repository: https://github.com/website-voorbeelden/maatwerkkunststof
+
+Deze map is een lokale kopie van de bestaande repository met nog niet gecommitte wijzigingen. Publicatie is nog niet uitgevoerd. Controleer voor commit/push of de remote branch intussen nieuwe wijzigingen heeft; verwerk die zonder force-push en zonder de actuele website terug te vervangen door oude templates.
+
+Neem de volledige wijziging mee: `src/`, `eleventy.config.js` en documentatie. Herstel de verwijderde `.njk`-templates niet. De `_site/`-map is gebouwde uitvoer en blijft via `.gitignore` uitgesloten van commits.
+
+De bestaande Cloudflare Pages-instellingen kunnen blijven:
+
 - Build command: `npm run build`
 - Build output directory: `_site`
-- Root directory: leeg laten
+- Root directory: repository-root
 - Node.js: 20 of hoger
 
-De map `functions/` wordt automatisch als Cloudflare Pages Functions gebruikt. De offertefunctie wordt bereikbaar via `/api/offerte`.
+## Offerteverwerking
 
-## Resend instellen
+De bestaande map `functions/` is ongewijzigd behouden. `functions/api/offerte.js` verwerkt aanvragen op `/api/offerte` via Resend. Publiceer het volledige project, niet alleen `_site/`, zodat de functie bij de deployment blijft horen.
 
-1. Verifieer `maatwerkkunststof.nl` in Resend.
-2. Maak een Resend API-key met alleen verzendrechten.
-3. Open in Cloudflare Pages: **Settings → Variables and Secrets**.
-4. Voeg voor Production en Preview toe:
+Behoud de bestaande Cloudflare-variabelen en secrets: `RESEND_API_KEY`, `OFFERTES_TO_EMAIL`, `OFFERTES_FROM_EMAIL` en eventueel `SEND_CONFIRMATION`. Deze map bevat geen nieuw ingestelde secrets. Gebruik voor lokale ontwikkeling uitsluitend eigen lokale variabelen; zet sleutels nooit in GitHub.
 
-```text
-RESEND_API_KEY       secret
-OFFERTES_TO_EMAIL    adres waar aanvragen binnenkomen
-OFFERTES_FROM_EMAIL  MaatwerkKunststof.nl <offerte@maatwerkkunststof.nl>
-SEND_CONFIRMATION    false
-```
+## Uitgevoerde buildcontrole
 
-Zet de API-key nooit in GitHub, `site.json` of JavaScript in de browser.
+`npm run build` is uitgevoerd met de al lokaal geïnstalleerde Eleventy 3.1.6. Alle 170 uitvoerbestanden zijn byte voor byte vergeleken met de bijgewerkte website in de naastgelegen map `maatwerkkunststof`: geen ontbrekende, extra of afwijkende bestanden.
 
-## Google Tag Manager / Google Ads
-
-Vul later in `src/_data/site.json` het GTM-ID in:
-
-```json
-"tracking": {
-  "gtmId": "GTM-XXXXXXX"
-}
-```
-
-De website stuurt al deze `dataLayer`-events:
-
-- `quote_cta`
-- `quote_form_submit`
-- `quote_form_success`
-- `email_click`
-
-Gebruik bij voorkeur `quote_form_success` op `/bedankt/` als primaire Google Ads-conversie. UTM-velden, GCLID, GBRAID en WBRAID worden automatisch aan de offerte-e-mail toegevoegd.
-
-## Voor publicatie aanpassen
-
-- Controleer het ontvangstadres en afzenderadres.
-- Vul definitieve bedrijfsgegevens in het privacybeleid aan.
-- Voeg alleen een telefoonnummer toe wanneer dit actief wordt gebruikt.
-- Controleer alle teksten op levertijden of garanties voordat die later worden toegevoegd.
-- Dien `https://maatwerkkunststof.nl/sitemap.xml` in via Google Search Console.
-
-## Nieuwe SEO-pagina toevoegen
-
-Maak een map onder `src/`, bijvoorbeeld:
-
-```text
-src/kunststof-bussen-op-maat/index.njk
-```
-
-Gebruik `layout: base.njk`, een unieke title, description, H1 en pagina-inhoud. Voeg de pagina alleen aan de navigatie toe als deze belangrijk genoeg is voor het hoofdmenu; voor nichepagina's zijn contextuele interne links meestal beter.
+De offertefuncties en het dependency-lockbestand zijn ongewijzigd ten opzichte van het oorspronkelijke lokale project. Er zijn geen proefaanvragen verstuurd en er is niet gepubliceerd.

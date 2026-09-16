@@ -309,6 +309,7 @@
     let activeIndex = Math.max(0, thumbnails.findIndex((thumbnail) => thumbnail.getAttribute('aria-pressed') === 'true'));
     let touchStartX = null;
     let openedWithPointer = false;
+    let automaticRevealCancelled = false;
 
     const selectImage = (index, moveThumbnail = true) => {
       activeIndex = (index + thumbnails.length) % thumbnails.length;
@@ -395,6 +396,47 @@
       if (!openedWithPointer) return;
       window.requestAnimationFrame(() => openButton?.blur());
     });
+
+    const revealIndex = Number.parseInt(gallery.dataset.galleryRevealIndex || '', 10);
+    const revealDelay = Number.parseInt(gallery.dataset.galleryRevealDelay || '1000', 10);
+
+    if (Number.isInteger(revealIndex) && thumbnails[revealIndex] && revealIndex !== activeIndex) {
+      const revealThumbnail = thumbnails[revealIndex];
+      const preload = new Image();
+      preload.srcset = revealThumbnail.dataset.srcset || '';
+      preload.sizes = revealThumbnail.dataset.sizes || defaultImageSizes;
+
+      const imageReady = new Promise((resolve) => {
+        preload.addEventListener('load', () => resolve(true), { once: true });
+        preload.addEventListener('error', () => resolve(false), { once: true });
+      });
+
+      preload.src = revealThumbnail.dataset.src;
+
+      const cancelAutomaticReveal = () => {
+        automaticRevealCancelled = true;
+      };
+
+      gallery.addEventListener('pointerdown', cancelAutomaticReveal, { once: true, passive: true });
+      gallery.addEventListener('keydown', cancelAutomaticReveal, { once: true });
+
+      const scheduleReveal = () => {
+        window.setTimeout(async () => {
+          const loaded = preload.complete && preload.naturalWidth > 0
+            ? true
+            : await imageReady;
+
+          if (!loaded || automaticRevealCancelled) return;
+          selectImage(revealIndex);
+        }, Number.isFinite(revealDelay) ? Math.max(0, revealDelay) : 1000);
+      };
+
+      if (document.readyState === 'complete') {
+        scheduleReveal();
+      } else {
+        window.addEventListener('load', scheduleReveal, { once: true });
+      }
+    }
   });
 
   document.querySelectorAll('[data-counter]').forEach((counter) => {
