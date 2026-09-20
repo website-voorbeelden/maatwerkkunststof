@@ -41,6 +41,8 @@
 
   
 
+<link rel="preload" as="image" href="/assets/images/rubber-ringen-op-maat.webp" imagesrcset="/assets/images/ringen/rubber-ringen-op-maat-400.webp 400w, /assets/images/ringen/rubber-ringen-op-maat-800.webp 800w, /assets/images/rubber-ringen-op-maat.webp 1024w" imagesizes="(min-width: 1180px) 559px, (min-width: 920px) 48vw, calc(100vw - 32px)" fetchpriority="high">
+
   <!-- Styles -->
   <link rel="stylesheet" href="/assets/css/styles.css?v=20260908-18">
 
@@ -304,6 +306,20 @@
     .mkr-faq-grid { grid-template-columns: minmax(0, .72fr) minmax(0, 1.28fr); gap: 80px; }
     .mkr-final-inner { grid-template-columns: 1fr auto; }
   }
+
+  .mkr-material-content a, .mkr-photo a { color: var(--mkr-green-dark); font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+  .mkr-material-content p + p { margin-top: 12px; }
+  .mkr-photo-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 32px 24px; }
+  .mkr-photo { min-width: 0; }
+  .mkr-photo > img { display: block; width: 100%; height: auto; aspect-ratio: 1; object-fit: contain; border-radius: 12px; background: #f2f2ee; }
+  .mkr-photo > div { padding-top: 16px; }
+  .mkr-photo h3 { margin: 0 0 8px; color: var(--mkr-ink); font-size: 1.12rem; line-height: 1.3; }
+  .mkr-photo p { margin: 0; color: var(--mkr-text); font-size: .88rem; line-height: 1.65; }
+  @media (min-width: 680px) { .mkr-photo-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (min-width: 1000px) { .mkr-photo-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+
+  .mkr-price-grid-single { grid-template-columns: minmax(0, 790px); }
+  @media (min-width: 680px) { .mkr-application-grid-four { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 </style>
 
 
@@ -352,7 +368,7 @@
 
         <div class="pc-field">
           <label class="pc-visually-hidden" for="ringen-specificaties">Bericht</label>
-          <textarea id="ringen-specificaties" name="specificaties" rows="5" required maxlength="4000" placeholder="Bijvoorbeeld: binnenmaat, buitenmaat, dikte, materiaal, aantal en toepassing"></textarea>
+          <textarea id="ringen-specificaties" name="specificaties" rows="5" required maxlength="4000" placeholder="Bericht"></textarea>
         </div>
 
         <div class="pc-field">
@@ -391,7 +407,7 @@
     <div class="pc-gallery" data-product-gallery tabindex="0" aria-label="Fotogalerij van kunststof ringen op maat">
       <figure class="pc-gallery-stage" data-gallery-stage>
         <button class="pc-gallery-open" type="button" data-gallery-open aria-label="Vergroot geselecteerde foto">
-          <img class="pc-gallery-main" src="/assets/images/rubber-ringen-op-maat.webp" width="1024" height="1024" alt="Zwarte, rode en witte kunststof en rubber ringen in verschillende maten" sizes="(min-width: 1180px) 559px, (min-width: 920px) 48vw, calc(100vw - 32px)" fetchpriority="high" data-gallery-main>
+          <img class="pc-gallery-main" src="/assets/images/rubber-ringen-op-maat.webp" width="1024" height="1024" alt="Zwarte, rode en witte kunststof en rubber ringen in verschillende maten" sizes="(min-width: 1180px) 559px, (min-width: 920px) 48vw, calc(100vw - 32px)" fetchpriority="high" data-gallery-main srcset="/assets/images/ringen/rubber-ringen-op-maat-400.webp 400w, /assets/images/ringen/rubber-ringen-op-maat-800.webp 800w, /assets/images/rubber-ringen-op-maat.webp 1024w" decoding="async" loading="eager">
         </button>
         
           <button class="pc-gallery-control pc-gallery-prev" type="button" data-gallery-prev aria-label="Vorige foto"><svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M12.5 4.5 7 10l5.5 5.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
@@ -402,24 +418,24 @@
       
         <div class="pc-gallery-thumbs" data-gallery-thumbs aria-label="Kies een foto">
           
-            <button class="pc-gallery-thumb" type="button" aria-pressed="true" aria-label="Bekijk foto 1 van kunststof ringen op maat" data-gallery-thumb data-src="/assets/images/rubber-ringen-op-maat.webp" data-full-src="/assets/images/rubber-ringen-op-maat.webp" data-alt="Zwarte, rode en witte kunststof en rubber ringen in verschillende maten">
-              <img src="/assets/images/rubber-ringen-op-maat.webp" width="160" height="160"  decoding="async" alt="" aria-hidden="true">
+            <button class="pc-gallery-thumb" type="button" aria-pressed="true" aria-label="Bekijk foto 1 van kunststof ringen op maat" data-gallery-thumb data-src="/assets/images/rubber-ringen-op-maat.webp" data-full-src="/assets/images/rubber-ringen-op-maat.webp" data-alt="Zwarte, rode en witte kunststof en rubber ringen in verschillende maten" data-srcset="/assets/images/ringen/rubber-ringen-op-maat-400.webp 400w, /assets/images/ringen/rubber-ringen-op-maat-800.webp 800w, /assets/images/rubber-ringen-op-maat.webp 1024w" data-sizes="(min-width: 1180px) 559px, (min-width: 920px) 48vw, calc(100vw - 32px)">
+              <img src="/assets/images/ringen/rubber-ringen-op-maat-160.webp" width="160" height="160"  decoding="async" alt="" aria-hidden="true" srcset="/assets/images/ringen/rubber-ringen-op-maat-160.webp 1x, /assets/images/ringen/rubber-ringen-op-maat-320.webp 2x" loading="eager">
             </button>
           
-            <button class="pc-gallery-thumb" type="button" aria-pressed="false" aria-label="Bekijk foto 2 van kunststof ringen op maat" data-gallery-thumb data-src="/assets/images/ptfe-ringen-op-maat.webp" data-full-src="/assets/images/ptfe-ringen-op-maat.webp" data-alt="Witte PTFE ringen op maat in verschillende diameters">
-              <img src="/assets/images/ptfe-ringen-op-maat.webp" width="160" height="160" loading="lazy" decoding="async" alt="" aria-hidden="true">
+            <button class="pc-gallery-thumb" type="button" aria-pressed="false" aria-label="Bekijk foto 2 van kunststof ringen op maat" data-gallery-thumb data-src="/assets/images/witte-kunststof-ringen-realistisch.webp" data-full-src="/assets/images/witte-kunststof-ringen-realistisch.webp" data-alt="Twee witte vlakke kunststof ringen op maat" data-srcset="/assets/images/ringen/witte-kunststof-ringen-realistisch-400.webp 400w, /assets/images/ringen/witte-kunststof-ringen-realistisch-800.webp 800w, /assets/images/witte-kunststof-ringen-realistisch.webp 1200w" data-sizes="(min-width: 1180px) 559px, (min-width: 920px) 48vw, calc(100vw - 32px)">
+              <img src="/assets/images/ringen/witte-kunststof-ringen-realistisch-160.webp" width="160" height="160" loading="eager" decoding="async" alt="" aria-hidden="true" srcset="/assets/images/ringen/witte-kunststof-ringen-realistisch-160.webp 1x, /assets/images/ringen/witte-kunststof-ringen-realistisch-320.webp 2x">
             </button>
           
-            <button class="pc-gallery-thumb" type="button" aria-pressed="false" aria-label="Bekijk foto 3 van kunststof ringen op maat" data-gallery-thumb data-src="/assets/images/witte-kunststof-ringen-realistisch.webp" data-full-src="/assets/images/witte-kunststof-ringen-realistisch.webp" data-alt="Twee witte vlakke kunststof ringen op maat">
-              <img src="/assets/images/witte-kunststof-ringen-realistisch.webp" width="160" height="160" loading="lazy" decoding="async" alt="" aria-hidden="true">
+            <button class="pc-gallery-thumb" type="button" aria-pressed="false" aria-label="Bekijk foto 3 van kunststof ringen op maat" data-gallery-thumb data-src="/assets/images/ringen/spiraalgewonden-pakking-ring.webp" data-full-src="/assets/images/ringen/spiraalgewonden-pakking-ring.webp" data-alt="Spiraalgewonden pakking met een witte buitenrand en metalen binnenring" data-srcset="/assets/images/ringen/spiraalgewonden-pakking-ring-400.webp 400w, /assets/images/ringen/spiraalgewonden-pakking-ring-800.webp 800w, /assets/images/ringen/spiraalgewonden-pakking-ring.webp 1024w" data-sizes="(min-width: 1180px) 559px, (min-width: 920px) 48vw, calc(100vw - 32px)">
+              <img src="/assets/images/ringen/spiraalgewonden-pakking-ring-160.webp" width="160" height="160" loading="eager" decoding="async" alt="" aria-hidden="true" srcset="/assets/images/ringen/spiraalgewonden-pakking-ring-160.webp 1x, /assets/images/ringen/spiraalgewonden-pakking-ring-320.webp 2x">
             </button>
           
-            <button class="pc-gallery-thumb" type="button" aria-pressed="false" aria-label="Bekijk foto 4 van kunststof ringen op maat" data-gallery-thumb data-src="/assets/images/kunststof-ring-met-kraag.webp" data-full-src="/assets/images/kunststof-ring-met-kraag.webp" data-alt="Transparant witte kunststof ring met kraag en getrapte vorm">
-              <img src="/assets/images/kunststof-ring-met-kraag.webp" width="160" height="160" loading="lazy" decoding="async" alt="" aria-hidden="true">
+            <button class="pc-gallery-thumb" type="button" aria-pressed="false" aria-label="Bekijk foto 4 van kunststof ringen op maat" data-gallery-thumb data-src="/assets/images/kunststof-ring-met-kraag.webp" data-full-src="/assets/images/kunststof-ring-met-kraag.webp" data-alt="Transparant witte kunststof ring met kraag en getrapte vorm" data-srcset="/assets/images/ringen/kunststof-ring-met-kraag-400.webp 400w, /assets/images/ringen/kunststof-ring-met-kraag-800.webp 800w, /assets/images/kunststof-ring-met-kraag.webp 1200w" data-sizes="(min-width: 1180px) 559px, (min-width: 920px) 48vw, calc(100vw - 32px)">
+              <img src="/assets/images/ringen/kunststof-ring-met-kraag-160.webp" width="160" height="160" loading="eager" decoding="async" alt="" aria-hidden="true" srcset="/assets/images/ringen/kunststof-ring-met-kraag-160.webp 1x, /assets/images/ringen/kunststof-ring-met-kraag-320.webp 2x">
             </button>
           
-            <button class="pc-gallery-thumb" type="button" aria-pressed="false" aria-label="Bekijk foto 5 van kunststof ringen op maat" data-gallery-thumb data-src="/assets/images/zwarte-ptfe-ring-realistisch.webp" data-full-src="/assets/images/zwarte-ptfe-ring-realistisch.webp" data-alt="Zwarte kunststof ring op maat met nauwkeurig bewerkte binnen- en buitenmaat">
-              <img src="/assets/images/zwarte-ptfe-ring-realistisch.webp" width="160" height="160" loading="lazy" decoding="async" alt="" aria-hidden="true">
+            <button class="pc-gallery-thumb" type="button" aria-pressed="false" aria-label="Bekijk foto 5 van kunststof ringen op maat" data-gallery-thumb data-src="/assets/images/ringen/ptfe-dichtingen-serie.webp" data-full-src="/assets/images/ringen/ptfe-dichtingen-serie.webp" data-alt="Serie witte PTFE ringen op maat op een werkblad" data-srcset="/assets/images/ringen/ptfe-dichtingen-serie-400.webp 400w, /assets/images/ringen/ptfe-dichtingen-serie-800.webp 800w, /assets/images/ringen/ptfe-dichtingen-serie.webp 1254w" data-sizes="(min-width: 1180px) 559px, (min-width: 920px) 48vw, calc(100vw - 32px)">
+              <img src="/assets/images/ringen/ptfe-dichtingen-serie-160.webp" width="160" height="160" loading="eager" decoding="async" alt="" aria-hidden="true" srcset="/assets/images/ringen/ptfe-dichtingen-serie-160.webp 1x, /assets/images/ringen/ptfe-dichtingen-serie-320.webp 2x">
             </button>
           
         </div>
@@ -460,6 +476,82 @@
   </div>
 </section>
 
+<section class="mkr-section mkr-soft" aria-labelledby="mkr-material-title">
+  <div class="mkr-container">
+    <div class="mkr-section-head">
+      <div><p class="mkr-eyebrow">Materiaalkeuze</p><h2 class="mkr-heading" id="mkr-material-title">Kunststof ringen per materiaalsoort</h2></div>
+      <p>Belasting, temperatuur, beweging, vocht, chemicaliën en de gewenste maatvastheid bepalen welk materiaal het beste past.</p>
+    </div>
+    <div class="mkr-material-grid">
+      <details class="mkr-material" name="mkr-materials">
+        <summary><strong>PTFE ringen</strong><span>Lage wrijving en brede chemische bestendigheid</span></summary>
+        <div class="mkr-material-content"><p>Voor ringen die moeten glijden, isoleren of met veel chemicaliën in aanraking komen, maken we <a href="/teflon-ringen/">Teflon ringen op maat</a> van PTFE. Het materiaal kleeft weinig en neemt vrijwel geen vocht op, maar is relatief zacht en kan onder langdurige druk vervormen.</p><p>Heeft de ring een afdichtende functie, dan stemmen we ook het profiel en de klemkracht daarop af. Onze <a href="/ptfe-dichting/">PTFE dichtingen</a> kunnen naast ringvormen ook eigen contouren en bevestigingsgaten hebben.</p><dl class="mkr-material-facts"><div><dt>Toepassingen</dt><dd>Glijringen, isolatieringen, vlakke afdichtingsringen, chemische installaties en steunringen bij afdichtingen.</dd></div><div><dt>Kleuren</dt><dd>Meestal naturel wit; gevulde PTFE-kwaliteiten kunnen grijs, bruin of zwart zijn.</dd></div><div><dt>Bewerkingen</dt><dd>Draaien, frezen, boren en profileren met aandacht voor opspanning, uitzetting en vervorming.</dd></div><div><dt>Prijsbeeld</dt><dd>PTFE ligt doorgaans relatief hoger dan HDPE, PP, PVC en veel gangbare technische kunststoffen.</dd></div></dl></div>
+      </details>
+      <details class="mkr-material" name="mkr-materials">
+        <summary><strong>POM ringen</strong><span>Maatvast, stijf en nauwkeurig te bewerken</span></summary>
+        <div class="mkr-material-content"><p>Met <a href="/pom-op-maat/">POM op maat</a> maken we nauwkeurige afstandsringen, sluitringen en kraagringen. Het neemt weinig vocht op, heeft goede glij-eigenschappen en laat zich strak draaien, frezen, boren en tappen.</p><dl class="mkr-material-facts"><div><dt>Toepassingen</dt><dd>Afstandsringen, lager- en geleideringen, maatvaste sluitringen, kraagringen en technische machineonderdelen.</dd></div><div><dt>Kleuren</dt><dd>Veelal naturel of wit en zwart; speciale en detecteerbare kwaliteiten zijn afhankelijk van voorraad.</dd></div><div><dt>Bewerkingen</dt><dd>Precisiedraaien, frezen, ruimen, boren, tappen en het maken van groeven, trappen en passingmaten.</dd></div><div><dt>Prijsbeeld</dt><dd>POM valt meestal in de middencategorie en wordt vooral gekozen voor nauwkeurigheid en stijfheid.</dd></div></dl></div>
+      </details>
+      <details class="mkr-material" name="mkr-materials">
+        <summary><strong>PU ringen</strong><span>Elastisch, slijtvast en geschikt voor demping</span></summary>
+        <div class="mkr-material-content"><p>Met <a href="/pu-op-maat/">polyurethaan op maat</a> maken we onder meer elastische dempingsringen en slijtvaste contactringen. Massief PU zit qua gedrag tussen een stijve kunststof en zachter rubber in: het kan onder belasting vervormen en grotendeels terugveren, terwijl het oppervlak goed bestand kan zijn tegen slijtage en inscheuren. De PU-soort en Shore-hardheid zijn bepalend voor de werking.</p><dl class="mkr-material-facts"><div><dt>Toepassingen</dt><dd>Dempingsringen, stootringen, schraperringen, beschermringen, flexibele afstandsringen en slijtvaste contactdelen.</dd></div><div><dt>Kleuren</dt><dd>Onder meer naturel, geel, rood, blauw en zwart, afhankelijk van hardheid, samenstelling en leverancier.</dd></div><div><dt>Bewerkingen</dt><dd>Snijden, zagen, frezen, draaien en boren, afhankelijk van de hardheid en stabiliteit van het materiaal.</dd></div><div><dt>Aandachtspunt</dt><dd>Water, olie, temperatuur en gewenste vervorming bepalen mede of polyester-PU, polyether-PU of een andere kwaliteit past.</dd></div></dl></div>
+      </details>
+      <details class="mkr-material" name="mkr-materials">
+        <summary><strong>PA en PETP ringen</strong><span>Voor mechanische belasting, slijtage en geleiding</span></summary>
+        <div class="mkr-material-content"><p>PA is taai en slijtvast, maar neemt vocht op waardoor maatvoering kan veranderen. PETP neemt minder vocht op en blijft maatvaster. De keuze hangt af van schokken, druk, beweging en de vereiste passing.</p><dl class="mkr-material-facts"><div><dt>Toepassingen</dt><dd>Geleideringen, drukringen, afstandsringen, lagerringen en mechanisch belaste machineonderdelen.</dd></div><div><dt>Kleuren</dt><dd>PA vaak naturel of zwart; PETP meestal naturel, wit, zwart of grijs.</dd></div><div><dt>Bewerkingen</dt><dd>Draaien, frezen, boren, groeven, afschuinen en nauwkeurig nabewerken.</dd></div><div><dt>Aandachtspunt</dt><dd>Bij een nauwe passing moet vooral bij PA rekening worden gehouden met vocht en gebruiksomgeving.</dd></div></dl></div>
+      </details>
+      <details class="mkr-material" name="mkr-materials">
+        <summary><strong>HDPE ringen</strong><span>Taai, vochtbestendig en praktisch voor robuust gebruik</span></summary>
+        <div class="mkr-material-content"><p>Voor robuuste ringen in een natte omgeving is <a href="/hdpe-op-maat/">HDPE op maat</a> een praktische keuze. Bij contact met chemicaliën stemmen we de kwaliteit af op de stof en temperatuur. Het materiaal is taai en neemt vrijwel geen water op, maar is minder stijf en maatvast dan POM.</p><dl class="mkr-material-facts"><div><dt>Toepassingen</dt><dd>Grote vulringen, beschermringen, afstandsringen, isolerende sluitringen en onderdelen in natte of vuile omgevingen.</dd></div><div><dt>Kleuren</dt><dd>Onder meer naturel of wit, zwart, groen en blauw; speciale en voedselgeschikte kwaliteiten zijn afhankelijk van voorraad.</dd></div><div><dt>Bewerkingen</dt><dd>Draaien, frezen, boren en contourbewerking met aandacht voor flexibiliteit en thermische uitzetting.</dd></div><div><dt>Prijsbeeld</dt><dd>Standaard HDPE is doorgaans relatief voordelig en daardoor ook interessant voor grotere diameters.</dd></div></dl></div>
+      </details>
+      <details class="mkr-material" name="mkr-materials">
+        <summary><strong>HMPE ringen</strong><span>Zeer slijtvast met een lage wrijving</span></summary>
+        <div class="mkr-material-content"><p>HMPE wordt gekozen wanneer slijtage en glijdend contact zwaarder wegen dan een zeer strakke maatvoering. Het materiaal heeft een hoge slagvastheid, een lage wrijving en is geschikt voor ringen die langs een as, geleiding of productstroom bewegen.</p><dl class="mkr-material-facts"><div><dt>Toepassingen</dt><dd>Slijtringen, glijringen, geleideringen, beschermringen en robuuste lagerachtige onderdelen.</dd></div><div><dt>Kleuren</dt><dd>Veelal naturel of wit, groen en zwart; gemodificeerde kwaliteiten en andere kleuren zijn afhankelijk van leverancier.</dd></div><div><dt>Bewerkingen</dt><dd>Draaien, frezen, boren, groeven en profileren met rekening voor de taaiheid en thermische uitzetting.</dd></div><div><dt>Prijsbeeld</dt><dd>HMPE ligt doorgaans hoger dan standaard HDPE, maar wordt gericht gekozen voor een langere levensduur bij slijtage en glijden.</dd></div></dl></div>
+      </details>
+      <details class="mkr-material" name="mkr-materials">
+        <summary><strong>PVC, PP en PVDF ringen</strong><span>Voor vocht, apparatenbouw en chemische omgevingen</span></summary>
+        <div class="mkr-material-content"><p>Met <a href="/pvc-op-maat/">PVC op maat</a> maken we relatief stijve ringen voor onder meer apparatenbouw. PP is lichter en taaier; PVDF wordt gekozen voor veeleisende chemische toepassingen. Chemische bestendigheid moet altijd worden gecontroleerd op medium, concentratie en temperatuur.</p><dl class="mkr-material-facts"><div><dt>Toepassingen</dt><dd>Isolerende sluitringen, leiding- en flensdelen, afstandsringen, laboratorium- en procesapparatuur.</dd></div><div><dt>Kleuren</dt><dd>PVC vooral grijs, wit of zwart; PP naturel, grijs, wit of zwart; PVDF veelal naturel wit.</dd></div><div><dt>Bewerkingen</dt><dd>Draaien, zagen, frezen, boren en bij geschikte uitvoeringen kunststoflassen.</dd></div><div><dt>Prijsbeeld</dt><dd>Standaard PVC en PP zijn relatief voordelig tot gemiddeld; PVDF ligt doorgaans duidelijk hoger.</dd></div></dl></div>
+      </details>
+      <details class="mkr-material" name="mkr-materials">
+        <summary><strong>PEEK en speciale ringen</strong><span>Voor hoge technische, thermische of certificeringseisen</span></summary>
+        <div class="mkr-material-content"><p>PEEK en speciale gevulde of gecertificeerde kunststoffen zijn bedoeld voor toepassingen waarin standaardmaterialen tekortschieten. Denk aan hogere temperatuur, hoge mechanische belasting, elektrische eisen of een specifieke materiaalverklaring.</p><dl class="mkr-material-facts"><div><dt>Toepassingen</dt><dd>Precisieringen, hoogbelaste steunringen, isolatie, cleanroom- en procesdelen en onderdelen met speciale verklaringen.</dd></div><div><dt>Kleuren</dt><dd>PEEK meestal naturel beige of zwart; andere kleuren hangen af van de gekozen speciale kwaliteit.</dd></div><div><dt>Bewerkingen</dt><dd>Precisiedraaien, frezen, boren en profileren volgens de eigenschappen en stabiliteit van het materiaal.</dd></div><div><dt>Prijsbeeld</dt><dd>PEEK en speciale kwaliteiten bevinden zich meestal in de hoogste relatieve materiaalcategorie.</dd></div></dl></div>
+      </details>
+    </div>
+    <div class="mkr-callout"><div><strong>Speciale kunststofkwaliteit nodig?</strong><span>Ook voedselgeschikte, detecteerbare, ESD-veilige, brandvertragende en gevulde kwaliteiten kunnen worden aangevraagd.</span></div><a href="#offerte">Neem contact op →</a></div>
+  </div>
+</section>
+
+<section class="mkr-section" aria-labelledby="mkr-case-title"><div class="mkr-container"><div class="mkr-section-head mkr-section-head-single"><div><p class="mkr-eyebrow">Kunststof ringen op maat</p><h2 class="mkr-heading" id="mkr-case-title">Voorbeelden uit de praktijk</h2></div></div><div class="mkr-photo-grid">
+<article class="mkr-photo"><img src="/assets/images/ringen/ptfe-dichting-opstaande-rand.webp" width="1254" height="1254" loading="lazy" decoding="async" alt="Witte PTFE ring met een brede onderrand en opstaand profiel" srcset="/assets/images/ringen/ptfe-dichting-opstaande-rand-400.webp 400w, /assets/images/ringen/ptfe-dichting-opstaande-rand-800.webp 800w, /assets/images/ringen/ptfe-dichting-opstaande-rand.webp 1254w" sizes="(min-width: 1180px) 377px, (min-width: 1000px) calc((100vw - 96px) / 3), (min-width: 680px) calc((100vw - 72px) / 2), calc(100vw - 32px)"><div><h3>PTFE ring met opstaande rand</h3><p>De opstaande rand geeft deze <a href="/ptfe-dichting/">PTFE dichting</a> een ander profiel dan een vlakke ring.</p></div></article>
+<article class="mkr-photo"><img src="/assets/images/ringen/ptfe-dichtingen-serie.webp" width="1254" height="1254" loading="lazy" decoding="async" alt="Serie witte PTFE ringen op een werkblad" srcset="/assets/images/ringen/ptfe-dichtingen-serie-400.webp 400w, /assets/images/ringen/ptfe-dichtingen-serie-800.webp 800w, /assets/images/ringen/ptfe-dichtingen-serie.webp 1254w" sizes="(min-width: 1180px) 377px, (min-width: 1000px) calc((100vw - 96px) / 3), (min-width: 680px) calc((100vw - 72px) / 2), calc(100vw - 32px)"><div><h3>Een serie kunststof ringen</h3><p>Meerdere ringen in dezelfde uitvoering. Ook voor terugkerende aantallen maken we de gewenste binnenmaat, buitenmaat en dikte.</p></div></article>
+<article class="mkr-photo"><img src="/assets/images/ringen/teflon-afdichting-smalle-rand.webp" width="1254" height="1254" loading="lazy" decoding="async" alt="Witte ronde Teflon ring met een smalle ringbreedte" srcset="/assets/images/ringen/teflon-afdichting-smalle-rand-400.webp 400w, /assets/images/ringen/teflon-afdichting-smalle-rand-800.webp 800w, /assets/images/ringen/teflon-afdichting-smalle-rand.webp 1254w" sizes="(min-width: 1180px) 377px, (min-width: 1000px) calc((100vw - 96px) / 3), (min-width: 680px) calc((100vw - 72px) / 2), calc(100vw - 32px)"><div><h3>Teflon ring met smalle rand</h3><p>Bij deze <a href="/teflon-ringen/">Teflon ring</a> is het verschil tussen de binnen- en buitendiameter klein, waardoor een smalle rand overblijft.</p></div></article>
+
+<article class="mkr-photo"><img src="/assets/images/ringen/kunststof-ring-met-metalen-inzet.webp" width="1254" height="1254" loading="lazy" decoding="async" alt="Witte kunststof ring met een opstaande metalen inzet in de opening" srcset="/assets/images/ringen/kunststof-ring-met-metalen-inzet-400.webp 400w, /assets/images/ringen/kunststof-ring-met-metalen-inzet-800.webp 800w, /assets/images/ringen/kunststof-ring-met-metalen-inzet.webp 1254w" sizes="(min-width: 1180px) 377px, (min-width: 1000px) calc((100vw - 96px) / 3), (min-width: 680px) calc((100vw - 72px) / 2), calc(100vw - 32px)"><div><h3>Ring met metalen inzet</h3><p>De metalen inzet sluit aan op de binnenzijde van de kunststof ring en steekt boven het witte vlak uit.</p></div></article>
+<article class="mkr-photo"><img src="/assets/images/ringen/ronde-schijf-met-gaten-en-sleuven.webp" width="1024" height="1024" loading="lazy" decoding="async" alt="Bruine ronde schijf met ronde gaten en langwerpige uitsparingen" srcset="/assets/images/ringen/ronde-schijf-met-gaten-en-sleuven-400.webp 400w, /assets/images/ringen/ronde-schijf-met-gaten-en-sleuven-800.webp 800w, /assets/images/ringen/ronde-schijf-met-gaten-en-sleuven.webp 1024w" sizes="(min-width: 1180px) 377px, (min-width: 1000px) calc((100vw - 96px) / 3), (min-width: 680px) calc((100vw - 72px) / 2), calc(100vw - 32px)"><div><h3>Ronde schijf met gaten en sleuven</h3><p>Naast ringen maken we ook <a href="/kunststof-schijven-op-maat/">kunststof schijven op maat</a>. Dit voorbeeld laat een ronde buitenvorm met een eigen patroon van gaten en sleuven zien.</p></div></article>
+<article class="mkr-photo"><img src="/assets/images/ringen/transparante-ring-geribbeld-profiel.webp" width="1024" height="1024" loading="lazy" decoding="async" alt="Doorschijnende ring met meerdere concentrische ribbels op een hand" srcset="/assets/images/ringen/transparante-ring-geribbeld-profiel-400.webp 400w, /assets/images/ringen/transparante-ring-geribbeld-profiel-800.webp 800w, /assets/images/ringen/transparante-ring-geribbeld-profiel.webp 1024w" sizes="(min-width: 1180px) 377px, (min-width: 1000px) calc((100vw - 96px) / 3), (min-width: 680px) calc((100vw - 72px) / 2), calc(100vw - 32px)"><div><h3>Ring met geribbeld profiel</h3><p>Deze ring heeft meerdere ribbels rondom de opening. Zulke profielen vallen binnen de mogelijkheden voor <a href="/dichtingen-op-maat/">dichtingen op maat</a>.</p></div></article>
+<article class="mkr-photo"><img src="/assets/images/ringen/micaliet-ringen-maatwerk.webp" width="1024" height="1024" loading="lazy" decoding="async" alt="Twee grijze micaliet ringen met een brede vlakke rand" srcset="/assets/images/ringen/micaliet-ringen-maatwerk-400.webp 400w, /assets/images/ringen/micaliet-ringen-maatwerk-800.webp 800w, /assets/images/ringen/micaliet-ringen-maatwerk.webp 1024w" sizes="(min-width: 1180px) 377px, (min-width: 1000px) calc((100vw - 96px) / 3), (min-width: 680px) calc((100vw - 72px) / 2), calc(100vw - 32px)"><div><h3>Micaliet ringen</h3><p>Ook andere materialen zijn mogelijk: deze <a href="/mica-pakkingen/">micaliet pakkingen</a> zijn uitgevoerd als vlakke ringen met een brede rand.</p></div></article>
+<article class="mkr-photo"><img src="/assets/images/ringen/oranje-ring-met-lip.webp" width="1254" height="1254" loading="lazy" decoding="async" alt="Oranje vlakke ring met een uitstekende lip aan de buitenrand" srcset="/assets/images/ringen/oranje-ring-met-lip-400.webp 400w, /assets/images/ringen/oranje-ring-met-lip-800.webp 800w, /assets/images/ringen/oranje-ring-met-lip.webp 1254w" sizes="(min-width: 1180px) 377px, (min-width: 1000px) calc((100vw - 96px) / 3), (min-width: 680px) calc((100vw - 72px) / 2), calc(100vw - 32px)"><div><h3>Ring met uitstekende lip</h3><p>De ronde opening is gecombineerd met een lip aan de buitenkant. Ook een plaatselijke afwijking van de ronde vorm kan onderdeel zijn van het maatwerk.</p></div></article>
+<article class="mkr-photo"><img src="/assets/images/zwarte-ptfe-ring-realistisch.webp" width="1254" height="1254" loading="lazy" decoding="async" alt="Zwarte kunststof ring met een ronde opening" srcset="/assets/images/ringen/zwarte-ptfe-ring-realistisch-400.webp 400w, /assets/images/ringen/zwarte-ptfe-ring-realistisch-800.webp 800w, /assets/images/zwarte-ptfe-ring-realistisch.webp 1254w" sizes="(min-width: 1180px) 377px, (min-width: 1000px) calc((100vw - 96px) / 3), (min-width: 680px) calc((100vw - 72px) / 2), calc(100vw - 32px)"><div><h3>Zwarte kunststof ring</h3><p>Een ronde uitvoering met een doorlopende rand. Binnenmaat, buitenmaat en dikte worden afgestemd op de gewenste passing.</p></div></article>
+</div></div></section>
+
+<section class="mkr-section mkr-soft" aria-labelledby="mkr-design-title">
+  <div class="mkr-container">
+    <div class="mkr-section-head mkr-section-head-single"><div><p class="mkr-eyebrow">Van ontwerp naar onderdeel</p><h2 class="mkr-heading" id="mkr-design-title">Een kraagring volgens tekening</h2></div></div>
+    <div class="mkr-case-grid">
+      <div class="mkr-case-step">
+        <article class="mkr-case">
+          <figure class="mkr-case-image"><img src="/assets/images/kunststof-ring-met-kraag-cad.webp" width="800" height="800" loading="lazy" decoding="async" alt="Digitaal model van een kunststof kraagring met maatvoering" srcset="/assets/images/ringen/kunststof-ring-met-kraag-cad-400.webp 400w, /assets/images/kunststof-ring-met-kraag-cad.webp 800w" sizes="(min-width: 900px) 320px, (min-width: 680px) calc(100vw - 48px), calc(100vw - 32px)"></figure>
+          <div class="mkr-case-content"><span class="mkr-case-label">Ontwerp</span><h3>Ontwerp van een kraagring</h3><p>In het model zijn de verschillende diameters en hoogtes van de ring vastgelegd.</p></div>
+        </article>
+      </div>
+      <article class="mkr-case">
+        <figure class="mkr-case-image"><img src="/assets/images/kunststof-ring-met-kraag.webp" width="1200" height="1200" loading="lazy" decoding="async" alt="Witte kunststof ring met kraag als uitgewerkt onderdeel" srcset="/assets/images/ringen/kunststof-ring-met-kraag-400.webp 400w, /assets/images/ringen/kunststof-ring-met-kraag-800.webp 800w, /assets/images/kunststof-ring-met-kraag.webp 1200w" sizes="(min-width: 900px) 320px, (min-width: 680px) calc(100vw - 48px), calc(100vw - 32px)"></figure>
+        <div class="mkr-case-content"><span class="mkr-case-label">Resultaat</span><h3>Kunststof ring met kraag</h3><p>De getrapte buitenvorm combineert een smaller deel met een brede aanslagrand.</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+
 <section class="mkr-section mkr-soft" aria-labelledby="mkr-types-title">
   <div class="mkr-container">
     <div class="mkr-section-head">
@@ -479,63 +571,12 @@
 
 <section class="mkr-section" aria-labelledby="mkr-dimensions-title">
   <div class="mkr-container mkr-dimensions">
-    <figure class="mkr-dimensions-image"><img src="/assets/images/maatvoering-kunststof-ring.webp" width="800" height="800" loading="lazy" decoding="async" alt="Technische weergave van de binnenmaat, buitenmaat en breedte van een kunststof ring"></figure>
+    <figure class="mkr-dimensions-image"><img src="/assets/images/maatvoering-kunststof-ring.webp" width="800" height="800" loading="lazy" decoding="async" alt="Technische weergave van de binnenmaat, buitenmaat en breedte van een kunststof ring" srcset="/assets/images/ringen/maatvoering-kunststof-ring-400.webp 400w, /assets/images/maatvoering-kunststof-ring.webp 800w" sizes="(min-width: 1180px) 540px, (min-width: 900px) 46vw, calc(100vw - 32px)"></figure>
     <div class="mkr-copy">
       <div><p class="mkr-eyebrow">Maatvoering</p><h2 class="mkr-heading" id="mkr-dimensions-title">Welke maten bepalen een kunststof ring?</h2></div>
       <p>Voor een vlakke kunststof ring zijn de binnendiameter, buitendiameter en dikte de drie hoofdmaten. Moet de ring over een as vallen of in een boring passen, dan is ook de gewenste speling belangrijk.</p>
       <p>Bij een ring met kraag of getrapte vorm zijn extra diameters en hoogtes nodig. Ook een groef, afschuining, radius of nauwe passing kan in de maatvoering worden opgenomen.</p>
-      <ul class="mkr-specs">
-        <li>Binnenmaat of gewenste passing over de as</li>
-        <li>Buitenmaat of beschikbare ruimte in de boring</li>
-        <li>Dikte, totale hoogte en eventuele kraaghoogte</li>
-        <li>Extra diameters, groeven of afschuiningen</li>
-        <li>Gewenste passing en relevante toleranties</li>
-      </ul>
     </div>
-  </div>
-</section>
-
-<section class="mkr-section mkr-soft" aria-labelledby="mkr-material-title">
-  <div class="mkr-container">
-    <div class="mkr-section-head">
-      <div><p class="mkr-eyebrow">Materiaalkeuze</p><h2 class="mkr-heading" id="mkr-material-title">Kunststof ringen per materiaalsoort</h2></div>
-      <p>Belasting, temperatuur, beweging, vocht, chemicaliën en de gewenste maatvastheid bepalen welk materiaal het beste past.</p>
-    </div>
-    <div class="mkr-material-grid">
-      <details class="mkr-material" name="mkr-materials">
-        <summary><strong>PTFE ringen</strong><span>Lage wrijving en brede chemische bestendigheid</span></summary>
-        <div class="mkr-material-content"><p>PTFE wordt veel gevraagd voor ringen die moeten glijden, isoleren of met agressieve media in aanraking komen. Het materiaal kleeft weinig en neemt vrijwel geen vocht op, maar is relatief zacht en kan onder langdurige druk vervormen.</p><dl class="mkr-material-facts"><div><dt>Toepassingen</dt><dd>Glijringen, isolatieringen, vlakke afdichtingsringen, chemische installaties en steunringen bij afdichtingen.</dd></div><div><dt>Kleuren</dt><dd>Meestal naturel wit; gevulde PTFE-kwaliteiten kunnen grijs, bruin of zwart zijn.</dd></div><div><dt>Bewerkingen</dt><dd>Draaien, frezen, boren en profileren met aandacht voor opspanning, uitzetting en vervorming.</dd></div><div><dt>Prijsbeeld</dt><dd>PTFE ligt doorgaans relatief hoger dan HDPE, PP, PVC en veel gangbare technische kunststoffen.</dd></div></dl><a class="mkr-material-link" href="/teflon-ringen/">Bekijk Teflon ringen →</a></div>
-      </details>
-      <details class="mkr-material" name="mkr-materials">
-        <summary><strong>POM ringen</strong><span>Maatvast, stijf en nauwkeurig te bewerken</span></summary>
-        <div class="mkr-material-content"><p>POM is geschikt voor nauwkeurige afstandsringen, sluitringen en kraagringen. Het neemt weinig vocht op, heeft goede glij-eigenschappen en laat zich strak draaien, frezen, boren en tappen.</p><dl class="mkr-material-facts"><div><dt>Toepassingen</dt><dd>Afstandsringen, lager- en geleideringen, maatvaste sluitringen, kraagringen en technische machineonderdelen.</dd></div><div><dt>Kleuren</dt><dd>Veelal naturel of wit en zwart; speciale en detecteerbare kwaliteiten zijn afhankelijk van voorraad.</dd></div><div><dt>Bewerkingen</dt><dd>Precisiedraaien, frezen, ruimen, boren, tappen en het maken van groeven, trappen en passingmaten.</dd></div><div><dt>Prijsbeeld</dt><dd>POM valt meestal in de middencategorie en wordt vooral gekozen voor nauwkeurigheid en stijfheid.</dd></div></dl><a class="mkr-material-link" href="/pom-op-maat/">Meer over POM op maat →</a></div>
-      </details>
-      <details class="mkr-material" name="mkr-materials">
-        <summary><strong>PU ringen</strong><span>Elastisch, slijtvast en geschikt voor demping</span></summary>
-        <div class="mkr-material-content"><p>PU staat voor polyurethaan. Massief PU zit qua gedrag tussen een stijve kunststof en zachter rubber in: het kan onder belasting vervormen en grotendeels terugveren, terwijl het oppervlak goed bestand kan zijn tegen slijtage en inscheuren. De PU-soort en Shore-hardheid zijn bepalend voor de werking.</p><dl class="mkr-material-facts"><div><dt>Toepassingen</dt><dd>Dempingsringen, stootringen, schraperringen, beschermringen, flexibele afstandsringen en slijtvaste contactdelen.</dd></div><div><dt>Kleuren</dt><dd>Onder meer naturel, geel, rood, blauw en zwart, afhankelijk van hardheid, samenstelling en leverancier.</dd></div><div><dt>Bewerkingen</dt><dd>Snijden, zagen, frezen, draaien en boren, afhankelijk van de hardheid en stabiliteit van het materiaal.</dd></div><div><dt>Aandachtspunt</dt><dd>Water, olie, temperatuur en gewenste vervorming bepalen mede of polyester-PU, polyether-PU of een andere kwaliteit past.</dd></div></dl><a class="mkr-material-link" href="/pu-op-maat/">Meer over PU op maat →</a></div>
-      </details>
-      <details class="mkr-material" name="mkr-materials">
-        <summary><strong>PA en PETP ringen</strong><span>Voor mechanische belasting, slijtage en geleiding</span></summary>
-        <div class="mkr-material-content"><p>PA is taai en slijtvast, maar neemt vocht op waardoor maatvoering kan veranderen. PETP neemt minder vocht op en blijft maatvaster. De keuze hangt af van schokken, druk, beweging en de vereiste passing.</p><dl class="mkr-material-facts"><div><dt>Toepassingen</dt><dd>Geleideringen, drukringen, afstandsringen, lagerringen en mechanisch belaste machineonderdelen.</dd></div><div><dt>Kleuren</dt><dd>PA vaak naturel of zwart; PETP meestal naturel, wit, zwart of grijs.</dd></div><div><dt>Bewerkingen</dt><dd>Draaien, frezen, boren, groeven, afschuinen en nauwkeurig nabewerken.</dd></div><div><dt>Aandachtspunt</dt><dd>Bij een nauwe passing moet vooral bij PA rekening worden gehouden met vocht en gebruiksomgeving.</dd></div></dl></div>
-      </details>
-      <details class="mkr-material" name="mkr-materials">
-        <summary><strong>HDPE ringen</strong><span>Taai, vochtbestendig en praktisch voor robuust gebruik</span></summary>
-        <div class="mkr-material-content"><p>HDPE, voluit hogedichtheidpolyethyleen, is een praktische keuze voor robuuste ringen die met vocht, vuil of lichte chemicaliën in aanraking komen. Het materiaal is taai en neemt vrijwel geen water op, maar is minder stijf en maatvast dan POM.</p><dl class="mkr-material-facts"><div><dt>Toepassingen</dt><dd>Grote vulringen, beschermringen, afstandsringen, isolerende sluitringen en onderdelen in natte of vuile omgevingen.</dd></div><div><dt>Kleuren</dt><dd>Onder meer naturel of wit, zwart, groen en blauw; speciale en voedselgeschikte kwaliteiten zijn afhankelijk van voorraad.</dd></div><div><dt>Bewerkingen</dt><dd>Draaien, frezen, boren en contourbewerking met aandacht voor flexibiliteit en thermische uitzetting.</dd></div><div><dt>Prijsbeeld</dt><dd>Standaard HDPE is doorgaans relatief voordelig en daardoor ook interessant voor grotere diameters.</dd></div></dl><a class="mkr-material-link" href="/hdpe-op-maat/">Meer over HDPE op maat →</a></div>
-      </details>
-      <details class="mkr-material" name="mkr-materials">
-        <summary><strong>HMPE ringen</strong><span>Zeer slijtvast met een lage wrijving</span></summary>
-        <div class="mkr-material-content"><p>HMPE wordt gekozen wanneer slijtage en glijdend contact zwaarder wegen dan een zeer strakke maatvoering. Het materiaal heeft een hoge slagvastheid, een lage wrijving en is geschikt voor ringen die langs een as, geleiding of productstroom bewegen.</p><dl class="mkr-material-facts"><div><dt>Toepassingen</dt><dd>Slijtringen, glijringen, geleideringen, beschermringen en robuuste lagerachtige onderdelen.</dd></div><div><dt>Kleuren</dt><dd>Veelal naturel of wit, groen en zwart; gemodificeerde kwaliteiten en andere kleuren zijn afhankelijk van leverancier.</dd></div><div><dt>Bewerkingen</dt><dd>Draaien, frezen, boren, groeven en profileren met rekening voor de taaiheid en thermische uitzetting.</dd></div><div><dt>Prijsbeeld</dt><dd>HMPE ligt doorgaans hoger dan standaard HDPE, maar wordt gericht gekozen voor een langere levensduur bij slijtage en glijden.</dd></div></dl></div>
-      </details>
-      <details class="mkr-material" name="mkr-materials">
-        <summary><strong>PVC, PP en PVDF ringen</strong><span>Voor vocht, apparatenbouw en chemische omgevingen</span></summary>
-        <div class="mkr-material-content"><p>PVC is relatief stijf, PP is lichter en taaier en PVDF wordt gekozen voor zwaardere chemische of zuivere omstandigheden. Chemische bestendigheid moet altijd worden gecontroleerd op medium, concentratie en temperatuur.</p><dl class="mkr-material-facts"><div><dt>Toepassingen</dt><dd>Isolerende sluitringen, leiding- en flensdelen, afstandsringen, laboratorium- en procesapparatuur.</dd></div><div><dt>Kleuren</dt><dd>PVC vooral grijs, wit of zwart; PP naturel, grijs, wit of zwart; PVDF veelal naturel wit.</dd></div><div><dt>Bewerkingen</dt><dd>Draaien, zagen, frezen, boren en bij geschikte uitvoeringen kunststoflassen.</dd></div><div><dt>Prijsbeeld</dt><dd>Standaard PVC en PP zijn relatief voordelig tot gemiddeld; PVDF ligt doorgaans duidelijk hoger.</dd></div></dl><a class="mkr-material-link" href="/pvc-op-maat/">Meer over PVC op maat →</a></div>
-      </details>
-      <details class="mkr-material" name="mkr-materials">
-        <summary><strong>PEEK en speciale ringen</strong><span>Voor hoge technische, thermische of certificeringseisen</span></summary>
-        <div class="mkr-material-content"><p>PEEK en speciale gevulde of gecertificeerde kunststoffen zijn bedoeld voor toepassingen waarin standaardmaterialen tekortschieten. Denk aan hogere temperatuur, hoge mechanische belasting, elektrische eisen of een specifieke materiaalverklaring.</p><dl class="mkr-material-facts"><div><dt>Toepassingen</dt><dd>Precisieringen, hoogbelaste steunringen, isolatie, cleanroom- en procesdelen en onderdelen met speciale verklaringen.</dd></div><div><dt>Kleuren</dt><dd>PEEK meestal naturel beige of zwart; andere kleuren hangen af van de gekozen speciale kwaliteit.</dd></div><div><dt>Bewerkingen</dt><dd>Precisiedraaien, frezen, boren en profileren volgens de eigenschappen en stabiliteit van het materiaal.</dd></div><div><dt>Prijsbeeld</dt><dd>PEEK en speciale kwaliteiten bevinden zich meestal in de hoogste relatieve materiaalcategorie.</dd></div></dl></div>
-      </details>
-    </div>
-    <div class="mkr-callout"><div><strong>Speciale kunststofkwaliteit nodig?</strong><span>Ook voedselgeschikte, detecteerbare, ESD-veilige, brandvertragende en gevulde kwaliteiten kunnen worden aangevraagd.</span></div><a href="#offerte">Neem contact op →</a></div>
   </div>
 </section>
 
@@ -562,78 +603,30 @@
       <div><p class="mkr-eyebrow">Toepassingen</p><h2 class="mkr-heading" id="mkr-applications-title">Waar worden kunststof ringen voor gebruikt?</h2></div>
       <p>Kunststof ringen worden toegepast om afstand te houden, te isoleren, te geleiden, te centreren of een ander onderdeel te ondersteunen.</p>
     </div>
-    <div class="mkr-application-grid">
+    <div class="mkr-application-grid mkr-application-grid-four">
       <article class="mkr-application-card"><h3>Boutverbindingen en isolatie</h3><p>Een kunststof sluitring verdeelt de druk, voorkomt direct metaalcontact en kan bouten, panelen of elektrische componenten isoleren.</p></article>
       <article class="mkr-application-card"><h3>Afstand en uitvulling</h3><p>Afstands- en vulringen stellen speling, hoogte of positie in bij assen, lagers, frames, deuren en machineconstructies.</p></article>
       <article class="mkr-application-card"><h3>Glijden en geleiden</h3><p>POM-, PA-, PETP-, HMPE- of PTFE-ringen kunnen als glij-, lager- of geleidering worden gebruikt, afhankelijk van snelheid en belasting.</p></article>
-      <article class="mkr-application-card"><h3>Centreren met een kraag</h3><p>Een kunststof ring met kraag valt in een boring en houdt twee delen gecentreerd, terwijl de flens de axiale positie begrenst.</p></article>
       <article class="mkr-application-card"><h3>Afdichting ondersteunen</h3><p>Een kunststof steun- of back-upring ondersteunt een O-ring of andere afdichting. Profiel, druk, spleet en materiaal moeten als systeem worden beoordeeld.</p></article>
-      <article class="mkr-application-card"><h3>Vervanging en machineonderhoud</h3><p>Een versleten of niet meer leverbare ring kan worden nagemaakt voor reparatie, onderhoud of terugkerende vervanging.</p></article>
-    </div>
+      </div>
   </div>
 </section>
 
 <section class="mkr-section" aria-labelledby="mkr-properties-title">
-  <div class="mkr-container">
-    <div class="mkr-section-head">
-      <div><p class="mkr-eyebrow">Materiaalkeuze</p><h2 class="mkr-heading" id="mkr-properties-title">Voordelen en beperkingen van kunststof ringen</h2></div>
-      <p>Een kunststof ring is vooral geschikt wanneer het onderdeel vormvast moet blijven, nauwkeurig moet passen of weinig wrijving mag geven.</p>
-    </div>
-    <div class="mkr-copy">
-      <p>Kunststof is licht, roest niet en kan elektrisch isoleren. Afhankelijk van het materiaal zijn ook een lage wrijving, goede slijtvastheid, geringe vochtopname of brede chemische bestendigheid mogelijk. Door de ring te draaien of frezen kunnen nauwkeurige passingen, kragen, groeven en getrapte vormen worden gemaakt.</p>
-      <p>Niet iedere kunststof blijft onder belasting even maatvast. PTFE en PE kunnen onder langdurige druk vervormen, PA neemt vocht op en alle kunststoffen zetten sterker uit bij temperatuurverandering dan metaal. Materiaal, passing en tolerantie moeten daarom op de werkelijke toepassing worden afgestemd.</p>
-      <p>Moet de ring vooral afdichten, dempen of elastisch meebewegen, dan is een <a href="/rubber-ringen-op-maat/">rubber ring op maat</a> vaak een betere keuze.</p>
-      <p>Voor een vlakke flens- of dekselpakking met een afwijkende contour kunt u terecht bij onze <a href="/dichtingen-op-maat/">dichtingen op maat</a>.</p>
-    </div>
-  </div>
-</section>
+<div class="mkr-container mkr-copy"><h2 class="mkr-heading" id="mkr-properties-title">Een ring voor passing of afdichting</h2>
+<p>Een afstandsring of kraagring moet vooral de juiste positie en passing behouden. Moet het onderdeel juist elastisch indrukken en terugveren, dan kan een <a href="/rubber-ringen-op-maat/">rubber ring op maat</a> beter passen. De gewenste vervorming en gebruiksomstandigheden bepalen de keuze.</p>
+<p>Voor een vlakke afdichting tussen flenzen of deksels maken we ook <a href="/kunststof-pakkingen/">kunststof pakkingen</a>, met een ronde opening, boutgaten of een afwijkende buitencontour. Heeft u een afdichtingsprofiel of een andere eigen vorm nodig, dan vindt u meer mogelijkheden bij onze <a href="/dichtingen-op-maat/">dichtingen op maat</a>.</p>
+</div></section>
 
-<section class="mkr-section mkr-soft" aria-labelledby="mkr-case-title">
-  <div class="mkr-container">
-    <div class="mkr-section-head mkr-section-head-single">
-      <div><p class="mkr-eyebrow">Kunststof ringen op maat</p><h2 class="mkr-heading" id="mkr-case-title">Voorbeelden uit de praktijk</h2></div>
-    </div>
-    <div class="mkr-case-grid">
-      <div class="mkr-case-step">
-        <article class="mkr-case">
-          <figure class="mkr-case-image"><img src="/assets/images/kunststof-ring-met-kraag-cad.webp" width="800" height="800" loading="lazy" decoding="async" alt="3D-model met de maatvoering van een kunststof ring met kraag"></figure>
-          <div class="mkr-case-content">
-            <span class="mkr-case-label">Uitgangspunt</span>
-            <h3>Digitaal model van een ring met kraag</h3>
-            <p>In het model zijn de binnenmaat, buitendiameter, kraagdiameter, kraaghoogte en totale hoogte vastgelegd. Ook de overgang tussen beide diameters is zichtbaar.</p>
-          </div>
-        </article>
-      </div>
-      <article class="mkr-case">
-        <figure class="mkr-case-image"><img src="/assets/images/kunststof-ring-met-kraag.webp" width="1200" height="1200" loading="lazy" decoding="async" alt="Gemaakte kunststof ring met kraag volgens opgegeven maatvoering"></figure>
-        <div class="mkr-case-content">
-          <span class="mkr-case-label">Resultaat</span>
-          <h3>Kunststof ring met kraag</h3>
-          <p>De ring is volgens het model gemaakt. De smallere kraag valt in de boring en centreert het onderdeel; de bredere flens blijft tegen het oppervlak liggen.</p>
-        </div>
-      </article>
-      <article class="mkr-case">
-        <figure class="mkr-case-image"><img src="/assets/images/witte-kunststof-ringen-realistisch.webp" width="1200" height="1200" loading="lazy" alt="Twee witte PTFE ringen als chemisch bestendige afstands- en glijringen"></figure>
-        <div class="mkr-case-content">
-          <span class="mkr-case-label">Toepassing</span>
-          <h3>Witte PTFE tussenringen</h3>
-          <p>Deze vlakke PTFE ringen houden onderdelen op afstand en voorkomen direct metaalcontact. PTFE is hiervoor gekozen vanwege de lage wrijving, geringe vochtopname en chemische bestendigheid.</p>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
-
-<section class="mkr-section" aria-labelledby="mkr-price-title">
+<section class="mkr-section mkr-soft" aria-labelledby="mkr-price-title">
   <div class="mkr-container">
     <div class="mkr-section-head"><div><p class="mkr-eyebrow">Prijsopbouw</p><h2 class="mkr-heading" id="mkr-price-title">Wat kost een kunststof ring op maat?</h2></div><p>De prijs wordt bepaald door materiaalgebruik, bewerkingstijd en het aantal ringen.</p></div>
-    <div class="mkr-price-grid">
+    <div class="mkr-price-grid mkr-price-grid-single">
       <div class="mkr-price-copy">
         <p>Bij een vlakke ring tellen vooral de kunststofsoort, plaatdikte, binnen- en buitenmaat en het aantal. Een grotere diameter of een kostbaardere technische kunststof verhoogt het materiaalaandeel.</p>
         <p>Een eenvoudige ring uit plaat vraagt minder bewerking dan een gedraaide ring met kraag, groef of meerdere passingmaten. Ook nauwe toleranties en extra boringen verhogen de productietijd.</p>
         <p>Bij series worden de voorbereiding en instelling over meerdere ringen verdeeld. Daardoor daalt de prijs per stuk meestal.</p>
       </div>
-      <aside class="mkr-price-note"><h3>Prijs laten berekenen?</h3><p>Neem contact met ons op. We bespreken de uitvoering en maken een vrijblijvende offerte.</p></aside>
     </div>
   </div>
 </section>
@@ -643,12 +636,9 @@
     <div><p class="mkr-eyebrow">Veelgestelde vragen</p><h2 class="mkr-heading" id="mkr-faq-title">Over kunststof ringen en kraagringen</h2></div>
     <div class="mkr-faq-list">
       <details><summary>Kunnen jullie één kunststof ring op maat maken?</summary><p>Ja. Enkelstuks, vervangingsringen, prototypes, kleine aantallen en terugkerende series kunnen allemaal worden aangevraagd.</p></details>
-      <details><summary>Welke maten bepalen een kunststof ring?</summary><p>Voor een vlakke ring zijn de binnendiameter, buitendiameter en dikte de hoofdmaten. Bij een kraag of getrapte vorm zijn ook de extra diameters en hoogtes nodig.</p></details>
-      <details><summary>Maken jullie kunststof ringen met kraag?</summary><p>Ja. Kraagringen, flensringen en getrapte ringen kunnen worden gemaakt met verschillende binnen- en buitendiameters, hoogtes, afschuiningen en waar nodig groeven.</p></details>
       <details><summary>Welke kunststof is geschikt voor een afstandsring?</summary><p>POM is vaak geschikt voor een stijve, maatvaste afstandsring. PA, PETP, HDPE, HMPE, PTFE, PVC, PP of PEEK kan beter passen wanneer slijtage, vocht, chemicaliën, temperatuur, isolatie of slagbelasting belangrijker is.</p></details>
       <details><summary>Is een PTFE ring hetzelfde als een rubber afdichtring?</summary><p>Nee. PTFE is een fluorpolymeer met lage wrijving en brede chemische bestendigheid, maar het veert niet zoals een rubber elastomeer. Beide kunnen in afdichtingssystemen worden gebruikt, maar profiel, passing en werking verschillen.</p></details>
       <details><summary>Kunnen kunststof sluitringen elektrisch isoleren?</summary><p>Veel kunststoffen zijn elektrisch isolerend en kunnen metaalcontact onder een boutverbinding voorkomen. De juiste keuze hangt af van spanning, temperatuur, vocht, druk en eventuele norm- of materiaaleisen.</p></details>
-      <details><summary>Wat kost een kunststof ring op maat?</summary><p>Materiaal, binnen- en buitenmaat, dikte, profiel, tolerantie en aantal bepalen de prijs. Bij series daalt de prijs per stuk meestal doordat de voorbereiding over meerdere ringen wordt verdeeld.</p></details>
       <details><summary>Heb ik een technische tekening nodig?</summary><p>Nee. De maatvoering, een schets, foto, digitaal model of bestaand onderdeel kan als uitgangspunt dienen.</p></details>
       <details><summary>Hoe snel kunnen kunststof ringen worden geleverd?</summary><p>Dat hangt af van het materiaal, de maat, het profiel en het aantal. Bij de offerte ontvangt u een leverindicatie voor de gevraagde uitvoering.</p></details>
     </div>
@@ -731,7 +721,6 @@
   </div>
   <div class="container footer-bottom">
     <p>© 2026 MaatwerkKunststof.nl</p>
-    <p>Levering in heel Nederland en België.</p>
   </div>
 </footer>
 

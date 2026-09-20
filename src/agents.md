@@ -32,6 +32,8 @@ Main product pages:
 
 - Mica gaskets made to measure: https://maatwerkkunststof.nl/mica-pakkingen/
 
+- Rubber support blocks made to measure: https://maatwerkkunststof.nl/rubber-steunblokken/
+
 ## Materials
 
 Frequently used materials include HDPE, HMPE, UHMWPE, POM, PA, PP, PVC, PETP, PTFE, PVDF, PEEK, PU, polycarbonate, acrylic and ABS. The correct choice depends on the application rather than the material name alone.
