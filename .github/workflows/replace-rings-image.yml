@@ -14,48 +14,105 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Download replacement image
+      - name: Reconstruct and verify replacement image
         run: |
-          curl -L --fail --silent --show-error 'https://chatgpt.com/backend-api/estuary/content?id=file_00000000446082119b215ec0c159a078&ts=497283&p=fs&cid=1&sig=6d7f253de71ab987769967e77afb4b699adb7f04056291a3cfbcde1a88a673c0&v=0' -o /tmp/ringen-op-maat.webp
-          test "$(stat -c%s /tmp/ringen-op-maat.webp)" -gt 10000
+          python - <<'PY'
+          from pathlib import Path
+          import base64, hashlib
 
-      - name: Create optimized image variants
+          root = Path('.tmp/ringen-image')
+          files = [root / f'chunk0{i}.txt' for i in range(5)]
+          chunks = [p.read_text().strip() for p in files]
+
+          expected_text_hashes = [
+              '6db78c6e5c4bb1ab92da412810a9d7f4b65fcc7696e9f9f7772c7dc0839c0cc3',
+              'eb1cfec3ba3a833a23203d831795841165fdf9a1b5e9501f6fd15099959c1e4a',
+              '1234bffd440cb1cd844b97422451a259ed100e8e8672f98912de5f404a956674',
+              '3b48f74ff77c967cc597d9320d6a42623123b4af63f14583bf8471d0fa20f843',
+              '4ddf54b1e830ae2ae98b3a1c5905596e66b22ad36fcbc2ab93a176d5566724d3',
+          ]
+
+          # The first transfer chunk picked up seven extra characters while passing
+          # through the connector. Recover the exact intended chunk by hash.
+          if hashlib.sha256(chunks[0].encode()).hexdigest() != expected_text_hashes[0]:
+              source = chunks[0]
+              fixed = None
+              if len(source) == 18007:
+                  for i in range(len(source) - 6):
+                      candidate = source[:i] + source[i+7:]
+                      if hashlib.sha256(candidate.encode()).hexdigest() == expected_text_hashes[0]:
+                          fixed = candidate
+                          break
+              if fixed is None:
+                  raise RuntimeError('Could not recover transfer chunk 00')
+              chunks[0] = fixed
+
+          for i, chunk in enumerate(chunks):
+              actual = hashlib.sha256(chunk.encode()).hexdigest()
+              if actual != expected_text_hashes[i]:
+                  raise RuntimeError(f'Chunk {i:02d} failed integrity check: {actual}')
+
+          payload = ''.join(chunks)
+          raw = base64.b64decode(payload, validate=True)
+          expected_image_hash = 'a6df40566d888978624c8e1388540373a4c0d82aa68c28eea79b4f38fe744476'
+          actual_image_hash = hashlib.sha256(raw).hexdigest()
+          if actual_image_hash != expected_image_hash:
+              raise RuntimeError(f'Image hash mismatch: {actual_image_hash}')
+          if raw[:4] != b'RIFF' or raw[8:12] != b'WEBP':
+              raise RuntimeError('Reconstructed asset is not a WebP image')
+
+          out = Path('src/assets/images/ringen-op-maat.webp')
+          out.parent.mkdir(parents=True, exist_ok=True)
+          out.write_bytes(raw)
+          print(f'Wrote {out} ({len(raw)} bytes)')
+          PY
+
+      - name: Create responsive variants
         run: |
           python -m pip install --quiet pillow
           python - <<'PY'
           from pathlib import Path
           from PIL import Image
 
-          src = Path('/tmp/ringen-op-maat.webp')
-          out_main = Path('src/assets/images/ringen-op-maat.webp')
-          out_main.parent.mkdir(parents=True, exist_ok=True)
-
-          im = Image.open(src).convert('RGB')
-          im.save(out_main, 'WEBP', quality=82, method=6)
-
+          src = Path('src/assets/images/ringen-op-maat.webp')
           variants = Path('src/assets/images/ringen')
           variants.mkdir(parents=True, exist_ok=True)
-          for size in (160, 400, 800):
-              resized = im.copy()
-              resized.thumbnail((size, size), Image.Resampling.LANCZOS)
-              resized.save(variants / f'ringen-op-maat-{size}.webp', 'WEBP', quality=82, method=6)
+
+          with Image.open(src) as im:
+              im = im.convert('RGB')
+              for size in (160, 400, 800):
+                  resized = im.copy()
+                  resized.thumbnail((size, size), Image.Resampling.LANCZOS)
+                  resized.save(
+                      variants / f'ringen-op-maat-{size}.webp',
+                      'WEBP',
+                      quality=82,
+                      method=6,
+                  )
           PY
 
-      - name: Replace all old image references
+      - name: Replace every old image reference
         run: |
           python - <<'PY'
           from pathlib import Path
 
           replacements = {
-              '/assets/images/rubber-ringen-op-maat.webp': '/assets/images/ringen-op-maat.webp',
-              'https://maatwerkkunststof.nl/assets/images/rubber-ringen-op-maat.webp': 'https://maatwerkkunststof.nl/assets/images/ringen-op-maat.webp',
-              '/assets/images/ringen/rubber-ringen-op-maat-160.webp': '/assets/images/ringen/ringen-op-maat-160.webp',
-              '/assets/images/ringen/rubber-ringen-op-maat-400.webp': '/assets/images/ringen/ringen-op-maat-400.webp',
-              '/assets/images/ringen/rubber-ringen-op-maat-800.webp': '/assets/images/ringen/ringen-op-maat-800.webp',
+              'https://maatwerkkunststof.nl/assets/images/rubber-ringen-op-maat.webp':
+                  'https://maatwerkkunststof.nl/assets/images/ringen-op-maat.webp',
+              '/assets/images/rubber-ringen-op-maat.webp':
+                  '/assets/images/ringen-op-maat.webp',
+              '/assets/images/ringen/rubber-ringen-op-maat-160.webp':
+                  '/assets/images/ringen/ringen-op-maat-160.webp',
+              '/assets/images/ringen/rubber-ringen-op-maat-400.webp':
+                  '/assets/images/ringen/ringen-op-maat-400.webp',
+              '/assets/images/ringen/rubber-ringen-op-maat-800.webp':
+                  '/assets/images/ringen/ringen-op-maat-800.webp',
           }
 
+          allowed = {'.html', '.xml', '.njk', '.md', '.js', '.json', '.css', '.txt'}
+          changed = []
           for path in Path('src').rglob('*'):
-              if not path.is_file() or path.suffix.lower() not in {'.html', '.xml', '.njk', '.md', '.js', '.json', '.css'}:
+              if not path.is_file() or path.suffix.lower() not in allowed:
                   continue
               try:
                   text = path.read_text(encoding='utf-8')
@@ -66,24 +123,33 @@ jobs:
                   updated = updated.replace(old, new)
               if updated != text:
                   path.write_text(updated, encoding='utf-8')
+                  changed.append(str(path))
+          print('Changed:', *changed, sep='\n- ')
           PY
 
-      - name: Remove old image assets
+      - name: Remove old assets and temporary transfer files
         run: |
           rm -f src/assets/images/rubber-ringen-op-maat.webp
           rm -f src/assets/images/ringen/rubber-ringen-op-maat-160.webp
           rm -f src/assets/images/ringen/rubber-ringen-op-maat-400.webp
           rm -f src/assets/images/ringen/rubber-ringen-op-maat-800.webp
-
-      - name: Verify replacement
-        run: |
-          ! grep -R "rubber-ringen-op-maat.webp" src --include='*.html' --include='*.xml' --include='*.njk' --include='*.md' --include='*.js' --include='*.json' --include='*.css'
-          test -s src/assets/images/ringen-op-maat.webp
-
-      - name: Commit changes and remove temporary workflow
-        run: |
+          rm -rf .tmp/ringen-image
           rm -f .github/workflows/replace-rings-image.yml
-          git config user.name "ChatGPT"
+
+      - name: Final verification
+        run: |
+          test -s src/assets/images/ringen-op-maat.webp
+          test -s src/assets/images/ringen/ringen-op-maat-160.webp
+          test -s src/assets/images/ringen/ringen-op-maat-400.webp
+          test -s src/assets/images/ringen/ringen-op-maat-800.webp
+          if grep -R "rubber-ringen-op-maat.webp" src             --include='*.html' --include='*.xml' --include='*.njk'             --include='*.md' --include='*.js' --include='*.json'             --include='*.css' --include='*.txt'; then
+            echo "Old image reference still exists"
+            exit 1
+          fi
+
+      - name: Commit replacement
+        run: |
+          git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
           git commit -m "Replace rings image sitewide"
