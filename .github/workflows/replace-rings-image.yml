@@ -1,0 +1,90 @@
+name: Replace rings image
+
+on:
+  push:
+    paths:
+      - '.github/workflows/replace-rings-image.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  replace:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download replacement image
+        run: |
+          curl -L --fail --silent --show-error 'https://chatgpt.com/backend-api/estuary/content?id=file_00000000446082119b215ec0c159a078&ts=497283&p=fs&cid=1&sig=6d7f253de71ab987769967e77afb4b699adb7f04056291a3cfbcde1a88a673c0&v=0' -o /tmp/ringen-op-maat.webp
+          test "$(stat -c%s /tmp/ringen-op-maat.webp)" -gt 10000
+
+      - name: Create optimized image variants
+        run: |
+          python -m pip install --quiet pillow
+          python - <<'PY'
+          from pathlib import Path
+          from PIL import Image
+
+          src = Path('/tmp/ringen-op-maat.webp')
+          out_main = Path('src/assets/images/ringen-op-maat.webp')
+          out_main.parent.mkdir(parents=True, exist_ok=True)
+
+          im = Image.open(src).convert('RGB')
+          im.save(out_main, 'WEBP', quality=82, method=6)
+
+          variants = Path('src/assets/images/ringen')
+          variants.mkdir(parents=True, exist_ok=True)
+          for size in (160, 400, 800):
+              resized = im.copy()
+              resized.thumbnail((size, size), Image.Resampling.LANCZOS)
+              resized.save(variants / f'ringen-op-maat-{size}.webp', 'WEBP', quality=82, method=6)
+          PY
+
+      - name: Replace all old image references
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          replacements = {
+              '/assets/images/rubber-ringen-op-maat.webp': '/assets/images/ringen-op-maat.webp',
+              'https://maatwerkkunststof.nl/assets/images/rubber-ringen-op-maat.webp': 'https://maatwerkkunststof.nl/assets/images/ringen-op-maat.webp',
+              '/assets/images/ringen/rubber-ringen-op-maat-160.webp': '/assets/images/ringen/ringen-op-maat-160.webp',
+              '/assets/images/ringen/rubber-ringen-op-maat-400.webp': '/assets/images/ringen/ringen-op-maat-400.webp',
+              '/assets/images/ringen/rubber-ringen-op-maat-800.webp': '/assets/images/ringen/ringen-op-maat-800.webp',
+          }
+
+          for path in Path('src').rglob('*'):
+              if not path.is_file() or path.suffix.lower() not in {'.html', '.xml', '.njk', '.md', '.js', '.json', '.css'}:
+                  continue
+              try:
+                  text = path.read_text(encoding='utf-8')
+              except UnicodeDecodeError:
+                  continue
+              updated = text
+              for old, new in replacements.items():
+                  updated = updated.replace(old, new)
+              if updated != text:
+                  path.write_text(updated, encoding='utf-8')
+          PY
+
+      - name: Remove old image assets
+        run: |
+          rm -f src/assets/images/rubber-ringen-op-maat.webp
+          rm -f src/assets/images/ringen/rubber-ringen-op-maat-160.webp
+          rm -f src/assets/images/ringen/rubber-ringen-op-maat-400.webp
+          rm -f src/assets/images/ringen/rubber-ringen-op-maat-800.webp
+
+      - name: Verify replacement
+        run: |
+          ! grep -R "rubber-ringen-op-maat.webp" src --include='*.html' --include='*.xml' --include='*.njk' --include='*.md' --include='*.js' --include='*.json' --include='*.css'
+          test -s src/assets/images/ringen-op-maat.webp
+
+      - name: Commit changes and remove temporary workflow
+        run: |
+          rm -f .github/workflows/replace-rings-image.yml
+          git config user.name "ChatGPT"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Replace rings image sitewide"
+          git push
