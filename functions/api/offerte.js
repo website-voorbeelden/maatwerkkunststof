@@ -183,18 +183,55 @@ export async function onRequestPost(context) {
     </table>` : '';
 
   const internalHtml = `
-    <div style="font-family:Arial,sans-serif;max-width:720px;margin:auto;color:#142b33">
-      <div style="background:#142b33;padding:22px 24px;color:#fff">
-        <strong style="font-size:20px">Nieuwe offerteaanvraag</strong>
-      </div>
-      <div style="padding:24px;border:1px solid #dbe4df;border-top:0">
-        <table style="width:100%;border-collapse:collapse">${htmlRows}</table>
-        <h2 style="font-size:17px;color:#142b33;margin:26px 0 8px">Specificaties</h2>
-        <div style="padding:16px;background:#f3f7ef;border-left:4px solid #74c200;white-space:pre-wrap;color:#536369">${escapeHtml(data.specificaties)}</div>
-        ${campaignHtml}
-        <p style="margin-top:24px;color:#62717d;font-size:13px">Bijlagen: ${attachments.length || 'geen'}</p>
-      </div>
-    </div>`;
+    <table width="100%" cellpadding="0" cellspacing="0" border="0" style="font-family:Arial,Tahoma,sans-serif;font-size:14px;color:#222;background:#fff">
+      <tr>
+        <td>
+          <table width="680" cellpadding="0" cellspacing="0" border="0" style="width:100%;max-width:680px;border:1px solid #b8b8b8">
+            <tr>
+              <td style="padding:10px 12px;background:#e7e7e7;border-bottom:1px solid #b8b8b8;font-weight:bold">
+                Nieuwe offerteaanvraag via MaatwerkKunststof.nl
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:12px">
+                <table width="100%" cellpadding="5" cellspacing="0" border="0" style="border-collapse:collapse">
+                  ${rows.map(([label, value]) => `
+                    <tr>
+                      <td width="120" style="font-weight:bold;border-bottom:1px solid #ddd;vertical-align:top">${escapeHtml(label)}</td>
+                      <td style="border-bottom:1px solid #ddd;vertical-align:top">${escapeHtml(value)}</td>
+                    </tr>`).join('')}
+                  <tr>
+                    <td style="font-weight:bold;border-bottom:1px solid #ddd;vertical-align:top">Bijlagen</td>
+                    <td style="border-bottom:1px solid #ddd;vertical-align:top">${attachments.length || 'Geen'}</td>
+                  </tr>
+                </table>
+
+                <p style="margin:18px 0 6px;font-weight:bold">Specificaties / bericht</p>
+                <table width="100%" cellpadding="10" cellspacing="0" border="0" style="border-collapse:collapse">
+                  <tr>
+                    <td style="border:1px solid #cfcfcf;background:#f5f5f5;white-space:pre-wrap;line-height:1.45">${escapeHtml(data.specificaties)}</td>
+                  </tr>
+                </table>
+
+                ${campaignRows.length ? `
+                  <p style="margin:18px 0 6px;font-weight:bold;font-size:12px;color:#666">Campagnegegevens</p>
+                  <table width="100%" cellpadding="4" cellspacing="0" border="0" style="border-collapse:collapse;font-size:12px;color:#666">
+                    ${campaignRows.map(([label, value]) => `
+                      <tr>
+                        <td width="120" style="border-bottom:1px solid #e5e5e5">${escapeHtml(label)}</td>
+                        <td style="border-bottom:1px solid #e5e5e5;word-break:break-all">${escapeHtml(value)}</td>
+                      </tr>`).join('')}
+                  </table>` : ''}
+
+                <p style="margin:14px 0 0;font-size:11px;color:#777">
+                  Verzonden via het offerteformulier op MaatwerkKunststof.nl
+                </p>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>`;
 
   const internalText = [
     'Nieuwe offerteaanvraag',
@@ -226,16 +263,34 @@ export async function onRequestPost(context) {
           reply_to: env.OFFERTES_TO_EMAIL,
           subject: 'We hebben uw offerteaanvraag ontvangen',
           html: `
-            <div style="font-family:Arial,sans-serif;max-width:620px;margin:auto;color:#142b33">
-              <div style="background:#142b33;padding:22px 24px;color:#fff"><strong style="font-size:20px">MaatwerkKunststof.nl</strong></div>
-              <div style="padding:24px;border:1px solid #dbe4df;border-top:0">
-                <h1 style="font-size:24px;margin:0 0 16px">Bedankt voor uw aanvraag, ${escapeHtml(data.naam)}</h1>
-                <p style="color:#536369;line-height:1.6">We hebben uw aanvraag voor ${escapeHtml(subjectProduct)} ontvangen. We bekijken de specificaties en nemen contact op wanneer er aanvullende informatie nodig is.</p>
-                <p style="color:#536369;line-height:1.6">Uw omschrijving:</p>
-                <div style="padding:16px;background:#f3f7ef;border-left:4px solid #74c200;white-space:pre-wrap;color:#536369">${escapeHtml(data.specificaties)}</div>
-                <p style="margin-top:24px;color:#62717d;font-size:13px">U hoeft niet op deze automatische bevestiging te reageren, maar antwoorden is wel mogelijk.</p>
-              </div>
-            </div>`,
+            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="font-family:Arial,Tahoma,sans-serif;font-size:14px;color:#222;background:#fff">
+              <tr>
+                <td>
+                  <table width="620" cellpadding="0" cellspacing="0" border="0" style="width:100%;max-width:620px;border:1px solid #b8b8b8">
+                    <tr>
+                      <td style="padding:10px 12px;background:#e7e7e7;border-bottom:1px solid #b8b8b8;font-weight:bold">
+                        MaatwerkKunststof.nl
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="padding:14px 12px;line-height:1.5">
+                        <p style="margin:0 0 12px">Beste ${escapeHtml(data.naam)},</p>
+                        <p style="margin:0 0 12px">Bedankt voor uw aanvraag voor ${escapeHtml(subjectProduct)}. We hebben deze goed ontvangen en bekijken de gegevens zo spoedig mogelijk.</p>
+
+                        <p style="margin:18px 0 6px;font-weight:bold">Uw bericht</p>
+                        <table width="100%" cellpadding="10" cellspacing="0" border="0" style="border-collapse:collapse">
+                          <tr>
+                            <td style="border:1px solid #cfcfcf;background:#f5f5f5;white-space:pre-wrap;line-height:1.45">${escapeHtml(data.specificaties)}</td>
+                          </tr>
+                        </table>
+
+                        <p style="margin:14px 0 0">Met vriendelijke groet,<br>MaatwerkKunststof.nl</p>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>`,
           text: `Bedankt voor uw aanvraag, ${data.naam}.\n\nWe hebben uw aanvraag voor ${subjectProduct} ontvangen.\n\nUw omschrijving:\n${data.specificaties}`
         });
       } catch (confirmationError) {
