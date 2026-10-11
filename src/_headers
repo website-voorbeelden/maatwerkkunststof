@@ -8,6 +8,9 @@
 /assets/images/*
   Cache-Control: public, max-age=31536000, immutable
 
+/assets/images/about-*
+  X-Robots-Tag: noindex
+
 /assets/css/*
   Cache-Control: public, max-age=0, must-revalidate
 

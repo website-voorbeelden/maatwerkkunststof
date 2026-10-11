@@ -1,6 +1,16 @@
 (() => {
   'use strict';
 
+  document.querySelectorAll('img').forEach((image) => {
+    image.draggable = false;
+  });
+
+  for (const eventName of ['contextmenu', 'dragstart']) {
+    document.addEventListener(eventName, (event) => {
+      if (event.target instanceof HTMLImageElement) event.preventDefault();
+    }, { capture: true });
+  }
+
   const menuButton = document.querySelector('.menu-toggle');
   const menu = document.querySelector('.site-nav');
   const header = document.querySelector('[data-header]');
@@ -11,6 +21,7 @@
     menuButton.setAttribute('aria-label', open ? 'Menu sluiten' : 'Menu openen');
     menu.classList.toggle('is-open', open);
     document.body.classList.toggle('menu-open', open);
+    header?.classList.toggle('is-menu-open', open);
     if (open) header?.classList.remove('is-hidden');
   };
 
@@ -26,8 +37,14 @@
     if (event.key === 'Escape') setMenu(false);
   });
 
+  document.addEventListener('pointerdown', (event) => {
+    if (menuButton?.getAttribute('aria-expanded') === 'true' && header && !header.contains(event.target)) {
+      setMenu(false);
+    }
+  });
+
   window.addEventListener('resize', () => {
-    if (window.innerWidth >= 1080) {
+    if (window.innerWidth >= 740) {
       setMenu(false);
       header?.classList.remove('is-hidden');
     }
@@ -35,34 +52,48 @@
 
   let lastHeaderScroll = window.scrollY;
   let headerScrollQueued = false;
+  let upwardScroll = 0;
+  let downwardScroll = 0;
 
-  const updateMobileHeader = () => {
+  const updateHeader = () => {
     const currentScroll = window.scrollY;
     const menuIsOpen = menuButton?.getAttribute('aria-expanded') === 'true';
+    header?.classList.toggle('is-scrolled', currentScroll > 32);
 
-    if (!header || window.innerWidth >= 1080 || menuIsOpen || currentScroll <= 16) {
+    if (!header || menuIsOpen || currentScroll <= 24) {
       header?.classList.remove('is-hidden');
+      upwardScroll = 0;
+      downwardScroll = 0;
       lastHeaderScroll = currentScroll;
       headerScrollQueued = false;
       return;
     }
 
-    if (currentScroll > lastHeaderScroll + 8) {
-      header.classList.add('is-hidden');
-      lastHeaderScroll = currentScroll;
-    } else if (currentScroll < lastHeaderScroll - 8) {
-      header.classList.remove('is-hidden');
-      lastHeaderScroll = currentScroll;
+    const delta = currentScroll - lastHeaderScroll;
+    if (Math.abs(delta) < 3) {
+      headerScrollQueued = false;
+      return;
+    }
+    if (delta > 0) {
+      downwardScroll += delta;
+      upwardScroll = 0;
+      if (currentScroll > 260 && downwardScroll >= 90) header.classList.add('is-hidden');
+    } else if (delta < 0) {
+      upwardScroll -= delta;
+      downwardScroll = 0;
+      if (upwardScroll >= 110) header.classList.remove('is-hidden');
     }
 
+    lastHeaderScroll = currentScroll;
     headerScrollQueued = false;
   };
 
   window.addEventListener('scroll', () => {
     if (headerScrollQueued) return;
     headerScrollQueued = true;
-    window.requestAnimationFrame(updateMobileHeader);
+    window.requestAnimationFrame(updateHeader);
   }, { passive: true });
+  updateHeader();
 
   const whatsappAvailability = document.querySelector('[data-whatsapp-availability]');
   if (whatsappAvailability) {
@@ -283,14 +314,6 @@
     });
   });
 
-  const contactTopicSelect = document.querySelector('[data-contact-topic-select]');
-  document.querySelectorAll('[data-contact-topic-link]').forEach((link) => {
-    link.addEventListener('click', () => {
-      if (!contactTopicSelect) return;
-      contactTopicSelect.value = link.dataset.contactTopicLink || '';
-    });
-  });
-
   document.querySelectorAll('[data-product-gallery]').forEach((gallery) => {
     const galleryStage = gallery.querySelector('[data-gallery-stage], .mkb-gallery-stage');
     const thumbnailStrip = gallery.querySelector('[data-gallery-thumbs], .mkb-gallery-thumbs');
@@ -439,10 +462,13 @@
     }
   });
 
+  const counterNumberFormat = new Intl.NumberFormat('nl-NL');
   document.querySelectorAll('[data-counter]').forEach((counter) => {
     const target = Number(counter.dataset.target);
+    const requestedDuration = Number(counter.dataset.counterDuration);
+    const duration = requestedDuration > 0 ? requestedDuration : 2200;
     const suffix = counter.dataset.suffix || '';
-    const finalValue = `${target}${suffix}`;
+    const finalValue = `${counterNumberFormat.format(target)}${suffix}`;
     const reduceMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
 
     if (!Number.isFinite(target) || reduceMotion || !('IntersectionObserver' in window)) {
@@ -455,12 +481,10 @@
       if (!entries.some((entry) => entry.isIntersecting)) return;
 
       const startTime = performance.now();
-      const duration = 2200;
-
       const updateCounter = (currentTime) => {
         const progress = Math.min((currentTime - startTime) / duration, 1);
         const easedProgress = 1 - Math.pow(1 - progress, 3);
-        counter.textContent = `${Math.floor(target * easedProgress)}${suffix}`;
+        counter.textContent = `${counterNumberFormat.format(Math.floor(target * easedProgress))}${suffix}`;
 
         if (progress < 1) {
           window.requestAnimationFrame(updateCounter);
