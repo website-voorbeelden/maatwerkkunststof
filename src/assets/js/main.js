@@ -277,7 +277,9 @@
       status.textContent = '';
       submitButton.disabled = true;
       const originalText = submitButton.textContent;
-      submitButton.textContent = 'Aanvraag versturen…';
+      submitButton.textContent = form.elements.namedItem('pagina')?.value === '/contact/'
+        ? 'Bericht versturen…'
+        : 'Aanvraag versturen…';
 
       try {
         const response = await fetch(form.action, {

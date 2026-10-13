@@ -4,12 +4,14 @@
   const STORAGE_KEY = 'mk_cookie_consent_v1';
   const DISMISSED_KEY = 'mk_cookie_consent_dismissed';
   const config = window.MK_TRACKING_CONFIG || {};
-  let analyticsLoaded = false;
-
   const readConsent = () => {
     try {
       const value = JSON.parse(localStorage.getItem(STORAGE_KEY));
-      return typeof value?.analytics === 'boolean' ? value : null;
+      if (typeof value?.statistics === 'boolean' && typeof value?.sessionReplay === 'boolean') return value;
+      if (typeof value?.analytics === 'boolean') {
+        return { statistics: value.analytics, sessionReplay: value.analytics };
+      }
+      return null;
     } catch {
       return null;
     }
@@ -23,17 +25,26 @@
     }
   };
 
-  const hasAnalyticsConsent = () => readConsent()?.analytics !== false;
+  const hasAnalyticsConsent = () => readConsent()?.statistics === true;
+
+  const updateSettingsVisibility = () => {
+    const choice = readConsent();
+    const wasRejected = choice && (!choice.statistics || !choice.sessionReplay);
+    document.querySelectorAll('[data-cookie-settings]').forEach((button) => {
+      button.hidden = !wasRejected;
+    });
+  };
 
   const deleteCookie = (name) => {
     document.cookie = `${name}=; Max-Age=0; path=/; SameSite=Lax`;
     document.cookie = `${name}=; Max-Age=0; path=/; domain=.${window.location.hostname}; SameSite=Lax`;
   };
 
-  const clearAnalyticsCookies = () => {
+  const clearAnalyticsCookies = (statistics, sessionReplay) => {
     document.cookie.split(';').forEach((cookie) => {
       const name = cookie.split('=')[0].trim();
-      if (name === '_ga' || name.startsWith('_ga_') || name === '_clck' || name === '_clsk') {
+      if ((!statistics && (name === '_ga' || name.startsWith('_ga_')))
+        || (!sessionReplay && (name === '_clck' || name === '_clsk'))) {
         deleteCookie(name);
       }
     });
@@ -96,38 +107,31 @@
     document.head.appendChild(script);
   };
 
-  const loadAnalytics = () => {
-    if (analyticsLoaded) {
-      updateGoogleConsent(true);
-      updateClarityConsent(true);
-      return;
-    }
-    analyticsLoaded = true;
-    loadGoogleAnalytics();
-    loadClarity();
+  const applyConsent = (choice) => {
+    if (choice.statistics) loadGoogleAnalytics();
+    updateGoogleConsent(choice.statistics);
+    if (choice.sessionReplay) loadClarity();
+    updateClarityConsent(choice.sessionReplay);
+    clearAnalyticsCookies(choice.statistics, choice.sessionReplay);
   };
 
-  const denyAnalytics = () => {
-    updateGoogleConsent(false);
-    updateClarityConsent(false);
-    clearAnalyticsCookies();
-  };
-
-  const saveConsent = (analytics) => {
+  const saveConsent = (choice) => {
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify({
-        analytics: Boolean(analytics),
+        statistics: Boolean(choice.statistics),
+        sessionReplay: Boolean(choice.sessionReplay),
         updatedAt: new Date().toISOString()
       }));
     } catch {
       /* The banner remains usable if storage is unavailable. */
     }
 
-    if (analytics) loadAnalytics();
-    else denyAnalytics();
+    applyConsent(choice);
+
+    updateSettingsVisibility();
 
     window.dispatchEvent(new CustomEvent('mk:consent-updated', {
-      detail: { analytics: Boolean(analytics) }
+      detail: { analytics: Boolean(choice.statistics), sessionReplay: Boolean(choice.sessionReplay) }
     }));
   };
 
@@ -135,13 +139,13 @@
     hasAnalyticsConsent,
     hasConsentChoice: () => Boolean(readConsent()),
     wasDismissed,
-    open: () => document.querySelector('[data-cookie-settings]')?.click()
+    open: () => window.dispatchEvent(new Event('mk:open-cookie-settings'))
   };
 
-  if (hasAnalyticsConsent()) loadAnalytics();
-  else denyAnalytics();
+  applyConsent(readConsent() || { statistics: false, sessionReplay: false });
 
   document.addEventListener('DOMContentLoaded', () => {
+    updateSettingsVisibility();
     const consent = document.querySelector('[data-cookie-consent]');
     if (!consent) return;
 
@@ -174,25 +178,28 @@
     };
 
     consent.querySelector('[data-cookie-accept]')?.addEventListener('click', () => {
-      saveConsent(true);
+      saveConsent({ statistics: true, sessionReplay: true });
       close();
     });
 
     consent.querySelector('[data-cookie-reject]')?.addEventListener('click', () => {
-      saveConsent(false);
+      saveConsent({ statistics: false, sessionReplay: false });
       close();
     });
-
     consent.querySelector('[data-cookie-close]')?.addEventListener('click', dismiss);
 
     document.querySelectorAll('[data-cookie-settings]').forEach((button) => {
       button.addEventListener('click', open);
     });
+    document.querySelectorAll('[data-cookie-open-preferences]').forEach((button) => {
+      button.addEventListener('click', open);
+    });
+    window.addEventListener('mk:open-cookie-settings', open);
 
     if (forceLocalPreview) {
-      showTimer = window.setTimeout(open, 250);
+      showTimer = window.setTimeout(() => open(), 250);
     } else if (!readConsent() && !wasDismissed()) {
-      showTimer = window.setTimeout(open, 5 * 1000);
+      showTimer = window.setTimeout(() => open(), 5 * 1000);
     }
   });
 })();

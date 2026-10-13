@@ -50,7 +50,7 @@
 
 
   <!-- Styles -->
-  <link rel="stylesheet" href="/assets/css/styles.css?v=20260908-18">
+  <link rel="stylesheet" href="/assets/css/styles.css?v=20261012-4">
 
   <!-- JavaScript -->
   <script>
@@ -59,7 +59,7 @@
       clarityProjectId: 'y9dr0pypxw'
     };
   </script>
-  <script src="/assets/js/cookie-consent.js?v=20260908-18" defer></script>
+  <script src="/assets/js/cookie-consent.js?v=20261012-4" defer></script>
   <script src="/assets/js/main.js?v=20260908-18" defer></script>
 
   <!-- Organization structured data -->
@@ -560,6 +560,11 @@
 
 
       <div class="field">
+        <label for="telefoon">Telefoonnummer</label>
+        <input id="telefoon" name="telefoon" type="tel" autocomplete="tel" inputmode="tel" maxlength="40">
+      </div>
+
+      <div class="field">
         <label for="specificaties">Waar kunnen we mee helpen? <span aria-hidden="true">*</span></label>
         <textarea id="specificaties" name="specificaties" rows="6" required maxlength="4000" placeholder="Vertel kort wat u nodig heeft. Een globale maat of eenvoudige omschrijving is al genoeg."></textarea>
       </div>
@@ -616,7 +621,6 @@
     <a class="wordmark wordmark-footer" href="/">
       <img src="/assets/images/logo-maatwerkkunststof.svg" alt="MaatwerkKunststof.nl" width="497" height="121">
     </a>
-    <p>Kunststof op maat. Van één onderdeel tot een complete serie.</p>
   </div>
   <div class="footer-grid">
     <div>
@@ -648,7 +652,7 @@
   <div class="container footer-bottom">
     <p>© 2026 MaatwerkKunststof.nl</p>
     <div class="footer-bottom-links">
-      <button class="footer-cookie-settings" type="button" data-cookie-settings>Cookie-instellingen</button>
+      <button class="footer-cookie-settings" type="button" hidden data-cookie-settings>Cookie-instellingen</button>
     </div>
   </div>
 </footer>

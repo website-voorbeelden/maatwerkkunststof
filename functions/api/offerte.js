@@ -104,7 +104,6 @@ export async function onRequestPost(context) {
     telefoon: clean(form.get('telefoon'), 40),
     onderwerp: clean(form.get('onderwerp'), 100),
     product: clean(form.get('product'), 100),
-    aantal: clean(form.get('aantal'), 60),
     specificaties: clean(form.get('specificaties'), 4000),
     pagina: clean(form.get('pagina'), 300),
     utm_source: clean(form.get('utm_source'), 150),
@@ -158,29 +157,19 @@ export async function onRequestPost(context) {
     ['WBRAID', data.wbraid]
   ].filter(([, value]) => value);
 
+  const isContactMessage = data.pagina === '/contact/';
+  const messageTitle = isContactMessage ? 'Nieuw contactbericht' : 'Nieuwe offerteaanvraag';
+  const messageLabel = isContactMessage ? 'Bericht' : 'Specificaties / bericht';
+  const subjectProduct = data.product || data.onderwerp || 'kunststof maatwerk';
   const rows = [
     ['Naam', data.naam],
     ...(data.bedrijf ? [['Bedrijf', data.bedrijf]] : []),
     ['E-mail', data.email],
-    ['Telefoon', data.telefoon || 'Niet ingevuld'],
+    ...(data.telefoon ? [['Telefoon', data.telefoon]] : []),
     ...(data.onderwerp ? [['Onderwerp', data.onderwerp]] : []),
-    ['Product', data.product || 'Niet gekozen'],
-    ['Aantal', data.aantal || 'Niet ingevuld'],
-    ['Pagina', data.pagina || 'Onbekend']
+    ...(data.product ? [['Product', data.product]] : []),
+    ...(data.pagina ? [['Pagina', data.pagina]] : [])
   ];
-
-  const subjectProduct = data.product || data.onderwerp || 'kunststof maatwerk';
-  const htmlRows = rows.map(([label, value]) => `
-    <tr>
-      <th style="padding:9px 12px;text-align:left;border-bottom:1px solid #dbe4df;color:#142b33;vertical-align:top">${escapeHtml(label)}</th>
-      <td style="padding:9px 12px;border-bottom:1px solid #dbe4df;color:#536369">${escapeHtml(value)}</td>
-    </tr>`).join('');
-
-  const campaignHtml = campaignRows.length ? `
-    <h2 style="font-size:17px;color:#142b33;margin:26px 0 8px">Campagnegegevens</h2>
-    <table style="width:100%;border-collapse:collapse">${campaignRows.map(([label, value]) => `
-      <tr><th style="padding:7px 12px;text-align:left;border-bottom:1px solid #dbe4df;color:#142b33">${escapeHtml(label)}</th><td style="padding:7px 12px;border-bottom:1px solid #dbe4df;color:#536369;word-break:break-all">${escapeHtml(value)}</td></tr>`).join('')}
-    </table>` : '';
 
   const internalHtml = `
     <table width="100%" cellpadding="0" cellspacing="0" border="0" style="font-family:Arial,Tahoma,sans-serif;font-size:14px;color:#222;background:#fff">
@@ -189,7 +178,7 @@ export async function onRequestPost(context) {
           <table width="680" cellpadding="0" cellspacing="0" border="0" style="width:100%;max-width:680px;border:1px solid #b8b8b8">
             <tr>
               <td style="padding:10px 12px;background:#e7e7e7;border-bottom:1px solid #b8b8b8;font-weight:bold">
-                Nieuwe offerteaanvraag via MaatwerkKunststof.nl
+                ${messageTitle} via MaatwerkKunststof.nl
               </td>
             </tr>
             <tr>
@@ -206,7 +195,7 @@ export async function onRequestPost(context) {
                   </tr>
                 </table>
 
-                <p style="margin:18px 0 6px;font-weight:bold">Specificaties / bericht</p>
+                <p style="margin:18px 0 6px;font-weight:bold">${messageLabel}</p>
                 <table width="100%" cellpadding="10" cellspacing="0" border="0" style="border-collapse:collapse">
                   <tr>
                     <td style="border:1px solid #cfcfcf;background:#f5f5f5;white-space:pre-wrap;line-height:1.45">${escapeHtml(data.specificaties)}</td>
@@ -224,7 +213,7 @@ export async function onRequestPost(context) {
                   </table>` : ''}
 
                 <p style="margin:14px 0 0;font-size:11px;color:#777">
-                  Verzonden via het offerteformulier op MaatwerkKunststof.nl
+                  Verzonden via het ${isContactMessage ? 'contactformulier' : 'offerteformulier'} op MaatwerkKunststof.nl
                 </p>
               </td>
             </tr>
@@ -234,10 +223,10 @@ export async function onRequestPost(context) {
     </table>`;
 
   const internalText = [
-    'Nieuwe offerteaanvraag',
+    messageTitle,
     ...rows.map(([label, value]) => `${label}: ${value}`),
     '',
-    'Specificaties:',
+    `${messageLabel}:`,
     data.specificaties,
     '',
     `Bijlagen: ${attachments.length}`,
@@ -249,7 +238,9 @@ export async function onRequestPost(context) {
       from: env.OFFERTES_FROM_EMAIL,
       to: [env.OFFERTES_TO_EMAIL],
       reply_to: data.email,
-      subject: `Nieuwe offerteaanvraag: ${subjectProduct} – ${data.naam}`,
+      subject: isContactMessage
+        ? `Nieuw contactbericht – ${data.naam}`
+        : `Nieuwe offerteaanvraag: ${subjectProduct} – ${data.naam}`,
       html: internalHtml,
       text: internalText,
       attachments
@@ -261,7 +252,7 @@ export async function onRequestPost(context) {
           from: env.OFFERTES_FROM_EMAIL,
           to: [data.email],
           reply_to: env.OFFERTES_TO_EMAIL,
-          subject: 'We hebben uw offerteaanvraag ontvangen',
+          subject: isContactMessage ? 'We hebben uw bericht ontvangen' : 'We hebben uw offerteaanvraag ontvangen',
           html: `
             <table width="100%" cellpadding="0" cellspacing="0" border="0" style="font-family:Arial,Tahoma,sans-serif;font-size:14px;color:#222;background:#fff">
               <tr>
@@ -275,7 +266,9 @@ export async function onRequestPost(context) {
                     <tr>
                       <td style="padding:14px 12px;line-height:1.5">
                         <p style="margin:0 0 12px">Beste ${escapeHtml(data.naam)},</p>
-                        <p style="margin:0 0 12px">Bedankt voor uw aanvraag voor ${escapeHtml(subjectProduct)}. We hebben deze goed ontvangen en bekijken de gegevens zo spoedig mogelijk.</p>
+                        <p style="margin:0 0 12px">${isContactMessage
+                          ? 'Bedankt voor uw bericht. We hebben het goed ontvangen en nemen zo spoedig mogelijk contact met u op.'
+                          : `Bedankt voor uw aanvraag voor ${escapeHtml(subjectProduct)}. We hebben deze goed ontvangen en bekijken de gegevens zo spoedig mogelijk.`}</p>
 
                         <p style="margin:18px 0 6px;font-weight:bold">Uw bericht</p>
                         <table width="100%" cellpadding="10" cellspacing="0" border="0" style="border-collapse:collapse">
@@ -291,7 +284,9 @@ export async function onRequestPost(context) {
                 </td>
               </tr>
             </table>`,
-          text: `Bedankt voor uw aanvraag, ${data.naam}.\n\nWe hebben uw aanvraag voor ${subjectProduct} ontvangen.\n\nUw omschrijving:\n${data.specificaties}`
+          text: isContactMessage
+            ? `Bedankt voor uw bericht, ${data.naam}.\n\nWe hebben uw bericht ontvangen en nemen zo spoedig mogelijk contact met u op.\n\nUw bericht:\n${data.specificaties}`
+            : `Bedankt voor uw aanvraag, ${data.naam}.\n\nWe hebben uw aanvraag voor ${subjectProduct} ontvangen.\n\nUw omschrijving:\n${data.specificaties}`
         });
       } catch (confirmationError) {
         console.error('Confirmation email failed:', confirmationError);
